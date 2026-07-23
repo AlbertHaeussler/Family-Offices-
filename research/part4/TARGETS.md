@@ -16,9 +16,9 @@ Wichtig: land z. B. "Schweiz (investiert in DE)". Nur aufnehmen, wenn DE-Bezug p
 - [ ] Blocher / EMS (Martullo-Blocher) — CH — verify (operativ?)
 
 ## Österreich
-- [ ] Wolfgang Porsche / Porsche-Piëch-Familie — Salzburg/Stuttgart — verify (Holding)
-- [ ] Piëch-Erben — Salzburg — verify
-- [ ] Mark Mateschitz (Red Bull) — Salzburg — verify RE
+- [x] Wolfgang Porsche / Porsche-Piëch-Familie — Salzburg (AT), gelb (DE-Bezug via VW/Porsche)
+- [x] (Piëch mit Porsche zusammengefasst)
+- [~] Mark Mateschitz — SKIP: RE nur Österreich (Gwandhaus/Schlösser), kein DE-Bezug
 - [ ] Turnauer / Constantia Industries — Wien — verify
 - [ ] Swarovski (Familie) — Wattens — verify (operativ?)
 - [ ] Wenckheim / Ottakringer — Wien — verify
