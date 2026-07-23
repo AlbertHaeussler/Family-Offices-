@@ -296,6 +296,426 @@ window.FO_DATA = (window.FO_DATA || []).concat([
         basis:"extrapolation", note:"Reine Einschätzung: Sitz der Vehikel; keine bestätigten Einzelobjekte.",
         sources:[] }
     ]
+  },
+
+  // ================= RUNDE 2: weitere echte Family Offices (Süd + überall) =================
+
+  // ---- GRÜN (großes/aktives RE mit bestätigten deutschen Gebäuden) ----
+
+  {
+    id:"schoerghuber",
+    name:"Schörghuber Stiftung & Co. Holding KG (Familie Schörghuber) – RE-Tochter Bayerische Hausbau",
+    kurz:"Schörghuber (Bayerische Hausbau)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Denninger Straße 165, 81925 München",
+    hqLat:48.1636, hqLng:11.6220,
+    website:"schoerghuber.group", domain:"schoerghuber.group",
+    linkedin:"", contactName:"Alexandra Schörghuber", contactRole:"Inhaberin / Vorsitzende Gesellschafterausschuss",
+    contactChannel:"über Bayerische Hausbau GmbH & Co. KG – Investment/Ankauf",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gruen",
+    aum:{ value:9.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Familienvermögen der Gruppe (Paulaner, Bayerische Hausbau, Hotels/Aviation) grob geschätzt; kein offizieller AUM-Wert publiziert.",
+      sources:[] },
+    reQuote:{ value:0.4, basis:"quelle",
+      note:"Immobilienportfolio Bayerische Hausbau ~3,5 Mrd € (Büro/Wohnen/Retail/Hotel/Gastro).",
+      sources:[{label:"Bayerische Hausbau – Über uns",url:"https://www.hausbau-realestate.de/unternehmen/ueber-uns"},
+        {label:"Wikipedia – Bayerische Hausbau",url:"https://de.wikipedia.org/wiki/Bayerische_Hausbau"}] },
+    reInvestedEUR:3.5,
+    usage:{ Buero:30, Wohnen:30, Retail:20, Hotel:10, Gastro:5, Sonstiges:5 },
+    confirmedObjects:[
+      { name:"Joseph Pschorr Haus", address:"Neuhauser Straße 9, 80331 München", lat:48.1378, lng:11.5710,
+        usage:"Retail", area:"~23.000 m² Retail + 25 Penthouse-Wohnungen", purchaseDate:"2013", valueEUR:null, status:"Bestand (DGNB Platin)",
+        images:[], sources:[
+          {label:"Bayerische Hausbau – Joseph Pschorr Haus",url:"https://www.realestate-hausbau.de/portfolio/joseph-pschorr-haus"},
+          {label:"immobilienmanager – JPH (C&A) 2024",url:"https://www.immobilienmanager.de/"}] },
+      { name:"Geschäftshaus Marienplatz 22", address:"Marienplatz 22, 80331 München", lat:48.1373, lng:11.5754,
+        usage:"Buero", area:"Büro/Retail (2016 revitalisiert)", purchaseDate:null, valueEUR:null, status:"Bestand",
+        images:[], sources:[
+          {label:"Bayerische Hausbau – Marienplatz 22",url:"https://www.realestate-hausbau.de/portfolio/marienplatz-22"}] },
+      { name:"Der Donisl", address:"Weinstraße 1, 80331 München", lat:48.1379, lng:11.5752,
+        usage:"Gastro", area:"~1.050 m² Büro (2.–5. OG) + Gastronomie (EG)", purchaseDate:null, valueEUR:null, status:"Bestand (2015 wiedereröffnet)",
+        images:[], sources:[
+          {label:"Bayerische Hausbau – Der Donisl",url:"https://development.hausbau.de/projekte/donisl"}] },
+      { name:"Bikini Berlin", address:"Budapester Straße 38-50, 10787 Berlin", lat:52.5058, lng:13.3380,
+        usage:"Retail", area:"Concept-Mall + Büro (Zoofenster-Areal)", purchaseDate:null, valueEUR:null, status:"Bestand",
+        images:[], sources:[
+          {label:"Bayerische Hausbau – Bikini Berlin",url:"https://www.hausbau-realestate.de/"},
+          {label:"Wikipedia – Bikini-Haus",url:"https://de.wikipedia.org/wiki/Bikinihaus"}] },
+      { name:"THE m.pire (Büro-Ensemble; Straße nicht final verifiziert)", address:"Parkstadt Schwabing, 80807 München", lat:48.1830, lng:11.6030,
+        usage:"Buero", area:"~45.000 m² BGF (Skyline Tower + Campus, Arch. Helmut Jahn)", purchaseDate:"2010", valueEUR:null, status:"Bestand (DGNB Gold)",
+        images:[], sources:[
+          {label:"Bayerische Hausbau – THE m.pire",url:"https://www.hausbau-realestate.de/"}] }
+    ],
+    heatmap:[
+      { name:"München-Altstadt (Highstreet-Cluster)", intensity:"hoch", usages:["Retail","Buero","Gastro"], center:[48.1375,11.5750], radiusKm:3,
+        basis:"quelle", note:"Marienplatz/Neuhauser/Kaufingerstraße – Joseph Pschorr Haus, Marienplatz 22, Der Donisl.",
+        sources:[{label:"Bayerische Hausbau – Portfolio",url:"https://www.hausbau-realestate.de/"}] },
+      { name:"München (Wohnen/Büro gesamtstädtisch)", intensity:"hoch", usages:["Wohnen","Buero","Hotel"], center:[48.137,11.575], radiusKm:20,
+        basis:"quelle", note:"Bayerische Hausbau Wohn-/Büro-/Hotelportfolio (u.a. Parkstadt Schwabing).",
+        sources:[{label:"Bayerische Hausbau – Über uns",url:"https://www.hausbau-realestate.de/unternehmen/ueber-uns"}] }
+    ]
+  },
+
+  {
+    id:"doblinger",
+    name:"Doblinger Beteiligung GmbH (Familie Doblinger) – RE-Töchter DIBAG / Bayerische Gewerbebau",
+    kurz:"Doblinger",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Lilienthalallee 25, 80939 München",
+    hqLat:48.2064, hqLng:11.5744,
+    website:"doblinger-unternehmensgruppe.de", domain:"dibag.de",
+    linkedin:"", contactName:"Alfons Doblinger", contactRole:"Gründer / Aufsichtsratsvorsitzender",
+    contactChannel:"über DIBAG Industriebau AG / Bayerische Gewerbebau AG",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gruen",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: gilt als eines der wertvollsten privaten Immobilienvermögen Deutschlands (~19.600 Wohnungen + Gewerbe); kein offizieller Wert publiziert.",
+      sources:[] },
+    reQuote:{ value:0.85, basis:"quelle",
+      note:"Kernvermögen ist direkter Immobilienbestand (~14.000 Wohnungen München, ~3.000 Augsburg + Gewerbe).",
+      sources:[{label:"Rosa-Luxemburg-Stiftung – Doblinger/Wohnungsbestand",url:"https://www.rosalux.de/news/id/52100"},
+        {label:"Wikipedia – Doblinger Unternehmensgruppe",url:"https://de.wikipedia.org/wiki/Doblinger_Unternehmensgruppe"}] },
+    reInvestedEUR:5.0,
+    usage:{ Wohnen:70, Buero:15, Retail:5, Sonstiges:10 },
+    confirmedObjects:[
+      { name:"Firmensitz Doblinger / DIBAG", address:"Lilienthalallee 25, 80939 München", lat:48.2064, lng:11.5744,
+        usage:"Buero", area:"Verwaltungssitz der Gruppe", purchaseDate:null, valueEUR:null, status:"Bestand",
+        images:[], sources:[
+          {label:"DIBAG – Kontakt",url:"https://www.dibag.de/kontakt"}] },
+      { name:"Quartier Bogenhausen Süd (DIBAG)", address:"Eggenfeldener/Hultschiner/Töginger Straße, 81929 München", lat:48.1450, lng:11.6400,
+        usage:"Wohnen", area:"~6,1 ha Wohn-/Gewerbequartier", purchaseDate:null, valueEUR:null, status:"in Entwicklung",
+        images:[], sources:[
+          {label:"DIBAG – Bogenhausen Süd",url:"https://www.dibag-bogenhausen-sued.de/"}] }
+    ],
+    heatmap:[
+      { name:"München (Wohnbestand)", intensity:"hoch", usages:["Wohnen","Buero"], center:[48.137,11.575], radiusKm:20,
+        basis:"quelle", note:"~14.000 Wohnungen (u.a. aus Neue-Heimat-Bayern-Erwerb) + Gewerbe; Einzeladressen nicht öffentlich.",
+        sources:[{label:"Rosa-Luxemburg-Stiftung",url:"https://www.rosalux.de/news/id/52100"}] },
+      { name:"Augsburg", intensity:"mittel", usages:["Wohnen"], center:[48.3705,10.8978], radiusKm:12,
+        basis:"quelle", note:"~3.000 Wohnungen im Bestand.",
+        sources:[{label:"Wikipedia – Doblinger Unternehmensgruppe",url:"https://de.wikipedia.org/wiki/Doblinger_Unternehmensgruppe"}] }
+    ]
+  },
+
+  {
+    id:"krieger",
+    name:"Krieger Grundstück AG (Familie Kurt Krieger, Höffner) – privater Grundbesitz",
+    kurz:"Krieger (Grundbesitz)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Am Rondell 1, 12529 Schönefeld (OT Waltersdorf)",
+    hqLat:52.375, hqLng:13.540,
+    website:"krieger.de", domain:"hoeffner.de",
+    linkedin:"", contactName:"Kurt Krieger / Konrad Krieger", contactRole:"Inhaber / Nachfolge",
+    contactChannel:"über Krieger-Gruppe / Krieger Grundstück AG, Schönefeld",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gruen",
+    aum:{ value:1.1, unit:"Mrd €", basis:"quelle",
+      note:"Forbes-Nettovermögen; RE-Bestand (Center + Entwicklungsgrundstücke) deutlich höher als das Nettovermögen.",
+      sources:[{label:"Wikipedia – Kurt Krieger",url:"https://de.wikipedia.org/wiki/Kurt_Krieger_(Unternehmer)"},
+        {label:"Business Insider – reichste Immobilien-Unternehmer",url:"https://www.businessinsider.de/wirtschaft/das-sind-die-12-reichsten-immobilien-unternehmer-die-fast-keiner-kennt/"}] },
+    reQuote:{ value:0.8, basis:"extrapolation",
+      note:"Reine Einschätzung: Handelsimmobilien/Grundstücke sind Kern des Vermögens; exakte Quote nicht öffentlich.",
+      sources:[] },
+    reInvestedEUR:2.0,
+    usage:{ Retail:70, Wohnen:20, Buero:10 },
+    confirmedObjects:[
+      { name:"Pankower Tor (Entwicklungsareal ehem. Güterbahnhof Pankow)", address:"Prenzlauer Promenade / Berliner Straße, 13089 Berlin-Pankow", lat:52.573, lng:13.410,
+        usage:"Wohnen", area:"~40 ha, bis ~2.000 Wohnungen + Gewerbe + Höffner", purchaseDate:"Grundstück seit 2009", valueEUR:500, status:"in Entwicklung",
+        images:[], sources:[
+          {label:"Immobilien Zeitung – Pankower Tor",url:"https://www.iz.de/projekte/news/-neue-hoffnung-fuer-das-quartier-pankower-tor-in-berlin-2000025646"},
+          {label:"Tagesspiegel – Pankower Tor",url:"https://www.tagesspiegel.de/berlin/projekt-pankower-tor-auf-der-kippe-6890014.html"}] },
+      { name:"Kaufpark Dresden-Nickern (Neubau)", address:"Dohnaer Straße 246, 01239 Dresden", lat:51.005, lng:13.803,
+        usage:"Retail", area:"~70.000 m² geplant", purchaseDate:"ab ~2019", valueEUR:360, status:"Bestand/Neubau",
+        images:[], sources:[
+          {label:"Thomas Daily – Krieger übernimmt Kaufpark Nickern",url:"https://www.thomas-daily.de/td-morning-news/1409730-dresden-krieger-uebernimmt-kaufpark-nickern-und-plant-70-000-m%C2%B2-grossen-neubau/"},
+          {label:"TextilWirtschaft – 360 Mio € Investition",url:"https://www.textilwirtschaft.de/business/news/kurt-krieger-investiert-360-mio.-euro-in-neues-einkaufszentrum-so-stark-ist-der-kaufpark-dresden-gestartet-248174"}] },
+      { name:"ElbePark Dresden", address:"Peschelstraße 33, 01139 Dresden-Kaditz", lat:51.087, lng:13.700,
+        usage:"Retail", area:"Shopping-Center", purchaseDate:null, valueEUR:200, status:"Bestand",
+        images:[], sources:[
+          {label:"Wikipedia – Kurt Krieger",url:"https://de.wikipedia.org/wiki/Kurt_Krieger_(Unternehmer)"}] },
+      { name:"Möbel Höffner Berlin-Lichtenberg (Flagship)", address:"Landsberger Allee 320, 10365 Berlin", lat:52.532, lng:13.480,
+        usage:"Retail", area:"~40.000 m² VK, 5 Etagen", purchaseDate:"2017", valueEUR:150, status:"Bestand",
+        images:[], sources:[
+          {label:"Tagesspiegel – größter Höffner in Lichtenberg",url:"https://www.tagesspiegel.de/wirtschaft/immobilien/der-grosste-hoffner-der-welt-entsteht-in-lichtenberg-5482399.html"}] },
+      { name:"Thüringen Park Erfurt (Hausnr. nicht final verifiziert)", address:"Nordhäuser Straße 73, 99091 Erfurt", lat:51.010, lng:11.017,
+        usage:"Retail", area:"Shopping-Center", purchaseDate:null, valueEUR:120, status:"Bestand",
+        images:[], sources:[
+          {label:"Thüringen Park – Impressum",url:"https://thueringen-park.de/impressum/"}] }
+    ],
+    heatmap:[
+      { name:"Berlin (Grundstücke/Entwicklung/Handel)", intensity:"hoch", usages:["Wohnen","Retail","Buero"], center:[52.52,13.40], radiusKm:30,
+        basis:"quelle", note:"Pankower Tor, Höffner Lichtenberg, Sitz Schönefeld.",
+        sources:[{label:"Tagesspiegel – Krieger Stadtentwicklung",url:"https://www.tagesspiegel.de/berlin/bezirke/kurt-krieger-mobliert-um-3639256.html"}] },
+      { name:"Ostdeutschland (Handelsimmobilien)", intensity:"hoch", usages:["Retail"], center:[51.05,13.20], radiusKm:120,
+        basis:"quelle", note:"ElbePark/Kaufpark Dresden, Chemnitz Center, Thüringen Park Erfurt.",
+        sources:[{label:"Wikipedia – Kurt Krieger",url:"https://de.wikipedia.org/wiki/Kurt_Krieger_(Unternehmer)"}] }
+    ]
+  },
+
+  {
+    id:"samwer",
+    name:"Augustus Capital / Arvantis (Family Office der Samwer-Brüder)",
+    kurz:"Samwer Family Office",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Türkenstraße 7, 80333 München",
+    hqLat:48.147, hqLng:11.573,
+    website:"augustus.berlin", domain:"picus.vc",
+    linkedin:"", contactName:"Oliver, Marc & Alexander Samwer", contactRole:"Gesellschafter",
+    contactChannel:"über Augustus Capital GmbH / Arvantis Group",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gruen",
+    aum:{ value:6.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Nettovermögen der drei Brüder zusammen mehrstellige Mrd (v.a. VC/Rocket Internet); je >1 Mrd (Forbes).",
+      sources:[] },
+    reQuote:{ value:0.03, basis:"quelle",
+      note:"Berliner Immobilienportfolio ≥150 Mio € – kleiner Anteil am Gesamtvermögen.",
+      sources:[{label:"Berliner Zeitung – Samwer kaufen Immobilien in Berlin",url:"https://www.berliner-zeitung.de/mensch-metropole/samwer-brueder-kaufen-in-grossem-stil-immobilien-in-berlin-li.3269"}] },
+    reInvestedEUR:0.2,
+    usage:{ Buero:45, Wohnen:25, Sonstiges:20, Retail:10 },
+    confirmedObjects:[
+      { name:"Ullsteinhaus", address:"Mariendorfer Damm 1-3, 12099 Berlin-Tempelhof", lat:52.457, lng:13.386,
+        usage:"Buero", area:"Denkmal-Bürokomplex am Teltowkanal", purchaseDate:"2015", valueEUR:80, status:"Bestand",
+        images:[], sources:[
+          {label:"Tagesspiegel – Ullsteinhaus verkauft an Samwer",url:"https://www.tagesspiegel.de/berlin/haeuser-fuer-milliarden-in-berlin-ullsteinhaus-in-tempelhof-ist-verkauft/12415722.html"}] },
+      { name:"Uferhallen", address:"Uferstraße 8-11, 13357 Berlin-Gesundbrunnen", lat:52.552, lng:13.383,
+        usage:"Sonstiges", area:"Denkmalensemble (Ateliers/Kultur)", purchaseDate:"2017", valueEUR:27, status:"Bestand",
+        images:[], sources:[
+          {label:"Wikipedia – Uferhallen (Augustus)",url:"https://de.wikipedia.org/wiki/Uferhallen"}] },
+      { name:"Admiralspalast", address:"Friedrichstraße 101, 10117 Berlin-Mitte", lat:52.521, lng:13.388,
+        usage:"Sonstiges", area:"Theater/Veranstaltung", purchaseDate:"2019", valueEUR:40, status:"Bestand",
+        images:[], sources:[
+          {label:"Berliner Zeitung – Samwer & Admiralspalast",url:"https://www.berliner-zeitung.de/kultur-vergnuegen/die-distel-verlaengert-im-admiralspalast-samwer-brueder-das-ist-der-deal-li.105850"}] }
+    ],
+    heatmap:[
+      { name:"Berlin (zentrale Bestandsimmobilien)", intensity:"hoch", usages:["Buero","Wohnen","Sonstiges"], center:[52.52,13.40], radiusKm:20,
+        basis:"quelle", note:"Portfolio ≥150 Mio €: Ullsteinhaus, Uferhallen, Admiralspalast, Bayerhaus, Gründerzeit-Wohnhäuser.",
+        sources:[{label:"Berliner Zeitung",url:"https://www.berliner-zeitung.de/mensch-metropole/samwer-brueder-kaufen-in-grossem-stil-immobilien-in-berlin-li.3269"}] }
+    ]
+  },
+
+  // ---- GELB (Kapital/FO vorhanden; RE begrenzt oder operativ geprägt) ----
+
+  {
+    id:"inselkammer",
+    name:"Familie Inselkammer (Platzl Hotel / Ayinger) – Münchner Vermögen",
+    kurz:"Inselkammer",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Sparkassenstraße 10, 80331 München",
+    hqLat:48.1372, hqLng:11.5799,
+    website:"platzl.de", domain:"platzl.de",
+    linkedin:"", contactName:"Peter Inselkammer / Franz Inselkammer", contactRole:"Gesellschafter",
+    contactChannel:"über Platzl Hotel Inselkammer KG",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.8, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Vermögen v.a. operativ (Brauerei Ayinger, Beteiligung Augustiner, Platzl-Hotel/Gastronomie); kein öffentlicher Wert.",
+      sources:[] },
+    reQuote:{ value:0.3, basis:"extrapolation",
+      note:"Reine Einschätzung: eigene Immobilien v.a. das Platzl-Quartier in der Altstadt; kein Portfoliowert veröffentlicht.",
+      sources:[] },
+    reInvestedEUR:0.2,
+    usage:{ Hotel:45, Gastro:30, Retail:15, Wohnen:10 },
+    confirmedObjects:[
+      { name:"Platzl Hotel / Platzl-Quartier", address:"Sparkassenstraße 10, 80331 München", lat:48.1372, lng:11.5799,
+        usage:"Hotel", area:"167 Zimmer + 15 Suiten + Gastronomie", purchaseDate:null, valueEUR:null, status:"Bestand",
+        images:[], sources:[
+          {label:"Platzl Hotel – München",url:"https://www.platzl.de/"}] }
+    ],
+    heatmap:[
+      { name:"München-Altstadt (Platzl)", intensity:"mittel", usages:["Hotel","Gastro","Retail"], center:[48.1372,11.5799], radiusKm:2,
+        basis:"quelle", note:"Platzl-Quartier gegenüber Hofbräuhaus.",
+        sources:[{label:"Platzl Hotel",url:"https://www.platzl.de/"}] }
+    ]
+  },
+
+  {
+    id:"volkhardt",
+    name:"Familie Volkhardt (Hotel Bayerischer Hof, Gebrüder Volkhardt KG)",
+    kurz:"Volkhardt (Bayerischer Hof)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Promenadeplatz 2-6, 80333 München",
+    hqLat:48.1404, hqLng:11.5719,
+    website:"bayerischerhof.de", domain:"bayerischerhof.de",
+    linkedin:"", contactName:"Innegrit Volkhardt", contactRole:"Inhaberin / Direktorin",
+    contactChannel:"über Gebrüder Volkhardt KG",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.5, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Vermögen v.a. im Hotel Bayerischer Hof + Palais Montgelas; Jahresumsatz ~53 Mio €.",
+      sources:[] },
+    reQuote:{ value:0.5, basis:"extrapolation",
+      note:"Reine Einschätzung: hochwertige Innenstadt-Immobilien im Familienbesitz, aber rein operativ (Hotellerie); kein Portfoliowert.",
+      sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Hotel:90, Retail:5, Gastro:5 },
+    confirmedObjects:[
+      { name:"Hotel Bayerischer Hof", address:"Promenadeplatz 2-6, 80333 München", lat:48.1404, lng:11.5719,
+        usage:"Hotel", area:"5-Sterne-Hotel (Renovierung ~150 Mio €)", purchaseDate:null, valueEUR:null, status:"Bestand",
+        images:[], sources:[
+          {label:"Hotel Bayerischer Hof",url:"https://www.bayerischerhof.de/"}] },
+      { name:"Palais Montgelas", address:"Kardinal-Faulhaber-Straße / Promenadeplatz, 80333 München", lat:48.1408, lng:11.5726,
+        usage:"Hotel", area:"Stadtpalais (hotelintegriert, Suiten + Gastro)", purchaseDate:"2022", valueEUR:30, status:"Bestand",
+        images:[], sources:[
+          {label:"AHGZ – Volkhardt kauft letzten Teil Palais Montgelas",url:"https://www.ahgz.de/"}] }
+    ],
+    heatmap:[
+      { name:"München-Altstadt (Promenadeplatz)", intensity:"mittel", usages:["Hotel","Gastro"], center:[48.1404,11.5719], radiusKm:1,
+        basis:"quelle", note:"Bayerischer Hof + Palais Montgelas.",
+        sources:[{label:"Hotel Bayerischer Hof",url:"https://www.bayerischerhof.de/"}] }
+    ]
+  },
+
+  {
+    id:"bahlsen_fo",
+    name:"Lorenz Bahlsen Familien Holding (Familie Bahlsen) – Vermögensvehikel",
+    kurz:"Bahlsen (Familienholding)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Lister Damm 2, 30163 Hannover",
+    hqLat:52.3900, hqLng:9.7500,
+    website:"", domain:"",
+    linkedin:"", contactName:"Familie Bahlsen (Lorenz-Linie)", contactRole:"Gesellschafter",
+    contactChannel:"über Lorenz Bahlsen Familien Holding GmbH & Co. KG, Hannover",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.6, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Vermögen der Lorenz-Bahlsen-Linie ~600 Mio €; echte Familien-Vermögensholding.",
+      sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation",
+      note:"Reine Einschätzung: kein signifikantes, adressierbares Immobilienportfolio öffentlich belegt.",
+      sources:[] },
+    reInvestedEUR:0.05,
+    usage:{ Wohnen:50, Buero:40, Sonstiges:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hannover", intensity:"niedrig", usages:["Buero","Wohnen"], center:[52.3759,9.7320], radiusKm:12,
+        basis:"extrapolation", note:"Reine Einschätzung: Sitz der Familienholding; keine belegten Einzelobjekte.",
+        sources:[] }
+    ]
+  },
+
+  {
+    id:"mittelstenscheid",
+    name:"Familie Mittelsten Scheid (Vorwerk) – Familienvermögen",
+    kurz:"Mittelsten Scheid (Vorwerk)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Mühlenweg 17-37, 42270 Wuppertal (Vorwerk-Sitz)",
+    hqLat:51.2820, hqLng:7.2000,
+    website:"", domain:"vorwerk.de",
+    linkedin:"", contactName:"Familie Mittelsten Scheid", contactRole:"Gesellschafter",
+    contactChannel:"über Vorwerk & Co. KG",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:3.25, unit:"Mrd €", basis:"quelle",
+      note:"Familienvermögen ~3,25 Mrd € (hält Vorwerk – Thermomix/Kobold, akf Bank, HECTAS).",
+      sources:[{label:"Die Deutsche Wirtschaft – Mittelsten Scheid/Vorwerk",url:"https://die-deutsche-wirtschaft.de/familienunternehmen/mittelsten-scheid-familie-vorwerk-gruppe-wuppertal-inhaber/"}] },
+    reQuote:{ value:0.05, basis:"extrapolation",
+      note:"Reine Einschätzung: kein dediziertes privates Immobilienvehikel öffentlich auffindbar.",
+      sources:[] },
+    reInvestedEUR:0.1,
+    usage:{ Buero:60, Wohnen:30, Sonstiges:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Wuppertal", intensity:"niedrig", usages:["Buero"], center:[51.2562,7.1508], radiusKm:12,
+        basis:"extrapolation", note:"Reine Einschätzung: Sitz der Familie/Vorwerk; kein belegtes privates RE-Portfolio.",
+        sources:[] }
+    ]
+  },
+
+  {
+    id:"hector_fo",
+    name:"Hector Family Office (Hans-Werner Hector, SAP-Mitgründer)",
+    kurz:"Hector (SAP)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Am Schloßberg 2, 69469 Weinheim (nicht final verifiziert)",
+    hqLat:49.5486, hqLng:8.6660,
+    website:"", domain:"",
+    linkedin:"", contactName:"Hans-Werner Hector", contactRole:"Gründer / Vermögensinhaber",
+    contactChannel:"über private Vermögensverwaltungs-KGs (Weinheim)",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.5, unit:"Mrd €", basis:"quelle",
+      note:"Vermögensschätzung (aus SAP-Verkauf 1996 + Kapitalanlagen). Karitatives Vermögen (Hector Stiftung) separat.",
+      sources:[{label:"Forbes – Hans-Werner Hector",url:"https://www.forbes.com/profile/hans-werner-hector/"},
+        {label:"Wikipedia – Hans-Werner Hector",url:"https://de.wikipedia.org/wiki/Hans-Werner_Hector"}] },
+    reQuote:{ value:0.05, basis:"extrapolation",
+      note:"Reine Einschätzung: Vehikel als Kapitalanlage/Beteiligungen strukturiert; kein öffentlicher Immobilienbestand.",
+      sources:[] },
+    reInvestedEUR:0.05,
+    usage:{ Buero:50, Wohnen:30, Sonstiges:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Weinheim/Rhein-Neckar", intensity:"niedrig", usages:["Sonstiges"], center:[49.5486,8.6660], radiusKm:15,
+        basis:"extrapolation", note:"Reine Einschätzung: Sitz der Vermögens-KGs; keine belegten Objekte.",
+        sources:[] }
+    ]
+  },
+
+  {
+    id:"hymer_fo",
+    name:"Familie Hymer (Vermögen nach Verkauf Erwin Hymer Group an Thor)",
+    kurz:"Hymer (post-exit)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"88339 Bad Waldsee (Hausnr. nicht verifiziert)",
+    hqLat:47.9214, hqLng:9.7550,
+    website:"", domain:"",
+    linkedin:"", contactName:"Gerda / Christian / Carolin Hymer", contactRole:"Gesellschafter",
+    contactChannel:"Verwaltung u.a. über MSR Family Office (Bad Waldsee)",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Post-Exit-Vermögen aus Verkauf der Erwin Hymer Group (~2,1 Mrd € Deal, 2018/19) an Thor Industries; Gesamtvermögen nicht beziffert.",
+      sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation",
+      note:"Reine Einschätzung: kein belegbares Immobilienportfolio öffentlich.",
+      sources:[] },
+    reInvestedEUR:0.1,
+    usage:{ Wohnen:50, Buero:30, Sonstiges:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Oberschwaben/Bad Waldsee", intensity:"niedrig", usages:["Sonstiges"], center:[47.9214,9.7550], radiusKm:20,
+        basis:"extrapolation", note:"Reine Einschätzung: Heimatregion der Familie; keine belegten Objekte.",
+        sources:[] }
+    ]
+  },
+
+  {
+    id:"mohn_bvg",
+    name:"Bertelsmann Verwaltungsgesellschaft (Family Office der Familie Mohn)",
+    kurz:"Mohn (BVG)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Carl-Bertelsmann-Straße 270, 33311 Gütersloh (nicht final verifiziert)",
+    hqLat:51.9066, hqLng:8.3789,
+    website:"", domain:"",
+    linkedin:"", contactName:"Christoph Mohn / Liz Mohn", contactRole:"Familiensprecher / Familie",
+    contactChannel:"über Bertelsmann Verwaltungsgesellschaft (BVG)",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:3.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Familienvermögen v.a. in der Bertelsmann-Beteiligung gebunden (BVG hält ~19,1 % Kapital); privates diversifiziertes AUM nicht offengelegt.",
+      sources:[] },
+    reQuote:{ value:0.05, basis:"extrapolation",
+      note:"Reine Einschätzung: Immobilien liegen operativ in der Bertelsmann-Gruppe, nicht als separates privates RE-Vehikel.",
+      sources:[] },
+    reInvestedEUR:0.0,
+    usage:{ Buero:70, Sonstiges:30 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Gütersloh/OWL", intensity:"niedrig", usages:["Buero"], center:[51.9066,8.3789], radiusKm:12,
+        basis:"extrapolation", note:"Reine Einschätzung: Sitz; kein separates privates RE-Portfolio.",
+        sources:[] }
+    ]
   }
 
 ]);
