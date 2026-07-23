@@ -496,51 +496,9 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     ]
   },
 
-  // ===== Runde 3: bundesweiter Sweep (Schörghuber grün + 5 gelb) =====
-
-  {
-    id:"schoerghuber",
-    name:"Schörghuber Unternehmensgruppe (Schörghuber Stiftung & Co. Holding KG) – Familie Schörghuber",
-    kurz:"Schörghuber (Bayerische Hausbau)",
-    typ:"SFO",
-    land:"Deutschland",
-    hqAddress:"Denninger Straße 165, 81925 München",
-    hqLat:48.1567, hqLng:11.6281,
-    website:"schoerghuber.group", domain:"schoerghuber.group",
-    linkedin:"https://de.linkedin.com/company/sch%C3%B6rghuber-stiftung-&-co.-holding-kg",
-    contactName:"Alexandra Schörghuber (Vorsitzende Stiftungsrat) · Florian Schörghuber",
-    contactRole:"Gesellschafterfamilie / Stiftung",
-    contactChannel:"über Bayerische Hausbau (Real Estate) – Ankauf/Asset-Management",
-    contactLinkedin:"", contactLinkedinName:"",
-    category:"gruen",
-    aum:{ value:4.0, unit:"Mrd €", basis:"extrapolation",
-      note:"Reine Einschätzung: Familienvermögen dominiert vom Immobilienportfolio der Bayerische Hausbau (~3,6 Mrd €) plus Getränke (Paulaner-Beteiligung), Hotels (Arabella/ArabellaStarwood) und Seafood; exaktes Privatvermögen nicht öffentlich. Eintrag = Familie/Holding; Bayerische Hausbau = operative RE-Tochter.",
-      sources:[{label:"Bayerische Hausbau – Portfolio ~3,6 Mrd €",url:"https://www.hausbau.de/unternehmen/schoerghuber-unternehmensgruppe"},{label:"Wikipedia – Schörghuber Unternehmensgruppe",url:"https://en.wikipedia.org/wiki/Sch%C3%B6rghuber_Unternehmensgruppe"}] },
-    reQuote:{ value:0.6, basis:"extrapolation",
-      note:"Reine Einschätzung: Immobilien (Bayerische Hausbau) + Hotels sind der wertmäßige Kern der Gruppe – RE-Quote hoch; genaue Aufteilung nicht veröffentlicht.",
-      sources:[{label:"Bayerische Hausbau Real Estate",url:"https://www.hausbau-realestate.de/unternehmen/ueber-uns"}] },
-    reInvestedEUR:3.6,
-    usage:{ Wohnen:35, Buero:25, Retail:15, Hotel:20, Gastro:5 },
-    confirmedObjects:[
-      { name:"Arabellahaus (Arabellapark)", address:"Arabellastraße 5, 81925 München", lat:48.1566, lng:11.6167,
-        usage:"Buero", area:"Hochhaus-Ensemble mit Hotel (The Westin Grand)", purchaseDate:"Bestand (Eigenentwicklung ab 1969)", valueEUR:null, status:"Bestand",
-        images:[], sources:[{label:"Bayerische Hausbau – Arabellahaus",url:"https://development.hausbau.de/en/company/our-portfolio/arabellahaus"}] },
-      { name:"Kardinal-Faulhaber-Straße 1 (Rosewood München, ehem. Bayerische Staatsbank / Palais Neuhaus-Preysing)", address:"Kardinal-Faulhaber-Straße 1, 80333 München", lat:48.1401, lng:11.5760,
-        usage:"Hotel", area:"~20.000 m² (85 Zimmer, 47 Suiten)", purchaseDate:"Bestand/Entwicklung ab 2019, Eröffnung 2023", valueEUR:null, status:"Bestand",
-        images:[], sources:[{label:"Bayerische Hausbau – Kardinal-Faulhaber-Straße 1",url:"https://www.hausbau-realestate.de/unternehmen/portfolio/kardinal-faulhaber-strasse-1"}] },
-      { name:"Stachus Rondell", address:"Karlsplatz 1-4, 80335 München", lat:48.1393, lng:11.5657,
-        usage:"Retail", area:"neobarockes Rondell, Büro-/Handelsflächen (SW-Teil)", purchaseDate:"Bestand (Sanierung 1993)", valueEUR:null, status:"Bestand",
-        images:[], sources:[{label:"Bayerische Hausbau – Stachus Rondell",url:"https://development.hausbau.de/unternehmen/unsere-projekte/stachus-rondell"}] },
-      { name:"Wohnquartier am Nockherberg (ehem. Paulaner-Areal / Welfengarten)", address:"Welfenstraße, 81541 München", lat:48.1195, lng:11.5822,
-        usage:"Wohnen", area:"~1.500 Wohnungen, Quartier für ~3.500 Menschen", purchaseDate:"Eigenentwicklung 2017–2024 (Teilverkauf 320 WE an Kühne 2024)", valueEUR:264, status:"Bestand/teilverkauft",
-        images:[], sources:[{label:"immobilienmanager – Welfengarten-Verkauf (264,5 Mio €)",url:"https://www.immobilienmanager.de/muenchen-quantum-kauft-320-wohnungen-im-welfengarten-07082024"},{label:"Bayerische Hausbau – Nockherberg",url:"https://development.hausbau.de/en/unternehmen/portfolio/residential-development-at-nockherberg"}] }
-    ],
-    heatmap:[
-      { name:"München (Kernmarkt)", intensity:"hoch", usages:["Wohnen","Buero","Retail","Hotel"], center:[48.1400,11.5800], radiusKm:20,
-        basis:"quelle", note:"Führende Position im Heimatmarkt München (Altstadt, Arabellapark, Au/Nockherberg).",
-        sources:[{label:"Bayerische Hausbau",url:"https://www.hausbau.de/unternehmen/ueber-uns"}] }
-    ]
-  },
+  // ===== Runde 3: bundesweiter Sweep =====
+  // HINWEIS: Schörghuber wurde parallel von Part 3 (Süd/Bayern, thematisch korrekt)
+  // eingetragen (id "schoerghuber", 5 bestätigte Objekte) — daher hier NICHT doppeln.
 
   {
     id:"syngroh_grohe",

@@ -46,7 +46,7 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konz
 ### Stand nach Runde 2: 21 FO-Einträge in `data-part1.js`
 
 ## Runde 3 — bundesweiter Sweep (via familyofficehub/altss/familyofficeresearch/Northdata/IZ)
-- [x] `schoerghuber` — Schörghuber (Bayerische Hausbau), München (SFO, **grün**) — **4 bestätigte München-Objekte**: Arabellahaus (Arabellastr. 5), Rosewood/Kardinal-Faulhaber-Str. 1, Stachus Rondell (Karlsplatz 1-4), Wohnquartier Nockherberg/Welfengarten. Bayerische Hausbau = RE-Tochter. (Fünf Höfe gehören Athos/Strüngmann, NICHT Schörghuber.)
+- [~] Schörghuber (Bayerische Hausbau) — **von Part 3 übernommen** (dort `schoerghuber`, 5 bestätigte Objekte). Aus `data-part1.js` wieder ENTFERNT, um ID-Doppel zu vermeiden. (Meine zusätzlich recherchierten Objekte Arabellahaus/Rosewood/Stachus Rondell/Nockherberg könnten dort ergänzt werden.)
 - [x] `syngroh_grohe` — Syngroh / Family Office Klaus Grohe (Hansgrohe), Schiltach (SFO, gelb).
 - [x] `oberwelland_storck` — TAO Holding / OW Familien Verwaltung (Familie Oberwelland, Storck), Berlin (SFO, gelb).
 - [x] `lennertz_co` — Lennertz & Co. GmbH, Hamburg (MFO, gelb, >1 Mrd €).
@@ -59,4 +59,4 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konz
 
 > HINWEIS: Diese 6 wurden BEWUSST in `data-part1.js` eingetragen (nicht in andere Parts) — Regel: nur die eigene Datei anfassen. Mehrere davon (Schörghuber, Faber-Castell, Syngroh) liegen thematisch in Süd/BW; falls Part 3 sie später ebenfalls findet, bitte dort NICHT doppeln (IDs siehe oben).
 
-### Stand Part 1 gesamt: 27 FO-Einträge in `data-part1.js` · 3 skips (R1) + weitere skips dokumentiert.
+### Stand Part 1 gesamt: 26 FO-Einträge in `data-part1.js` (Schörghuber an Part 3 abgetreten) · 3 skips (R1) + weitere skips dokumentiert.
