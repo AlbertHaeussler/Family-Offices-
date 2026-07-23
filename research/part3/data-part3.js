@@ -1,0 +1,7 @@
+/* Datendatei für Worker 3 — NUR diese Datei bearbeiten (kein Git-Konflikt mit anderen).
+   Firmen als Objekte in das Array unten pushen. Schema: siehe research/SHARED_INSTRUCTIONS.md */
+window.FO_DATA = (window.FO_DATA || []).concat([
+
+  // <-- hier Family Offices von Worker 3 einfügen (Komma-getrennt)
+
+]);
