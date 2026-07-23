@@ -1,3 +1,8 @@
+> **GESAMTABDECKUNG:** Die 4 Parts decken ZUSAMMEN ganz Deutschland + alle Nachbarländer ab.
+> Die Themen-/Regionsgruppierung ist NUR zur Arbeitsteilung (keine Doppelarbeit) — sie ist KEINE
+> Grenze. **Ergänze jedes echte Family Office, das dir begegnet, egal welche Region/Stadt**
+> (Berlin, Ost, überall). Ziel aller 4 zusammen: 100 % der größten FOs in DE + Nachbarländern.
+
 # Part 3 — Süd (Bayern/BW) + Tech + Industrie-Süd
 Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part3.js` schreiben. Operative Konzerne = skip.
 

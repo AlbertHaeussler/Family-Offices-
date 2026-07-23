@@ -1,5 +1,7 @@
 # Master-Liste Family Offices (Koordination – keine Doppelarbeit)
 
+> **GESAMTABDECKUNG:** Die 4 Parts sind nur Arbeitsteilung, KEINE Gebietsgrenzen. Zusammen = ganz DE + Nachbarländer. Jeder Worker ergänzt zusätzlich jedes echte FO, das er findet (jede Region/Stadt).
+
 **Definition & Regeln:** siehe `SHARED_INSTRUCTIONS.md`. Jeder Worker bearbeitet nur seinen Part
 und schreibt nur in `research/partN/data-partN.js`.
 
