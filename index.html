@@ -345,20 +345,20 @@ function App(){
   function toggleCat(c){setActiveCats(p=>{const n=new Set(p);n.has(c)?n.delete(c):n.add(c);return n;});}
   function toggleUsage(k){setActiveUsages(p=>{const n=new Set(p);n.has(k)?n.delete(k):n.add(k);return n;});}
 
-  const tableRows=useMemo(()=>{const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
+  const tableRows=useMemo(()=>{const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,Voll:o.name,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
     aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
     rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return typeof x==="number"?(x-y)*sortDir:(""+x).localeCompare(""+y)*sortDir;});return rows;},[visible,sortKey,sortDir]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
-  function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({Name:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
+  function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
     const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
     // second tab: every known object of the listed firms
     const objRows=[];
     visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>objRows.push({
-      Firma:o.kurz, Objekt:ob.name, Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"",
+      "Family Office (exakt)":o.name, Objekt:ob.name, Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"",
       "Fläche":ob.area||"", Kaufdatum:ob.purchaseDate||"", "Wert (Mio €)":ob.valueEUR??"",
       Status:ob.status||"", Verkauft:isSold(ob)?"ja":"nein"})));
-    if(objRows.length===0) objRows.push({Firma:"—",Objekt:"keine öffentlich belegten Objekte",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"","Wert (Mio €)":"",Status:"",Verkauft:""});
+    if(objRows.length===0) objRows.push({"Family Office (exakt)":"—",Objekt:"keine öffentlich belegten Objekte",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"","Wert (Mio €)":"",Status:"",Verkauft:""});
     const ws2=XLSX.utils.json_to_sheet(objRows);
     XLSX.utils.book_append_sheet(wb,ws2,"Objekte");
     XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
