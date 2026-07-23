@@ -2907,7 +2907,7 @@ window.FO_DATA = [
 ];
 
 window.USAGE_LABELS = { Buero:"Büro", Wohnen:"Wohnen", Retail:"Einzelhandel/Retail", Logistik:"Logistik", Hotel:"Hotel", Gastro:"Gastronomie", Sonstiges:"Gemischt/Sonstiges" };
-window.USAGE_COLORS = { Buero:"#3b82f6", Wohnen:"#22c55e", Retail:"#f59e0b", Logistik:"#8b5cf6", Hotel:"#ec4899", Gastro:"#ef4444", Sonstiges:"#94a3b8" };
+window.USAGE_COLORS = { Buero:"#3b82f6", Wohnen:"#06b6d4", Retail:"#f59e0b", Logistik:"#8b5cf6", Hotel:"#ec4899", Gastro:"#ef4444", Sonstiges:"#94a3b8" };
 window.CATEGORY_META = {
   gruen:{ color:"#34c759", label:"Großes Immobiliengeschäft" },
   gelb: { color:"#ffcc00", label:"Kein/minimales RE (<10%), aber Interesse" },
