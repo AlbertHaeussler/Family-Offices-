@@ -1118,6 +1118,251 @@ window.FO_DATA = [
         ]
       }
     ]
+  },
+  {
+    "id": "aqton",
+    "name": "AQTON SE (Family Office Stefan Quandt)",
+    "kurz": "AQTON (S. Quandt)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Bad Homburg v. d. Höhe (Quandt-Cluster)",
+    "hqLat": 50.2245,
+    "hqLng": 8.6185,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Stefan Quandt · AQTON SE / Delton AG",
+    "contactRole": "Investment-Holding / Beteiligungen",
+    "contactChannel": "privat; über AQTON SE, Bad Homburg",
+    "category": "gelb",
+    "aum": {
+      "value": 35,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Größtes FO Deutschlands (Schätzung); v. a. BMW-Beteiligung + Industrieholdings. Kein RE-Kerngeschäft.",
+      "sources": [
+        {
+          "label": "familyofficehub – AQTON SE",
+          "url": "https://familyofficehub.io/blog/the-stefan-quandt-family-office-aqton-se/"
+        },
+        {
+          "label": "Wikipedia – Stefan Quandt",
+          "url": "https://en.wikipedia.org/wiki/Stefan_Quandt"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.02,
+      "basis": "extrapolation",
+      "note": "Kein öffentliches Immobilien-Portfolio; sehr großes Kapital → potenzieller Käufer. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.7,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Rhein-Main / Bad Homburg (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          50.15,
+          8.65
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "Kein RE-Portfolio bekannt; Region vom Sitz abgeleitet.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "skion",
+    "name": "SKion GmbH (Family Office Susanne Klatten)",
+    "kurz": "SKion (Klatten)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Günther-Quandt-Haus, Seedammweg 55, 61352 Bad Homburg",
+    "hqLat": 50.224,
+    "hqLng": 8.618,
+    "website": "skion.de",
+    "domain": "skion.de",
+    "linkedin": "",
+    "contactName": "Susanne Klatten · Prof. Dr. Frank Richter (GF)",
+    "contactRole": "Investment-Holding / Beteiligungen",
+    "contactChannel": "über skion.de · Seedammweg 55, 61352 Bad Homburg",
+    "category": "gelb",
+    "aum": {
+      "value": 25,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Vermögen S. Klatten (BMW + Altana); SKion investiert in Industrie/Materials/Wasser/Life-Sciences, kein RE-Kern.",
+      "sources": [
+        {
+          "label": "familyofficehub – SKion",
+          "url": "https://familyofficehub.io/family-office-portraits/the-susanne-klatten-family-office-skion-gmbh/"
+        },
+        {
+          "label": "SKion – Legal Notice",
+          "url": "https://www.skion.de/en/legal-notice"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.02,
+      "basis": "extrapolation",
+      "note": "Kein öffentliches Immobilien-Portfolio; Fokus Industriebeteiligungen. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.5,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Bad Homburg / Rhein-Main (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          50.15,
+          8.65
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "Kein RE-Portfolio bekannt; Region vom Sitz abgeleitet.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "dievini",
+    "name": "dievini Hopp BioTech holding (Family Office Dietmar Hopp)",
+    "kurz": "dievini (Hopp)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Johann-Jakob-Astor-Str. 57, 69190 Walldorf",
+    "hqLat": 49.296,
+    "hqLng": 8.642,
+    "website": "dievini.de",
+    "domain": "dievini.de",
+    "linkedin": "",
+    "contactName": "Dietmar Hopp · dievini (Hopp-Familie)",
+    "contactRole": "Investment-Holding (Life Sciences)",
+    "contactChannel": "über dievini.de · Walldorf",
+    "category": "gelb",
+    "aum": {
+      "value": 10,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "SAP-Vermögen D. Hopp; dievini fokussiert Life/Health Sciences. RE läuft über separate Hopp-Vehikel (Rhein-Neckar).",
+      "sources": [
+        {
+          "label": "altss – dievini Hopp",
+          "url": "https://altss.com/profile/dievini-hopp-dietmar-hopp-family-office"
+        },
+        {
+          "label": "Northdata – dievini",
+          "url": "https://www.northdata.com/dievini%20Hopp%20BioTech%20holding%20GmbH%20&%20Co%C2%B7%20KG,%20Walldorf/Amtsgericht%20Mannheim%20HRA%20700792"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.03,
+      "basis": "extrapolation",
+      "note": "dievini selbst = Biotech; Immobilien der Familie Hopp über andere Gesellschaften. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.3,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Rhein-Neckar (Walldorf/Heidelberg)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          49.4,
+          8.68
+        ],
+        "radiusKm": 35,
+        "basis": "extrapolation",
+        "note": "RE der Familie Hopp regional (Rhein-Neckar), aber nicht über dievini. Reine Einschätzung.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "ehlerding",
+    "name": "Family Office Karl Ehlerding",
+    "kurz": "Ehlerding",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Hamburg (HafenCity, nahe Elbphilharmonie)",
+    "hqLat": 53.5415,
+    "hqLng": 9.984,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Karl Ehlerding (Familie)",
+    "contactRole": "Investor (Aktien + Immobilien)",
+    "contactChannel": "privates Family Office, Hamburg",
+    "category": "gelb",
+    "aum": {
+      "value": 1.5,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Ex-Großaktionär WCM (Immobilien/Beteiligungen); heute vermögender Investor. Größenordnung geschätzt.",
+      "sources": [
+        {
+          "label": "Wikipedia – Karl Ehlerding",
+          "url": "https://de.wikipedia.org/wiki/Karl_Ehlerding"
+        },
+        {
+          "label": "Undervalued Shares – Ehlerding",
+          "url": "https://www.undervalued-shares.com/weekly-dispatches/weltbeste-investoren-teil-1-karl-ehlerding-exklusives-interview-zum-80-geburtstag/"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.4,
+      "basis": "extrapolation",
+      "note": "Aktiv im Immobiliengeschäft (aus WCM-Historie); genaue Quote nicht öffentlich.",
+      "sources": [
+        {
+          "label": "Wikipedia – Karl Ehlerding",
+          "url": "https://de.wikipedia.org/wiki/Karl_Ehlerding"
+        }
+      ]
+    },
+    "reInvestedEUR": 0.6,
+    "usage": {
+      "Wohnen": 50,
+      "Buero": 50
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Hamburg / bundesweit (Wohn-/Gewerbe)",
+        "intensity": "mittel",
+        "usages": [
+          "Wohnen",
+          "Buero"
+        ],
+        "center": [
+          53.55,
+          9.99
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "RE-aktiv, aber kein öffentliches Objektverzeichnis. Reine Einschätzung.",
+        "sources": []
+      }
+    ]
   }
 ];
 
