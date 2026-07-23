@@ -126,7 +126,29 @@
   .objbadge{border-radius:50%;box-shadow:0 1px 5px rgba(10,31,68,.45);display:flex;align-items:center;justify-content:center;line-height:1;box-sizing:border-box;cursor:pointer}
   .objbadge.sold{border-style:dashed!important;opacity:.8}
   .objico{line-height:1;filter:drop-shadow(0 0 1px rgba(255,255,255,.9))}
-  @media (max-width:900px){ .rightcol{width:220px} .adv{width:230px} }
+  /* zoomed-out object = real push-pin: coloured head on a thin needle, tip on the spot */
+  .objpin{display:flex;flex-direction:column;align-items:center;cursor:pointer}
+  .objpin .ophead{border-radius:50%;border:1.5px solid #fff;box-sizing:border-box;box-shadow:0 1px 4px rgba(10,31,68,.55)}
+  .objpin.sold .ophead{border-style:dashed;opacity:.85}
+  .objpin .opstem{width:2px;margin-top:-1px;background:linear-gradient(to bottom,#ffffff,rgba(255,255,255,.2));box-shadow:0 1px 2px rgba(10,31,68,.45)}
+  /* bottom-left selection dock */
+  .seldock{position:absolute;left:14px;bottom:14px;z-index:600;width:244px;padding:12px 13px;max-height:56vh;display:flex;flex-direction:column}
+  .seldock-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .seldock-h b{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .seldock .mini{border:none;background:rgba(228,0,43,.1);color:var(--red);font-size:11px;font-weight:700;border-radius:8px;padding:3px 8px;cursor:pointer}
+  .selchips{display:flex;flex-direction:column;gap:5px;overflow-y:auto}
+  .selchip{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--stroke);border-left:3px solid var(--ring,#ccc);border-radius:9px;padding:5px 7px}
+  .selchip .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .selchip .x{cursor:pointer;color:var(--muted);font-weight:700;padding:0 3px;border-radius:5px}
+  .selchip .x:hover{background:rgba(228,0,43,.12);color:var(--red)}
+  .selempty{font-size:12px;color:var(--muted);line-height:1.4;margin-bottom:8px}
+  .selexp{margin-top:9px;border-top:1px solid var(--stroke);padding-top:9px}
+  .selexp-h{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;color:var(--navy);cursor:pointer;user-select:none}
+  .selexp-list{margin-top:7px;max-height:32vh;overflow-y:auto;display:flex;flex-direction:column;gap:1px}
+  .selrow{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:5px 6px;border-radius:7px;cursor:pointer}
+  .selrow:hover{background:rgba(10,31,68,.06)}
+  .sc-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+  @media (max-width:900px){ .rightcol{width:220px} .adv{width:230px} .seldock{width:210px} }
 </style>
 </head>
 <body>
@@ -201,6 +223,7 @@ function App(){
   const [onlyObjects,setOnlyObjects]=useState(false),[showSold,setShowSold]=useState(true);
   const [pin,setPin]=useState(null),[pinRadius,setPinRadius]=useState(30),[pinMode,setPinMode]=useState(false);
   const [selected,setSelected]=useState(new Set());
+  const [selOpen,setSelOpen]=useState(false);
   const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal");
   const [sortKey,setSortKey]=useState("aumV"),[sortDir,setSortDir]=useState(-1);
   const [detail,setDetail]=useState(null);
@@ -285,13 +308,21 @@ function App(){
       const size=Math.round(Math.min(38, 3.5 + t*(3 + Math.sqrt(ob.valueEUR)*0.95))); // diameter in px
       const showIco=zoom>=12 && size>=20;
       const emoji=USAGE_EMOJI[ob.usage]||"";
-      const bg=showIco?"#fff":col;
-      const bord=showIco?col:(sold?"#E4002B":"#fff");
-      const html=`<div class="objbadge${sold?' sold':''}" style="width:${size}px;height:${size}px;background:${bg};border:${Math.max(1.5,size*0.11)}px solid ${bord}">`
-        +(showIco?`<span class="objico" style="font-size:${Math.round(size*0.6)}px">${emoji}</span>`:'')+`</div>`;
-      const m=L.marker([ob.lat,ob.lng],{icon:L.divIcon({html,className:"",iconSize:[size,size],iconAnchor:[size/2,size/2]}),zIndexOffset:Math.round(ob.valueEUR)}).addTo(oly);
+      let icon,ttOff;
+      if(showIco){ // zoomed in: round badge with the type-logo
+        const html=`<div class="objbadge${sold?' sold':''}" style="width:${size}px;height:${size}px;background:#fff;border:${Math.max(1.5,size*0.11)}px solid ${col}">`
+          +`<span class="objico" style="font-size:${Math.round(size*0.6)}px">${emoji}</span></div>`;
+        icon=L.divIcon({html,className:"",iconSize:[size,size],iconAnchor:[size/2,size/2]});
+        ttOff=-size/2;
+      } else { // zoomed out: a proper push-pin, coloured head + needle, tip on the spot
+        const head=Math.max(11,size+7), stem=Math.round(head*1.0);
+        const html=`<div class="objpin${sold?' sold':''}"><div class="ophead" style="width:${head}px;height:${head}px;background:${col};border-color:${sold?'#E4002B':'#fff'}"></div><div class="opstem" style="height:${stem}px"></div></div>`;
+        icon=L.divIcon({html,className:"",iconSize:[head,head+stem],iconAnchor:[head/2,head+stem]});
+        ttOff=-(head+stem);
+      }
+      const m=L.marker([ob.lat,ob.lng],{icon,zIndexOffset:Math.round(ob.valueEUR)}).addTo(oly);
       m.on("click",()=>setDetail({kind:"object",office:o,data:ob}));
-      m.bindTooltip(`<b>${o.kurz}</b><br>${ob.name}${sold?' · VERKAUFT':''}<br>${ob.address}`,{direction:"top",offset:[0,-size/2]});
+      m.bindTooltip(`<b>${o.kurz}</b><br>${ob.name}${sold?' · VERKAUFT':''}<br>${ob.address}`,{direction:"top",offset:[0,ttOff]});
     });
   },[selected,visible,pin,pinRadius,activeUsages,showSold,zoom]);
 
@@ -311,7 +342,17 @@ function App(){
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({Name:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
-    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
+    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
+    // second tab: every known object of the listed firms
+    const objRows=[];
+    visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>objRows.push({
+      Firma:o.kurz, Objekt:ob.name, Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"",
+      "Fläche":ob.area||"", Kaufdatum:ob.purchaseDate||"", "Wert (Mio €)":ob.valueEUR??"",
+      Status:ob.status||"", Verkauft:isSold(ob)?"ja":"nein"})));
+    if(objRows.length===0) objRows.push({Firma:"—",Objekt:"keine öffentlich belegten Objekte",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"","Wert (Mio €)":"",Status:"",Verkauft:""});
+    const ws2=XLSX.utils.json_to_sheet(objRows);
+    XLSX.utils.book_append_sheet(wb,ws2,"Objekte");
+    XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
 
   const selOffices=DATA.filter(o=>selected.has(o.id));
   const cols=[["Name","Name"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
@@ -387,6 +428,28 @@ function App(){
      <div className="layerToggle glass">
        <button className={baseLayer==="sat"?"on":""} onClick={()=>setBaseLayer("sat")}>Satellit</button>
        <button className={baseLayer==="street"?"on":""} onClick={()=>setBaseLayer("street")}>Karte</button>
+     </div>
+
+     {/* BOTTOM-LEFT: selected firms + expandable picker of the rest */}
+     <div className="seldock glass">
+       <div className="seldock-h"><b>Auswahl · {selected.size}</b>
+         {selected.size>0 && <button className="mini" onClick={()=>setSelected(new Set())}>alle ✕</button>}</div>
+       {selected.size===0
+         ? <div className="selempty">Noch keine Firma ausgewählt. Unten hinzufügen oder auf der Karte antippen.</div>
+         : <div className="selchips">
+             {DATA.filter(o=>selected.has(o.id)).sort((a,b)=>a.kurz.localeCompare(b.kurz)).map(o=>(
+               <div key={o.id} className="selchip" style={{"--ring":CM[o.category].color}}>
+                 <span className="nm">{o.kurz}</span><span className="x" title="abwählen" onClick={()=>toggleSelect(o.id)}>✕</span></div>))}
+           </div>}
+       <div className="selexp">
+         <div className="selexp-h" onClick={()=>setSelOpen(v=>!v)}>
+           <span>Firma hinzufügen · {DATA.filter(o=>!selected.has(o.id)).length}</span><span>{selOpen?"▾":"▸"}</span></div>
+         {selOpen && <div className="selexp-list">
+           {DATA.filter(o=>!selected.has(o.id)).sort((a,b)=>a.kurz.localeCompare(b.kurz)).map(o=>(
+             <div key={o.id} className="selrow" onClick={()=>toggleSelect(o.id)}>
+               <span className="sc-dot" style={{background:CM[o.category].color}}/>{o.kurz}</div>))}
+         </div>}
+       </div>
      </div>
 
      <div className="disc glass" style={{padding:"8px 10px"}}>Objekte = nur öffentlich bekannte DE-Objekte (nicht vollständig). Werte teils Schätzungen.</div>
