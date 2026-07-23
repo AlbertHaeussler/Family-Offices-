@@ -364,7 +364,7 @@ function App(){
     XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
 
   const selOffices=DATA.filter(o=>selected.has(o.id));
-  const cols=[["Name","Name"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
+  const cols=[["Voll","Family Office (exakt)"],["Name","Kurzname"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
 
   return (
    <React.Fragment>
@@ -475,7 +475,7 @@ function App(){
              <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortKey===k?(sortDir>0?" ▲":" ▼"):""}</th>)}</tr></thead>
              <tbody>{tableRows.map(r=>(<tr key={r.id}>
                <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
-               <td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
+               <td>{r.Voll}</td><td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
                <td className="num">{r.aumV}</td><td className="num">{r.reV}</td><td className="num">{Math.round(r.reP*100)}%</td>
                <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td></tr>))}</tbody>
            </table></div>}
