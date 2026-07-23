@@ -1125,6 +1125,28 @@ window.FO_DATA = [
             "url": "https://www.presse-blog.com/2022/01/18/bnp-paribas-reim-germany-verkauft-wohn-und-geschaeftshaus-in-stuttgart-an-die-koehler-group/"
           }
         ]
+      },
+      {
+        "name": "Wohn-/Geschäftshaus Charlottenstraße",
+        "address": "Charlottenstraße 40, 70182 Stuttgart",
+        "lat": 48.779,
+        "lng": 9.183,
+        "usage": "Wohnen",
+        "area": "~2.800 m², 37 Wohnungen + 3 Gewerbeeinheiten",
+        "purchaseDate": "Ankauf",
+        "valueEUR": 18,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "KOEHLER – Homes",
+            "url": "https://www.koehlergroup.com/en/homes/"
+          },
+          {
+            "label": "konii – KOEHLER Königstraße",
+            "url": "https://www.konii.de/news/stuttgart-koehler-group-koehler-real-estate-erwirbt-kernsaniertes-objekt-auf-der-oberen-konigstrasse-von-bekannter-erbengemeinschaft-unternehmerfamilie-202302026602/"
+          }
+        ]
       }
     ],
     "heatmap": [
@@ -2583,6 +2605,65 @@ window.FO_DATA = [
         "radiusKm": 30,
         "basis": "extrapolation",
         "note": "Kein öffentliches RE-Portfolio.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "sixt",
+    "name": "Erich Sixt Vermögensverwaltung GmbH (Family Office Sixt)",
+    "kurz": "Sixt",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Zugspitzstraße 1, 82049 Pullach im Isartal",
+    "hqLat": 48.064,
+    "hqLng": 11.524,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Alexander & Konstantin Sixt (GF) · Familie Sixt",
+    "contactRole": "Family Office / Beteiligungen (Startups, SPVs)",
+    "contactChannel": "über Erich Sixt Vermögensverwaltung, Pullach",
+    "category": "gelb",
+    "aum": {
+      "value": 5,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "SFO der Familie Sixt; Portfolio ~1,4 Mrd $ (Direkt/VC/SPVs) + Sixt-SE-Anteile. Kein RE-Kern.",
+      "sources": [
+        {
+          "label": "altss – Erich Sixt Vermögensverwaltung",
+          "url": "https://altss.com/profile/erich-sixt-verm-gensverwaltung"
+        },
+        {
+          "label": "Northdata – Erich Sixt VV",
+          "url": "https://www.northdata.com/Erich%20Sixt%20Verm%C3%B6gensverwaltung%20GmbH,%20Pullach/Amtsgericht%20M%C3%BCnchen%20HRB%20144988"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.03,
+      "basis": "extrapolation",
+      "note": "Real Assets v. a. private Anwesen (Grünwald, Mallorca, Barbados); kein RE-Anlagefokus. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.3,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "München / Isartal (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          48.06,
+          11.52
+        ],
+        "radiusKm": 25,
+        "basis": "extrapolation",
+        "note": "Kein öffentliches RE-Anlageportfolio.",
         "sources": []
       }
     ]
