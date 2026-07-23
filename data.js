@@ -351,6 +351,73 @@ window.FO_DATA = [
         note:"RE-Einheit (Viessmann Real Estate) im Aufbau; keine Einzelobjekte öffentlich. Reine Einschätzung.",
         sources:[{label:"Northdata – Viessmann Generations Group",url:"https://www.northdata.com/Viessmann+Group+GmbH+&+Co.+KG,+Allendorf+(Eder)/Amtsgericht+Marburg+HRA+3389"}] }
     ]
+  },
+  {
+    id:"athos", name:"ATHOS Service GmbH (Strüngmann Family Office)", kurz:"ATHOS (Strüngmann)",
+    typ:"SFO", land:"Deutschland", hqAddress:"Rosenheimer Platz 6, 81669 München",
+    hqLat:48.1268, hqLng:11.5983, website:"kein öffentlicher Web-Auftritt (SFO)", domain:"",
+    linkedin:"", contactName:"Thomas & Andreas Strüngmann · GF: T. Maier, C. Förster, C. Rappl, W. Essler",
+    contactRole:"Gesellschafter / Geschäftsführung", contactChannel:"über ATHOS Service GmbH, Rosenheimer Platz 6, 81669 München",
+    category:"gelb",
+    aum:{ value:30.0, unit:"Mrd €", basis:"quelle",
+      note:"~30 Mrd $ inkl. BioNTech-Beteiligung; Fokus Healthcare/Biotech, nicht Immobilien.",
+      sources:[{label:"Forbes – Strüngmann Family Office",url:"https://www.forbes.com/sites/paulwestall/2021/08/24/the-family-office-saving-lives-boosting-the-economy-and-making-billions/"},
+               {label:"Northdata – ATHOS Service GmbH",url:"https://www.northdata.com/ATHOS%20Service%20GmbH,%20M%C3%BCnchen/HRB%20157929"}] },
+    reQuote:{ value:0.05, basis:"extrapolation",
+      note:"Kein öffentliches Immobilien-Kerngeschäft; sehr großes Kapital → potenzieller RE-Käufer. Quote reine Einschätzung.",
+      sources:[] },
+    reInvestedEUR:1.0, usage:{ Sonstiges:100 }, confirmedObjects:[],
+    heatmap:[
+      { name:"München (Sitz)", intensity:"niedrig", usages:null, center:[48.13,11.60], radiusKm:25, basis:"extrapolation",
+        note:"Kein öffentliches Immobilienportfolio; Region vom Sitz abgeleitet. Reine Einschätzung.", sources:[] }
+    ]
+  },
+  {
+    id:"zech", name:"Zech Group SE / Deutsche Immobilien Holding (Familie Zech)", kurz:"Zech Group",
+    typ:"SFO", land:"Deutschland", hqAddress:"Hansator 20, 28217 Bremen (Überseestadt)",
+    hqLat:53.1140, hqLng:8.7690, website:"zech-group.com", domain:"zech-group.com",
+    linkedin:"", contactName:"Kurt Zech (Vorsitzender) · Zech Immobilien GmbH / DIH AG",
+    contactRole:"Immobilien: Zech Immobilien / Deutsche Immobilien Holding", contactChannel:"über zech-group.com / zech-immobilien.de",
+    category:"gruen",
+    aum:{ value:8.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Einer der größten Projektentwickler Deutschlands; Gesamt-AUM nicht offiziell, Größenordnung geschätzt.",
+      sources:[{label:"Wikipedia – Zech Group",url:"https://de.wikipedia.org/wiki/Zech_Group"},
+               {label:"Zech Group",url:"https://www.zech-group.com/en/company/"}] },
+    reQuote:{ value:0.80, basis:"quelle",
+      note:"Immobilien = Kerngeschäft (Zech Immobilien, Deutsche Immobilien Holding).",
+      sources:[{label:"Deutsche Immobilien Holding AG",url:"https://www.dih-ag.de/en/company/"},
+               {label:"Zech Immobilien",url:"https://www.zech-immobilien.de/"}] },
+    reInvestedEUR:6.0, usage:{ Buero:35, Wohnen:25, Hotel:20, Retail:20 }, confirmedObjects:[],
+    heatmap:[
+      { name:"Bremen (Sitz & Projekte)", intensity:"hoch", usages:["Buero","Wohnen","Hotel"], center:[53.08,8.80], radiusKm:25, basis:"quelle",
+        sources:[{label:"Zech Group",url:"https://www.zech-group.com/en/company/"}] },
+      { name:"Bundesweit (Projektentwicklung)", intensity:"mittel", usages:["Buero","Wohnen","Hotel","Retail"], center:[51.2,10.2], radiusKm:160, basis:"quelle",
+        sources:[{label:"Wikipedia – Zech Group",url:"https://de.wikipedia.org/wiki/Zech_Group"}] }
+    ]
+  },
+  {
+    id:"hurler", name:"Jost Hurler Beteiligungs- und Verwaltungs GmbH & Co. KG", kurz:"Jost Hurler",
+    typ:"SFO", land:"Deutschland", hqAddress:"Leopoldstraße 184, 80804 München",
+    hqLat:48.1790, hqLng:11.5860, website:"jost-hurler.de", domain:"jost-hurler.de",
+    linkedin:"", contactName:"Jost Hurler Immobilienmanagement GmbH",
+    contactRole:"Immobilienmanagement / Ankauf", contactChannel:"über jost-hurler.de · Leopoldstr. 184, 80804 München",
+    category:"gruen",
+    aum:{ value:2.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Eigenbestands-Immobilien; kein offizielles AUM veröffentlicht.",
+      sources:[{label:"Wikipedia – Jost Hurler",url:"https://de.wikipedia.org/wiki/Jost_Hurler"}] },
+    reQuote:{ value:0.90, basis:"quelle",
+      note:"Immobilien = Kern (Eigenbestand: Shopping-Center, Wohn-/Gewerbeobjekte).",
+      sources:[{label:"Jost Hurler",url:"https://www.jost-hurler.de/en/"}] },
+    reInvestedEUR:1.8, usage:{ Retail:50, Wohnen:25, Buero:25 },
+    confirmedObjects:[
+      { name:"HUMA Einkaufswelt", address:"Thomas-Dehler-Straße, 81737 München (Neuperlach)", lat:48.1010, lng:11.6410,
+        usage:"Retail", area:"~90.000 m² (nach Neubau)", purchaseDate:"Bestand", valueEUR:300, status:"Bestand", images:[],
+        sources:[{label:"Jost Hurler",url:"https://www.jost-hurler.de/en/"},{label:"Wikipedia – Jost Hurler",url:"https://de.wikipedia.org/wiki/Jost_Hurler"}] }
+    ],
+    heatmap:[
+      { name:"München (Eigenbestand)", intensity:"hoch", usages:["Retail","Wohnen","Buero"], center:[48.14,11.57], radiusKm:22, basis:"quelle",
+        sources:[{label:"Jost Hurler",url:"https://www.jost-hurler.de/en/"}] }
+    ]
   }
 ];
 
