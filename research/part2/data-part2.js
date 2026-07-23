@@ -295,47 +295,6 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     ]
   },
 
-  // ===== Schörghuber (Familienholding mit RE-Kern Bayerische Hausbau) =====
-  {
-    id:"schoerghuber",
-    name:"Schörghuber Unternehmensgruppe (Familie Schörghuber)", kurz:"Schörghuber",
-    typ:"SFO",
-    land:"Deutschland",
-    hqAddress:"Denninger Straße 165, 81925 München",
-    hqLat:48.156, hqLng:11.635,
-    website:"schoerghuber.group", domain:"hausbau.de",
-    linkedin:"", contactName:"Alexandra Schörghuber / Nico Nusmeier", contactRole:"Vorsitzende Stiftungsrat / Vorstandsvorsitzender", contactChannel:"über hausbau.de",
-    contactLinkedin:"", contactLinkedinName:"",
-    category:"gruen",
-    aum:{ value:3.6, unit:"Mrd €", basis:"quelle", note:"Immobilien-Bestandsportfolio der RE-Tochter Bayerische Hausbau ~3,6 Mrd €, Schwerpunkt München. Gruppe zudem Getränke (Paulaner/BHI), Hotels (Arabella), Seafood. Eigentümer: Schörghuber Stiftung & Co. Holding KG.", sources:[
-      {label:"Bayerische Hausbau – Portfolio (~3,6 Mrd €)", url:"https://www.hausbau-realestate.de/unternehmen/portfolio"},
-      {label:"Bayerische Hausbau – Schörghuber-Gruppe", url:"https://www.hausbau.de/unternehmen/schoerghuber-unternehmensgruppe"}
-    ] },
-    reQuote:{ value:0.6, basis:"extrapolation", note:"Reine Einschätzung – Immobilien (Bayerische Hausbau) sind ein Kerngeschäft der Gruppe; exakte Quote am Familienvermögen nicht öffentlich.", sources:[] },
-    reInvestedEUR:3.6,
-    usage:{ Buero:45, Wohnen:25, Retail:15, Hotel:15 },
-    confirmedObjects:[
-      { name:"THE m.pire", address:"Marcel-Breuer-Straße 2-12, 80807 München", lat:48.190, lng:11.572,
-        usage:"Buero", area:"~45.000 m² (23-geschossiger Skyline Tower + 4 Campusgebäude)", purchaseDate:"Bestand (Eigentum Bayerische Hausbau)", valueEUR:null, status:"Bestand",
-        images:[], sources:[
-          {label:"Immobilien Zeitung – THE m.pire München", url:"https://www.iz.de/profile/projekte/THE%20m.pire%20M%C3%BCnchen%20(Geb%C3%A4udekomplex)/"},
-          {label:"Bayerische Hausbau – Portfolio THE m.pire", url:"https://development.hausbau.de/en/company/our-portfolio/the-mpire"}
-        ] },
-      { name:"BIKINI BERLIN (Bikini-Haus)", address:"Budapester Straße 38-50, 10787 Berlin", lat:52.5057, lng:13.3378,
-        usage:"Retail", area:"Concept-Mall + Büro (denkmalgeschütztes Bikini-Haus)", purchaseDate:"Bestand/Entwicklung (Eröffnung 2014)", valueEUR:null, status:"Bestand",
-        images:[], sources:[
-          {label:"Bayerische Hausbau – Portfolio BIKINI BERLIN", url:"https://development.hausbau.de/en/company/our-portfolio/bikini-berlin"},
-          {label:"Wikipedia – Bikini-Haus", url:"https://de.wikipedia.org/wiki/Bikini-Haus"}
-        ] }
-    ],
-    heatmap:[
-      { name:"München (Sitz & Bayerische Hausbau)", intensity:"hoch", usages:["Buero","Wohnen","Hotel"], center:[48.156,11.635], radiusKm:25,
-        basis:"quelle", note:"Kernmarkt der Bayerischen Hausbau (~3,6 Mrd € Bestand).", sources:[{label:"Bayerische Hausbau – Portfolio", url:"https://www.hausbau-realestate.de/unternehmen/portfolio"}] },
-      { name:"Berlin (BIKINI)", intensity:"mittel", usages:["Retail","Buero"], center:[52.5057,13.3378], radiusKm:8,
-        basis:"quelle", note:"BIKINI BERLIN im Bestandsportfolio.", sources:[{label:"Bayerische Hausbau – Portfolio", url:"https://development.hausbau.de/en/company/our-portfolio/bikini-berlin"}] }
-    ]
-  },
-
   // ===== Peter Möhrle Holding (Hamburger SFO, Erlös Max Bahr) =====
   {
     id:"moehrle",
