@@ -3,8 +3,8 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part4.js` schreiben. Operative Konz
 Wichtig: land z. B. "Schweiz (investiert in DE)". Nur aufnehmen, wenn DE-Bezug plausibel.
 
 ## Schweiz
-- [ ] Jacobs Holding (Familie Jacobs; Barry Callebaut) — Zürich — SFO
-- [ ] Otto Happel / Luserve AG (GEA-Vermögen) — Luzern — SFO
+- [x] Jacobs Holding (Familie Jacobs; Barry Callebaut) — Zürich — SFO
+- [x] Otto Happel / Luserve AG (GEA-Vermögen) — Luzern — SFO
 - [ ] Schmidheiny (Familie) — CH — verify
 - [ ] Hansjörg Wyss (Family Office) — CH — verify RE (US/DE?)
 - [ ] Bertarelli (Familie, Serono) — Genf — verify
@@ -19,6 +19,6 @@ Wichtig: land z. B. "Schweiz (investiert in DE)". Nur aufnehmen, wenn DE-Bezug p
 - [ ] Wenckheim / Ottakringer — Wien — verify
 
 ## Niederlande / Luxemburg
-- [ ] HAL Holding / Familie van der Vorm — Rotterdam (NL) — green? (RE-aktiv)
+- [~] HAL Holding / Familie van der Vorm — SKIP: kein belegter DE-Immobilienbezug (nur NL/BE/PL/FR/UK)
 - [ ] Fentener van Vlissingen / SHV Holdings — Utrecht (NL) — verify
 - [ ] (Reimann/JAB Luxemburg ist bereits erledigt)
