@@ -68,6 +68,15 @@ In `data-partN.js` ein Objekt in das `concat([...])`-Array einfügen (Komma-getr
   Schätzung als belegt tarnen.
 - **Adressen so exakt wie möglich** (Impressum, Northdata, Objekt-/Portfolio-Seite). Wenn nur die
   Stadt sicher ist: Stadt eintragen und im Namen/Notiz „Hausnr. nicht verifiziert".
+- **`confirmedObjects` NUR in Deutschland!** Das FO/HQ darf im Ausland sitzen (CH/AT/NL/LU), aber
+  **gemappte Objekte müssen in Deutschland liegen.** Ausländische Immobilien (z. B. Schweizer
+  Hotels) NICHT als confirmedObjects eintragen — höchstens im `note` erwähnen. Sonst erscheinen
+  Pins in der Schweiz/Österreich, was falsch ist.
+- **Multi Family Offices (MFOs)** sind i. d. R. **gelb** (sie allokieren für Klienten in Immobilien,
+  meist über Fonds), nicht „rot". „rot" nur bei echtem Beleg, dass kein RE & kein Interesse besteht.
+- **Operative RE-Tochter ≠ FO:** Wenn eine Familie eine operative Immobilienfirma hat (wie Hopp→Actris,
+  Haub→Trei), ist der Eintrag das **FO/die Familie**, die Tochter nur die RE-Gesellschaft — nicht die
+  operative GmbH als „Family Office" bezeichnen.
 - **Gebäude finden — 3 Spuren pro grünem FO:** (a) börsennotierte/registrierte RE-**Tochter** mit
   öffentlichem Portfolio (Otto→Deutsche EuroShop, Brenninkmeijer→Redevco), (b) eigene
   **Portfolio-Seite**, (c) **Fachpresse** „[Familie/FO] kauft/erwirbt …" (IZ, Thomas Daily,
