@@ -7,20 +7,22 @@
 Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konzerne = skip.
 
 ## Multi Family Offices (i. d. R. gelb, RE über Fonds — Adresse/AUM belegen)
-- [ ] FOCAM AG — Frankfurt a. M. — MFO
-- [ ] Deutsche Oppenheim Family Office — Grasbrunn/Köln — MFO
-- [ ] Tresono Family Office — Köln — MFO
-- [ ] FERI (Family Office) — Bad Homburg — MFO
-- [ ] ODDO BHF / Bethmann Family Office — Frankfurt — MFO
-- [ ] Habbel, Pohlig & Partner — Wiesbaden — MFO
-- [ ] Fürstlich Castell'sche Bank / Familie zu Castell — Würzburg — SFO/Bank
+- [x] FOCAM AG — Frankfurt a. M. — MFO → `focam` (gelb, Untermainkai 26; RE über Fonds, keine Einzelobjekte)
+- [x] Deutsche Oppenheim Family Office — Grasbrunn/Köln — MFO → `deutsche_oppenheim` (gelb, Keferloh 1a; >10 Mrd €)
+- [x] Tresono Family Office — Köln — MFO → `tresono` (gelb, Konrad-Adenauer-Ufer 7; Sachwert-/RE-Schwerpunkt, AUM k.A. → extrapolation)
+- [x] FERI (Family Office) — Bad Homburg — MFO → `feri_fo` (gelb, Rathausplatz 8–10; Gruppe >39 Mrd €)
+- [x] ODDO BHF / Bethmann Family Office — Frankfurt — MFO → `oddo_bhf_fo` (gelb, Gallusanlage 8). HINWEIS: NICHT Bethmann Bank (=ABN AMRO); ODDO BHF FO stammt aus BHF-BANK-Tradition.
+- [x] Habbel, Pohlig & Partner — Wiesbaden — MFO → `habbel_pohlig` (ROT: nur liquide Wertpapiere, 0 Immobilien; Sonnenberger Str. 14)
+- [x] Fürstlich Castell'sche Bank / Familie zu Castell — Würzburg — SFO/Bank → `castell` (gelb, SFO via F & C Capital; Familiensitz Schlossplatz 5 Castell; bestätigte Objekte Weingut + Forst). Bank selbst = operatives Institut, nicht als FO-Eintrag.
 
 ## Unternehmer-/Familien-Vermögen (verifizieren: FO vs. operativ)
-- [ ] Engelhorn Family Office (Curt-Engelhorn-Erben) — Mannheim/CH — SFO
-- [ ] Röchling (Familie) / Röchling Immobilien — Mannheim/München — verify RE
-- [ ] Merck (Familie E. Merck KG) — Darmstadt — verify (operativ?)
-- [ ] Burda (Familie Burda) — Offenburg/München — Medien + München-Immobilien (green?)
-- [ ] Wacker (Familie, Wacker Chemie) — München — verify
-- [ ] Voith (Familie) — Heidenheim — verify (operativ?)
-- [ ] B. Braun / Familie Braun — Melsungen — verify (operativ?)
-- [ ] Boehringer Ingelheim / Familie von Baumbach — Ingelheim — verify (operativ?)
+- [x] Engelhorn Family Office (Curt-Engelhorn-Erben) — **skip (kein DE-Sitz)**: echtes SFO-Vermögen (~7 Mrd €), aber offshore (Bermuda/Guernsey-Trusts), auf 4 Zweige verteilt, kein öffentlich adressierbares deutsches FO-Vehikel und keine adressierbaren Objekte. NICHT verwechseln mit Mannheimer engelhorn-Handelsgruppe (andere Familie).
+- [x] Röchling (Familie) / Röchling Immobilien — Mannheim/München → `roechling_immo` (gelb). Konzern Röchling SE (Kunststoffe) = **skip (operativ)**; privates RE-Vehikel Röchling Immobilien GmbH & Co. KG (Theresienstr. 40, München) aufgenommen. HINWEIS: Familienbezug plausibel, nicht 100 % bestätigt.
+- [x] Merck (Familie E. Merck KG) — Darmstadt → `merck_vermoegens` (gelb, SFO). E. Merck KG = operative Konzernholding (skip); separates SFO **Emanuel-Merck-Vermögens-KG** (Emanuel-Merck-Platz 1) aufgenommen; bestätigte Objekte Rheinstraße 7–9 + Grundstücke.
+- [x] Burda (Familie Burda) — Offenburg/München → `burda_bpi` (gelb). Hubert Burda Media = **skip (operativ)**; Familien-Investmentarm Burda Principal Investments (Arabellastr. 23, München) aufgenommen.
+- [x] Wacker (Familie, Wacker Chemie) — München → `wacker_familie` (gelb, SFO). Wacker Chemie AG = operativ (skip); Dr. Alexander Wacker Familiengesellschaft mbH (Gisela-Stein-Str. 1) + Blue Elephant Holding (Bad Wiessee) aufgenommen.
+- [x] Voith (Familie) — Heidenheim — **skip (operativ)**: nur Konzern-Ownership-Holding JMV SE & Co. KG (hält 50,8 % an Voith), kein diversifiziertes Privatvermögens-FO. Ex-FO Knapp Voith wurde kommerzielles MFO (DGK & Co. AG).
+- [x] B. Braun / Familie Braun — Melsungen — **skip (operativ)**: nur Konzern-Ownership-Holdings (B. Braun Familienholding SE & Co. KG); kein dediziertes Familien-SFO belegt.
+- [x] Boehringer Ingelheim / Familie von Baumbach — Ingelheim → `profunda` (gelb, SFO). Pharmakonzern = operativ (skip); dediziertes SFO **Profunda** (mit RE-Arm Profunda real estate; Sitz Ingelheim→Frankfurt) aufgenommen.
+
+### Ergebnis Part 1: 12 FO-Einträge in `data-part1.js` · 3 skips (operativ/offshore: Engelhorn, Voith, B. Braun)
