@@ -12,7 +12,7 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konz
 - [x] Tresono Family Office — Köln — MFO → `tresono` (gelb, Konrad-Adenauer-Ufer 7; Sachwert-/RE-Schwerpunkt, AUM k.A. → extrapolation)
 - [x] FERI (Family Office) — Bad Homburg — MFO → `feri_fo` (gelb, Rathausplatz 8–10; Gruppe >39 Mrd €)
 - [x] ODDO BHF / Bethmann Family Office — Frankfurt — MFO → `oddo_bhf_fo` (gelb, Gallusanlage 8). HINWEIS: NICHT Bethmann Bank (=ABN AMRO); ODDO BHF FO stammt aus BHF-BANK-Tradition.
-- [x] Habbel, Pohlig & Partner — Wiesbaden — MFO → `habbel_pohlig` (ROT: nur liquide Wertpapiere, 0 Immobilien; Sonnenberger Str. 14)
+- [x] Habbel, Pohlig & Partner — Wiesbaden — MFO → `habbel_pohlig` (gelb: MFO mit Kapital, aber nur liquide Wertpapiere / kein RE-Kern; Sonnenberger Str. 14)
 - [x] Fürstlich Castell'sche Bank / Familie zu Castell — Würzburg — SFO/Bank → `castell` (gelb, SFO via F & C Capital; Familiensitz Schlossplatz 5 Castell; bestätigte Objekte Weingut + Forst). Bank selbst = operatives Institut, nicht als FO-Eintrag.
 
 ## Unternehmer-/Familien-Vermögen (verifizieren: FO vs. operativ)
