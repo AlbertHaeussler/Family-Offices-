@@ -116,11 +116,11 @@
      the name only appears once you have zoomed in quite far */
   #map.zfar .hqbox{padding:0;gap:0;border:none;background:transparent;box-shadow:none}
   #map.zfar .hqico,#map.zfar .hqname{display:none}
-  #map.zfar .hqbox::after{content:"";display:block;width:11px;height:11px;border-radius:50%;background:var(--ring);box-shadow:0 0 0 2px #fff,0 1px 3px rgba(10,31,68,.5)}
-  #map.zfar .hqbox.sel::after{width:14px;height:14px;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(10,31,68,.35)}
+  #map.zfar .hqbox::after{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--ring);box-shadow:0 0 0 1.5px #fff,0 1px 3px rgba(10,31,68,.5)}
+  #map.zfar .hqbox.sel::after{width:11px;height:11px;box-shadow:0 0 0 1.5px #fff,0 0 0 3px rgba(10,31,68,.35)}
   #map.zmid .hqname{display:none}
-  #map.zmid .hqbox{padding:3px;gap:0;border-width:2px;border-radius:9px}
-  #map.zmid .hqico{width:17px;height:17px}
+  #map.zmid .hqbox{padding:2px;gap:0;border-width:1.5px;border-radius:8px}
+  #map.zmid .hqico{width:13px;height:13px}
   .heatpoly{filter:blur(3px)}
   /* object markers: colour-coded badge with a type icon when zoomed in */
   .objbadge{border-radius:50%;box-shadow:0 1px 5px rgba(10,31,68,.45);display:flex;align-items:center;justify-content:center;line-height:1;box-sizing:border-box;cursor:pointer}
@@ -282,8 +282,8 @@ function App(){
     const t=Math.max(0,Math.min(1,(zoom-8)/6)); // 0 up to z8, 1 at z14+
     objs.forEach(({o,ob})=>{ if(!showSold&&isSold(ob))return; const sold=isSold(ob);
       const col=sold?"#aeb4c0":(UC[ob.usage]||"#888");
-      const size=Math.round(Math.min(38, 5 + t*(3 + Math.sqrt(ob.valueEUR)*0.95))); // diameter in px
-      const showIco=zoom>=11 && size>=18;
+      const size=Math.round(Math.min(38, 3.5 + t*(3 + Math.sqrt(ob.valueEUR)*0.95))); // diameter in px
+      const showIco=zoom>=12 && size>=20;
       const emoji=USAGE_EMOJI[ob.usage]||"";
       const bg=showIco?"#fff":col;
       const bord=showIco?col:(sold?"#E4002B":"#fff");
