@@ -2131,6 +2131,461 @@ window.FO_DATA = [
         ]
       }
     ]
+  },
+  {
+    "id": "wuerth",
+    "name": "Würth Family Office (Familie Würth)",
+    "kurz": "Würth",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Reinhold-Würth-Straße 12–17, 74653 Künzelsau",
+    "hqLat": 49.282,
+    "hqLng": 9.689,
+    "website": "wuerth.com",
+    "domain": "wuerth.com",
+    "linkedin": "",
+    "contactName": "Familie Würth · Würth Immobilien Verwaltungs GmbH",
+    "contactRole": "Beteiligungen / Immobilienverwaltung",
+    "contactChannel": "über Würth-Gruppe, Künzelsau",
+    "category": "gelb",
+    "aum": {
+      "value": 30,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Vermögen Familie Würth (Schrauben/Handel); Würth Immobilien verwaltet Gruppen-RE + Hotels. Kern nicht RE.",
+      "sources": [
+        {
+          "label": "familyofficehub – Reinhold Würth",
+          "url": "https://familyofficehub.io/blog/reinhold-wuerth-is-there-a-family-office/"
+        },
+        {
+          "label": "Wikipedia – Würth",
+          "url": "https://en.wikipedia.org/wiki/W%C3%BCrth"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.05,
+      "basis": "extrapolation",
+      "note": "Immobilien v. a. betrieblich + einige Hotels/Schlösser; kein Immobilien-Anlagefokus. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 1,
+    "usage": {
+      "Sonstiges": 80,
+      "Hotel": 20
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Künzelsau / Hohenlohe (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          49.28,
+          9.69
+        ],
+        "radiusKm": 35,
+        "basis": "extrapolation",
+        "note": "Betriebs-/Hotelimmobilien, kein Anlage-Objektverzeichnis.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "vonfinck",
+    "name": "Family Office von Finck (Custodia Vermögensverwaltung)",
+    "kurz": "von Finck",
+    "typ": "SFO",
+    "land": "Deutschland / Schweiz",
+    "hqAddress": "München (Custodia Vermögensverwaltung); Schloss Weinfelden (CH)",
+    "hqLat": 48.14,
+    "hqLng": 11.576,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Familie von Finck · Custodia / Agricola Verwaltung",
+    "contactRole": "Vermögensverwaltung (Immobilien, Beteiligungen)",
+    "contactChannel": "privat; über Custodia Vermögensverwaltung, München",
+    "category": "gruen",
+    "aum": {
+      "value": 8,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Vermögen ~8–9 Mrd CHF; hält u. a. Prime-Immobilien München, Schlösser, Beteiligungen.",
+      "sources": [
+        {
+          "label": "Handelszeitung/Bilanz – von Finck",
+          "url": "https://www.handelszeitung.ch/bilanz/wer-nach-dem-tod-des-patriarchen-august-von-finck-das-sagen-hat-356740"
+        },
+        {
+          "label": "FOR – Reichste Münchener",
+          "url": "https://www.familyofficeresearch.de/die-reichsten-muenchener/"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.35,
+      "basis": "quelle",
+      "note": "Immobilien besonders in Münchner Toplagen (über Custodia Vermögensverwaltung).",
+      "sources": [
+        {
+          "label": "FOR – Reichste Münchener",
+          "url": "https://www.familyofficeresearch.de/die-reichsten-muenchener/"
+        }
+      ]
+    },
+    "reInvestedEUR": 2.8,
+    "usage": {
+      "Buero": 40,
+      "Wohnen": 35,
+      "Hotel": 25
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "München (Prime-Lagen)",
+        "intensity": "hoch",
+        "usages": [
+          "Buero",
+          "Wohnen"
+        ],
+        "center": [
+          48.14,
+          11.575
+        ],
+        "radiusKm": 20,
+        "basis": "quelle",
+        "note": "Prime-Immobilien München über Custodia; keine öffentliche Einzelliste.",
+        "sources": [
+          {
+            "label": "FOR – Reichste Münchener",
+            "url": "https://www.familyofficeresearch.de/die-reichsten-muenchener/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "haniel",
+    "name": "Franz Haniel & Cie. GmbH (Familie Haniel)",
+    "kurz": "Haniel",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Franz-Haniel-Platz 1, 47119 Duisburg",
+    "hqLat": 51.456,
+    "hqLng": 6.728,
+    "website": "haniel.de",
+    "domain": "haniel.de",
+    "linkedin": "https://de.linkedin.com/company/franz-haniel-cie-gmbh",
+    "contactName": "Familie Haniel · Franz Haniel & Cie.",
+    "contactRole": "Family-Equity / Beteiligungen",
+    "contactChannel": "über haniel.de · Franz-Haniel-Platz 1, 47119 Duisburg",
+    "category": "gelb",
+    "aum": {
+      "value": 5,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Family-Equity-Holding seit 1756 (CWS, TAKKT, BEKAERT u. a.), Umsatz ~4,4 Mrd € (2023). Kein RE-Kern.",
+      "sources": [
+        {
+          "label": "Haniel – About",
+          "url": "https://www.haniel.de/en/about-haniel/"
+        },
+        {
+          "label": "Wikipedia – Franz Haniel & Cie.",
+          "url": "https://en.wikipedia.org/wiki/Franz_Haniel_%26_Cie."
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.05,
+      "basis": "extrapolation",
+      "note": "Beteiligungsfokus (Unternehmen), kein Immobilien-Kerngeschäft. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.5,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Duisburg / Rhein-Ruhr (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          51.45,
+          6.73
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "Kein öffentliches RE-Portfolio.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "maxingvest",
+    "name": "maxingvest ag (Familie Herz – Michael & Wolfgang)",
+    "kurz": "maxingvest (Herz)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Alter Wandrahm 17/18, 20457 Hamburg",
+    "hqLat": 53.5445,
+    "hqLng": 10.001,
+    "website": "maxingvest.de",
+    "domain": "maxingvest.de",
+    "linkedin": "",
+    "contactName": "Michael & Wolfgang Herz · maxingvest ag",
+    "contactRole": "Familienholding (Tchibo, Beiersdorf)",
+    "contactChannel": "über maxingvest.de · Alter Wandrahm 17/18, 20457 Hamburg",
+    "category": "gelb",
+    "aum": {
+      "value": 30,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Holding über Tchibo + Beiersdorf-Mehrheit; Umsatz ~12,6 Mrd € (2023). Kein RE-Kern.",
+      "sources": [
+        {
+          "label": "Wikipedia – Maxingvest AG",
+          "url": "https://en.wikipedia.org/wiki/Maxingvest_AG"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.03,
+      "basis": "extrapolation",
+      "note": "Operative Beteiligungsholding; kein Immobilien-Anlagefokus. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.9,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Hamburg (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          53.55,
+          9.99
+        ],
+        "radiusKm": 25,
+        "basis": "extrapolation",
+        "note": "Kein öffentliches RE-Portfolio.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "stroeher",
+    "name": "Ströher Family Office (Wella-Erben)",
+    "kurz": "Ströher (Wella)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Darmstadt (Berliner Allee); weitere FOs Fribourg/Basel (CH)",
+    "hqLat": 49.873,
+    "hqLng": 8.651,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Sylvia & Ulrich Ströher (Wella-Erben)",
+    "contactRole": "Family Office (Immobilien, Beteiligungen, Kunst)",
+    "contactChannel": "privates Family Office, Darmstadt",
+    "category": "gelb",
+    "aum": {
+      "value": 4,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Wella-Erlös (P&G 2003, ~3–4 Mrd € an Familie); Beteiligungen + Immobilien (Darmstadt/Basel) + Kunst.",
+      "sources": [
+        {
+          "label": "bz Basel – Ströher Immobilien",
+          "url": "https://www.bzbasel.ch/basel/basel-stadt/wenige-wissen-die-erben-des-wella-konzerns-halten-in-basel-zahlreiche-immobilien-ld.1526026"
+        },
+        {
+          "label": "Immobilien Zeitung – Ströher SFO",
+          "url": "https://www.iz.de/profile/unternehmen/Str%C3%B6her%20Family%20Offices%20(SFO)/"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.25,
+      "basis": "quelle",
+      "note": "Hält zahlreiche Immobilien (Basel + Darmstadt, 5,9-ha-Areal).",
+      "sources": [
+        {
+          "label": "bz Basel – Ströher Immobilien",
+          "url": "https://www.bzbasel.ch/basel/basel-stadt/wenige-wissen-die-erben-des-wella-konzerns-halten-in-basel-zahlreiche-immobilien-ld.1526026"
+        }
+      ]
+    },
+    "reInvestedEUR": 1,
+    "usage": {
+      "Buero": 40,
+      "Wohnen": 40,
+      "Sonstiges": 20
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Darmstadt (Areal & Umgebung)",
+        "intensity": "mittel",
+        "usages": [
+          "Buero",
+          "Wohnen"
+        ],
+        "center": [
+          49.873,
+          8.651
+        ],
+        "radiusKm": 20,
+        "basis": "quelle",
+        "note": "5,9-ha-Areal + weitere Immobilien; keine öffentliche Einzelliste.",
+        "sources": [
+          {
+            "label": "Immobilien Zeitung – Ströher SFO",
+            "url": "https://www.iz.de/profile/unternehmen/Str%C3%B6her%20Family%20Offices%20(SFO)/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plattner",
+    "name": "Hasso Plattner Foundation / HPC Germany (Family Office Plattner)",
+    "kurz": "Plattner",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Seestraße 35–37, 14467 Potsdam",
+    "hqLat": 52.409,
+    "hqLng": 13.063,
+    "website": "plattnerfoundation.org",
+    "domain": "plattnerfoundation.org",
+    "linkedin": "",
+    "contactName": "Hasso Plattner · Investment Office (Immobilien-Team)",
+    "contactRole": "Investment Office / Real Estate",
+    "contactChannel": "über plattnerfoundation.org · Potsdam",
+    "category": "gruen",
+    "aum": {
+      "value": 12,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "SAP-Mitgründer H. Plattner; Investment Office (20-köpfig) verwaltet globales Portfolio inkl. Immobilien.",
+      "sources": [
+        {
+          "label": "PERE – Hasso Plattner Foundation",
+          "url": "https://www.perenews.com/institution-profiles/hasso-plattner-foundation.html"
+        },
+        {
+          "label": "altss – HPC Germany",
+          "url": "https://altss.com/profile/hpc-germany"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.15,
+      "basis": "quelle",
+      "note": "Aktives globales Immobilienportfolio + Projekte Berlin/Brandenburg (eigenes RE-Team).",
+      "sources": [
+        {
+          "label": "private-banking-magazin – Plattner sucht Leiter Immobilien",
+          "url": "https://www.private-banking-magazin.de/hasso-plattner-foundation-sucht-leiter-w-m-d-immobilieninvestments/"
+        }
+      ]
+    },
+    "reInvestedEUR": 1.8,
+    "usage": {
+      "Buero": 40,
+      "Wohnen": 40,
+      "Sonstiges": 20
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Berlin / Brandenburg",
+        "intensity": "mittel",
+        "usages": [
+          "Buero",
+          "Wohnen"
+        ],
+        "center": [
+          52.45,
+          13.2
+        ],
+        "radiusKm": 40,
+        "basis": "quelle",
+        "note": "RE-Team mit Fokus Berlin/Brandenburg; global investiert, keine öffentliche Einzelliste.",
+        "sources": [
+          {
+            "label": "private-banking-magazin – Plattner Immobilien",
+            "url": "https://www.private-banking-magazin.de/hasso-plattner-foundation-sucht-leiter-w-m-d-immobilieninvestments/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tschira",
+    "name": "Family Office Tschira (Familie Klaus Tschira)",
+    "kurz": "Tschira",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Heidelberg (KTS-Verbund)",
+    "hqLat": 49.409,
+    "hqLng": 8.694,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Gerda, Udo & Harald Tschira (SAP-Erben)",
+    "contactRole": "Familienvermögen / Beteiligungen",
+    "contactChannel": "privat; Heidelberg",
+    "category": "gelb",
+    "aum": {
+      "value": 5,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "SAP-Mitgründer-Erbe (~4,7 Mrd € je Forbes); Beteiligungen, Stiftung. Kein RE-Kern.",
+      "sources": [
+        {
+          "label": "DAS INVESTMENT – Familie Tschira",
+          "url": "https://www.dasinvestment.com/meta-ranking-aus-ranglisten-vom-manager-magazin-bloomberg-und-forbes-25/?page=5"
+        },
+        {
+          "label": "Wikipedia – Klaus Tschira",
+          "url": "https://en.wikipedia.org/wiki/Klaus_Tschira"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.03,
+      "basis": "extrapolation",
+      "note": "Kein bekanntes Immobilien-Kerngeschäft. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.3,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Heidelberg / Rhein-Neckar (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          49.41,
+          8.69
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "Kein öffentliches RE-Portfolio.",
+        "sources": []
+      }
+    ]
   }
 ];
 
