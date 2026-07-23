@@ -334,6 +334,32 @@ window.FO_DATA = (window.FO_DATA || []).concat([
       { name:"Berlin (BIKINI)", intensity:"mittel", usages:["Retail","Buero"], center:[52.5057,13.3378], radiusKm:8,
         basis:"quelle", note:"BIKINI BERLIN im Bestandsportfolio.", sources:[{label:"Bayerische Hausbau – Portfolio", url:"https://development.hausbau.de/en/company/our-portfolio/bikini-berlin"}] }
     ]
+  },
+
+  // ===== Peter Möhrle Holding (Hamburger SFO, Erlös Max Bahr) =====
+  {
+    id:"moehrle",
+    name:"Peter Möhrle Holding GmbH & Co. KG (Familie Möhrle)", kurz:"Peter Möhrle Holding",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Rentzelstraße 10a, 20146 Hamburg",
+    hqLat:53.564, hqLng:9.976,
+    website:"petermoehrle.de", domain:"petermoehrle.de",
+    linkedin:"", contactName:"Peter Möhrle Holding (Geschäftsführung)", contactRole:"Single Family Office", contactChannel:"über petermoehrle.de",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.5, unit:"Mrd €", basis:"extrapolation", note:"SFO gegr. 2007 (Erlös aus Verkauf der Baumarktkette Max Bahr) – investiert in Private Equity, Immobilien & Direktbeteiligungen. Vermögen nicht offengelegt. Reine Einschätzung.", sources:[] },
+    reQuote:{ value:0.3, basis:"extrapolation", note:"Reine Einschätzung – Immobilien sind eine der Anlageklassen des SFO; Quote nicht offengelegt.", sources:[] },
+    reInvestedEUR:0.2,
+    usage:{ Buero:40, Wohnen:40, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (Sitz & SFO)", intensity:"mittel", usages:["Buero","Wohnen"], center:[53.564,9.976], radiusKm:20,
+        basis:"quelle", note:"Hamburger Single Family Office mit Anlageklasse Immobilien.", sources:[
+          {label:"private-banking-magazin – Peter Möhrle Holding", url:"https://www.private-banking-magazin.de/peter-moehrle-holding-will-das-team-verstaerken-1397034325/"},
+          {label:"Altss – Peter Möhrle Holding (Hamburg SFO)", url:"https://altss.com/profile/peter-mohrle-holding"}
+        ] }
+    ]
   }
 
 ]);
