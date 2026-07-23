@@ -290,6 +290,210 @@ window.FO_DATA = (window.FO_DATA || []).concat([
       { name:"Hamburg", intensity:"niedrig", usages:["Buero"], center:[53.55,10.00], radiusKm:15,
         basis:"quelle", note:"Profunda Vermögen GmbH, Hamburg (HRB 104902).", sources:[{label:"Northdata Profunda Vermögen",url:"https://www.northdata.com/Profunda%20Verm%C3%B6gen%20GmbH,%20Hamburg/HRB%20104902"}] }
     ]
+  },
+
+  // ===== Runde 2: weitere Rhein-Main / West-FOs =====
+
+  {
+    id:"cara_investment",
+    name:"Cara Investment GmbH (Single Family Office)", kurz:"Cara Investment",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Goethestraße 34, 60313 Frankfurt am Main",
+    hqLat:50.1165, hqLng:8.6740,
+    website:"cara-investment.com", domain:"cara-investment.com",
+    linkedin:"", contactName:"", contactRole:"", contactChannel:"cara-investment.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gruen",
+    aum:{ value:1.0, unit:"Mrd €", basis:"extrapolation", note:"Reine Einschätzung — Single Family Office (gegr. 2010, HRB 133831 AG Frankfurt); kein öffentliches AUM. Immobilien über die RE-Tochter Cara Real Estate GmbH (HRB 114306) — diese GmbH ist die operative RE-Gesellschaft, nicht selbst das FO.", sources:[{label:"Northdata Cara Investment",url:"https://www.northdata.com/Cara%20Investment%20GmbH,%20Frankfurt"}] },
+    reQuote:{ value:0.5, basis:"extrapolation", note:"Reine Einschätzung — Immobilien (Prime RE Europa/USA) eigener Anlagebaustein über Cara Real Estate; keine bezifferte Quote.", sources:[] },
+    reInvestedEUR:0.4,
+    usage:{ Buero:100 },
+    confirmedObjects:[
+      { name:"Bürohaus Untermainkai 27–28 (ehem. Sitz Credit Europe Bank)", address:"Untermainkai 27–28, 60329 Frankfurt am Main", lat:50.1078, lng:8.6726,
+        usage:"Buero", area:"~4.000 m² MF + 12 TG", purchaseDate:"2020", valueEUR:null, status:"Bestand",
+        images:[], sources:[{label:"deal-magazin: Cara kauft",url:"https://www.deal-magazin.com/news/98548/"},{label:"Immobilien Zeitung",url:"https://www.iz.de/"}] }
+    ],
+    heatmap:[
+      { name:"Frankfurt Innenstadt/Bankenviertel", intensity:"hoch", usages:["Buero"], center:[50.11,8.67], radiusKm:3,
+        basis:"quelle", note:"Track Record RE-Arm: auch ODDO-BHF-Tower (Bockenheimer Landstr. 10) — 2020/21 an ABG/HanseMerkur verkauft (~300 Mio €), daher NICHT als eigenes Objekt gemappt.", sources:[{label:"openpr/HanseMerkur",url:"https://www.openpr.de/news/1098875/"}] }
+    ]
+  },
+
+  {
+    id:"metzler_familie",
+    name:"Familie von Metzler / B. Metzler seel. Sohn & Co. (Familienbank als FO-Vehikel)", kurz:"Metzler (Familie)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Untermainanlage 1, 60329 Frankfurt am Main",
+    hqLat:50.1096, hqLng:8.6689,
+    website:"metzler.com", domain:"metzler.com",
+    linkedin:"", contactName:"Franz von Metzler", contactRole:"Familie / Gesellschafter", contactChannel:"metzler.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.2, unit:"Mrd €", basis:"quelle", note:"Familienvermögen ~1,2 Mrd € (Reichenliste). Älteste dt. Familienbank (seit 1674), vollständig in Familienbesitz; die Bank (Assets ~74 Mrd €, 2020) ist das operative FO-Vehikel der Eigentümerfamilie — Bank-AUM ≠ Familienvermögen.", sources:[{label:"Wikipedia B. Metzler",url:"https://de.wikipedia.org/wiki/B._Metzler_seel._Sohn_%26_Co."},{label:"private-banking-magazin",url:"https://www.private-banking-magazin.de/"}] },
+    reQuote:{ value:0.05, basis:"extrapolation", note:"Reine Einschätzung — Fokus Asset Management/Kapital; kein eigenes RE-Kernportfolio.", sources:[] },
+    reInvestedEUR:0.05,
+    usage:{ Buero:100 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Frankfurt (Sitz)", intensity:"niedrig", usages:["Buero"], center:[50.11,8.67], radiusKm:5,
+        basis:"quelle", note:"Bankhaus als Familienvehikel; kein bestätigtes RE-Portfolio.", sources:[{label:"metzler.com",url:"https://www.metzler.com/"}] }
+    ]
+  },
+
+  {
+    id:"hrk_lunis",
+    name:"HRK LUNIS AG (Multi Family Office)", kurz:"HRK Lunis",
+    typ:"MFO",
+    land:"Deutschland",
+    hqAddress:"Friedrichstraße 31, 60323 Frankfurt am Main",
+    hqLat:50.1205, hqLng:8.6650,
+    website:"hrklunis.de", domain:"hrklunis.de",
+    linkedin:"", contactName:"", contactRole:"", contactChannel:"kontakt@hrklunis.de",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:3.0, unit:"Mrd €", basis:"extrapolation", note:"Reine Einschätzung — kein sauber belegtes öffentliches AUM. Bankenunabhängiges MFO (aus HRK Vermögensverwaltung + Lunis; BaFin-reguliert), mehrere Standorte; Tochter WERTIQ GmbH (eigenständiges MFO).", sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation", note:"Reine Einschätzung — Kapitalfokus, RE nur über Allokation/Fonds für Mandanten.", sources:[] },
+    reInvestedEUR:0.2,
+    usage:{ Buero:40, Wohnen:35, Retail:15, Logistik:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Frankfurt / bundesweit", intensity:"niedrig", usages:["Buero","Wohnen"], center:[50.12,8.66], radiusKm:20,
+        basis:"extrapolation", note:"MFO mit mehreren Standorten; kein Eigen-RE-Portfolio.", sources:[] }
+    ]
+  },
+
+  {
+    id:"brehmer_cie",
+    name:"BREHMER & CIE. Family Office GmbH", kurz:"Brehmer & Cie.",
+    typ:"MFO",
+    land:"Deutschland",
+    hqAddress:"Schumannstraße 59, 60325 Frankfurt am Main",
+    hqLat:50.1181, hqLng:8.6560,
+    website:"brehmer-cie.com", domain:"brehmer-cie.com",
+    linkedin:"", contactName:"Monika Brehmer", contactRole:"Gründerin / Geschäftsführerin", contactChannel:"brehmer-cie.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.8, unit:"Mrd €", basis:"extrapolation", note:"Reine Einschätzung — kein öffentliches AUM. Unabhängiges MFO (gegr. 2009), BaFin-Wertpapierinstitut.", sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation", note:"Reine Einschätzung — Vermögensberatung/-verwaltung, kein RE-Kern.", sources:[] },
+    reInvestedEUR:0.05,
+    usage:{ Buero:50, Wohnen:30, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Frankfurt (Sitz)", intensity:"niedrig", usages:["Buero"], center:[50.118,8.656], radiusKm:10,
+        basis:"quelle", note:"MFO-Sitz; kein Eigen-RE-Portfolio.", sources:[{label:"Impressum",url:"https://www.brehmer-cie.com/impressum"}] }
+    ]
+  },
+
+  {
+    id:"fbg_family_office",
+    name:"Family Office der Frankfurter Bankgesellschaft AG", kurz:"FBG Family Office",
+    typ:"MFO",
+    land:"Deutschland",
+    hqAddress:"Junghofstraße 26, 60311 Frankfurt am Main",
+    hqLat:50.1145, hqLng:8.6770,
+    website:"familyoffice-fbg.com", domain:"familyoffice-fbg.com",
+    linkedin:"", contactName:"", contactRole:"", contactChannel:"familyoffice-fbg.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation", note:"Reine Einschätzung — FO-Segment nicht separat ausgewiesen. MFO der Sparkassen-Finanzgruppe (Frankfurter Bankgesellschaft, Gruppe Basler Kantonalbank).", sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation", note:"Reine Einschätzung — Overall-Wealth-Betreuung, keine familieneigene RE.", sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:45, Wohnen:35, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Frankfurt (Sitz)", intensity:"niedrig", usages:["Buero"], center:[50.114,8.677], radiusKm:10,
+        basis:"quelle", note:"Konzern-MFO; kein Eigen-RE-Portfolio.", sources:[{label:"familyoffice-fbg.com",url:"https://www.familyoffice-fbg.com/"}] }
+    ]
+  },
+
+  {
+    id:"kuder_familypartner",
+    name:"Kuder Familypartner GmbH (Multi Family Office)", kurz:"Kuder Familypartner",
+    typ:"MFO",
+    land:"Deutschland",
+    hqAddress:"Am Untertor 4, 65719 Hofheim am Taunus",
+    hqLat:50.0885, hqLng:8.4470,
+    website:"kuder-fp.de", domain:"kuder-fp.de",
+    linkedin:"", contactName:"Klaus Kuder", contactRole:"Geschäftsführer", contactChannel:"info@kuder-fp.de",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.0, unit:"Mrd €", basis:"extrapolation", note:"Reine Einschätzung — kein öffentliches AUM. Inhabergeführtes MFO (>20 Jahre) für einen kleinen Kreis von Unternehmerfamilien (HRB 100950).", sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation", note:"Reine Einschätzung — Vermögensorganisation, kein RE-Kern belegt.", sources:[] },
+    reInvestedEUR:0.05,
+    usage:{ Buero:40, Wohnen:40, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hofheim / Rhein-Main", intensity:"niedrig", usages:["Buero","Wohnen"], center:[50.089,8.447], radiusKm:15,
+        basis:"quelle", note:"MFO-Sitz; kein Eigen-RE-Portfolio.", sources:[{label:"Impressum",url:"https://www.kuder-fp.de/impressum"}] }
+    ]
+  },
+
+  {
+    id:"fv_frankfurter_vermoegen",
+    name:"FV Frankfurter Vermögen AG (Vermögensverwaltung / Family-Office-Services)", kurz:"Frankfurter Vermögen",
+    typ:"MFO",
+    land:"Deutschland",
+    hqAddress:"Rathausplatz 1, 61348 Bad Homburg v. d. Höhe",
+    hqLat:50.2270, hqLng:8.6180,
+    website:"frankfurter-vermoegen.com", domain:"frankfurter-vermoegen.com",
+    linkedin:"", contactName:"", contactRole:"", contactChannel:"frankfurter-vermoegen.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.5, unit:"Mrd €", basis:"extrapolation", note:"Reine Einschätzung — kein öffentliches AUM. Unabhängiger Vermögensverwalter mit Family-Office-Leistungen (eher VV mit FO-Dienstleistung als reines FO). Zweitstandort Königstein.", sources:[] },
+    reQuote:{ value:0.1, basis:"extrapolation", note:"Reine Einschätzung — Kapitalfokus, kein RE-Kern.", sources:[] },
+    reInvestedEUR:0.1,
+    usage:{ Buero:50, Wohnen:30, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Bad Homburg / Rhein-Main", intensity:"niedrig", usages:["Buero"], center:[50.227,8.618], radiusKm:15,
+        basis:"quelle", note:"VV/FO-Dienstleister; kein Eigen-RE-Portfolio.", sources:[{label:"frankfurter-vermoegen.com",url:"https://www.frankfurter-vermoegen.com/"}] }
+    ]
+  },
+
+  {
+    id:"hfo_henkel",
+    name:"HFO GmbH — Henkel Family Office (Familie Henkel)", kurz:"Henkel Family Office",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Breite Straße 31, 40213 Düsseldorf",
+    hqLat:51.2258, hqLng:6.7745,
+    website:"hfo.de", domain:"hfo.de",
+    linkedin:"", contactName:"Christian Rouette / Oliver Pütz", contactRole:"Geschäftsführung (Doppelspitze)", contactChannel:"hfo.de",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:8.5, unit:"Mrd €", basis:"quelle", note:"~8,5 Mrd €. Echtes SFO der Familie Henkel (gegr. 2005, HRB 52730 Düsseldorf); verwaltet das Privatvermögen getrennt vom operativen Henkel-Konzern.", sources:[{label:"private-banking-magazin",url:"https://www.private-banking-magazin.de/"},{label:"Northdata HFO GmbH",url:"https://www.northdata.com/HFO%20GmbH,%20D%C3%BCsseldorf/HRB%2052730"}] },
+    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung — kein öffentlich der HFO zuzuordnendes Objekt-Portfolio. (Hinweis: der Verkauf Henkelstraße 230, Düsseldorf-Reisholz war die operative Henkel AG, NICHT HFO.)", sources:[] },
+    reInvestedEUR:1.0,
+    usage:{ Buero:40, Wohnen:30, Logistik:20, Retail:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Düsseldorf / Rheinland", intensity:"mittel", usages:["Buero","Wohnen"], center:[51.226,6.775], radiusKm:20,
+        basis:"quelle", note:"Sitz Düsseldorf; RE-Allokation ohne öffentliche Objektliste.", sources:[{label:"hfo.de",url:"https://www.hfo.de/"}] }
+    ]
+  },
+
+  {
+    id:"werhahn",
+    name:"Wilh. Werhahn KG (Familie Werhahn — diversifizierte Familienholding)", kurz:"Werhahn",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Königstraße 1, 41460 Neuss",
+    hqLat:51.198, hqLng:6.690,
+    website:"werhahn.de", domain:"werhahn.de",
+    linkedin:"", contactName:"", contactRole:"Familie Werhahn (Gesellschafter)", contactChannel:"werhahn.de",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:2.9, unit:"Mrd €", basis:"quelle", note:"Familienvermögen ~2,9 Mrd € (2024). Diversifizierte Familienholding (Baustoffe, Konsumgüter, Finanzdienstleistungen inkl. Bankhaus Werhahn) — überwiegend operativ; enthält aber ein eigenes Immobilien-/Vermögenssegment der Familie. Kein separat firmierendes reines FO-Vehikel gefunden.", sources:[{label:"DDW Werhahn",url:"https://die-deutsche-wirtschaft.de/familienunternehmen/werhahn/"}] },
+    reQuote:{ value:0.1, basis:"extrapolation", note:"Reine Einschätzung — RE-Segment vorhanden, aber keine verifizierten Einzeladressen (nur HQ Königstr. 1 Neuss bestätigt).", sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:40, Wohnen:30, Retail:20, Logistik:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Neuss / Rheinland", intensity:"mittel", usages:["Buero","Wohnen"], center:[51.198,6.690], radiusKm:20,
+        basis:"quelle", note:"Sitz Neuss; weiteres RE in Köln/Ruhr/Berlin genannt, aber ohne verifizierte Einzeladressen.", sources:[{label:"werhahn.de",url:"https://www.werhahn.de/"}] }
+    ]
   }
 
 ]);

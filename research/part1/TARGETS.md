@@ -25,4 +25,22 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konz
 - [x] B. Braun / Familie Braun — Melsungen — **skip (operativ)**: nur Konzern-Ownership-Holdings (B. Braun Familienholding SE & Co. KG); kein dediziertes Familien-SFO belegt.
 - [x] Boehringer Ingelheim / Familie von Baumbach — Ingelheim → `profunda` (gelb, SFO). Pharmakonzern = operativ (skip); dediziertes SFO **Profunda** (mit RE-Arm Profunda real estate; Sitz Ingelheim→Frankfurt) aufgenommen.
 
-### Ergebnis Part 1: 12 FO-Einträge in `data-part1.js` · 3 skips (operativ/offshore: Engelhorn, Voith, B. Braun)
+### Ergebnis Part 1 (Runde 1): 12 FO-Einträge · 3 skips (operativ/offshore: Engelhorn, Voith, B. Braun)
+
+## Runde 2 — weitere echte FOs (Rhein-Main / West), gefunden via familyofficehub/altss/Northdata/IZ
+- [x] `cara_investment` — Cara Investment GmbH, Frankfurt (SFO, **grün**) — RE-Tochter Cara Real Estate; **bestätigtes Gebäude Untermainkai 27–28, Frankfurt** (ODDO-BHF-Tower als Track Record verkauft).
+- [x] `metzler_familie` — Familie von Metzler / B. Metzler seel. Sohn & Co., Frankfurt (SFO, gelb) — älteste dt. Familienbank als FO-Vehikel.
+- [x] `hrk_lunis` — HRK LUNIS AG, Frankfurt (MFO, gelb).
+- [x] `brehmer_cie` — BREHMER & CIE. Family Office, Frankfurt (MFO, gelb).
+- [x] `fbg_family_office` — Family Office der Frankfurter Bankgesellschaft, Frankfurt (MFO, gelb).
+- [x] `kuder_familypartner` — Kuder Familypartner GmbH, Hofheim/Taunus (MFO, gelb).
+- [x] `fv_frankfurter_vermoegen` — FV Frankfurter Vermögen AG, Bad Homburg (VV/FO-Services, gelb).
+- [x] `hfo_henkel` — HFO GmbH / Henkel Family Office, Düsseldorf (SFO, gelb, ~8,5 Mrd €).
+- [x] `werhahn` — Wilh. Werhahn KG, Neuss (diversifizierte Familienholding, gelb).
+
+### Runde-2-skips (bereits erfasst / operativ)
+- Ströher (Wella) → schon in `data.js` (`stroeher`); Wella-Campus Berliner Allee 65 Darmstadt nur als Hinweis, kein Doppel.
+- Wirtgen Invest, HQ Trust/Harald Quandt, Viessmann → bereits in `data.js`.
+- Messer, Villeroy & Boch, Vorwerk, Stihl, Fresenius → **skip (operativ / kein separates FO)**.
+
+### Stand Part 1: 21 FO-Einträge in `data-part1.js` · skips dokumentiert. (Broad-Sweep-Runde durch Session-Limit unterbrochen — weitere Namen offen.)
