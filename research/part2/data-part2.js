@@ -101,7 +101,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Handels-/Familien-Dynastien Nord & NRW =====
   {
     id:"rossmann",
-    name:"Rossmann Beteiligungs GmbH (Familie Roßmann)", kurz:"Rossmann Family Office",
+    name:"Familie Roßmann (Rossmann Beteiligungs GmbH)", kurz:"Roßmann (Familie)",
     typ:"SFO",
     land:"Deutschland",
     hqAddress:"Isernhägener Straße 16, 30938 Burgwedel",
@@ -114,7 +114,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
       {label:"Forbes – Dirk Rossmann", url:"https://www.forbes.com/profile/dirk-rossmann/"},
       {label:"private-banking-magazin – Rossmann Family Office bei Aurubis", url:"https://www.private-banking-magazin.de/rossmann-family-office-steigt-bei-aurubis-ein/"}
     ] },
-    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien überwiegend operativ (Filial-/Logistikobjekte über Dirk Rossmann Immobiliengruppe), nicht als Kapitalanlage-Portfolio.", sources:[] },
+    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien überwiegend operativ über die RE-Tochter Dirk Rossmann Immobiliengruppe GmbH (Filial-/Logistikobjekte), nicht als Kapitalanlage-Portfolio.", sources:[] },
     reInvestedEUR:0.7,
     usage:{ Retail:40, Logistik:30, Buero:20, Wohnen:10 },
     confirmedObjects:[],
@@ -125,7 +125,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"deichmann_fo",
-    name:"Deichmann-Familienverwaltungsgesellschaft mbH (Familie Deichmann)", kurz:"Deichmann Family Office",
+    name:"Familie Deichmann (Deichmann-Familienverwaltungsgesellschaft mbH)", kurz:"Deichmann (Familie)",
     typ:"SFO",
     land:"Deutschland",
     hqAddress:"Deichmannweg 9, 45359 Essen",
