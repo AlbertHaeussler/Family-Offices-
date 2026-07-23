@@ -319,6 +319,38 @@ window.FO_DATA = (window.FO_DATA || []).concat([
           {label:"Altss – Peter Möhrle Holding (Hamburg SFO)", url:"https://altss.com/profile/peter-mohrle-holding"}
         ] }
     ]
+  },
+
+  // ===== Näder Holding (Familie Näder / Ottobock; RE-Flagship Bötzow Berlin) =====
+  {
+    id:"naeder",
+    name:"Näder Holding GmbH & Co. KG (Familie Näder)", kurz:"Näder Holding",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Max-Näder-Straße 15, 37115 Duderstadt",
+    hqLat:51.514, hqLng:10.259,
+    website:"naeder.by", domain:"ottobock.com",
+    linkedin:"", contactName:"Prof. Hans Georg Näder", contactRole:"Gesellschafter / CEO Ottobock", contactChannel:"über ottobock.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation", note:"Näder Holding ist die Verwaltungs-/Investmentgesellschaft der Familie Näder, Kern ist Ottobock (Bewertung mehrere Mrd €). Genaues Vermögen nicht offengelegt. Reine Einschätzung.", sources:[] },
+    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien sind eine Nebenanlageklasse (Flagship Bötzow-Areal Berlin); Quote nicht offengelegt.", sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:45, Wohnen:30, Gastro:25 },
+    confirmedObjects:[
+      { name:"Bötzow-Areal (ehem. Bötzow-Brauerei)", address:"Prenzlauer Allee 242, 10405 Berlin", lat:52.532, lng:13.424,
+        usage:"Buero", area:"~24.000 m² Areal (Büro, Wohnen, Gastronomie; Redevelopment mit David Chipperfield)", purchaseDate:"2010 (Ankauf durch H. G. Näder)", valueEUR:null, status:"Bestand/Redevelopment",
+        images:[], sources:[
+          {label:"Ottobock Newsroom – Meilenstein Bötzow-Areal", url:"https://corporate.ottobock.com/en/media/newsroom/milestone-for-the-boetzow-site"},
+          {label:"Tagesspiegel – Otto Bock zieht in die alte Brauerei", url:"https://www.tagesspiegel.de/berlin/prothesenbauer-otto-bock-zieht-in-die-alte-brauerei-ein-6939328.html"}
+        ] }
+    ],
+    heatmap:[
+      { name:"Berlin (Bötzow-Areal, Prenzlauer Berg)", intensity:"hoch", usages:["Buero","Wohnen","Gastro"], center:[52.532,13.424], radiusKm:6,
+        basis:"quelle", note:"Flagship-Immobilie der Familie Näder (ehem. Bötzow-Brauerei).", sources:[{label:"Ottobock Newsroom – Bötzow", url:"https://corporate.ottobock.com/en/media/newsroom/milestone-for-the-boetzow-site"}] },
+      { name:"Duderstadt (Sitz / Ottobock-Campus)", intensity:"niedrig", usages:["Buero"], center:[51.514,10.259], radiusKm:10,
+        basis:"quelle", note:"Sitz der Familie Näder / Ottobock.", sources:[{label:"Näder Holding – Familienimperium Ottobock", url:"https://naeder.by/posts/n%C3%A4der-holding/"}] }
+    ]
   }
 
 ]);
