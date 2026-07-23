@@ -54,7 +54,382 @@ window.FO_DATA = [
       "Hotel": 10,
       "Wohnen": 5
     },
-    "confirmedObjects": [],
+    "confirmedObjects": [
+      {
+        "name": "A10 Center",
+        "address": "Chausseestraße 1, 15745 Wildau",
+        "lat": 52.323,
+        "lng": 13.626,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 300,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Allee-Center Hamm",
+        "address": "Richard-Matthaei-Platz 1, 59065 Hamm",
+        "lat": 51.679,
+        "lng": 7.818,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 180,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Allee-Center Magdeburg",
+        "address": "Ernst-Reuter-Allee 11, 39104 Magdeburg",
+        "lat": 52.129,
+        "lng": 11.627,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 220,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Altmarkt-Galerie Dresden",
+        "address": "Webergasse 1, 01067 Dresden",
+        "lat": 51.049,
+        "lng": 13.736,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 400,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Billstedt-Center Hamburg",
+        "address": "Möllner Landstraße 3, 22111 Hamburg",
+        "lat": 53.539,
+        "lng": 10.1,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 200,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "City-Arkaden Wuppertal",
+        "address": "Alte Freiheit 9, 42103 Wuppertal",
+        "lat": 51.256,
+        "lng": 7.149,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 150,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "City-Galerie Wolfsburg",
+        "address": "Porschestraße 1, 38440 Wolfsburg",
+        "lat": 52.423,
+        "lng": 10.787,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 160,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "City-Point Kassel",
+        "address": "Königsplatz 61, 34117 Kassel",
+        "lat": 51.317,
+        "lng": 9.497,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 150,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Forum Wetzlar",
+        "address": "Am Forum 1, 35576 Wetzlar",
+        "lat": 50.556,
+        "lng": 8.503,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 180,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Herold-Center Norderstedt",
+        "address": "Berliner Allee 38, 22850 Norderstedt",
+        "lat": 53.706,
+        "lng": 9.999,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 180,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Main-Taunus-Zentrum",
+        "address": "Main-Taunus-Zentrum 1, 65843 Sulzbach (Taunus)",
+        "lat": 50.136,
+        "lng": 8.535,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 450,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Phoenix-Center Hamburg",
+        "address": "Hannoversche Straße 86, 21079 Hamburg-Harburg",
+        "lat": 53.465,
+        "lng": 9.984,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 180,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Rathaus-Center Dessau",
+        "address": "Kavalierstraße 49, 06844 Dessau-Roßlau",
+        "lat": 51.834,
+        "lng": 12.242,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 120,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Rhein-Neckar-Zentrum",
+        "address": "Robert-Schuman-Straße 8, 68519 Viernheim",
+        "lat": 49.539,
+        "lng": 8.576,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 380,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Saarpark-Center Neunkirchen",
+        "address": "Am Saarpark 1, 66538 Neunkirchen",
+        "lat": 49.348,
+        "lng": 7.179,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 200,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Stadt-Galerie Hameln",
+        "address": "Pferdemarkt, 31785 Hameln",
+        "lat": 52.103,
+        "lng": 9.357,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 140,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      },
+      {
+        "name": "Stadt-Galerie Passau",
+        "address": "Bahnhofstraße 1, 94032 Passau",
+        "lat": 48.573,
+        "lng": 13.452,
+        "usage": "Retail",
+        "area": "Shopping-Center",
+        "purchaseDate": "Bestand (über Deutsche EuroShop, Otto/Cura-Mehrheit)",
+        "valueEUR": 180,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Deutsche EuroShop – Standorte",
+            "url": "https://www.deutsche-euroshop.de/Shoppingcenter/Standorte"
+          },
+          {
+            "label": "private-banking-magazin – Otto/Cura übernimmt DES",
+            "url": "https://www.private-banking-magazin.de/otto-cura-single-family-office-deutsche-euroshop-uebernahme-oaktree-deal/"
+          }
+        ]
+      }
+    ],
     "heatmap": [
       {
         "name": "Hamburg (ECE-Zentrale & Standorte)",
@@ -684,6 +1059,28 @@ window.FO_DATA = [
           {
             "label": "KOEHLER GROUP",
             "url": "https://www.koehlergroup.com/en/"
+          }
+        ]
+      },
+      {
+        "name": "Wohn-/Geschäftshaus Kornbergstraße",
+        "address": "Kornbergstraße 23 + 29–31, 70176 Stuttgart-West",
+        "lat": 48.777,
+        "lng": 9.161,
+        "usage": "Wohnen",
+        "area": "~2.800 m² Büro, 300 m² Retail, 15 Whg., 57 Stellplätze",
+        "purchaseDate": "2022 (Ankauf v. BNP)",
+        "valueEUR": 20,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "eug-immobilien – Kornbergstraße",
+            "url": "https://www.eug-immobilien.de/gewerbe-immobilien/news/2022/02/kornbergstrasse-23"
+          },
+          {
+            "label": "presse-blog – BNP verkauft an KOEHLER",
+            "url": "https://www.presse-blog.com/2022/01/18/bnp-paribas-reim-germany-verkauft-wohn-und-geschaeftshaus-in-stuttgart-an-die-koehler-group/"
           }
         ]
       }
