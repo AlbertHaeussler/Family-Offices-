@@ -418,6 +418,157 @@ window.FO_DATA = [
       { name:"München (Eigenbestand)", intensity:"hoch", usages:["Retail","Wohnen","Buero"], center:[48.14,11.57], radiusKm:22, basis:"quelle",
         sources:[{label:"Jost Hurler",url:"https://www.jost-hurler.de/en/"}] }
     ]
+  },
+  {
+    id:"sahle", name:"Sahle Wohnen GmbH & Co. KG (Familie Sahle)", kurz:"Sahle Wohnen",
+    typ:"SFO", land:"Deutschland", hqAddress:"Bismarckstraße 34, 48268 Greven",
+    hqLat:52.0920, hqLng:7.6180, website:"sahle-wohnen.de", domain:"sahle-wohnen.de",
+    linkedin:"", contactName:"Familie Sahle · GF Andreas Tegelkamp / Carsten Lucassen",
+    contactRole:"Geschäftsführung / Bestandshaltung", contactChannel:"kontakt@sahle.de · Bismarckstr. 34, 48268 Greven",
+    category:"gruen",
+    aum:{ value:3.5, unit:"Mrd €", basis:"extrapolation",
+      note:"~23.000 eigene Wohnungen; Wert grob aus Bestand geschätzt (kein offizielles AUM).",
+      sources:[{label:"Wikipedia – Sahle Wohnen",url:"https://de.wikipedia.org/wiki/Sahle_Wohnen"}] },
+    reQuote:{ value:0.95, basis:"quelle",
+      note:"Reines Wohnungsunternehmen (Bestandshalter).",
+      sources:[{label:"Sahle Wohnen",url:"https://www.sahle-wohnen.de/"}] },
+    reInvestedEUR:3.5, usage:{ Wohnen:100 }, confirmedObjects:[],
+    heatmap:[
+      { name:"NRW (Münsterland/Rheinland)", intensity:"hoch", usages:["Wohnen"], center:[51.6,7.3], radiusKm:70, basis:"quelle",
+        sources:[{label:"Sahle Wohnen – Standorte",url:"https://www.sahle-wohnen.de/"}] },
+      { name:"Berlin / Hamburg / Frankfurt", intensity:"niedrig", usages:["Wohnen"], center:[52.2,10.5], radiusKm:130, basis:"quelle",
+        sources:[{label:"Wikipedia – Sahle Wohnen",url:"https://de.wikipedia.org/wiki/Sahle_Wohnen"}] }
+    ]
+  },
+  {
+    id:"doblinger", name:"Doblinger Beteiligung GmbH (Doblinger Unternehmensgruppe)", kurz:"Doblinger",
+    typ:"SFO", land:"Deutschland", hqAddress:"Lilienthalallee 25, 80939 München",
+    hqLat:48.2095, hqLng:11.5760, website:"doblinger-unternehmensgruppe.de", domain:"doblinger-unternehmensgruppe.de",
+    linkedin:"", contactName:"Familie/Unternehmensgruppe Doblinger (gegr. Alfons Doblinger)",
+    contactRole:"Immobilien / Bestandshaltung", contactChannel:"über doblinger-unternehmensgruppe.de",
+    category:"gruen",
+    aum:{ value:8.0, unit:"Mrd €", basis:"extrapolation",
+      note:"~19.000 Wohnungen + Toplagen München; laut Presse eines der wertvollsten Immobilienvermögen – Größenordnung geschätzt.",
+      sources:[{label:"Rosa-Luxemburg-Stiftung",url:"https://www.rosalux.de/news/id/52100/doblinger-das-wertvollste-immobilienvermoegen"},
+               {label:"Wikipedia – Doblinger",url:"https://de.wikipedia.org/wiki/Doblinger_Unternehmensgruppe"}] },
+    reQuote:{ value:0.90, basis:"quelle",
+      note:"Immobilien = Kern (Wohnbestand + Toplagen-Grundstücke München).",
+      sources:[{label:"Doblinger Unternehmensgruppe",url:"https://www.doblinger-unternehmensgruppe.de/"}] },
+    reInvestedEUR:7.0, usage:{ Wohnen:70, Retail:20, Buero:10 },
+    confirmedObjects:[
+      { name:"Kaufhof-/Galeria-Gebäude am Marienplatz", address:"Kaufingerstraße 1–5, 80331 München", lat:48.1372, lng:11.5745,
+        usage:"Retail", area:"Warenhaus-Immobilie (Toplage)", purchaseDate:"Bestand", valueEUR:400, status:"Bestand", images:[],
+        sources:[{label:"Rosa-Luxemburg-Stiftung",url:"https://www.rosalux.de/news/id/52100/doblinger-das-wertvollste-immobilienvermoegen"},
+                 {label:"Abendzeitung München",url:"https://www.abendzeitung-muenchen.de/muenchen/bayernlb-verkauft-luxusbauten-an-doblinger-und-benko-entstehen-wohnungen-art-838859"}] }
+    ],
+    heatmap:[
+      { name:"München (Kernmarkt)", intensity:"hoch", usages:["Wohnen","Retail","Buero"], center:[48.14,11.57], radiusKm:22, basis:"quelle",
+        sources:[{label:"Doblinger",url:"https://www.doblinger-unternehmensgruppe.de/"}] }
+    ]
+  },
+  {
+    id:"garbe", name:"GARBE Industrial Real Estate GmbH (Familie Garbe)", kurz:"GARBE",
+    typ:"SFO", land:"Deutschland", hqAddress:"Caffamacherreihe 8, 20355 Hamburg",
+    hqLat:53.5560, hqLng:9.9860, website:"garbe.de", domain:"garbe.de",
+    linkedin:"https://de.linkedin.com/company/garbe-industrial-real-estate-gmbh",
+    contactName:"Familie Garbe · GARBE Industrial Real Estate", contactRole:"Ankauf Logistik-/Industrieimmobilien",
+    contactChannel:"über garbe-industrial.de", category:"gruen",
+    aum:{ value:10.3, unit:"Mrd €", basis:"quelle",
+      note:"AUM >10 Mrd € (2022); 194 Objekte, 5,3 Mio m² (europaweit).",
+      sources:[{label:"GARBE – 10 Mrd € AUM",url:"https://www.garbe-industrial.de/garbe-industrial-real-estate-knackt-im-ersten-halbjahr-die-10-milliarden-euro-marke-bei-den-assets-under-management/"}] },
+    reQuote:{ value:1.0, basis:"quelle",
+      note:"Spezialist Logistik-/Industrieimmobilien (Kerngeschäft).",
+      sources:[{label:"GARBE Industrial",url:"https://www.garbe-industrial.de/"}] },
+    reInvestedEUR:10.3, usage:{ Logistik:100 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Logistik-Hubs bundesweit", intensity:"hoch", usages:["Logistik"], center:[51.2,10.2], radiusKm:170, basis:"quelle",
+        sources:[{label:"GARBE Industrial – Portfolio",url:"https://www.garbe-industrial.de/"}] }
+    ]
+  },
+  {
+    id:"becken", name:"Becken Holding GmbH (Family Office Dieter Becken)", kurz:"Becken",
+    typ:"SFO", land:"Deutschland", hqAddress:"Esplanade 41, 20354 Hamburg",
+    hqLat:53.5585, hqLng:9.9905, website:"becken-hamburg.de", domain:"becken-hamburg.de",
+    linkedin:"https://de.linkedin.com/company/becken-holding-gmbh",
+    contactName:"Dieter Becken (Gründer) · Becken Development / Asset Management / Estates",
+    contactRole:"Development / Asset Management / Ankauf", contactChannel:"info@becken.de · Esplanade 41, 20354 Hamburg",
+    category:"gruen",
+    aum:{ value:2.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Inhabergeführtes Immobilien-/Investmenthaus (seit 1978); AUM nicht offiziell, geschätzt.",
+      sources:[{label:"Becken – Unternehmen",url:"https://www.becken-hamburg.de/en/unternehmen/"}] },
+    reQuote:{ value:0.90, basis:"quelle",
+      note:"Immobilien = Kern (Büro, Wohnen, Logistik; Development + Asset-Management).",
+      sources:[{label:"Becken",url:"https://www.becken-hamburg.de/"}] },
+    reInvestedEUR:1.8, usage:{ Buero:50, Wohnen:30, Logistik:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (Sitz & Projekte)", intensity:"hoch", usages:["Buero","Wohnen"], center:[53.55,9.99], radiusKm:22, basis:"quelle",
+        sources:[{label:"Becken",url:"https://www.becken-hamburg.de/"}] },
+      { name:"Berlin / Frankfurt / München", intensity:"mittel", usages:["Buero","Wohnen"], center:[51.5,10.5], radiusKm:150, basis:"quelle",
+        sources:[{label:"Becken – Standorte",url:"https://www.becken-hamburg.de/en/unternehmen/"}] }
+    ]
+  },
+  {
+    id:"momeni", name:"MOMENI Group (MOMENI Immobilien Holding)", kurz:"MOMENI",
+    typ:"SFO", land:"Deutschland", hqAddress:"Kaiser-Wilhelm-Straße 14, 20355 Hamburg",
+    hqLat:53.5555, hqLng:9.9820, website:"momeni-group.com", domain:"momeni-group.com",
+    linkedin:"https://de.linkedin.com/company/momeni-group1",
+    contactName:"Familie Momeni · MOMENI Investment Management", contactRole:"Investment Management / Development / Ankauf",
+    contactChannel:"über momeni-group.com", category:"gruen",
+    aum:{ value:3.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Inhabergeführter Investment-/Fondsmanager (gegr. 2004); AUM nicht offiziell, geschätzt.",
+      sources:[{label:"MOMENI Group",url:"https://momeni-group.com/en/"}] },
+    reQuote:{ value:0.90, basis:"quelle",
+      note:"Hochwertige Innenstadt-Immobilien (Büro/Retail) in Metropolen – Kerngeschäft.",
+      sources:[{label:"MOMENI – Properties",url:"https://momeni-group.com/en/properties"}] },
+    reInvestedEUR:2.5, usage:{ Buero:50, Retail:30, Wohnen:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Innenstadt-Metropolen (HH/FfM/D/B)", intensity:"hoch", usages:["Buero","Retail"], center:[51.6,9.9], radiusKm:150, basis:"quelle",
+        sources:[{label:"MOMENI – Investment Management",url:"https://momeni-group.com/en/investment-management"}] }
+    ]
+  },
+  {
+    id:"gundlach", name:"Gundlach Bau und Immobilien (Familie Gundlach)", kurz:"Gundlach",
+    typ:"SFO", land:"Deutschland", hqAddress:"Am Holzgraben 1, 30171 Hannover (Villa Köhler)",
+    hqLat:52.3760, hqLng:9.7560, website:"gundlach-bau.de", domain:"gundlach-bau.de",
+    linkedin:"", contactName:"Familie Gundlach (5. Gen.: K. Schmidt, C. Schmidt, L. Hansen)",
+    contactRole:"Bestand / Development / Verwaltung", contactChannel:"über gundlach-bau.de",
+    category:"gruen",
+    aum:{ value:0.8, unit:"Mrd €", basis:"extrapolation",
+      note:"~4.300 eigene Wohnungen/Objekte (Region Hannover); Wert grob geschätzt.",
+      sources:[{label:"Wikipedia – Gundlach",url:"https://de.wikipedia.org/wiki/Gundlach_Bau_und_Immobilien"}] },
+    reQuote:{ value:0.85, basis:"quelle",
+      note:"Integrierte Immobiliengruppe (Bestand + Development), Fokus Hannover.",
+      sources:[{label:"Gundlach – Unternehmen",url:"https://www.gundlach-bau.de/ueber-uns/das-unternehmen"}] },
+    reInvestedEUR:0.7, usage:{ Wohnen:80, Buero:10, Retail:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Region Hannover", intensity:"hoch", usages:["Wohnen"], center:[52.37,9.74], radiusKm:35, basis:"quelle",
+        sources:[{label:"Gundlach",url:"https://www.gundlach-bau.de/"}] }
+    ]
+  },
+  {
+    id:"mayfair", name:"Mayfair Vermögensverwaltungs SE (Familie Herz)", kurz:"Mayfair (Herz)",
+    typ:"SFO", land:"Deutschland", hqAddress:"Neuer Jungfernstieg, 20354 Hamburg (Palais Mayfair)",
+    hqLat:53.5565, hqLng:9.9925, website:"mayfair-hamburg.de", domain:"mayfair-hamburg.de",
+    linkedin:"", contactName:"Günter Herz & Daniela Herz-Schnoeckl (Tchibo-Erben)",
+    contactRole:"Familienholding / Investments", contactChannel:"über mayfair-hamburg.de",
+    category:"gelb",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Familienholding der Herz-Geschwister (nach Tchibo-Verkauf 2002); Vermögen mehrere Mrd €, geschätzt.",
+      sources:[{label:"Wikipedia – Mayfair Vermögensverwaltung",url:"https://en.wikipedia.org/wiki/Mayfair_Verm%C3%B6gensverwaltung"}] },
+    reQuote:{ value:0.20, basis:"extrapolation",
+      note:"Immobilien = eine von drei Säulen (neben Unternehmensbeteiligungen und Wertpapieren).",
+      sources:[{label:"Mayfair Hamburg",url:"https://www.mayfair-hamburg.de/"}] },
+    reInvestedEUR:1.0, usage:{ Sonstiges:60, Buero:20, Wohnen:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg", intensity:"mittel", usages:null, center:[53.55,9.99], radiusKm:22, basis:"extrapolation",
+        note:"Immobilien-Säule vorhanden, aber kein öffentliches Objektverzeichnis; Region vom Sitz abgeleitet.",
+        sources:[{label:"Mayfair Hamburg",url:"https://www.mayfair-hamburg.de/"}] }
+    ]
   }
 ];
 
