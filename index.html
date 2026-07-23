@@ -12,25 +12,26 @@
 <script src="./vendor/xlsx.js"></script>
 <script src="./data.js"></script>
 <style>
-  :root{ --bg:#f5f5f7; --panel:rgba(255,255,255,.82); --stroke:#e3e3e8; --txt:#1d1d1f; --muted:#6e6e73; --accent:#0071e3; }
+  :root{ --bg:#f5f5f7; --panel:rgba(255,255,255,.85); --stroke:#e3e3e8; --txt:#1d1d1f; --muted:#6e6e73; --accent:#0071e3; }
   *{box-sizing:border-box}
   html,body,#root{height:100%;margin:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--txt);background:var(--bg)}
   #map{position:absolute;inset:0;z-index:0}
-  .glass{background:var(--panel);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:1px solid var(--stroke);border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
-  .topbar{position:absolute;top:14px;left:14px;z-index:500;padding:10px 16px;display:flex;align-items:center;gap:10px}
+  .glass{background:var(--panel);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:1px solid var(--stroke);border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.14)}
+  .topbar{position:absolute;top:14px;left:14px;z-index:500;padding:10px 16px;display:flex;align-items:center;gap:12px}
   .topbar h1{font-size:15px;margin:0;font-weight:600;letter-spacing:-.2px}
   .topbar .sub{font-size:11px;color:var(--muted)}
+  .iBtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--stroke);background:#fff;color:var(--accent);font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .panel{position:absolute;z-index:500;padding:14px}
-  .legend{top:14px;right:14px;width:250px}
+  .legend{top:14px;right:14px;width:252px}
   .legend h2,.info h2,.adv h2{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 10px}
   .dotrow{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:12px;cursor:pointer;transition:background .15s;user-select:none}
-  .dotrow:hover{background:rgba(0,0,0,.04)}
+  .dotrow:hover{background:rgba(0,0,0,.05)}
   .dot{width:16px;height:16px;border-radius:50%;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-  .dotrow.off{opacity:.45}
+  .dotrow.off{opacity:.42}
   .dotrow.off .dot{background:#c7c7cc!important}
   .dotlabel{font-size:12.5px;line-height:1.25}
-  .info{top:250px;right:14px;width:250px}
+  .info{top:262px;right:14px;width:252px}
   .stat{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
   .stat b{font-variant-numeric:tabular-nums}
   .pie-wrap{display:flex;flex-direction:column;align-items:center;margin-top:6px}
@@ -39,7 +40,7 @@
   .pchip:hover{background:rgba(0,0,0,.05)}
   .pchip.off{opacity:.38;text-decoration:line-through}
   .sw{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
-  .adv{bottom:14px;left:14px;width:290px;max-height:calc(100% - 40px);overflow:auto}
+  .adv{bottom:14px;left:14px;width:296px;max-height:calc(100% - 40px);overflow:auto}
   .fld{margin:8px 0}
   .fld label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
   select,input[type=number]{width:100%;padding:7px 9px;border:1px solid var(--stroke);border-radius:10px;font-size:13px;background:#fff}
@@ -47,24 +48,33 @@
   .btn{appearance:none;border:none;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:500;cursor:pointer;background:var(--accent);color:#fff;transition:filter .15s}
   .btn:hover{filter:brightness(1.08)}
   .btn.sec{background:#fff;color:var(--txt);border:1px solid var(--stroke)}
-  .btn.ghost{background:rgba(0,0,0,.05);color:var(--txt)}
+  .btn.ghost{background:rgba(0,0,0,.06);color:var(--txt)}
   .btn.wide{width:100%}
   .btnrow{display:flex;gap:8px;margin-top:8px}
   .pininfo{font-size:11px;color:var(--muted);margin-top:4px}
-  /* detail panel (Seite 2) */
-  .detail{position:absolute;top:14px;right:14px;width:330px;max-height:calc(100% - 28px);overflow:auto;z-index:600;padding:16px}
+  .layerToggle{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:500;display:flex;gap:2px;padding:4px;border-radius:12px}
+  .layerToggle button{border:none;background:transparent;padding:6px 14px;border-radius:9px;font-size:12px;cursor:pointer;color:var(--txt)}
+  .layerToggle button.on{background:var(--accent);color:#fff}
+  /* detail panel firm (Seite 2) */
+  .detail{position:absolute;top:14px;right:14px;width:340px;max-height:calc(100% - 28px);overflow:auto;z-index:600;padding:16px}
   .detail h3{margin:0 0 2px;font-size:16px}
   .detail .meta{font-size:12px;color:var(--muted);margin-bottom:10px}
   .kv{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:4px 0;border-top:1px solid var(--stroke)}
   .kv span:first-child{color:var(--muted)}
-  .kv a{color:var(--accent);text-decoration:none;word-break:break-all}
+  a.lnk,.src a{color:var(--accent);text-decoration:none;word-break:break-word}
+  a.lnk:hover,.src a:hover{text-decoration:underline}
+  .est-badge{display:inline-block;font-size:10px;font-weight:600;color:#9a6a00;background:#fff3d6;border:1px solid #f0d999;border-radius:6px;padding:1px 6px;margin-left:6px}
+  .src{margin-top:3px;font-size:11px;color:var(--muted);line-height:1.5}
+  .src .lab{font-weight:600;color:#555}
+  .srcbox{background:rgba(0,0,0,.03);border-radius:10px;padding:8px 10px;margin:6px 0}
   .objlist{margin-top:10px}
-  .obj{font-size:12px;padding:7px 0;border-top:1px solid var(--stroke)}
+  .obj{font-size:12px;padding:7px 0;border-top:1px solid var(--stroke);cursor:pointer}
+  .obj:hover{color:var(--accent)}
   .obj b{font-weight:600}
   .obj .a{color:var(--muted)}
   .close-x{float:right;cursor:pointer;color:var(--muted);font-size:18px;line-height:1;border:none;background:none}
-  /* table window */
-  .winwrap{position:absolute;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25)}
+  /* table + modal window */
+  .winwrap{position:absolute;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28)}
   .win{width:min(1180px,95vw);height:min(78vh,760px);display:flex;flex-direction:column;overflow:hidden}
   .win.min{height:44px}
   .win.max{width:100vw;height:100vh;border-radius:0}
@@ -81,213 +91,242 @@
   th:hover{color:var(--accent)}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   tr:hover td{background:rgba(0,113,227,.05)}
-  .disc{position:absolute;bottom:14px;right:14px;z-index:450;font-size:10.5px;color:var(--muted);max-width:250px;text-align:right;line-height:1.35;pointer-events:none}
+  /* Seite 3 detail modal */
+  .s3wrap{position:absolute;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3)}
+  .s3{width:min(460px,92vw);max-height:86vh;overflow:auto;padding:0}
+  .s3 .hd{padding:14px 16px;border-bottom:1px solid var(--stroke);display:flex;align-items:center;gap:8px}
+  .s3 .hd .lights{margin-right:2px}
+  .s3 .bd{padding:14px 16px}
+  .s3 h3{margin:0 0 2px;font-size:16px}
+  .s3 .tag{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:20px;color:#fff}
+  .discpop{position:absolute;top:52px;left:14px;z-index:700;width:320px;padding:14px;font-size:12px;line-height:1.5}
+  .heatpill{display:inline-block;font-size:10px;padding:1px 7px;border-radius:20px;color:#fff;font-weight:600}
+  .disc{position:absolute;bottom:58px;right:14px;z-index:450;font-size:10.5px;color:var(--muted);max-width:250px;text-align:right;line-height:1.35;pointer-events:none}
   .leaflet-div-icon{background:transparent;border:none}
-  .hqmark{width:46px;height:46px;border-radius:50%;background:#fff center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#333;box-shadow:0 2px 8px rgba(0,0,0,.3);cursor:pointer;border:3px solid #ccc}
-  .hqmark.sel{transform:scale(1.12);box-shadow:0 0 0 4px rgba(0,113,227,.35),0 2px 10px rgba(0,0,0,.35)}
-  @media (max-width:820px){ .legend,.info,.detail{width:210px} .adv{width:220px} }
+  .hqbox{position:relative;display:flex;align-items:center;justify-content:center;min-width:66px;min-height:34px;padding:6px 10px;border-radius:12px;background:#fff;border:2.5px solid var(--ring,#ccc);box-shadow:0 2px 10px rgba(0,0,0,.28);cursor:pointer;transition:transform .12s}
+  .hqbox.est{border-style:dashed}
+  .hqbox.sel{transform:scale(1.1);box-shadow:0 0 0 4px rgba(0,113,227,.32),0 2px 12px rgba(0,0,0,.35)}
+  .hqname{font-size:11px;font-weight:700;color:#1d1d1f;text-align:center;line-height:1.05;max-width:120px}
+  .hqlogo{position:absolute;inset:4px;margin:auto;max-width:calc(100% - 10px);max-height:26px;object-fit:contain;background:#fff;border-radius:6px}
+  @media (max-width:860px){ .legend,.info,.detail{width:212px} .adv{width:220px} .info{top:250px} }
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
 const {useState,useEffect,useRef,useMemo} = React;
-const DATA = window.FO_DATA;
-const UL = window.USAGE_LABELS, UC = window.USAGE_COLORS, CM = window.CATEGORY_META;
-const USAGE_KEYS = Object.keys(UL);
-const CATS = ["gruen","gelb","rot"];
-const fmtB = n => (n>=1? n.toFixed(n>=10?0:1)+" Mrd €" : (n*1000).toFixed(0)+" Mio €");
+const DATA=window.FO_DATA, UL=window.USAGE_LABELS, UC=window.USAGE_COLORS, CM=window.CATEGORY_META, INT=window.INTENSITY;
+const USAGE_KEYS=Object.keys(UL), CATS=["gruen","gelb","rot"];
+const fmtB=n=> n>=1? (n>=10?n.toFixed(0):n.toFixed(1))+" Mrd €" : (n*1000).toFixed(0)+" Mio €";
+const hv=(a,b,c,d)=>{const R=6371,t=x=>x*Math.PI/180;const p=t(c-a),q=t(d-b);
+  const s=Math.sin(p/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(q/2)**2;return 2*R*Math.asin(Math.sqrt(s));};
 
-function haversine(a,b,c,d){const R=6371,t=x=>x*Math.PI/180;const dφ=t(c-a),dλ=t(d-b);
-  const s=Math.sin(dφ/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(dλ/2)**2;return 2*R*Math.asin(Math.sqrt(s));}
+// ---- source rendering ----
+function Sources({field,label}){
+  if(!field) return null;
+  const ext = field.basis==="extrapolation";
+  const noSrc = !field.sources || field.sources.length===0;
+  return (
+   <div className="src">
+     <span className="lab">{label}:</span>{" "}
+     {ext && noSrc && <span>Reine Einschätzung (Extrapolation) – keine Einzelquelle.</span>}
+     {ext && !noSrc && <span>Einschätzung, gestützt auf: </span>}
+     {!ext && <span>Quelle: </span>}
+     {!noSrc && field.sources.map((s,i)=>(
+       <span key={i}>{i>0?" · ":""}<a href={s.url} target="_blank" rel="noopener">{s.label}</a></span>
+     ))}
+     {field.note && <div style={{marginTop:2,fontStyle:"italic"}}>{field.note}</div>}
+   </div>
+  );
+}
 
-// ---- Pie chart (SVG), clickable slices ----
 function Pie({data,activeUsages,onToggle}){
-  const entries = USAGE_KEYS.map(k=>({k,v:data[k]||0})).filter(e=>e.v>0);
-  const total = entries.reduce((s,e)=>s+e.v,0) || 1;
-  let acc=0; const R=52,C=60;
-  const arcs = entries.map(e=>{
-    const a0=acc/total*2*Math.PI, a1=(acc+e.v)/total*2*Math.PI; acc+=e.v;
+  const entries=USAGE_KEYS.map(k=>({k,v:data[k]||0})).filter(e=>e.v>0);
+  const total=entries.reduce((s,e)=>s+e.v,0)||1; let acc=0; const R=52,C=60;
+  const arcs=entries.map(e=>{const a0=acc/total*2*Math.PI,a1=(acc+e.v)/total*2*Math.PI;acc+=e.v;
     const x0=C+R*Math.sin(a0),y0=C-R*Math.cos(a0),x1=C+R*Math.sin(a1),y1=C-R*Math.cos(a1);
-    const large=(a1-a0)>Math.PI?1:0;
-    const on=activeUsages.has(e.k);
-    return {...e,d:`M${C},${C} L${x0},${y0} A${R},${R} 0 ${large} 1 ${x1},${y1} Z`,on};
-  });
+    return {...e,d:`M${C},${C} L${x0},${y0} A${R},${R} 0 ${(a1-a0)>Math.PI?1:0} 1 ${x1},${y1} Z`,on:activeUsages.has(e.k)};});
   return (
    <div className="pie-wrap">
      <svg width="120" height="120" viewBox="0 0 120 120">
-       {arcs.map(a=>(
-         <path key={a.k} d={a.d} fill={UC[a.k]} opacity={a.on?1:.22}
-           stroke="#fff" strokeWidth="1.5" style={{cursor:"pointer"}}
-           onClick={()=>onToggle(a.k)}/>
-       ))}
-       <circle cx="60" cy="60" r="26" fill="rgba(255,255,255,.9)"/>
+       {arcs.map(a=><path key={a.k} d={a.d} fill={UC[a.k]} opacity={a.on?1:.22} stroke="#fff" strokeWidth="1.5" style={{cursor:"pointer"}} onClick={()=>onToggle(a.k)}/>)}
+       <circle cx="60" cy="60" r="26" fill="rgba(255,255,255,.92)"/>
      </svg>
      <div className="pielegend">
-       {USAGE_KEYS.map(k=>(
-         <div key={k} className={"pchip"+(activeUsages.has(k)?"":" off")} onClick={()=>onToggle(k)}>
-           <span className="sw" style={{background:UC[k]}}/> {UL[k]}
-         </div>
-       ))}
+       {USAGE_KEYS.map(k=><div key={k} className={"pchip"+(activeUsages.has(k)?"":" off")} onClick={()=>onToggle(k)}><span className="sw" style={{background:UC[k]}}/> {UL[k]}</div>)}
      </div>
    </div>
   );
 }
 
 function App(){
-  const mapRef=useRef(null), hqLayer=useRef(null), objLayer=useRef(null), pinLayer=useRef(null);
+  const mapRef=useRef(null),hqL=useRef(null),objL=useRef(null),heatL=useRef(null),pinL=useRef(null),tileRef=useRef({});
   const [activeCats,setActiveCats]=useState(new Set(CATS));
   const [activeUsages,setActiveUsages]=useState(new Set(USAGE_KEYS));
   const [country,setCountry]=useState("all");
-  const [minAum,setMinAum]=useState(0);
-  const [maxAum,setMaxAum]=useState(50);
-  const [pin,setPin]=useState(null);
-  const [pinRadius,setPinRadius]=useState(25);
-  const [pinMode,setPinMode]=useState(false);
+  const [minAum,setMinAum]=useState(0),[maxAum,setMaxAum]=useState(50);
+  const [pin,setPin]=useState(null),[pinRadius,setPinRadius]=useState(30),[pinMode,setPinMode]=useState(false);
   const [selected,setSelected]=useState(new Set());
-  const [showTable,setShowTable]=useState(false);
-  const [winMode,setWinMode]=useState("normal"); // normal|min|max
-  const [sortKey,setSortKey]=useState("aumEUR"); const [sortDir,setSortDir]=useState(-1);
-  const stateRef=useRef({});
+  const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal");
+  const [sortKey,setSortKey]=useState("aumV"),[sortDir,setSortDir]=useState(-1);
+  const [detail,setDetail]=useState(null);      // Seite 3 {kind,office,data}
+  const [baseLayer,setBaseLayer]=useState("sat");
+  const [showDisc,setShowDisc]=useState(false);
+  const sref=useRef({});
 
-  const countries = useMemo(()=>["all",...Array.from(new Set(DATA.map(o=>o.land)))],[]);
+  const countries=useMemo(()=>["all",...Array.from(new Set(DATA.map(o=>o.land)))],[]);
+  const passesBase=o=> activeCats.has(o.category) && (country==="all"||o.land===country) && o.aum.value>=minAum && o.aum.value<=maxAum;
+  const officeUsagePass=o=> USAGE_KEYS.some(k=>o.usage[k]>0 && activeUsages.has(k));
+  const confInRadius=o=> !pin?[]:o.confirmedObjects.filter(ob=>activeUsages.has(ob.usage)&&hv(pin.lat,pin.lng,ob.lat,ob.lng)<=pinRadius);
+  const heatOverlap=o=> !pin?[]:(o.heatmap||[]).filter(r=>(r.usages===null||r.usages.some(u=>activeUsages.has(u)))&&hv(pin.lat,pin.lng,r.center[0],r.center[1])<=pinRadius+r.radiusKm);
 
-  // ---- filtering logic ----
-  const officeUsagePass = o => USAGE_KEYS.some(k=>(o.usage[k]>0)&&activeUsages.has(k));
-  const objectsInRadius = o => !pin?[]:o.objects.filter(ob=>activeUsages.has(ob.usage)&&haversine(pin.lat,pin.lng,ob.lat,ob.lng)<=pinRadius);
-  const passes = o => {
-    if(!activeCats.has(o.category)) return false;
-    if(!officeUsagePass(o)) return false;
-    if(country!=="all" && o.land!==country) return false;
-    if(o.aumEUR<minAum || o.aumEUR>maxAum) return false;
-    if(pin && objectsInRadius(o).length===0) return false;
-    return true;
-  };
-  const visible = useMemo(()=>DATA.filter(passes),
-    [activeCats,activeUsages,country,minAum,maxAum,pin,pinRadius]);
+  const visible=useMemo(()=>{
+    const out=[];
+    DATA.forEach(o=>{
+      if(!passesBase(o))return;
+      if(pin){
+        const conf=confInRadius(o), heat=heatOverlap(o);
+        if(conf.length>0) out.push({o,type:"confirmed",conf,heat});
+        else if(heat.length>0) out.push({o,type:"estimated",conf:[],heat});
+      } else {
+        if(officeUsagePass(o)) out.push({o,type:"confirmed",conf:o.confirmedObjects,heat:o.heatmap||[]});
+      }
+    });
+    return out;
+  },[activeCats,activeUsages,country,minAum,maxAum,pin,pinRadius]);
+  const visOffices=visible.map(v=>v.o);
 
-  // aggregates for info box
-  const agg = useMemo(()=>{
-    const count=visible.length;
-    const aum=visible.reduce((s,o)=>s+o.aumEUR,0);
-    const re=visible.reduce((s,o)=>s+o.reInvestedEUR,0);
-    const pie={}; USAGE_KEYS.forEach(k=>pie[k]=0);
-    visible.forEach(o=>USAGE_KEYS.forEach(k=>pie[k]+=o.reInvestedEUR*(o.usage[k]||0)/100));
+  const agg=useMemo(()=>{
+    const count=visOffices.length;
+    const aum=visOffices.reduce((s,o)=>s+o.aum.value,0);
+    const re=visOffices.reduce((s,o)=>s+o.reInvestedEUR,0);
+    const pie={};USAGE_KEYS.forEach(k=>pie[k]=0);
+    visOffices.forEach(o=>USAGE_KEYS.forEach(k=>pie[k]+=o.reInvestedEUR*(o.usage[k]||0)/100));
     return {count,aum,re,pie};
   },[visible]);
 
-  stateRef.current={visible,selected,pinMode};
+  sref.current={visible,selected,pinMode};
 
-  // ---- init map ----
+  // init map
   useEffect(()=>{
-    const map=L.map("map",{zoomControl:true,minZoom:4,maxZoom:19}).setView([50.6,9.5],6);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-      {attribution:'&copy; OpenStreetMap, &copy; CARTO',maxZoom:19}).addTo(map);
-    hqLayer.current=L.layerGroup().addTo(map);
-    objLayer.current=L.layerGroup().addTo(map);
-    pinLayer.current=L.layerGroup().addTo(map);
-    map.on("click",e=>{
-      if(stateRef.current.pinMode){ setPin({lat:e.latlng.lat,lng:e.latlng.lng}); setPinMode(false); }
-    });
+    const map=L.map("map",{zoomControl:true,minZoom:4,maxZoom:19}).setView([50.6,9.8],6);
+    tileRef.current.sat=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Esri World Imagery"});
+    tileRef.current.labels=L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",{maxZoom:19});
+    tileRef.current.street=L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{maxZoom:19,attribution:"© OpenStreetMap, © CARTO"});
+    heatL.current=L.layerGroup().addTo(map);
+    hqL.current=L.layerGroup().addTo(map);
+    objL.current=L.layerGroup().addTo(map);
+    pinL.current=L.layerGroup().addTo(map);
+    map.on("click",e=>{ if(sref.current.pinMode){setPin({lat:e.latlng.lat,lng:e.latlng.lng});setPinMode(false);} });
     mapRef.current=map;
   },[]);
 
-  // ---- draw HQ markers ----
+  // base layer switch
   useEffect(()=>{
-    const lyr=hqLayer.current; if(!lyr)return; lyr.clearLayers();
-    visible.forEach(o=>{
-      const sel=selected.has(o.id);
-      const ring=CM[o.category].color;
-      const initials=o.kurz.split(/[\s/]+/).slice(0,2).map(w=>w[0]).join("").toUpperCase();
-      const html=`<div class="hqmark${sel?' sel':''}" style="border-color:${ring};background-image:url('https://logo.clearbit.com/${o.domain}')">
-        <span style="mix-blend-mode:normal">${o.domain?'' :initials}</span></div>`;
-      const icon=L.divIcon({html,iconSize:[46,46],iconAnchor:[23,23],className:""});
-      const m=L.marker([o.hqLat,o.hqLng],{icon,zIndexOffset:sel?1000:0}).addTo(lyr);
+    const m=mapRef.current,t=tileRef.current;if(!m)return;
+    [t.sat,t.labels,t.street].forEach(l=>l&&m.removeLayer(l));
+    if(baseLayer==="sat"){ t.sat.addTo(m); t.labels.addTo(m); } else { t.street.addTo(m); }
+    t.sat.bringToBack&&t.sat.bringToBack();
+  },[baseLayer]);
+
+  // HQ markers
+  useEffect(()=>{
+    const lyr=hqL.current;if(!lyr)return;lyr.clearLayers();
+    visible.forEach(({o,type})=>{
+      const sel=selected.has(o.id), est=(type==="estimated"), ring=CM[o.category].color;
+      const nm=o.kurz;
+      const html=`<div class="hqbox ${sel?'sel':''} ${est?'est':''}" style="--ring:${ring}">
+        <span class="hqname">${nm}</span>
+        ${o.domain?`<img class="hqlogo" src="https://logo.clearbit.com/${o.domain}" onerror="this.remove()"/>`:''}
+      </div>`;
+      const m=L.marker([o.hqLat,o.hqLng],{icon:L.divIcon({html,iconSize:[0,0],className:""}),zIndexOffset:sel?1000:0}).addTo(lyr);
       m.on("click",()=>toggleSelect(o.id));
-      m.bindTooltip(`<b>${o.kurz}</b><br>${o.hqAddress}`,{direction:"top",offset:[0,-20]});
+      m.bindTooltip(`<b>${o.kurz}</b><br>${o.hqAddress}${est?'<br><i>im Radius: geschätzt (Heatmap)</i>':''}`,{direction:"top",offset:[0,-18]});
     });
   },[visible,selected]);
 
-  // ---- draw object pins (selected offices → Seite 2; or pin-radius) ----
+  // object pins + heatmap overlays
   useEffect(()=>{
-    const lyr=objLayer.current; if(!lyr)return; lyr.clearLayers();
-    let toShow=[];
+    const oly=objL.current, hly=heatL.current;if(!oly)return;oly.clearLayers();hly.clearLayers();
+    let objs=[], heats=[];
     if(selected.size>0){
-      DATA.filter(o=>selected.has(o.id)).forEach(o=>o.objects.forEach(ob=>toShow.push({o,ob})));
+      DATA.filter(o=>selected.has(o.id)).forEach(o=>{
+        o.confirmedObjects.forEach(ob=>objs.push({o,ob}));
+        (o.heatmap||[]).forEach(r=>heats.push({o,r}));
+      });
     } else if(pin){
-      visible.forEach(o=>objectsInRadius(o).forEach(ob=>toShow.push({o,ob})));
+      visible.forEach(({o,conf,heat})=>{ conf.forEach(ob=>objs.push({o,ob})); heat.forEach(r=>heats.push({o,r})); });
     }
-    toShow.forEach(({o,ob})=>{
-      const r=6+Math.sqrt(ob.valueEUR)/1.6;
-      const c=L.circleMarker([ob.lat,ob.lng],{radius:r,color:"#fff",weight:1.5,
-        fillColor:UC[ob.usage]||"#888",fillOpacity:.85}).addTo(lyr);
-      c.bindTooltip(`<b>${o.kurz}</b><br>${ob.name}<br>${ob.address}<br>${UL[ob.usage]} · ~${ob.valueEUR} Mio € · ${ob.status}`,{direction:"top"});
+    heats.forEach(({o,r})=>{
+      const cfg=INT[r.intensity]||INT.mittel; const col=CM[o.category].color;
+      const c=L.circle(r.center,{radius:r.radiusKm*1000*cfg.r,stroke:false,fillColor:col,fillOpacity:cfg.w}).addTo(hly);
+      c.on("click",()=>setDetail({kind:"region",office:o,data:r}));
+      c.bindTooltip(`<b>${o.kurz}</b> · Region<br>${r.name} · Intensität: ${r.intensity}${r.basis==="extrapolation"?" (geschätzt)":""}`,{direction:"top"});
+    });
+    objs.forEach(({o,ob})=>{
+      const rad=6+Math.sqrt(ob.valueEUR)/1.6;
+      const c=L.circleMarker([ob.lat,ob.lng],{radius:rad,color:"#fff",weight:2,fillColor:UC[ob.usage]||"#888",fillOpacity:.9}).addTo(oly);
+      c.on("click",()=>setDetail({kind:"object",office:o,data:ob}));
+      c.bindTooltip(`<b>${o.kurz}</b><br>${ob.name}<br>${ob.address}`,{direction:"top"});
     });
   },[selected,visible,pin,pinRadius,activeUsages]);
 
-  // ---- draw pin + radius ----
+  // pin + radius
   useEffect(()=>{
-    const lyr=pinLayer.current; if(!lyr)return; lyr.clearLayers();
+    const lyr=pinL.current;if(!lyr)return;lyr.clearLayers();
     if(pin){
-      L.circle([pin.lat,pin.lng],{radius:pinRadius*1000,color:"#0071e3",weight:1.5,fillColor:"#0071e3",fillOpacity:.08}).addTo(lyr);
-      L.marker([pin.lat,pin.lng],{icon:L.divIcon({className:"",html:'<div style="font-size:26px;transform:translate(-13px,-26px)">📍</div>',iconSize:[0,0]})}).addTo(lyr);
+      L.circle([pin.lat,pin.lng],{radius:pinRadius*1000,color:"#0071e3",weight:1.5,fillColor:"#0071e3",fillOpacity:.06}).addTo(lyr);
+      L.marker([pin.lat,pin.lng],{icon:L.divIcon({className:"",html:'<div style="font-size:26px;transform:translate(-13px,-24px)">📍</div>',iconSize:[0,0]})}).addTo(lyr);
     }
   },[pin,pinRadius]);
 
-  function toggleSelect(id){ setSelected(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;}); }
-  function toggleCat(c){ setActiveCats(p=>{const n=new Set(p);n.has(c)?n.delete(c):n.add(c);return n;}); }
-  function toggleUsage(k){ setActiveUsages(p=>{const n=new Set(p);n.has(k)?n.delete(k):n.add(k);return n;}); }
+  function toggleSelect(id){setSelected(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});}
+  function toggleCat(c){setActiveCats(p=>{const n=new Set(p);n.has(c)?n.delete(c):n.add(c);return n;});}
+  function toggleUsage(k){setActiveUsages(p=>{const n=new Set(p);n.has(k)?n.delete(k):n.add(k);return n;});}
 
-  // ---- table ----
-  const tableRows = useMemo(()=>{
-    const rows=visible.map(o=>({
-      id:o.id, Name:o.kurz, HQ:o.hqAddress, Typ:o.typ, Land:o.land,
-      aumEUR:o.aumEUR, reInvestedEUR:o.reInvestedEUR, rePercent:o.rePercent,
-      objs:o.objects.length, Website:o.website, Kontakt:o.contactName, LinkedIn:o.linkedin
-    }));
-    rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];
-      if(typeof x==="number")return (x-y)*sortDir; return (""+x).localeCompare(""+y)*sortDir;});
+  const tableRows=useMemo(()=>{
+    const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
+      aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
+    rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return typeof x==="number"?(x-y)*sortDir:(""+x).localeCompare(""+y)*sortDir;});
     return rows;
   },[visible,sortKey,sortDir]);
-
-  function sortBy(k){ if(sortKey===k)setSortDir(d=>-d); else {setSortKey(k);setSortDir(1);} }
+  function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function exportXlsx(){
-    const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({
-      Name:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
-      "AUM (Mrd €)":r.aumEUR,"Immobilien (Mrd €)":r.reInvestedEUR,"Immobilienquote":Math.round(r.rePercent*100)+"%",
-      "Anzahl Objekte":r.objs,Website:r.Website,Kontakt:r.Kontakt,LinkedIn:r.LinkedIn
-    })));
-    const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
-    XLSX.writeFile(wb,"family_offices_auswahl.xlsx");
+    const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({Name:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
+      "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%","Objekte":r.objs,Website:r.Website,Kontakt:r.Kontakt})));
+    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");XLSX.writeFile(wb,"family_offices_auswahl.xlsx");
   }
 
-  const selOffices = DATA.filter(o=>selected.has(o.id));
-  const cols=[["Name","Name"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],
-    ["aumEUR","AUM"],["reInvestedEUR","Immob. €"],["rePercent","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
+  const selOffices=DATA.filter(o=>selected.has(o.id));
+  const cols=[["Name","Name"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
 
   return (
    <React.Fragment>
      <div id="map"></div>
 
      <div className="topbar glass">
-       <div>
-         <h1>Family Offices · Immobilien-Map</h1>
-         <div className="sub">Pilot: 10 Offices · Stand 07/2026 · Werte teils geschätzt</div>
-       </div>
+       <div><h1>Family Offices · Immobilien-Map</h1><div className="sub">Pilot: 10 Offices · Stand 07/2026</div></div>
+       <button className="iBtn" title="Datenqualität / Disclaimer" onClick={()=>setShowDisc(v=>!v)}>ⓘ</button>
      </div>
+     {showDisc && (
+       <div className="discpop glass">
+         <b>Datenqualität &amp; Schätzungen</b><br/>
+         Nicht alle Daten sind zu 100 % bestätigt. <b>Geschätzte Werte</b> (AUM, Immobilienquote,
+         Heatmap-Regionen) sind gekennzeichnet und tragen jeweils eigene Quellen — abrufbar direkt am
+         Datenpunkt (Firmen-Detail bzw. Objekt-/Regions-Fenster).<br/><br/>
+         <span className="heatpill" style={{background:"#34c759"}}>scharfer Pin</span> = bestätigtes Objekt (exakte Adresse).{" "}
+         <span className="heatpill" style={{background:"#f59e0b"}}>weiche Fläche</span> = geschätzte Region (Heatmap).<br/>
+         Gestrichelter Rahmen um ein Logo = Firma im Radius nur über Heatmap (geschätzt), kein bestätigtes Objekt.
+         <div style={{marginTop:8,textAlign:"right"}}><button className="btn sec" onClick={()=>setShowDisc(false)}>OK</button></div>
+       </div>
+     )}
 
-     {/* LEGEND */}
      <div className="panel legend glass">
        <h2>Immobilien-Status</h2>
-       {CATS.map(c=>(
-         <div key={c} className={"dotrow"+(activeCats.has(c)?"":" off")} onClick={()=>toggleCat(c)}>
-           <span className="dot" style={{background:CM[c].color}}/>
-           <span className="dotlabel">{CM[c].label}</span>
-         </div>
-       ))}
+       {CATS.map(c=><div key={c} className={"dotrow"+(activeCats.has(c)?"":" off")} onClick={()=>toggleCat(c)}>
+         <span className="dot" style={{background:CM[c].color}}/><span className="dotlabel">{CM[c].label}</span></div>)}
      </div>
 
-     {/* INFO BOX */}
      <div className="panel info glass">
        <h2>Auswahl · Kennzahlen</h2>
        <div className="stat"><span>Unternehmen</span><b>{agg.count}</b></div>
@@ -296,49 +335,45 @@ function App(){
        <Pie data={agg.pie} activeUsages={activeUsages} onToggle={toggleUsage}/>
      </div>
 
-     {/* ADVANCED */}
      <div className="panel adv glass">
        <h2>Advanced Sort</h2>
        <div className="fld"><label>Land</label>
          <select value={country} onChange={e=>setCountry(e.target.value)}>
-           {countries.map(c=><option key={c} value={c}>{c==="all"?"Alle Länder":c}</option>)}
-         </select></div>
+           {countries.map(c=><option key={c} value={c}>{c==="all"?"Alle Länder":c}</option>)}</select></div>
        <div className="fld"><label>AUM-Bereich (Mrd €): {minAum} – {maxAum}</label>
-         <div className="row2">
-           <input type="number" value={minAum} min="0" max="50" onChange={e=>setMinAum(+e.target.value)}/>
-           <input type="number" value={maxAum} min="0" max="50" onChange={e=>setMaxAum(+e.target.value)}/>
-         </div></div>
-       <div className="fld"><label>Immobilien-Nutzung: über Pie oben an/aus</label></div>
-       <div className="fld"><label>📍 Radius-Suche</label>
+         <div className="row2"><input type="number" value={minAum} min="0" max="50" onChange={e=>setMinAum(+e.target.value)}/>
+           <input type="number" value={maxAum} min="0" max="50" onChange={e=>setMaxAum(+e.target.value)}/></div></div>
+       <div className="fld"><label>Nutzung: über Pie (oben) an/aus</label></div>
+       <div className="fld"><label>📍 Radius-Suche (bestätigte Objekte + geschätzte Regionen)</label>
          <div className="btnrow">
            <button className={"btn "+(pinMode?"":"sec")} onClick={()=>setPinMode(m=>!m)}>{pinMode?"Klicke auf Karte…":"Pin setzen"}</button>
            {pin && <button className="btn ghost" onClick={()=>setPin(null)}>Reset</button>}
          </div>
          {pin && <div className="fld" style={{marginTop:8}}><label>Radius: {pinRadius} km</label>
-           <input type="range" min="1" max="150" value={pinRadius} style={{width:"100%"}} onChange={e=>setPinRadius(+e.target.value)}/></div>}
-         <div className="pininfo">Zeigt Offices, die im Radius Objekte der gewählten Nutzung besitzen – und pinnt diese Objekte.</div>
+           <input type="range" min="1" max="200" value={pinRadius} style={{width:"100%"}} onChange={e=>setPinRadius(+e.target.value)}/></div>}
+         <div className="pininfo">Firmen mit bestätigtem Objekt im Radius (durchgezogen) + Firmen, deren Heatmap-Region den Radius überschneidet (gestrichelt, geschätzt).</div>
        </div>
-       <div className="btnrow">
-         <button className="btn wide" onClick={()=>{setShowTable(true);setWinMode("normal");}}>Als Tabelle zeigen</button>
-       </div>
+       <div className="btnrow"><button className="btn wide" onClick={()=>{setShowTable(true);setWinMode("normal");}}>Als Tabelle zeigen</button></div>
        {selected.size>0 && <div className="btnrow"><button className="btn sec wide" onClick={()=>setSelected(new Set())}>Auswahl aufheben ({selected.size})</button></div>}
      </div>
 
-     {/* DETAIL PANEL (Seite 2) */}
+     <div className="layerToggle glass">
+       <button className={baseLayer==="sat"?"on":""} onClick={()=>setBaseLayer("sat")}>Satellit</button>
+       <button className={baseLayer==="street"?"on":""} onClick={()=>setBaseLayer("street")}>Karte</button>
+     </div>
+
      {selOffices.length>0 && !showTable && (
        <div className="detail glass">
          <button className="close-x" onClick={()=>setSelected(new Set())}>×</button>
          <h3>{selOffices.length===1?selOffices[0].kurz:selOffices.length+" Offices ausgewählt"}</h3>
-         {selOffices.length===1 ? <OfficeDetail o={selOffices[0]}/> :
-           <div className="meta">{selOffices.map(o=>o.kurz).join(" · ")}<br/>Objekte aller ausgewählten Offices sind gepinnt.</div>}
+         {selOffices.length===1 ? <FirmDetail o={selOffices[0]} onObj={(o,ob)=>setDetail({kind:"object",office:o,data:ob})} onReg={(o,r)=>setDetail({kind:"region",office:o,data:r})}/> :
+           <div className="meta">{selOffices.map(o=>o.kurz).join(" · ")}<br/>Objekte &amp; Heatmaps aller ausgewählten Offices sind eingeblendet.</div>}
        </div>
      )}
 
-     <div className="disc glass" style={{pointerEvents:"none",padding:"8px 10px"}}>
-       Objekte = nur öffentlich bekannte DE-Objekte (nicht vollständig). AUM/€-Werte sind Schätzungen.
-     </div>
+     <div className="disc glass" style={{padding:"8px 10px"}}>Objekte = nur öffentlich bekannte DE-Objekte (nicht vollständig). Werte teils Schätzungen.</div>
 
-     {/* TABLE WINDOW */}
+     {/* TABLE */}
      {showTable && (
        <div className="winwrap" onMouseDown={e=>{if(e.target.classList.contains("winwrap"))setShowTable(false);}}>
          <div className={"win glass "+(winMode==="min"?"min":winMode==="max"?"max":"")}>
@@ -349,59 +384,103 @@ function App(){
                <span className="light l-green" title="Maximieren" onClick={()=>setWinMode(m=>m==="max"?"normal":"max")}/>
              </div>
              <span className="t">Family Offices — {tableRows.length} Einträge{selected.size?` · ${selected.size} ausgewählt`:""}</span>
-             <span className="sp"/>
-             <button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
+             <span className="sp"/><button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
            </div>
-           {winMode!=="min" && (
-           <div className="tblscroll">
-             <table>
-               <thead><tr>
-                 <th></th>
-                 {cols.map(([k,l])=><th key={k} className={["aumEUR","reInvestedEUR","rePercent","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortKey===k?(sortDir>0?" ▲":" ▼"):""}</th>)}
-               </tr></thead>
-               <tbody>
-                 {tableRows.map(r=>(
-                   <tr key={r.id}>
-                     <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
-                     <td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
-                     <td className="num">{r.aumEUR}</td>
-                     <td className="num">{r.reInvestedEUR}</td>
-                     <td className="num">{Math.round(r.rePercent*100)}%</td>
-                     <td className="num">{r.objs}</td>
-                     <td>{r.Website}</td><td>{r.Kontakt}</td>
-                   </tr>
-                 ))}
-               </tbody>
-             </table>
-           </div>)}
+           {winMode!=="min" && <div className="tblscroll"><table>
+             <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortKey===k?(sortDir>0?" ▲":" ▼"):""}</th>)}</tr></thead>
+             <tbody>{tableRows.map(r=>(
+               <tr key={r.id}>
+                 <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
+                 <td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
+                 <td className="num">{r.aumV}</td><td className="num">{r.reV}</td><td className="num">{Math.round(r.reP*100)}%</td>
+                 <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td>
+               </tr>))}</tbody>
+           </table></div>}
          </div>
        </div>
      )}
+
+     {/* SEITE 3 */}
+     {detail && <Seite3 detail={detail} onClose={()=>setDetail(null)}/>}
    </React.Fragment>
   );
 }
 
-function OfficeDetail({o}){
+function FirmDetail({o,onObj,onReg}){
   return (
    <div>
      <div className="meta">{o.name}</div>
      <div className="kv"><span>Typ</span><span>{o.typ} · {o.land}</span></div>
      <div className="kv"><span>Headquarter</span><span>{o.hqAddress}</span></div>
-     <div className="kv"><span>AUM (Schätzung)</span><span>{fmtB(o.aumEUR)}</span></div>
-     <div className="kv"><span>Immobilien</span><span>{fmtB(o.reInvestedEUR)} · {Math.round(o.rePercent*100)}%</span></div>
-     <div className="kv"><span>Website</span><span><a href={/^https?:/.test(o.website)?o.website:"https://"+o.domain} target="_blank">{o.website}</a></span></div>
-     {o.linkedin && <div className="kv"><span>LinkedIn</span><span><a href={o.linkedin} target="_blank">Profil</a></span></div>}
+     <div className="kv"><span>Website</span><span><a className="lnk" href={/^https?:/.test(o.website)?o.website:"https://"+o.domain} target="_blank">{o.website}</a></span></div>
+     {o.linkedin && <div className="kv"><span>LinkedIn</span><span><a className="lnk" href={o.linkedin} target="_blank">Profil</a></span></div>}
      <div className="kv"><span>Kontakt</span><span>{o.contactName}</span></div>
      <div className="kv"><span>Ansprache</span><span>{o.contactChannel}</span></div>
+
+     <div className="srcbox">
+       <div className="kv" style={{borderTop:"none",paddingTop:0}}><span>AUM {o.aum.basis==="extrapolation"&&<span className="est-badge">geschätzt</span>}</span><b>{fmtB(o.aum.value)}</b></div>
+       <Sources field={o.aum} label="Beleg"/>
+     </div>
+     <div className="srcbox">
+       <div className="kv" style={{borderTop:"none",paddingTop:0}}><span>Immobilienquote {o.reQuote.basis==="extrapolation"&&<span className="est-badge">geschätzt</span>}</span><b>{Math.round(o.reQuote.value*100)}% · {fmtB(o.reInvestedEUR)}</b></div>
+       <Sources field={o.reQuote} label="Beleg"/>
+     </div>
+
      <div className="objlist">
-       <div style={{fontSize:12,color:"#6e6e73",margin:"10px 0 4px",textTransform:"uppercase",letterSpacing:.5}}>Bekannte Objekte ({o.objects.length})</div>
-       {o.objects.length===0 && <div className="obj a">Keine Einzelobjekte öffentlich belegt.</div>}
-       {o.objects.map((ob,i)=>(
-         <div className="obj" key={i}>
-           <b>{ob.name}</b> · {UL[ob.usage]}<br/>
-           <span className="a">{ob.address} · ~{ob.valueEUR} Mio € · {ob.status}</span>
-         </div>
+       <div style={{fontSize:12,color:"#6e6e73",margin:"10px 0 4px",textTransform:"uppercase",letterSpacing:.5}}>Bestätigte Objekte ({o.confirmedObjects.length})</div>
+       {o.confirmedObjects.length===0 && <div className="obj a" style={{cursor:"default"}}>Keine Einzelobjekte öffentlich belegt.</div>}
+       {o.confirmedObjects.map((ob,i)=>(
+         <div className="obj" key={i} onClick={()=>onObj(o,ob)}>
+           <b>{ob.name}</b> · {UL[ob.usage]} ›<br/><span className="a">{ob.address}</span></div>
        ))}
+       <div style={{fontSize:12,color:"#6e6e73",margin:"12px 0 4px",textTransform:"uppercase",letterSpacing:.5}}>Heatmap-Regionen ({(o.heatmap||[]).length})</div>
+       {(o.heatmap||[]).map((r,i)=>(
+         <div className="obj" key={i} onClick={()=>onReg(o,r)}>
+           <b>{r.name}</b> · Intensität {r.intensity} {r.basis==="extrapolation"&&<span className="est-badge">geschätzt</span>} ›<br/>
+           <span className="a">{r.usages?r.usages.map(u=>UL[u]).join(", "):"Nutzungsart für diese Region nicht spezifiziert"}</span></div>
+       ))}
+     </div>
+   </div>
+  );
+}
+
+function Seite3({detail,onClose}){
+  const {kind,office,data}=detail;
+  const isObj=kind==="object";
+  const col=isObj?(UC[data.usage]||"#888"):"#f59e0b";
+  return (
+   <div className="s3wrap" onMouseDown={e=>{if(e.target.classList.contains("s3wrap"))onClose();}}>
+     <div className="s3 glass">
+       <div className="hd">
+         <div className="lights"><span className="light l-red" onClick={onClose}/><span className="light l-yellow" style={{opacity:.5}}/><span className="light l-green" style={{opacity:.5}}/></div>
+         <span style={{fontSize:12,fontWeight:600,color:"#6e6e73"}}>{office.kurz}</span>
+       </div>
+       <div className="bd">
+         <span className="tag" style={{background:col}}>{isObj?"Bestätigtes Objekt":"Heatmap-Region (geschätzt)"}</span>
+         <h3 style={{marginTop:8}}>{data.name}</h3>
+         {isObj ? (
+           <div>
+             <div className="kv"><span>Adresse</span><span>{data.address}</span></div>
+             <div className="kv"><span>Nutzungsart</span><span>{UL[data.usage]}</span></div>
+             <div className="kv"><span>Fläche</span><span>{data.area||"—"}</span></div>
+             <div className="kv"><span>Kaufdatum</span><span>{data.purchaseDate||"—"}</span></div>
+             <div className="kv"><span>Wert (Schätzung)</span><span>~{data.valueEUR} Mio €</span></div>
+             <div className="kv"><span>Status</span><span>{data.status}</span></div>
+             {data.images&&data.images.length>0
+               ? <div style={{marginTop:8}}>{data.images.map((u,i)=><img key={i} src={u} style={{width:"100%",borderRadius:10,marginBottom:6}}/>)}</div>
+               : <div className="src" style={{marginTop:8}}>Keine Bilder verfügbar.</div>}
+             <div className="srcbox"><Sources field={{basis:"quelle",sources:data.sources}} label="Quelle"/></div>
+           </div>
+         ) : (
+           <div>
+             <div className="kv"><span>Region</span><span>{data.name}</span></div>
+             <div className="kv"><span>Investitionsintensität</span><span style={{textTransform:"capitalize"}}>{data.intensity}</span></div>
+             <div className="kv"><span>Nutzungsart</span><span>{data.usages?data.usages.map(u=>UL[u]).join(", "):"nicht spezifiziert"}</span></div>
+             <div className="src" style={{marginTop:8}}>Keine exakte Adresse / kein Kaufdatum / kein exakter Wert – da nicht vorhanden.</div>
+             <div className="srcbox"><Sources field={data} label="Beleg"/></div>
+           </div>
+         )}
+       </div>
      </div>
    </div>
   );

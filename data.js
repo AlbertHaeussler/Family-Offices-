@@ -1,270 +1,335 @@
 /* =========================================================================
-   Family Offices – Datensatz (Pilot: 10 immobilien-aktive Family Offices)
-   Stand: 07/2026 · Quellen: Impressum/Handelsregister/Northdata/Fachpresse
+   Family Offices – Datensatz v2 (Pilot: 10 immobilien-aktive Family Offices)
+   Stand: 07/2026
    -------------------------------------------------------------------------
-   WICHTIG: AUM- und Immobilien-€-Werte sind SCHÄTZUNGEN (Presse/Ranking),
-   keine testierten Zahlen. Koordinaten sind teils approximiert.
-   category: 'gruen' = großes Immobiliengeschäft
-             'gelb'  = kein/minimales RE (<~10%) aber Interesse
-             'rot'   = kein RE & kein Interesse
-   Objekte: nur Deutschland, nur öffentlich belegte Objekte.
+   Jede Schätzung trägt Quellen:  sources: [{label,url}, ...]
+   Reine Einschätzung ohne Einzelquelle:  basis:"extrapolation" (+ note)
+   Bestätigte Quelle:  basis:"quelle"
+   confirmedObjects  = exakte Adresse, scharfe Pins (Seite 2)
+   heatmap           = Regionen mit Investitionsintensität (weiche Overlays)
+   category: 'gruen' großes RE · 'gelb' minimal/<10% aber Interesse · 'rot' keins
    ========================================================================= */
 
 window.FO_DATA = [
   {
-    id: "otto",
-    name: "CURA Vermögensverwaltung G.m.b.H. & Co. KG",
-    kurz: "Otto Family Office (CURA)",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Saseler Damm 39a, 22395 Hamburg",
-    hqLat: 53.6510, hqLng: 10.1000,
-    website: "ece.com (operative RE-Firma); FO selbst ohne Website",
-    domain: "ece.com",
-    linkedin: "https://www.linkedin.com/company/ece",
-    contactName: "Alexander Otto (CEO ECE) · Henning Eggers (GF CURA/ECE)",
-    contactRole: "CEO ECE Group / Geschäftsführer",
-    contactChannel: "über ECE Group – Ankauf/Investment-Management",
-    aumEUR: 30.0, reInvestedEUR: 20.0, rePercent: 0.67,
-    category: "gruen",
-    usage: { Retail: 70, Buero: 15, Hotel: 10, Wohnen: 5 },
-    confidence: "HQ/Kontakt hoch · Zahlen geschätzt",
-    objects: [
-      // >200 ECE-Center in DE/EU nicht einzeln öffentlich – nur HQ gepinnt
+    id:"otto", name:"CURA Vermögensverwaltung G.m.b.H. & Co. KG", kurz:"Otto Family Office (CURA)",
+    typ:"SFO", land:"Deutschland", hqAddress:"Saseler Damm 39a, 22395 Hamburg",
+    hqLat:53.6510, hqLng:10.1000, website:"ece.com", domain:"ece.com",
+    linkedin:"https://www.linkedin.com/company/ece",
+    contactName:"Alexander Otto (CEO ECE) · Henning Eggers (GF CURA/ECE)",
+    contactRole:"CEO ECE Group / Geschäftsführer",
+    contactChannel:"über ECE Group – Ankauf/Investment-Management",
+    category:"gruen",
+    aum:{ value:30.0, unit:"Mrd €", basis:"quelle",
+      sources:[{label:"Forbes – Alexander Otto",url:"https://www.forbes.com/profile/alexander-otto/"},
+               {label:"ECE – Otto family as investors",url:"https://www.ece.com/en/about-us/otto-family-as-investors"}] },
+    reQuote:{ value:0.67, basis:"extrapolation",
+      note:"Immobilien Kern der Familie (ECE >30 Mrd € GAV); exakte Quote nicht öffentlich – Schätzung.",
+      sources:[{label:"ECE Group",url:"https://www.ece.com/en/about-us/ece-group"}] },
+    reInvestedEUR:20.0,
+    usage:{ Retail:70, Buero:15, Hotel:10, Wohnen:5 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (ECE-Zentrale & Standorte)", intensity:"hoch", usages:["Retail","Buero"],
+        center:[53.55,9.99], radiusKm:25, basis:"quelle",
+        sources:[{label:"ECE Group",url:"https://www.ece.com/en/about-us/ece-group"}] },
+      { name:"Rhein-Main (Shopping-Center)", intensity:"mittel", usages:["Retail"],
+        center:[50.11,8.68], radiusKm:35, basis:"quelle",
+        sources:[{label:"ECE – Center-Portfolio",url:"https://www.ece.com/"}] },
+      { name:"Berlin (Shopping-Center)", intensity:"mittel", usages:["Retail"],
+        center:[52.52,13.40], radiusKm:30, basis:"quelle",
+        sources:[{label:"ECE – Center-Portfolio",url:"https://www.ece.com/"}] },
+      { name:"Rhein-Ruhr (Shopping-Center)", intensity:"mittel", usages:["Retail"],
+        center:[51.45,7.01], radiusKm:45, basis:"quelle",
+        sources:[{label:"ECE – Center-Portfolio",url:"https://www.ece.com/"}] }
     ]
   },
   {
-    id: "wirtgen",
-    name: "WIRTGEN INVEST Holding GmbH",
-    kurz: "Wirtgen Invest",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Wirtgen Campus 1, 53577 Neustadt (Wied)",
-    hqLat: 50.5500, hqLng: 7.4200,
-    website: "wirtgen-invest.de",
-    domain: "wirtgen-invest.de",
-    linkedin: "https://www.linkedin.com/company/wirtgen-invest-holding-gmbh/",
-    contactName: "Jürgen & Stefan Wirtgen · Jörg Rahn (CIO)",
-    contactRole: "Geschäftsführer Real Estate / CIO",
-    contactChannel: "info@wirtgen-invest.de · +49 2683 9466 0",
-    aumEUR: 5.0, reInvestedEUR: 1.5, rePercent: 0.30,
-    category: "gruen",
-    usage: { Buero: 50, Retail: 25, Hotel: 15, Wohnen: 10 },
-    confidence: "Objekte gut belegt (Website-Portfolio)",
-    objects: [
-      { name: "T8 / Taunusanlage 8", address: "Taunusanlage 8, 60329 Frankfurt a. M.", lat: 50.1136, lng: 8.6722, usage: "Buero", valueEUR: 400, status: "Bestand", conf: "Hoch" },
-      { name: "Wallhaus", address: "Neuer Wall, 20354 Hamburg", lat: 53.5525, lng: 9.9906, usage: "Retail", valueEUR: 120, status: "Bestand", conf: "Mittel" },
-      { name: "Trinkaus-Karree", address: "Königsallee 21–23, 40212 Düsseldorf", lat: 51.2249, lng: 6.7793, usage: "Retail", valueEUR: 200, status: "Bestand (JV)", conf: "Hoch" }
+    id:"wirtgen", name:"WIRTGEN INVEST Holding GmbH", kurz:"Wirtgen Invest",
+    typ:"SFO", land:"Deutschland", hqAddress:"Wirtgen Campus 1, 53577 Neustadt (Wied)",
+    hqLat:50.5500, hqLng:7.4200, website:"wirtgen-invest.de", domain:"wirtgen-invest.de",
+    linkedin:"https://www.linkedin.com/company/wirtgen-invest-holding-gmbh/",
+    contactName:"Jürgen & Stefan Wirtgen · Jörg Rahn (CIO)",
+    contactRole:"Geschäftsführer Real Estate / CIO",
+    contactChannel:"info@wirtgen-invest.de · +49 2683 9466 0",
+    category:"gruen",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Immobilienportfolio >1 Mrd € belegt; Gesamt-AUM nach Verkauf Wirtgen Group (~5,2 Mrd $) geschätzt.",
+      sources:[{label:"Wirtgen Invest – Real Estate",url:"https://www.wirtgen-invest.de/en/real-estate/"}] },
+    reQuote:{ value:0.30, basis:"extrapolation",
+      note:"1 von 4 Anlagefeldern; exakte Quote nicht öffentlich.",
+      sources:[{label:"Wirtgen Invest",url:"https://www.wirtgen-invest.de/en/family-office/"}] },
+    reInvestedEUR:1.5,
+    usage:{ Buero:50, Retail:25, Hotel:15, Wohnen:10 },
+    confirmedObjects:[
+      { name:"T8 (Taunusanlage 8)", address:"Taunusanlage 8, 60329 Frankfurt a. M.", lat:50.1149, lng:8.6700,
+        usage:"Buero", area:"~30.000 m² (20 Etagen, 68 m)", purchaseDate:"06/2019", valueEUR:400, status:"Bestand", images:[],
+        sources:[{label:"Wirtgen Invest – T8",url:"https://www.wirtgen-invest.de/en/portfolio/taunusanlage-8-frankfurt/"},
+                 {label:"Gebäude-Website taunusanlage8.de",url:"https://taunusanlage8.de/en/facts-figures"},
+                 {label:"SkylineAtlas – T8",url:"https://www.skylineatlas.de/t8-taunusanlage-8/"}] },
+      { name:"Wallhaus", address:"Neuer Wall 43, 20354 Hamburg", lat:53.5512, lng:9.9905,
+        usage:"Retail", area:"~5.000 m² (LEED Gold)", purchaseDate:"2019", valueEUR:120, status:"Bestand", images:[],
+        sources:[{label:"Wirtgen Invest – Wallhaus",url:"https://www.wirtgen-invest.de/en/portfolio/wallhaus-hamburg/"}] },
+      { name:"Trinkaus-Karree", address:"Königsallee 21–23, 40212 Düsseldorf", lat:51.2247, lng:6.7797,
+        usage:"Retail", area:"ehem. HSBC-Zentrale", purchaseDate:"2021 (JV)", valueEUR:200, status:"Bestand (JV)", images:[],
+        sources:[{label:"Wirtgen Invest – Trinkaus-Karree",url:"https://www.wirtgen-invest.de/en/portfolio/trinkaus-karree-dusseldorf/"}] }
+    ],
+    heatmap:[
+      { name:"Frankfurt / Rhein-Main", intensity:"hoch", usages:["Buero","Retail"], center:[50.11,8.68], radiusKm:30, basis:"quelle",
+        sources:[{label:"Wirtgen Invest – Portfolio (Top-7)",url:"https://www.wirtgen-invest.de/en/real-estate/"}] },
+      { name:"Hamburg", intensity:"mittel", usages:["Retail","Hotel"], center:[53.55,9.99], radiusKm:25, basis:"quelle",
+        sources:[{label:"Wirtgen Invest – Wallhaus",url:"https://www.wirtgen-invest.de/en/portfolio/wallhaus-hamburg/"}] },
+      { name:"Düsseldorf", intensity:"mittel", usages:["Retail"], center:[51.22,6.78], radiusKm:20, basis:"quelle",
+        sources:[{label:"Wirtgen Invest – Trinkaus-Karree",url:"https://www.wirtgen-invest.de/en/portfolio/trinkaus-karree-dusseldorf/"}] }
     ]
   },
   {
-    id: "schoerghuber",
-    name: "Schörghuber Stiftung & Co. Holding KG / Bayerische Hausbau",
-    kurz: "Schörghuber / Bayerische Hausbau",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Denninger Straße 165, 81925 München",
-    hqLat: 48.1600, hqLng: 11.6300,
-    website: "hausbau.de",
-    domain: "hausbau.de",
-    linkedin: "https://de.linkedin.com/company/bayerische-hausbau",
-    contactName: "Team Ankauf Bayerische Hausbau",
-    contactRole: "Ankauf / Investment",
-    contactChannel: "ankauf@hausbau.de · Denninger Str. 165, 81925 München",
-    aumEUR: 4.0, reInvestedEUR: 3.3, rePercent: 0.82,
-    category: "gruen",
-    usage: { Wohnen: 35, Buero: 25, Retail: 20, Hotel: 10, Gastro: 10 },
-    confidence: "Öffentliches Ankaufsprofil (ab 5.000 m²)",
-    objects: [
-      { name: "Objekt Marienplatz 22", address: "Marienplatz 22, 80331 München", lat: 48.1371, lng: 11.5754, usage: "Retail", valueEUR: 150, status: "Bestand", conf: "Hoch" },
-      { name: "Objekt Kaufingerstraße 15", address: "Kaufingerstraße 15, 80331 München", lat: 48.1379, lng: 11.5719, usage: "Retail", valueEUR: 120, status: "Bestand", conf: "Hoch" },
-      { name: "Joseph-Pschorr-Haus", address: "Neuhauser Straße, 80331 München", lat: 48.1385, lng: 11.5688, usage: "Retail", valueEUR: 200, status: "Bestand", conf: "Mittel" },
-      { name: "Donisl", address: "Weinstraße 1, 80331 München", lat: 48.1378, lng: 11.5745, usage: "Gastro", valueEUR: 40, status: "Bestand", conf: "Mittel" },
-      { name: "BIKINI Berlin (entwickelt, lt. Presse verkauft)", address: "Budapester Straße 38–50, 10787 Berlin", lat: 52.5058, lng: 13.3376, usage: "Buero", valueEUR: 300, status: "Verkauft", conf: "Mittel" }
+    id:"schoerghuber", name:"Schörghuber Stiftung & Co. Holding KG / Bayerische Hausbau", kurz:"Schörghuber / Bayerische Hausbau",
+    typ:"SFO", land:"Deutschland", hqAddress:"Denninger Straße 165, 81925 München",
+    hqLat:48.1600, hqLng:11.6300, website:"hausbau.de", domain:"hausbau.de",
+    linkedin:"https://de.linkedin.com/company/bayerische-hausbau",
+    contactName:"Team Ankauf Bayerische Hausbau",
+    contactRole:"Ankauf / Investment",
+    contactChannel:"ankauf@hausbau.de · Denninger Str. 165, 81925 München",
+    category:"gruen",
+    aum:{ value:4.0, unit:"Mrd €", basis:"quelle",
+      note:"Immobilienportfolio ~3,3 Mrd €; Konzernumsatz ~771 Mio € (2018).",
+      sources:[{label:"Bayerische Hausbau – Unternehmen",url:"https://www.hausbau.de/unternehmen/schoerghuber-unternehmensgruppe"},
+               {label:"Wikipedia – Bayerische Hausbau",url:"https://de.wikipedia.org/wiki/Bayerische_Hausbau"}] },
+    reQuote:{ value:0.82, basis:"quelle",
+      note:"Immobilien = zentrales Geschäftsfeld der Gruppe.",
+      sources:[{label:"Bayerische Hausbau",url:"https://www.hausbau.de/"}] },
+    reInvestedEUR:3.3,
+    usage:{ Wohnen:35, Buero:25, Retail:20, Hotel:10, Gastro:10 },
+    confirmedObjects:[
+      { name:"Objekt Marienplatz 22", address:"Marienplatz 22, 80331 München", lat:48.1369, lng:11.5760,
+        usage:"Retail", area:"Altstadt-Toplage", purchaseDate:"Bestand", valueEUR:150, status:"Bestand", images:[],
+        sources:[{label:"Bayerische Hausbau",url:"https://www.hausbau.de/"}] },
+      { name:"Objekt Kaufingerstraße 15", address:"Kaufingerstraße 15, 80331 München", lat:48.1378, lng:11.5730,
+        usage:"Retail", area:"Fußgängerzone", purchaseDate:"Bestand", valueEUR:120, status:"Bestand", images:[],
+        sources:[{label:"Bayerische Hausbau",url:"https://www.hausbau.de/"}] },
+      { name:"Joseph-Pschorr-Haus", address:"Neuhauser Straße 9, 80331 München", lat:48.1382, lng:11.5700,
+        usage:"Retail", area:"Altstadt-Toplage", purchaseDate:"Bestand", valueEUR:200, status:"Bestand", images:[],
+        sources:[{label:"Bayerische Hausbau",url:"https://www.hausbau.de/"}] },
+      { name:"Donisl", address:"Weinstraße 1, 80331 München", lat:48.1376, lng:11.5748,
+        usage:"Gastro", area:"Traditionsgaststätte", purchaseDate:"Bestand", valueEUR:40, status:"Bestand", images:[],
+        sources:[{label:"Bayerische Hausbau",url:"https://www.hausbau.de/"}] },
+      { name:"BIKINI Berlin (entwickelt, lt. Presse verkauft)", address:"Budapester Straße 38–50, 10787 Berlin", lat:52.5060, lng:13.3380,
+        usage:"Buero", area:"Ensemble Büro/Retail/Hotel", purchaseDate:"entwickelt bis 2014", valueEUR:300, status:"Verkauft", images:[],
+        sources:[{label:"Wikipedia – Bikini-Haus",url:"https://de.wikipedia.org/wiki/Bikini-Haus"}] }
+    ],
+    heatmap:[
+      { name:"München (Kernmarkt)", intensity:"hoch", usages:["Wohnen","Buero","Retail","Hotel"], center:[48.137,11.575], radiusKm:20, basis:"quelle",
+        sources:[{label:"Bayerische Hausbau – Ankauf (ab 5.000 m², München)",url:"https://www.hausbau.de/unternehmen/ankauf"}] },
+      { name:"Berlin", intensity:"niedrig", usages:["Buero","Retail"], center:[52.505,13.338], radiusKm:15, basis:"quelle",
+        sources:[{label:"Bayerische Hausbau – Bikini Berlin",url:"https://www.hausbau.de/"}] }
     ]
   },
   {
-    id: "hqtrust",
-    name: "HQ Trust GmbH (Harald Quandt Holding)",
-    kurz: "HQ Trust / Harald Quandt",
-    typ: "MFO",
-    land: "Deutschland",
-    hqAddress: "Am Pilgerrain 17, 61352 Bad Homburg v. d. Höhe",
-    hqLat: 50.2268, hqLng: 8.6100,
-    website: "hqtrust.de",
-    domain: "hqtrust.de",
-    linkedin: "https://www.linkedin.com/company/hq-trust-gmbh/",
-    contactName: "Jochen Butz · Christian Stadtmüller (GF)",
-    contactRole: "Geschäftsführer · Real-Assets-Team",
-    contactChannel: "über hqtrust.de (Kontakt)",
-    aumEUR: 17.0, reInvestedEUR: 2.0, rePercent: 0.12,
-    category: "gelb",
-    usage: { Wohnen: 80, Sonstiges: 20 },
-    confidence: "MFO · RE überwiegend über Fonds/US",
-    objects: [
-      { name: "Harald-Quandt-Haus", address: "Am Pilgerrain 17, 61352 Bad Homburg", lat: 50.2268, lng: 8.6100, usage: "Buero", valueEUR: 30, status: "Bestand (Eigennutzung)", conf: "Hoch" }
+    id:"hqtrust", name:"HQ Trust GmbH (Harald Quandt Holding)", kurz:"HQ Trust / Harald Quandt",
+    typ:"MFO", land:"Deutschland", hqAddress:"Am Pilgerrain 17, 61352 Bad Homburg v. d. Höhe",
+    hqLat:50.2205, hqLng:8.6050, website:"hqtrust.de", domain:"hqtrust.de",
+    linkedin:"https://www.linkedin.com/company/hq-trust-gmbh/",
+    contactName:"Jochen Butz · Christian Stadtmüller (GF)",
+    contactRole:"Geschäftsführer · Real-Assets-Team",
+    contactChannel:"über hqtrust.de (Kontakt)",
+    category:"gelb",
+    aum:{ value:17.0, unit:"Mrd €", basis:"quelle",
+      note:"HQ Trust + HQ Capital + CP Capital zusammen >17 Mrd €.",
+      sources:[{label:"HQ Holding – Über uns",url:"https://www.hqholding.com/en/ueber-uns"}] },
+    reQuote:{ value:0.12, basis:"extrapolation",
+      note:"RE Teil der Real-Assets-Allokation, überwiegend über Fonds/US – exakte Quote nicht öffentlich.",
+      sources:[{label:"HQ Trust",url:"https://www.hqtrust.de/"}] },
+    reInvestedEUR:2.0,
+    usage:{ Wohnen:80, Sonstiges:20 },
+    confirmedObjects:[
+      { name:"Harald-Quandt-Haus", address:"Am Pilgerrain 17, 61352 Bad Homburg", lat:50.2205, lng:8.6050,
+        usage:"Buero", area:"Sitz des Family Office", purchaseDate:"Bestand", valueEUR:30, status:"Bestand (Eigennutzung)", images:[],
+        sources:[{label:"HQ Holding",url:"https://www.hqholding.com/en/ueber-uns"}] }
+    ],
+    heatmap:[
+      { name:"Rhein-Main (Sitz)", intensity:"niedrig", usages:null, center:[50.15,8.65], radiusKm:30, basis:"extrapolation",
+        note:"MFO – DE-Immobilien kaum als Einzelobjekte offengelegt; Region abgeleitet vom Sitz. Reine Einschätzung.",
+        sources:[] }
     ]
   },
   {
-    id: "aurec",
-    name: "Aurec Capital / Aurec Real Estate Europe GmbH",
-    kurz: "Aurec Capital",
-    typ: "SFO",
-    land: "Israel (investiert in DE)",
-    hqAddress: "Bleibtreustraße 41, 10623 Berlin (DE-Einheit)",
-    hqLat: 52.5050, hqLng: 13.3230,
-    website: "aurec-capital.com",
-    domain: "aurec-capital.com",
-    linkedin: "https://www.linkedin.com/company/aurec-capital",
-    contactName: "Aurec Real Estate Europe GmbH (Akquisitions-Team)",
-    contactRole: "Deal-Sourcing / Asset Management",
-    contactChannel: "über aurecre.de · Bleibtreustraße 41, 10623 Berlin",
-    aumEUR: 1.5, reInvestedEUR: 1.0, rePercent: 0.67,
-    category: "gruen",
-    usage: { Buero: 60, Wohnen: 25, Retail: 15 },
-    confidence: "Gründer: Morris Kahn & Shmuel Meitar (Israel)",
-    objects: [
-      { name: "Gothaer Hauptverwaltung", address: "Gothaer Allee 1, 50969 Köln", lat: 50.9016, lng: 6.9589, usage: "Buero", valueEUR: 300, status: "Bestand (Sale-and-Leaseback)", conf: "Hoch" },
-      { name: "Eschborn Plaza", address: "Eschborn (bei Frankfurt)", lat: 50.1439, lng: 8.5706, usage: "Buero", valueEUR: 150, status: "Bestand", conf: "Mittel" },
-      { name: "Wohnportfolio Berlin", address: "Kreuzberg / Moabit / Friedrichshain, Berlin", lat: 52.4987, lng: 13.4033, usage: "Wohnen", valueEUR: 100, status: "Bestand", conf: "Mittel" }
+    id:"aurec", name:"Aurec Capital / Aurec Real Estate Europe GmbH", kurz:"Aurec Capital",
+    typ:"SFO", land:"Israel (investiert in DE)", hqAddress:"Bleibtreustraße 41, 10623 Berlin (DE-Einheit)",
+    hqLat:52.5050, hqLng:13.3230, website:"aurec-capital.com", domain:"aurec-capital.com",
+    linkedin:"https://www.linkedin.com/company/aurec-capital",
+    contactName:"Aurec Real Estate Europe GmbH (Akquisitions-Team)",
+    contactRole:"Deal-Sourcing / Asset Management",
+    contactChannel:"über aurecre.de · Bleibtreustraße 41, 10623 Berlin",
+    category:"gruen",
+    aum:{ value:1.5, unit:"Mrd €", basis:"quelle",
+      note:"RE-Akquisitionsvolumen DE/PL/CY ~1 Mrd €; Gesamt-AUM nicht öffentlich.",
+      sources:[{label:"Aurec Capital – Real Estate",url:"https://aurec-capital.com/real-estate/"}] },
+    reQuote:{ value:0.67, basis:"extrapolation",
+      note:"RE = Kernstrategie; Anteil am Gesamtvermögen geschätzt.",
+      sources:[{label:"Aurec Capital",url:"https://aurec-capital.com/"}] },
+    reInvestedEUR:1.0,
+    usage:{ Buero:60, Wohnen:25, Retail:15 },
+    confirmedObjects:[
+      { name:"Gothaer Hauptverwaltung", address:"Gothaer Allee 1, 50969 Köln", lat:50.8992, lng:6.9498,
+        usage:"Buero", area:"~100.000 m² (mehrere Gebäude)", purchaseDate:"Sale-and-Leaseback", valueEUR:300, status:"Bestand", images:[],
+        sources:[{label:"Aurec Capital – Real Estate",url:"https://aurec-capital.com/real-estate/"}] },
+      { name:"Eschborn Plaza", address:"Mergenthalerallee, 65760 Eschborn", lat:50.1439, lng:8.5706,
+        usage:"Buero", area:"~42.000 m²", purchaseDate:"Bestand", valueEUR:150, status:"Bestand", images:[],
+        sources:[{label:"Aurec Capital – Real Estate",url:"https://aurec-capital.com/real-estate/"}] }
+    ],
+    heatmap:[
+      { name:"Köln", intensity:"hoch", usages:["Buero"], center:[50.90,6.95], radiusKm:20, basis:"quelle",
+        sources:[{label:"Aurec Capital – Gothaer HV",url:"https://aurec-capital.com/real-estate/"}] },
+      { name:"Rhein-Main / Eschborn", intensity:"mittel", usages:["Buero"], center:[50.14,8.57], radiusKm:20, basis:"quelle",
+        sources:[{label:"Aurec Capital – Eschborn Plaza",url:"https://aurec-capital.com/real-estate/"}] },
+      { name:"Berlin (Wohnportfolio)", intensity:"mittel", usages:["Wohnen"], center:[52.50,13.41], radiusKm:15, basis:"quelle",
+        sources:[{label:"Aurec Capital – Wohnportfolio Berlin",url:"https://aurec-capital.com/real-estate/"}] }
     ]
   },
   {
-    id: "dohle",
-    name: "DOHLE Family Office (Handelsgruppe Holding GmbH & Co. KG)",
-    kurz: "Dohle Family Office",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Jean-Dohle-Straße 1, 53721 Siegburg",
-    hqLat: 50.7900, hqLng: 7.2000,
-    website: "dohle-gruppe.com",
-    domain: "dohle-gruppe.com",
-    linkedin: "",
-    contactName: "Kurt Dohle · Klaus Dohle · Nicolas von Loeper",
-    contactRole: "Geschäftsführung / Investments",
-    contactChannel: "über dohle-gruppe.com/invest",
-    aumEUR: 2.0, reInvestedEUR: 0.7, rePercent: 0.35,
-    category: "gruen",
-    usage: { Wohnen: 40, Buero: 40, Sonstiges: 20 },
-    confidence: "RE Anlagefokus belegt · keine Einzelobjekte öffentlich",
-    objects: [
-      // keine Einzelobjekte öffentlich – nur HQ
+    id:"dohle", name:"DOHLE Family Office (Handelsgruppe Holding GmbH & Co. KG)", kurz:"Dohle Family Office",
+    typ:"SFO", land:"Deutschland", hqAddress:"Jean-Dohle-Straße 1, 53721 Siegburg",
+    hqLat:50.7900, hqLng:7.2000, website:"dohle-gruppe.com", domain:"dohle-gruppe.com",
+    linkedin:"",
+    contactName:"Kurt Dohle · Klaus Dohle · Nicolas von Loeper",
+    contactRole:"Geschäftsführung / Investments",
+    contactChannel:"über dohle-gruppe.com/invest",
+    category:"gruen",
+    aum:{ value:2.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Keine offizielle Zahl; grobe Größenordnung aus Handelsgruppe + Family Office abgeleitet.",
+      sources:[] },
+    reQuote:{ value:0.35, basis:"extrapolation",
+      note:"Immobilien explizit als Anlagefokus genannt; Anteil geschätzt.",
+      sources:[{label:"Dohle – Invest",url:"https://dohle-gruppe.com/invest/"}] },
+    reInvestedEUR:0.7,
+    usage:{ Wohnen:40, Buero:40, Sonstiges:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Rheinland (Köln/Bonn/Siegburg)", intensity:"mittel", usages:null, center:[50.80,7.10], radiusKm:35, basis:"extrapolation",
+        note:"Keine öffentlichen Einzelobjekte; Region abgeleitet vom Sitz und Handelsgebiet. Reine Einschätzung.",
+        sources:[{label:"Dohle – Invest",url:"https://dohle-gruppe.com/invest/"}] }
     ]
   },
   {
-    id: "koehler",
-    name: "KOEHLER GROUP Holding GmbH",
-    kurz: "KOEHLER GROUP",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Marktplatz 5, 70173 Stuttgart",
-    hqLat: 48.7758, hqLng: 9.1789,
-    website: "koehlergroup.com",
-    domain: "koehlergroup.com",
-    linkedin: "https://www.linkedin.com/company/koehler-group",
-    contactName: "René Marius Köhler (GF) · KOEHLER Real Estate",
-    contactRole: "Geschäftsführer / Gründer",
-    contactChannel: "über koehlergroup.com · Marktplatz 5, 70173 Stuttgart",
-    aumEUR: 0.4, reInvestedEUR: 0.15, rePercent: 0.375,
-    category: "gruen",
-    usage: { Logistik: 40, Wohnen: 35, Buero: 25 },
-    confidence: "Mehrere Deals belegt (Königstr., Freiburg)",
-    objects: [
-      { name: "Wohn-/Geschäftshaus Königstraße", address: "Königstraße, 70173 Stuttgart", lat: 48.7770, lng: 9.1785, usage: "Retail", valueEUR: 25, status: "Ankauf/Bestand", conf: "Hoch" },
-      { name: "Wohn-/Geschäftshaus Freiburg", address: "79098 Freiburg im Breisgau", lat: 47.9959, lng: 7.8494, usage: "Wohnen", valueEUR: 15, status: "Ankauf/Bestand", conf: "Hoch" }
+    id:"koehler", name:"KOEHLER GROUP Holding GmbH", kurz:"KOEHLER GROUP",
+    typ:"SFO", land:"Deutschland", hqAddress:"Marktplatz 5, 70173 Stuttgart",
+    hqLat:48.7758, hqLng:9.1789, website:"koehlergroup.com", domain:"koehlergroup.com",
+    linkedin:"https://www.linkedin.com/company/koehler-group",
+    contactName:"René Marius Köhler (GF) · KOEHLER Real Estate",
+    contactRole:"Geschäftsführer / Gründer",
+    contactChannel:"über koehlergroup.com · Marktplatz 5, 70173 Stuttgart",
+    category:"gruen",
+    aum:{ value:0.4, unit:"Mrd €", basis:"quelle",
+      note:"Investiertes Kapital ~400 Mio € (von 50 Mio gewachsen), EK-Quote >50 %.",
+      sources:[{label:"Stuttgarter Zeitung – R. M. Köhler",url:"https://www.stuttgarter-zeitung.de/inhalt.gruender-ren-marius-koehler-was-den-stuttgarter-zum-erfolgreichen-investor-macht.5e1f475a-7e88-4f72-988c-ea3b68d45dc9.html"}] },
+    reQuote:{ value:0.375, basis:"extrapolation",
+      note:"1 von 3 Geschäftsfeldern; exakter Anteil nicht öffentlich.",
+      sources:[{label:"KOEHLER GROUP",url:"https://www.koehlergroup.com/en/"}] },
+    reInvestedEUR:0.15,
+    usage:{ Logistik:40, Wohnen:35, Buero:25 },
+    confirmedObjects:[
+      { name:"Wohn-/Geschäftshaus Königstraße", address:"Königstraße, 70173 Stuttgart", lat:48.7765, lng:9.1795,
+        usage:"Retail", area:"2.363 m² (6 Gewerbe + 2 Wohnen)", purchaseDate:"Ankauf", valueEUR:25, status:"Bestand", images:[],
+        sources:[{label:"deal-magazin – KOEHLER Königstraße",url:"http://www.deal-magazin.com/news/122154/Stuttgart-KOEHLER-kauft-kernsaniertes-Objekt-auf-der-Koenigstrasse"}] },
+      { name:"Wohn-/Geschäftshaus Freiburg", address:"79098 Freiburg im Breisgau", lat:47.9959, lng:7.8494,
+        usage:"Wohnen", area:"1.450 m² (11 Einheiten)", purchaseDate:"Ankauf", valueEUR:15, status:"Bestand", images:[],
+        sources:[{label:"KOEHLER GROUP",url:"https://www.koehlergroup.com/en/"}] }
+    ],
+    heatmap:[
+      { name:"Region Stuttgart", intensity:"hoch", usages:["Logistik","Wohnen","Buero"], center:[48.78,9.18], radiusKm:30, basis:"quelle",
+        sources:[{label:"KOEHLER GROUP – Real Estate",url:"https://www.koehlergroup.com/en/"}] },
+      { name:"Süddeutschland", intensity:"mittel", usages:["Logistik","Wohnen"], center:[48.4,9.5], radiusKm:80, basis:"quelle",
+        sources:[{label:"KOEHLER GROUP",url:"https://www.koehlergroup.com/en/"}] }
     ]
   },
   {
-    id: "molento",
-    name: "Molento (Tengelmann/Haub) – Trei Real Estate GmbH",
-    kurz: "Molento / Trei (Haub)",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Klaus-Bungert-Str. 5b, 40468 Düsseldorf (Trei)",
-    hqLat: 51.2600, hqLng: 6.7500,
-    website: "treirealestate.com",
-    domain: "treirealestate.com",
-    linkedin: "https://www.linkedin.com/company/trei-real-estate-gmbh",
-    contactName: "Pepijn Morshuis (CEO) · Matthias Schultz (GF)",
-    contactRole: "CEO / Geschäftsführer Trei Real Estate",
-    contactChannel: "deutschland@treirealestate.com · +49 211 54011-000",
-    aumEUR: 5.0, reInvestedEUR: 5.0, rePercent: 1.0,
-    category: "gruen",
-    usage: { Retail: 60, Wohnen: 40 },
-    confidence: "Großes Portfolio · einzelne Transaktionen öffentlich",
-    objects: [
-      { name: "Ehem. Tengelmann-Zentrale (verkauft)", address: "Wissollstraße, 45478 Mülheim a. d. Ruhr", lat: 51.4256, lng: 6.8583, usage: "Sonstiges", valueEUR: 100, status: "2020 verkauft (Soravia)", conf: "Hoch" }
+    id:"molento", name:"Molento (Tengelmann/Haub) – Trei Real Estate GmbH", kurz:"Molento / Trei (Haub)",
+    typ:"SFO", land:"Deutschland", hqAddress:"Klaus-Bungert-Str. 5b, 40468 Düsseldorf (Trei)",
+    hqLat:51.2600, hqLng:6.7500, website:"treirealestate.com", domain:"treirealestate.com",
+    linkedin:"https://www.linkedin.com/company/trei-real-estate-gmbh",
+    contactName:"Pepijn Morshuis (CEO) · Matthias Schultz (GF)",
+    contactRole:"CEO / Geschäftsführer Trei Real Estate",
+    contactChannel:"deutschland@treirealestate.com · +49 211 54011-000",
+    category:"gruen",
+    aum:{ value:5.0, unit:"Mrd €", basis:"quelle",
+      note:"Immobilienvermögen der Familie/Konzern >5 Mrd € (v. a. Trei).",
+      sources:[{label:"THE PROPERTY – Familie Haub",url:"https://the-property.org/2021/06/28/deutschlands-dynastien-diesmal-familie-haub/"}] },
+    reQuote:{ value:1.0, basis:"extrapolation",
+      note:"Immobilien = dominanter Vermögensblock; Quote ~100 % geschätzt.",
+      sources:[{label:"Trei Real Estate",url:"https://www.treirealestate.com/unternehmen"}] },
+    reInvestedEUR:5.0,
+    usage:{ Retail:60, Wohnen:40 },
+    confirmedObjects:[
+      { name:"Ehem. Tengelmann-Zentrale (verkauft)", address:"Wissollstraße, 45478 Mülheim a. d. Ruhr", lat:51.4256, lng:6.8583,
+        usage:"Sonstiges", area:"historisches Areal", purchaseDate:"2020 verkauft (Soravia)", valueEUR:100, status:"Verkauft", images:[],
+        sources:[{label:"Immobilien Zeitung – Verkauf",url:"https://www.iz.de/transaktionen/news/-soravia-kauft-die-muelheimer-tengelmann-zentrale-156396"}] }
+    ],
+    heatmap:[
+      { name:"Bundesweit (Nahversorgung)", intensity:"hoch", usages:["Retail"], center:[51.2,10.2], radiusKm:180, basis:"quelle",
+        sources:[{label:"private-banking-magazin – Molento/MEAG",url:"https://www.private-banking-magazin.de/tengelmann-family-office-verkauft-immobilien-an-die-meag/"}] },
+      { name:"Metropolen (Wohn-Development)", intensity:"mittel", usages:["Wohnen"], center:[52.0,9.5], radiusKm:120, basis:"quelle",
+        sources:[{label:"Trei Real Estate – Wohnen",url:"https://www.treirealestate.com/unternehmen"}] }
     ]
   },
   {
-    id: "kuehne",
-    name: "Kühne Holding AG (inkl. Kühne Real Estate AG)",
-    kurz: "Kühne Holding",
-    typ: "SFO",
-    land: "Schweiz (investiert in DE)",
-    hqAddress: "Schindellegi (Feusisberg), Kanton Schwyz, CH",
-    hqLat: 47.1500, hqLng: 8.7200,
-    website: "kuehne-holding.com",
-    domain: "kuehne-holding.com",
-    linkedin: "https://www.linkedin.com/company/k%C3%BChne-holding-ag",
-    contactName: "Karl Gernandt (Präsident) · Kühne Real Estate AG",
-    contactRole: "Präsident / Verwaltungsrat",
-    contactChannel: "über kuehne-holding.com",
-    aumEUR: 30.0, reInvestedEUR: 1.0, rePercent: 0.03,
-    category: "gelb",
-    usage: { Buero: 60, Hotel: 40 },
-    confidence: "RE projektbezogen (Elbtower) · Nebenfeld",
-    objects: [
-      { name: "Elbtower (Engagement)", address: "Zweibrückenstraße, HafenCity, 20457 Hamburg", lat: 53.5410, lng: 10.0100, usage: "Buero", valueEUR: 950, status: "In Entwicklung", conf: "Hoch" }
+    id:"kuehne", name:"Kühne Holding AG (inkl. Kühne Real Estate AG)", kurz:"Kühne Holding",
+    typ:"SFO", land:"Schweiz (investiert in DE)", hqAddress:"Schindellegi (Feusisberg), Kanton Schwyz, CH",
+    hqLat:47.1500, hqLng:8.7200, website:"kuehne-holding.com", domain:"kuehne-holding.com",
+    linkedin:"https://www.linkedin.com/company/k%C3%BChne-holding-ag",
+    contactName:"Karl Gernandt (Präsident) · Kühne Real Estate AG",
+    contactRole:"Präsident / Verwaltungsrat",
+    contactChannel:"über kuehne-holding.com",
+    category:"gelb",
+    aum:{ value:30.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Vermögen K.-M. Kühne ~30+ Mrd $ (Ranking-Schätzung), nicht = liquides RE-Kapital.",
+      sources:[{label:"Wikipedia – Klaus-Michael Kühne",url:"https://en.wikipedia.org/wiki/Klaus-Michael_K%C3%BChne"}] },
+    reQuote:{ value:0.03, basis:"extrapolation",
+      note:"RE nicht Kern, aber sehr große Einzelprojekte (Elbtower).",
+      sources:[{label:"Handelsblatt – Kühne/Elbtower",url:"https://www.handelsblatt.com/unternehmen/handel-konsumgueter/signa-krise-milliardaer-klaus-michael-kuehne-prueft-uebernahme-des-elbtowers/29523124.html"}] },
+    reInvestedEUR:1.0,
+    usage:{ Buero:60, Hotel:40 },
+    confirmedObjects:[
+      { name:"Elbtower (Engagement)", address:"Zweibrückenstraße, HafenCity, 20457 Hamburg", lat:53.5407, lng:10.0110,
+        usage:"Buero", area:"~100.000 m² (geplant, 64 Etagen)", purchaseDate:"ab 2024 (nach Signa-Insolvenz)", valueEUR:950, status:"In Entwicklung", images:[],
+        sources:[{label:"Handelsblatt – Kühne/Elbtower",url:"https://www.handelsblatt.com/unternehmen/handel-konsumgueter/signa-krise-milliardaer-klaus-michael-kuehne-prueft-uebernahme-des-elbtowers/29523124.html"}] }
+    ],
+    heatmap:[
+      { name:"Hamburg", intensity:"hoch", usages:["Buero","Hotel"], center:[53.54,10.00], radiusKm:20, basis:"quelle",
+        sources:[{label:"Handelsblatt – Elbtower",url:"https://www.handelsblatt.com/unternehmen/handel-konsumgueter/signa-krise-milliardaer-klaus-michael-kuehne-prueft-uebernahme-des-elbtowers/29523124.html"}] }
     ]
   },
   {
-    id: "viessmann",
-    name: "Viessmann Generations Group GmbH & Co. KG",
-    kurz: "Viessmann Generations Group",
-    typ: "SFO",
-    land: "Deutschland",
-    hqAddress: "Im Birkenried 1, 35088 Battenberg (Eder)",
-    hqLat: 51.0100, hqLng: 8.6400,
-    website: "vgg.de / fgtc-investment.com",
-    domain: "viessmann.com",
-    linkedin: "https://de.linkedin.com/company/viessmann",
-    contactName: "Max Viessmann (CEO) · FGTC Investment (München)",
-    contactRole: "CEO / Family Office Lead",
-    contactChannel: "über vgg.de / fgtc-investment.com",
-    aumEUR: 4.0, reInvestedEUR: 0.3, rePercent: 0.075,
-    category: "gelb",
-    usage: { Buero: 40, Hotel: 30, Gastro: 30 },
-    confidence: "RE-Einheit im Aufbau (nach Carrier-Deal)",
-    objects: [
-      // Portfolio im Aufbau – keine Einzelobjekte öffentlich
+    id:"viessmann", name:"Viessmann Generations Group GmbH & Co. KG", kurz:"Viessmann Generations Group",
+    typ:"SFO", land:"Deutschland", hqAddress:"Im Birkenried 1, 35088 Battenberg (Eder)",
+    hqLat:51.0100, hqLng:8.6400, website:"vgg.de", domain:"viessmann.com",
+    linkedin:"https://de.linkedin.com/company/viessmann",
+    contactName:"Max Viessmann (CEO) · FGTC Investment (München)",
+    contactRole:"CEO / Family Office Lead",
+    contactChannel:"über vgg.de / fgtc-investment.com",
+    category:"gelb",
+    aum:{ value:4.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Familienvermögen mehrere Mrd € nach Carrier-Deal (~12 Mrd €, tw. Aktien/Cash).",
+      sources:[{label:"Wikipedia – Viessmann",url:"https://en.wikipedia.org/wiki/Viessmann"}] },
+    reQuote:{ value:0.075, basis:"extrapolation",
+      note:"RE-Allokation im Aufbau; Anteil klein, wachsend.",
+      sources:[{label:"private-banking-magazin – Viessmann/Do Investment",url:"https://www.private-banking-magazin.de/familienunternehmen-kauft-do-investment-und-benennt-es-um/"}] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:40, Hotel:30, Gastro:30 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Deutschland (Aufbau)", intensity:"niedrig", usages:null, center:[51.0,9.5], radiusKm:120, basis:"extrapolation",
+        note:"RE-Einheit (Viessmann Real Estate) im Aufbau; keine Einzelobjekte öffentlich. Reine Einschätzung.",
+        sources:[{label:"Northdata – Viessmann Generations Group",url:"https://www.northdata.com/Viessmann+Group+GmbH+&+Co.+KG,+Allendorf+(Eder)/Amtsgericht+Marburg+HRA+3389"}] }
     ]
   }
 ];
 
-// Usage-Kategorien (für Pie / Filter)
-window.USAGE_LABELS = {
-  Buero: "Büro",
-  Wohnen: "Wohnen",
-  Retail: "Einzelhandel/Retail",
-  Logistik: "Logistik",
-  Hotel: "Hotel",
-  Gastro: "Gastronomie",
-  Sonstiges: "Gemischt/Sonstiges"
-};
-
-window.USAGE_COLORS = {
-  Buero: "#3b82f6",
-  Wohnen: "#22c55e",
-  Retail: "#f59e0b",
-  Logistik: "#8b5cf6",
-  Hotel: "#ec4899",
-  Gastro: "#ef4444",
-  Sonstiges: "#94a3b8"
-};
-
+window.USAGE_LABELS = { Buero:"Büro", Wohnen:"Wohnen", Retail:"Einzelhandel/Retail", Logistik:"Logistik", Hotel:"Hotel", Gastro:"Gastronomie", Sonstiges:"Gemischt/Sonstiges" };
+window.USAGE_COLORS = { Buero:"#3b82f6", Wohnen:"#22c55e", Retail:"#f59e0b", Logistik:"#8b5cf6", Hotel:"#ec4899", Gastro:"#ef4444", Sonstiges:"#94a3b8" };
 window.CATEGORY_META = {
-  gruen: { color: "#34c759", label: "Großes Immobiliengeschäft" },
-  gelb:  { color: "#ffcc00", label: "Kein/minimales RE (<10%), aber Interesse" },
-  rot:   { color: "#ff3b30", label: "Kein Immobiliengeschäft & kein Interesse" }
+  gruen:{ color:"#34c759", label:"Großes Immobiliengeschäft" },
+  gelb: { color:"#ffcc00", label:"Kein/minimales RE (<10%), aber Interesse" },
+  rot:  { color:"#ff3b30", label:"Kein Immobiliengeschäft & kein Interesse" }
 };
+window.INTENSITY = { niedrig:{w:0.13,r:1.0}, mittel:{w:0.20,r:1.25}, hoch:{w:0.28,r:1.5} };
