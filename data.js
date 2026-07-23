@@ -2750,6 +2750,159 @@ window.FO_DATA = [
         "sources": []
       }
     ]
+  },
+  {
+    "id": "cofra",
+    "name": "COFRA Holding AG / Anthos (Family Office Brenninkmeijer)",
+    "kurz": "Cofra (Brenninkmeijer)",
+    "typ": "SFO",
+    "land": "Schweiz (Familie Brenninkmeijer, C&A – investiert in DE)",
+    "hqAddress": "Grafenauweg, 6300 Zug (CH); RE-Arm Redevco (Amsterdam/DACH)",
+    "hqLat": 47.166,
+    "hqLng": 8.517,
+    "website": "cofraholding.com",
+    "domain": "cofraholding.com",
+    "linkedin": "https://de.linkedin.com/company/redevco-dach",
+    "contactName": "Familie Brenninkmeijer · Anthos (FO) / Redevco (RE)",
+    "contactRole": "Family Office; Immobilien über Redevco",
+    "contactChannel": "über cofraholding.com / redevco.com (DACH)",
+    "category": "gruen",
+    "aum": {
+      "value": 35,
+      "unit": "Mrd €",
+      "basis": "quelle",
+      "note": "~35 Mrd € Familienvermögen (C&A); Redevco ~10 Mrd € europ. RE, davon ~4,4 Mrd € Deutschland.",
+      "sources": [
+        {
+          "label": "familyofficehub – Cofra Holding",
+          "url": "https://familyofficehub.io/family-office-portraits/swiss-single-family-offices/cofra-holding-single-family-office-in-zug-switzerland-focus-on-real-estate-private-equity/"
+        },
+        {
+          "label": "Crain Currency – Brenninkmeijer/Cofra",
+          "url": "https://www.craincurrency.com/family-office-management/secretive-brenninkmeijer-family-behind-ca-opens-39-billion-retail-empire"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.3,
+      "basis": "quelle",
+      "note": "Umfangreiches Immobilien-Investment über Redevco (Highstreet, Fachmarkt, Logistik, Wohnen) – DE ~4,4 Mrd €.",
+      "sources": [
+        {
+          "label": "Redevco – Lichtenfels/DE",
+          "url": "https://www.redevco.com/redevco-acquires-retail-park-with-16000-m%C2%B2-in-lichtenfels-northern-bavaria-for-redos-einzelhandel-deutschland-iii/"
+        }
+      ]
+    },
+    "reInvestedEUR": 4.4,
+    "usage": {
+      "Retail": 60,
+      "Wohnen": 20,
+      "Logistik": 20
+    },
+    "confirmedObjects": [
+      {
+        "name": "LIF.E Citycenter (Retail Park)",
+        "address": "Lichtenfels, Oberfranken (Bayern)",
+        "lat": 50.147,
+        "lng": 11.048,
+        "usage": "Retail",
+        "area": "~16.000 m², 18 Mieter",
+        "purchaseDate": "Ankauf (REDOS Einzelhandel DE III)",
+        "valueEUR": 60,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Redevco – Lichtenfels",
+            "url": "https://www.redevco.com/redevco-acquires-retail-park-with-16000-m%C2%B2-in-lichtenfels-northern-bavaria-for-redos-einzelhandel-deutschland-iii/"
+          }
+        ]
+      }
+    ],
+    "heatmap": [
+      {
+        "name": "Deutschland (Handelsimmobilien, bundesweit)",
+        "intensity": "hoch",
+        "usages": [
+          "Retail",
+          "Logistik"
+        ],
+        "center": [
+          51,
+          9.8
+        ],
+        "radiusKm": 170,
+        "basis": "quelle",
+        "note": "Redevco DE ~4,4 Mrd € (Highstreet + Fachmarkt + Nahversorgung); Einzelobjekte kaum öffentlich adressscharf.",
+        "sources": [
+          {
+            "label": "Redevco DACH",
+            "url": "https://de.linkedin.com/company/redevco-dach"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "schmidtruthenbeck",
+    "name": "Family Office Schmidt-Ruthenbeck (Metro-Mitgründer)",
+    "kurz": "Schmidt-Ruthenbeck",
+    "typ": "SFO",
+    "land": "Deutschland / Schweiz",
+    "hqAddress": "Essen (Mercator); Familie in der Schweiz",
+    "hqLat": 51.445,
+    "hqLng": 7.013,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Michael & Rainer Schmidt-Ruthenbeck",
+    "contactRole": "Family Office / Beteiligungen (Metro, Hotels)",
+    "contactChannel": "privates Family Office",
+    "category": "gelb",
+    "aum": {
+      "value": 5.5,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "~15% Metro AG + Beisheim-Group-Anteil + Hotel-Immobilien; Vermögen ~5,5 Mrd € (Schätzung).",
+      "sources": [
+        {
+          "label": "Forbes – Schmidt-Ruthenbeck",
+          "url": "https://www.forbes.com/profile/michael-reiner-schmidt-ruthenbeck/"
+        },
+        {
+          "label": "Immobilien Zeitung – FO Schmidt-Ruthenbeck",
+          "url": "https://www.iz.de/profile/unternehmen/Family%20Office%20Schmidt-Ruthenbeck/"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.1,
+      "basis": "extrapolation",
+      "note": "Besitzt Hotel-Immobilien; kein öffentliches Objektverzeichnis. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.6,
+    "usage": {
+      "Hotel": 60,
+      "Sonstiges": 40
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Deutschland (Hotel-/Handels-RE)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          51.2,
+          8.5
+        ],
+        "radiusKm": 120,
+        "basis": "extrapolation",
+        "note": "Hotel-Immobilien + Metro-Bezug; keine öffentliche Einzelliste.",
+        "sources": []
+      }
+    ]
   }
 ];
 
