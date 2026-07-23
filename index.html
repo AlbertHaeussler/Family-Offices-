@@ -111,26 +111,23 @@
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,199,44,0),0 2px 8px rgba(10,31,68,.28)}50%{box-shadow:0 0 0 6px rgba(255,199,44,.6),0 2px 8px rgba(10,31,68,.3)}}
   /* logo sits ON the same shield – no separate box of its own */
   .hqico{width:19px;height:19px;border-radius:4px;object-fit:contain;flex:0 0 auto;background:transparent}
-  .hqname{font-size:12px;font-weight:700;color:var(--navy);line-height:1.05;max-width:180px}
-  /* zoom-based sizing – far out a company is just a small dot in its colour;
-     the name only appears once you have zoomed in quite far */
-  #map.zfar .hqbox{padding:0;gap:0;border:none;background:transparent;box-shadow:none}
-  #map.zfar .hqico,#map.zfar .hqname{display:none}
-  #map.zfar .hqbox::after{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--ring);box-shadow:0 0 0 1.5px #fff,0 1px 3px rgba(10,31,68,.5)}
-  #map.zfar .hqbox.sel::after{width:11px;height:11px;box-shadow:0 0 0 1.5px #fff,0 0 0 3px rgba(10,31,68,.35)}
-  #map.zmid .hqname{display:none}
-  #map.zmid .hqbox{padding:2px;gap:0;border-width:1.5px;border-radius:8px}
-  #map.zmid .hqico{width:13px;height:13px}
+  .hqname{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.05;max-width:190px}
   .heatpoly{filter:blur(3px)}
-  /* object markers: colour-coded badge with a type icon when zoomed in */
+  /* ---- push-pins: what you see when zoomed out, like pins stuck in a printed map ---- */
+  /* a pin = a big round coloured head with a glossy highlight, sitting on a needle whose tip is exactly on the spot */
+  .pin{display:flex;flex-direction:column;align-items:center;cursor:pointer}
+  .pin .head{border-radius:50%;border:2px solid #fff;box-sizing:border-box;position:relative;
+    box-shadow:0 3px 5px rgba(10,31,68,.55),0 1px 0 rgba(255,255,255,.4)}
+  .pin .head::after{content:"";position:absolute;top:16%;left:18%;width:34%;height:34%;border-radius:50%;
+    background:radial-gradient(circle at 40% 40%, rgba(255,255,255,.95), rgba(255,255,255,0) 70%)}
+  .pin .needle{width:3px;margin-top:-2px;background:linear-gradient(to bottom,#f4f6fa 0%, #c3ccda 55%, rgba(120,132,150,.35) 100%);
+    box-shadow:0 2px 3px rgba(10,31,68,.5);border-radius:0 0 2px 2px}
+  .pin.sold .head{border-style:dashed}
+  .pin.hqpin .head{cursor:pointer}
+  /* object markers when zoomed in: colour-coded badge with a type icon */
   .objbadge{border-radius:50%;box-shadow:0 1px 5px rgba(10,31,68,.45);display:flex;align-items:center;justify-content:center;line-height:1;box-sizing:border-box;cursor:pointer}
   .objbadge.sold{border-style:dashed!important;opacity:.8}
   .objico{line-height:1;filter:drop-shadow(0 0 1px rgba(255,255,255,.9))}
-  /* zoomed-out object = real push-pin: coloured head on a thin needle, tip on the spot */
-  .objpin{display:flex;flex-direction:column;align-items:center;cursor:pointer}
-  .objpin .ophead{border-radius:50%;border:1.5px solid #fff;box-sizing:border-box;box-shadow:0 1px 4px rgba(10,31,68,.55)}
-  .objpin.sold .ophead{border-style:dashed;opacity:.85}
-  .objpin .opstem{width:2px;margin-top:-1px;background:linear-gradient(to bottom,#ffffff,rgba(255,255,255,.2));box-shadow:0 1px 2px rgba(10,31,68,.45)}
   /* bottom-left selection dock */
   .seldock{position:absolute;left:14px;bottom:14px;z-index:600;width:244px;padding:12px 13px;max-height:56vh;display:flex;flex-direction:column}
   .seldock-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
@@ -265,7 +262,7 @@ function App(){
       L.geoJSON(window.BORDERS,{interactive:false,style:{color:"#0A1F44",weight:2.5,opacity:.85,fill:false}}).addTo(map);
     }
     heatL.current=L.layerGroup().addTo(map);hqL.current=L.layerGroup().addTo(map);objL.current=L.layerGroup().addTo(map);pinL.current=L.layerGroup().addTo(map);
-    const applyZoom=()=>{const z=map.getZoom();setZoom(z);const el=map.getContainer();el.classList.remove("zfar","zmid","znear");el.classList.add(z<8?"zfar":z<11?"zmid":"znear");};
+    const applyZoom=()=>{setZoom(map.getZoom());};
     map.on("zoomend",applyZoom);applyZoom();
     map.on("click",e=>{if(sref.current.pinMode){setPin({lat:e.latlng.lat,lng:e.latlng.lng});setPinMode(false);}});
     mapRef.current=map;
@@ -275,18 +272,30 @@ function App(){
     if(baseLayer==="sat"){t.sat.addTo(m);t.labels.addTo(m);}else t.street.addTo(m);
   },[baseLayer]);
 
-  // HQ markers (logo + name box)
+  // HQ markers: big push-pin when zoomed out, full nameplate (logo + name on a
+  // white shield) once you zoom in.
   useEffect(()=>{const lyr=hqL.current;if(!lyr)return;lyr.clearLayers();
+    const far=zoom<8;
     visible.forEach(({o,type})=>{
       const sel=selected.has(o.id),hl=(o.id===highlightId),est=(type==="estimated"),ring=CM[o.category].color;
-      const html=`<div class="hqbox ${sel?'sel':''} ${est?'est':''} ${hl?'hl':''}" style="--ring:${ring}">
-        ${o.domain?`<img class="hqico" src="${ico(o.domain)}" onerror="this.remove()"/>`:''}
-        <span class="hqname">${o.kurz}</span></div>`;
-      const m=L.marker([o.hqLat,o.hqLng],{icon:L.divIcon({html,iconSize:[0,0],className:""}),zIndexOffset:(sel||hl)?1000:0}).addTo(lyr);
+      let icon,ttOff;
+      if(far){ // a real map pin in the company's status colour
+        const head=sel?24:19, stem=Math.round(head*1.15);
+        const html=`<div class="pin hqpin${sel?' sel':''}"><div class="head" style="width:${head}px;height:${head}px;background:${ring}"></div><div class="needle" style="height:${stem}px"></div></div>`;
+        icon=L.divIcon({html,className:"",iconSize:[head,head+stem],iconAnchor:[head/2,head+stem]});
+        ttOff=-(head+stem);
+      } else { // full nameplate – solid white shield behind BOTH logo and the whole name
+        const html=`<div class="hqbox ${sel?'sel':''} ${est?'est':''} ${hl?'hl':''}" style="--ring:${ring}">`
+          +`${o.domain?`<img class="hqico" src="${ico(o.domain)}" onerror="this.remove()"/>`:''}`
+          +`<span class="hqname">${o.kurz}</span></div>`;
+        icon=L.divIcon({html,iconSize:[0,0],className:""});
+        ttOff=-16;
+      }
+      const m=L.marker([o.hqLat,o.hqLng],{icon,zIndexOffset:(sel||hl)?1000:0}).addTo(lyr);
       m.on("click",()=>toggleSelect(o.id));
-      m.bindTooltip(`<b>${o.kurz}</b><br>${o.hqAddress}${est?'<br><i>im Radius: geschätzt (Heatmap)</i>':''}`,{direction:"top",offset:[0,-16]});
+      m.bindTooltip(`<b>${o.kurz}</b><br>${o.hqAddress}${est?'<br><i>im Radius: geschätzt (Heatmap)</i>':''}`,{direction:"top",offset:[0,ttOff]});
     });
-  },[visible,selected,highlightId]);
+  },[visible,selected,highlightId,zoom]);
 
   // heatmap polygons + object pins
   useEffect(()=>{const oly=objL.current,hly=heatL.current;if(!oly)return;oly.clearLayers();hly.clearLayers();
@@ -314,9 +323,9 @@ function App(){
           +`<span class="objico" style="font-size:${Math.round(size*0.6)}px">${emoji}</span></div>`;
         icon=L.divIcon({html,className:"",iconSize:[size,size],iconAnchor:[size/2,size/2]});
         ttOff=-size/2;
-      } else { // zoomed out: a proper push-pin, coloured head + needle, tip on the spot
-        const head=Math.max(11,size+7), stem=Math.round(head*1.0);
-        const html=`<div class="objpin${sold?' sold':''}"><div class="ophead" style="width:${head}px;height:${head}px;background:${col};border-color:${sold?'#E4002B':'#fff'}"></div><div class="opstem" style="height:${stem}px"></div></div>`;
+      } else { // zoomed out: a real, clearly-visible push-pin, coloured head + needle, tip on the spot
+        const head=Math.max(16,size+9), stem=Math.round(head*1.15);
+        const html=`<div class="pin${sold?' sold':''}"><div class="head" style="width:${head}px;height:${head}px;background:${col}${sold?';border-color:#E4002B':''}"></div><div class="needle" style="height:${stem}px"></div></div>`;
         icon=L.divIcon({html,className:"",iconSize:[head,head+stem],iconAnchor:[head/2,head+stem]});
         ttOff=-(head+stem);
       }
