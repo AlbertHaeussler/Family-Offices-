@@ -1363,6 +1363,299 @@ window.FO_DATA = [
         "sources": []
       }
     ]
+  },
+  {
+    "id": "jab",
+    "name": "JAB Holding Company (Family Office Reimann)",
+    "kurz": "JAB (Reimann)",
+    "typ": "MFO",
+    "land": "Luxemburg (Familie Reimann)",
+    "hqAddress": "Luxemburg (Steuerung via Agnaten SE / Lucresca SE, Wien)",
+    "hqLat": 49.6116,
+    "hqLng": 6.1319,
+    "website": "jabholco.com",
+    "domain": "jabholco.com",
+    "linkedin": "",
+    "contactName": "Familie Reimann · JAB Holding",
+    "contactRole": "Investment-Holding (Konsumgüter/Kaffee/Beauty)",
+    "contactChannel": "über JAB Holding, Luxemburg",
+    "category": "gelb",
+    "aum": {
+      "value": 35,
+      "unit": "Mrd €",
+      "basis": "quelle",
+      "note": "Vermögen ~35 Mrd €, ~25 Mrd $ AUM; Fokus Konsumgüter (Keurig Dr Pepper, JDE Peet's u. a.), kein RE-Kern.",
+      "sources": [
+        {
+          "label": "Wikipedia – JAB Holding",
+          "url": "https://en.wikipedia.org/wiki/JAB_Holding_Company"
+        },
+        {
+          "label": "altss – JAB/Reimann",
+          "url": "https://altss.com/profile/jab-holding-company-reimann-family-office"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.02,
+      "basis": "extrapolation",
+      "note": "Konsumgüter-Investor; kein bekanntes Immobilien-Kerngeschäft. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.7,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Luxemburg (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          49.61,
+          6.13
+        ],
+        "radiusKm": 25,
+        "basis": "extrapolation",
+        "note": "Kein DE-Immobilienportfolio bekannt.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "iho",
+    "name": "IHO Holding / INA-Holding Schaeffler (Family Office Schaeffler)",
+    "kurz": "IHO (Schaeffler)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Industriestraße 1–3, 91074 Herzogenaurach",
+    "hqLat": 49.567,
+    "hqLng": 10.886,
+    "website": "iho-group.de",
+    "domain": "schaeffler.com",
+    "linkedin": "",
+    "contactName": "Maria-Elisabeth Schaeffler-Thumann & Georg F. W. Schaeffler",
+    "contactRole": "Investment-Holding (Industrie)",
+    "contactChannel": "über IHO Holding, Herzogenaurach",
+    "category": "gelb",
+    "aum": {
+      "value": 8,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Kontrolliert ~70% Schaeffler AG + Continental-Anteile; INA-Holding hält auch Immobilien. Größenordnung geschätzt.",
+      "sources": [
+        {
+          "label": "familyofficehub – Georg Schaeffler",
+          "url": "https://familyofficehub.io/blog/georg-schaeffler-is-there-a-single-family-office/"
+        },
+        {
+          "label": "Schaeffler – IHO Holding",
+          "url": "https://www.schaeffler.com/de/investor-relations/credit-relations/iho-holding/"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.05,
+      "basis": "extrapolation",
+      "note": "INA-Holding verwaltet u. a. Immobilien, aber Industrie-Fokus. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.6,
+    "usage": {
+      "Sonstiges": 80,
+      "Buero": 20
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Herzogenaurach / Franken (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          49.57,
+          10.89
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "RE über INA-Holding, kein öffentliches Objektverzeichnis.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "vem",
+    "name": "VEM Vermögensverwaltung (Family Office Merckle)",
+    "kurz": "VEM (Merckle)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "Blaubeuren (Ludwig-Merckle-Str. 3); Teile nach Zossen verlegt",
+    "hqLat": 48.411,
+    "hqLng": 9.784,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Ludwig Merckle · VEM Vermögensverwaltung",
+    "contactRole": "Investment-Holding (Pharma/Industrie)",
+    "contactChannel": "über VEM Vermögensverwaltung GmbH",
+    "category": "gelb",
+    "aum": {
+      "value": 7,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Beteiligungen u. a. Heidelberg Materials, PistenBully/Kässbohrer, Zollern; Industrie-Fokus. Größenordnung geschätzt.",
+      "sources": [
+        {
+          "label": "Wikipedia – Merckle Unternehmensgruppe",
+          "url": "https://de.wikipedia.org/wiki/Merckle_Unternehmensgruppe"
+        },
+        {
+          "label": "Bloomberg – Ludwig Merckle",
+          "url": "https://www.bloomberg.com/billionaires/profiles/ludwig-merckle/"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.03,
+      "basis": "extrapolation",
+      "note": "Kein bekanntes Immobilien-Kerngeschäft. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.4,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "Schwäbische Alb / Blaubeuren (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          48.41,
+          9.78
+        ],
+        "radiusKm": 30,
+        "basis": "extrapolation",
+        "note": "Kein öffentliches RE-Portfolio bekannt.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "beisheim",
+    "name": "Beisheim Holding (Family Office Otto Beisheim)",
+    "kurz": "Beisheim",
+    "typ": "SFO",
+    "land": "Schweiz (investiert in DE)",
+    "hqAddress": "Neuhofstrasse 4, 6341 Baar (CH)",
+    "hqLat": 47.195,
+    "hqLng": 8.525,
+    "website": "beisheim.com",
+    "domain": "beisheim.com",
+    "linkedin": "",
+    "contactName": "Beisheim Holding / Beisheim Stiftung",
+    "contactRole": "Direkte Immobilien-Investments (Büro/Gewerbe/Wohnen)",
+    "contactChannel": "über beisheim.com · Neuhofstrasse 4, 6341 Baar",
+    "category": "gruen",
+    "aum": {
+      "value": 4,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "Vermögen aus METRO-Gründung O. Beisheim; Beteiligungen + direkte Immobilien. Größenordnung geschätzt.",
+      "sources": [
+        {
+          "label": "altss – Beisheim Holding",
+          "url": "https://altss.com/profile/beisheim-holding-otto-beisheim-family-office"
+        },
+        {
+          "label": "Beisheim – Anlageklassen",
+          "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.4,
+      "basis": "quelle",
+      "note": "Direkte Immobilien-Investments (Büro/Gewerbe/Wohnen) in CH + DE.",
+      "sources": [
+        {
+          "label": "Beisheim – Anlageklassen",
+          "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
+        }
+      ]
+    },
+    "reInvestedEUR": 1.6,
+    "usage": {
+      "Buero": 40,
+      "Hotel": 35,
+      "Wohnen": 25
+    },
+    "confirmedObjects": [
+      {
+        "name": "Beisheim Center (Potsdamer Platz)",
+        "address": "Lennéstraße 5 / Ebertstraße, 10785 Berlin",
+        "lat": 52.5095,
+        "lng": 13.3765,
+        "usage": "Buero",
+        "area": "Büro/Wohnen/Hotel-Ensemble",
+        "purchaseDate": "Bestand",
+        "valueEUR": 500,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Beisheim Holding",
+            "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
+          },
+          {
+            "label": "altss – Beisheim",
+            "url": "https://altss.com/profile/beisheim-holding-otto-beisheim-family-office"
+          }
+        ]
+      },
+      {
+        "name": "Courtyard by Marriott Munich City Center",
+        "address": "Schwanthalerstraße, 80336 München",
+        "lat": 48.137,
+        "lng": 11.556,
+        "usage": "Hotel",
+        "area": "Hotel",
+        "purchaseDate": "Bestand",
+        "valueEUR": 120,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "altss – Beisheim",
+            "url": "https://altss.com/profile/beisheim-holding-otto-beisheim-family-office"
+          }
+        ]
+      }
+    ],
+    "heatmap": [
+      {
+        "name": "Berlin / München (DE-Immobilien)",
+        "intensity": "mittel",
+        "usages": [
+          "Buero",
+          "Hotel",
+          "Wohnen"
+        ],
+        "center": [
+          52.5,
+          13.37
+        ],
+        "radiusKm": 20,
+        "basis": "quelle",
+        "sources": [
+          {
+            "label": "Beisheim",
+            "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
+          }
+        ]
+      }
+    ]
   }
 ];
 
