@@ -124,7 +124,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     website:"hpp-vermoegensverwaltung.de", domain:"hpp-vermoegensverwaltung.de",
     linkedin:"", contactName:"Matthias Habbel", contactRole:"Geschäftsführer / Hauptgesellschafter", contactChannel:"hpp-vermoegensverwaltung.de",
     contactLinkedin:"", contactLinkedinName:"",
-    category:"rot",
+    category:"gelb",
     aum:{ value:0.6, unit:"Mrd €", basis:"quelle", note:"~600 Mio €. Bankunabhängige Vermögensverwaltung (gegr. 1996), positioniert sich teils als MFO; Fokus ausschließlich liquide Wertpapiere.", sources:[{label:"VuV",url:"https://vuv.de/vermoegensverwalter/habbel-pohlig-partner-vermoegensverwaltung-wiesbaden/"}] },
     reQuote:{ value:0.0, basis:"quelle", note:"Verwaltet ausschließlich liquide, börsengehandelte Wertpapiere — keine Immobilien.", sources:[{label:"Impressum",url:"https://www.hpp-vermoegensverwaltung.de/impressum/"}] },
     reInvestedEUR:0,

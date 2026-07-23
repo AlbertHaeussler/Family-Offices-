@@ -60,23 +60,23 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"actris_hopp",
-    name:"Actris GmbH (Immobilien-Family-Office der Familie Hopp)",
-    kurz:"Actris (Hopp Immobilien)",
+    name:"Actris GmbH (operatives Immobilien-Vehikel der Familie Hopp; FO = dievini)",
+    kurz:"Hopp Immobilien-Vehikel (Actris)",
     typ:"SFO",
     land:"Deutschland",
     hqAddress:"Hans-Thoma-Straße 22, 68163 Mannheim",
     hqLat:49.4760, hqLng:8.4655,
     website:"", domain:"",
-    linkedin:"https://de.linkedin.com/company/hopp-family-office",
+    linkedin:"",
     contactName:"Daniel Hopp", contactRole:"Geschäftsführer Actris",
-    contactChannel:"Hopp Family Office (Immobilien) – Mannheim",
+    contactChannel:"Actris GmbH – Mannheim",
     contactLinkedin:"", contactLinkedinName:"",
     category:"gruen",
     aum:{ value:2.0, unit:"Mrd €", basis:"extrapolation",
-      note:"Reine Einschätzung: Actris ist das dedizierte Immobilien-/Beteiligungsvehikel der Familie Hopp (Dietmar/Daniel/Oliver Hopp); kein offizieller RE-AUM publiziert. Größenordnung grob geschätzt.",
+      note:"Reine Einschätzung: Actris ist die operative Immobilien-GmbH der Familie Hopp (analog Trei bei Molento/Haub) — KEIN Family Office. Das Hopp-Family-Office ist dievini (separat erfasst). Kein offizieller RE-AUM publiziert; Größenordnung grob geschätzt.",
       sources:[] },
     reQuote:{ value:0.9, basis:"quelle",
-      note:"Actris ist explizit die Immobilien- und Beteiligungsgesellschaft der Familie – klar RE-dominiert.",
+      note:"Actris ist die operative Immobilien- und Beteiligungsgesellschaft der Familie Hopp – klar RE-dominiert.",
       sources:[{label:"portfolio-vm – Hopp Family Office sucht Immobilienprofi",url:"https://portfolio-vm.com/hopp-family-office-sucht-immobilienprofi/"},
         {label:"Wikipedia – Actris",url:"https://de.wikipedia.org/wiki/Actris"}] },
     reInvestedEUR:1.8,
@@ -121,16 +121,11 @@ window.FO_DATA = (window.FO_DATA || []).concat([
       sources:[] },
     reInvestedEUR:2.6,
     usage:{ Retail:40, Hotel:35, Buero:25 },
-    confirmedObjects:[
-      { name:"Tschuggen Grand Hotel Arosa", address:"Sonnenbergstrasse 1, 7050 Arosa, Schweiz", lat:46.7830, lng:9.6790,
-        usage:"Hotel", area:"5-Sterne-Hotel", purchaseDate:"1980", valueEUR:null, status:"Bestand (Familienbesitz)",
-        images:[], sources:[
-          {label:"Wikipedia – Tschuggen Hotel Group",url:"https://de.wikipedia.org/wiki/Tschuggen_Hotel_Group"}] },
-      { name:"Hotel Eden Roc Ascona", address:"Via Albarelle 16, 6612 Ascona, Schweiz", lat:46.1540, lng:8.7660,
-        usage:"Hotel", area:"5-Sterne-Hotel", purchaseDate:null, valueEUR:null, status:"Bestand (Tschuggen Collection)",
-        images:[], sources:[
-          {label:"Wikipedia – Tschuggen Hotel Group",url:"https://de.wikipedia.org/wiki/Tschuggen_Hotel_Group"}] }
-    ],
+    // Hinweis: Kipp hält kaum öffentlich adressierbare Einzelobjekte in DE (ehem. Massa-
+    // Handelsimmobilien sind an Metro vermietet, keine Einzeladressen öffentlich). Die bekannten
+    // Objekte (Tschuggen Grand Hotel Arosa, Hotel Eden Roc Ascona, Carlton St. Moritz) liegen in
+    // der SCHWEIZ und gehören daher NICHT in confirmedObjects (nur DE-Objekte zulässig).
+    confirmedObjects:[],
     heatmap:[
       { name:"Rheinhessen/Alzey (DE-Handelsimmobilien)", intensity:"mittel", usages:["Retail"], center:[49.745,8.115], radiusKm:40,
         basis:"quelle", note:"Ehemalige Massa-/Handelsimmobilien, langfristig an Metro vermietet (keine Einzeladressen öffentlich).",
@@ -257,7 +252,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     linkedin:"", contactName:"Arne Sand / Dr. Max Schott", contactRole:"Gründer/Geschäftsführer",
     contactChannel:"info@sand-schott.de / 0711 601800-80",
     contactLinkedin:"", contactLinkedinName:"",
-    category:"rot",
+    category:"gelb",
     aum:{ value:0.5, unit:"Mrd €", basis:"quelle",
       note:"~500 Mio € verwaltetes Wertpapiervermögen (unabhängige Vermögensverwaltung mit Family-Office-Services).",
       sources:[{label:"VuV – Sand und Schott GmbH",url:"https://vuv.de/vermoegensverwalter/sand-und-schott-gmbh-stuttgart/"}] },
