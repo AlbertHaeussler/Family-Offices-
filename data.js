@@ -2667,6 +2667,65 @@ window.FO_DATA = [
         "sources": []
       }
     ]
+  },
+  {
+    "id": "stella",
+    "name": "Stella Vermögensverwaltung GmbH (Family Office Thiele)",
+    "kurz": "Stella (Thiele)",
+    "typ": "SFO",
+    "land": "Deutschland",
+    "hqAddress": "München (genaue Adresse nicht öffentlich)",
+    "hqLat": 48.14,
+    "hqLng": 11.58,
+    "website": "—",
+    "domain": "",
+    "linkedin": "",
+    "contactName": "Familie Thiele (Julia Thiele-Schürhoff u. a.)",
+    "contactRole": "Family Office / Beteiligungen (Knorr-Bremse, Vossloh)",
+    "contactChannel": "privat; Stella Vermögensverwaltung, München",
+    "category": "gelb",
+    "aum": {
+      "value": 15,
+      "unit": "Mrd €",
+      "basis": "extrapolation",
+      "note": "SFO der Familie Thiele; hält Mehrheiten an Knorr-Bremse + Vossloh. Industrie-Fokus, kein RE-Kern.",
+      "sources": [
+        {
+          "label": "familyofficehub – Thiele SFO",
+          "url": "https://familyofficehub.io/blog/new-chief-investment-officer-for-german-thiele-single-family-office/"
+        },
+        {
+          "label": "Handelsblatt – Familie Thiele",
+          "url": "https://www.handelsblatt.com/unternehmen/industrie/nach-tod-des-patriarchen-erbe-geregelt-familie-thiele-bleibt-mehrheitsaktionaerin-bei-knorr-und-vossloh/27043376.html"
+        }
+      ]
+    },
+    "reQuote": {
+      "value": 0.03,
+      "basis": "extrapolation",
+      "note": "Kein bekanntes Immobilien-Kerngeschäft. Reine Einschätzung.",
+      "sources": []
+    },
+    "reInvestedEUR": 0.4,
+    "usage": {
+      "Sonstiges": 100
+    },
+    "confirmedObjects": [],
+    "heatmap": [
+      {
+        "name": "München (Sitz)",
+        "intensity": "niedrig",
+        "usages": null,
+        "center": [
+          48.14,
+          11.58
+        ],
+        "radiusKm": 25,
+        "basis": "extrapolation",
+        "note": "Kein öffentliches RE-Portfolio.",
+        "sources": []
+      }
+    ]
   }
 ];
 
