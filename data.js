@@ -954,11 +954,53 @@ window.FO_DATA = [
     },
     "reInvestedEUR": 0.7,
     "usage": {
-      "Wohnen": 40,
-      "Buero": 40,
-      "Sonstiges": 20
+      "Hotel": 35,
+      "Wohnen": 30,
+      "Buero": 25,
+      "Sonstiges": 10
     },
-    "confirmedObjects": [],
+    "confirmedObjects": [
+      {
+        "name": "Hotel Vier Jahreszeiten (Fairmont)",
+        "address": "Neuer Jungfernstieg 9–14, 20354 Hamburg",
+        "lat": 53.5565,
+        "lng": 9.993,
+        "usage": "Hotel",
+        "area": "5-Sterne-Hotel (Landmark)",
+        "purchaseDate": "seit 2013 im Familienbesitz",
+        "valueEUR": 150,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "altss – Dohle Family Office",
+            "url": "https://altss.com/profile/dohle-family-office"
+          },
+          {
+            "label": "fundz – Dohle",
+            "url": "https://www.fundz.net/family-offices/dohle-family-office-siegburg-dohle-family"
+          }
+        ]
+      },
+      {
+        "name": "Golf Club Gut Lärchenhof (Miteigentum)",
+        "address": "Hahnenstraße, 50259 Pulheim (bei Köln)",
+        "lat": 51.018,
+        "lng": 6.755,
+        "usage": "Sonstiges",
+        "area": "Golfanlage",
+        "purchaseDate": "Miteigentümer",
+        "valueEUR": 30,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "altss – Dohle Family Office",
+            "url": "https://altss.com/profile/dohle-family-office"
+          }
+        ]
+      }
+    ],
     "heatmap": [
       {
         "name": "Rheinland (Köln/Bonn/Siegburg)",
@@ -1191,6 +1233,24 @@ window.FO_DATA = [
           {
             "label": "Immobilien Zeitung – Verkauf",
             "url": "https://www.iz.de/transaktionen/news/-soravia-kauft-die-muelheimer-tengelmann-zentrale-156396"
+          }
+        ]
+      },
+      {
+        "name": "Fischerhof (Wohnquartier)",
+        "address": "Fischerhof, 55116 Mainz",
+        "lat": 49.997,
+        "lng": 8.276,
+        "usage": "Wohnen",
+        "area": "88 Wohnungen (Eigenbestand Trei)",
+        "purchaseDate": "fertiggestellt",
+        "valueEUR": 35,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Trei Real Estate – Immobilien",
+            "url": "https://www.treirealestate.com/immobilien"
           }
         ]
       }
@@ -2026,6 +2086,24 @@ window.FO_DATA = [
           {
             "label": "altss – Beisheim",
             "url": "https://altss.com/profile/beisheim-holding-otto-beisheim-family-office"
+          }
+        ]
+      },
+      {
+        "name": "The Ritz-Carlton Berlin",
+        "address": "Potsdamer Platz 3, 10785 Berlin",
+        "lat": 52.509,
+        "lng": 13.375,
+        "usage": "Hotel",
+        "area": "5-Sterne-Hotel (Beisheim Center)",
+        "purchaseDate": "Bestand",
+        "valueEUR": 200,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Beisheim – Anlageklassen",
+            "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
           }
         ]
       }
