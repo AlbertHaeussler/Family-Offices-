@@ -56,7 +56,7 @@
   .sw{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
   .adv{position:absolute;top:92px;left:14px;width:300px;max-height:calc(100vh - 200px);overflow:auto;z-index:500;padding:14px}
   .fld{margin:9px 0}.fld label{font-size:11px;color:var(--muted);display:block;margin-bottom:4px}
-  select,input[type=number]{width:100%;padding:7px 9px;border:1px solid rgba(255,255,255,.6);border-radius:10px;font-size:13px;background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--txt);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(10,31,68,.06)}
+  select,input[type=number],input[type=text]{width:100%;padding:7px 9px;border:1px solid rgba(255,255,255,.6);border-radius:10px;font-size:13px;background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--txt);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(10,31,68,.06)}
   .row2{display:flex;gap:8px}
   .chkgrid{display:grid;grid-template-columns:1fr 1fr;gap:3px 8px}
   .chk{display:flex;align-items:center;gap:6px;font-size:11.5px;cursor:pointer;user-select:none;padding:2px}
@@ -206,19 +206,20 @@ function Sources({field,label}){
   </div>);
 }
 
-function Pie({data,activeUsages,onToggle}){
+function Pie({data}){
   const entries=USAGE_KEYS.map(k=>({k,v:data[k]||0})).filter(e=>e.v>0);
   const total=entries.reduce((s,e)=>s+e.v,0)||1;let acc=0;const R=52,C=60;
   const arcs=entries.map(e=>{const a0=acc/total*2*Math.PI,a1=(acc+e.v)/total*2*Math.PI;acc+=e.v;
     const x0=C+R*Math.sin(a0),y0=C-R*Math.cos(a0),x1=C+R*Math.sin(a1),y1=C-R*Math.cos(a1);
-    return {...e,d:`M${C},${C} L${x0},${y0} A${R},${R} 0 ${(a1-a0)>Math.PI?1:0} 1 ${x1},${y1} Z`,on:activeUsages.has(e.k)};});
+    return {...e,d:`M${C},${C} L${x0},${y0} A${R},${R} 0 ${(a1-a0)>Math.PI?1:0} 1 ${x1},${y1} Z`,pct:Math.round(e.v/total*100)};});
+  if(entries.length===0) return (<div className="pie-wrap"><div style={{fontSize:12,color:"var(--muted)",padding:"10px 0"}}>Keine Immobilien-Nutzung in der Auswahl.</div></div>);
   return (<div className="pie-wrap">
     <svg width="118" height="118" viewBox="0 0 120 120">
-      {arcs.map(a=><path key={a.k} d={a.d} fill={UC[a.k]} opacity={a.on?1:.22} stroke="#fff" strokeWidth="1.5" style={{cursor:"pointer"}} onClick={()=>onToggle(a.k)}/>)}
+      {arcs.map(a=><path key={a.k} d={a.d} fill={UC[a.k]} stroke="#fff" strokeWidth="1.5"/>)}
       <circle cx="60" cy="60" r="26" fill="rgba(255,255,255,.92)"/>
     </svg>
     <div className="pielegend">
-      {USAGE_KEYS.map(k=><div key={k} className={"pchip"+(activeUsages.has(k)?"":" off")} onClick={()=>onToggle(k)}><span className="sw" style={{background:UC[k]}}/> {UL[k]}</div>)}
+      {arcs.map(a=><div key={a.k} className="pchip" style={{cursor:"default"}}><span className="sw" style={{background:UC[a.k]}}/> {UL[a.k]} · {a.pct}%</div>)}
     </div>
   </div>);
 }
@@ -231,6 +232,7 @@ function App(){
   const [minAum,setMinAum]=useState(0),[maxAum,setMaxAum]=useState(50),[minReQ,setMinReQ]=useState(0);
   const [onlyObjects,setOnlyObjects]=useState(false),[showSold,setShowSold]=useState(true);
   const [pin,setPin]=useState(null),[pinRadius,setPinRadius]=useState(30),[pinMode,setPinMode]=useState(false);
+  const [addr,setAddr]=useState(""),[geoBusy,setGeoBusy]=useState(false),[geoErr,setGeoErr]=useState("");
   const [selected,setSelected]=useState(new Set());
   const [selOpen,setSelOpen]=useState(false);
   const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal");
@@ -263,9 +265,12 @@ function App(){
   },[activeCats,activeUsages,country,typF,minAum,maxAum,minReQ,onlyObjects,showSold,pin,pinRadius]);
   const visOffices=visible.map(v=>v.o);
 
-  const agg=useMemo(()=>{const count=visOffices.length,aum=visOffices.reduce((s,o)=>s+o.aum.value,0),re=visOffices.reduce((s,o)=>s+o.reInvestedEUR,0);
-    const pie={};USAGE_KEYS.forEach(k=>pie[k]=0);visOffices.forEach(o=>USAGE_KEYS.forEach(k=>pie[k]+=o.reInvestedEUR*(o.usage[k]||0)/100));
-    return {count,aum,re,pie};},[visible]);
+  // when firms are selected, the Kennzahlen + pie reflect exactly that selection;
+  // otherwise the whole filtered/visible set.
+  const agg=useMemo(()=>{const base=selected.size>0?DATA.filter(o=>selected.has(o.id)):visOffices;
+    const count=base.length,aum=base.reduce((s,o)=>s+o.aum.value,0),re=base.reduce((s,o)=>s+o.reInvestedEUR,0);
+    const pie={};USAGE_KEYS.forEach(k=>pie[k]=0);base.forEach(o=>USAGE_KEYS.forEach(k=>pie[k]+=o.reInvestedEUR*(o.usage[k]||0)/100));
+    return {count,aum,re,pie,scoped:selected.size>0};},[visible,selected]);
 
   const highlightId = detail? detail.office.id : null;
   sref.current={pinMode};
@@ -362,6 +367,15 @@ function App(){
   function toggleSelect(id){setSelected(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});}
   function toggleCat(c){setActiveCats(p=>{const n=new Set(p);n.has(c)?n.delete(c):n.add(c);return n;});}
   function toggleUsage(k){setActiveUsages(p=>{const n=new Set(p);n.has(k)?n.delete(k):n.add(k);return n;});}
+  // geocode a typed address (OpenStreetMap / Nominatim) and drop the radius pin there
+  async function geocodeAddr(){const q=addr.trim();if(!q)return;setGeoBusy(true);setGeoErr("");
+    try{const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=de,at,ch&q=${encodeURIComponent(q)}`,{headers:{Accept:"application/json"}});
+      const j=await r.json();
+      if(j&&j.length){const la=+j[0].lat,ln=+j[0].lon;setPin({lat:la,lng:ln});setPinMode(false);
+        if(mapRef.current)mapRef.current.setView([la,ln],Math.max(mapRef.current.getZoom(),11));}
+      else setGeoErr("Adresse nicht gefunden.");
+    }catch(e){setGeoErr("Suche fehlgeschlagen (Netzwerk).");}
+    setGeoBusy(false);}
 
   const tableRows=useMemo(()=>{const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,Voll:o.name,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
     aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
@@ -412,11 +426,11 @@ function App(){
            <span className="dot" style={{background:CM[c].color}}/><span className="dotlabel">{CM[c].label}</span></div>)}
        </div>
        <div className="panel glass">
-         <h2 className="hd">Auswahl · Kennzahlen</h2>
+         <h2 className="hd">{agg.scoped?`Ausgewählt · ${agg.count} ${agg.count===1?"Office":"Offices"}`:"Auswahl · Kennzahlen"}</h2>
          <div className="stat"><span>Unternehmen</span><b>{agg.count}</b></div>
          <div className="stat"><span>Verwaltetes Vermögen</span><b>{fmtB(agg.aum)}</b></div>
          <div className="stat"><span>davon Immobilien</span><b>{fmtB(agg.re)}</b></div>
-         <Pie data={agg.pie} activeUsages={activeUsages} onToggle={toggleUsage}/>
+         <Pie data={agg.pie}/>
        </div>
        {selOffices.length>0 && (
          <div className="panel glass detail">
@@ -445,8 +459,12 @@ function App(){
        <div className="togg" onClick={()=>setOnlyObjects(v=>!v)}><div className={"switch"+(onlyObjects?" on":"")}><i/></div> Nur mit bestätigten Objekten</div>
        <div className="togg" onClick={()=>setShowSold(v=>!v)}><div className={"switch"+(showSold?" on":"")}><i/></div> Verkaufte Objekte anzeigen</div>
        <div className="fld" style={{marginTop:10}}><label>📍 Radius-Suche (nutzt alle Filter oben)</label>
-         <div className="btnrow"><button className={"btn "+(pinMode?"":"sec")} onClick={()=>setPinMode(m=>!m)}>{pinMode?"Klicke auf Karte…":"Pin setzen"}</button>
-           {pin&&<button className="btn ghost" onClick={()=>setPin(null)}>Reset</button>}</div>
+         <div className="row2"><input type="text" placeholder="Adresse eingeben…" value={addr} style={{flex:1}}
+             onChange={e=>setAddr(e.target.value)} onKeyDown={e=>{if(e.key==="Enter")geocodeAddr();}}/>
+           <button className="btn sec" style={{whiteSpace:"nowrap"}} onClick={geocodeAddr} disabled={geoBusy}>{geoBusy?"…":"Suchen"}</button></div>
+         {geoErr&&<div className="pininfo" style={{color:"var(--red)"}}>{geoErr}</div>}
+         <div className="btnrow"><button className={"btn "+(pinMode?"":"sec")} onClick={()=>setPinMode(m=>!m)}>{pinMode?"Klicke auf Karte…":"oder Pin per Klick"}</button>
+           {pin&&<button className="btn ghost" onClick={()=>{setPin(null);setAddr("");setGeoErr("");}}>Reset</button>}</div>
          {pin&&<div className="fld" style={{marginTop:8}}><label>Radius: {pinRadius} km</label><input type="range" min="1" max="200" value={pinRadius} style={{width:"100%"}} onChange={e=>setPinRadius(+e.target.value)}/></div>}
          <div className="pininfo">Bestätigtes Objekt im Radius (durchgezogen) + Heatmap-Überschneidung (gestrichelt, geschätzt).</div></div>
        <div className="btnrow"><button className="btn wide" onClick={()=>{setShowTable(true);setWinMode("normal");}}>Als Tabelle zeigen</button></div>
