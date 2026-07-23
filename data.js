@@ -1195,19 +1195,19 @@ window.FO_DATA = [
   },
   {
     "id": "molento",
-    "name": "Molento (Tengelmann/Haub) – Trei Real Estate GmbH",
-    "kurz": "Molento / Trei (Haub)",
+    "name": "Molento (Family Office der Familie Haub / Tengelmann)",
+    "kurz": "Molento (Haub)",
     "typ": "SFO",
     "land": "Deutschland",
     "hqAddress": "Klaus-Bungert-Str. 5b, 40468 Düsseldorf (Trei)",
     "hqLat": 51.26,
     "hqLng": 6.75,
-    "website": "treirealestate.com",
-    "domain": "treirealestate.com",
+    "website": "kein öffentlicher FO-Auftritt; operative RE-Gesellschaft: Trei Real Estate",
+    "domain": "",
     "linkedin": "https://www.linkedin.com/company/trei-real-estate-gmbh",
-    "contactName": "Pepijn Morshuis (CEO) · Matthias Schultz (GF)",
-    "contactRole": "CEO / Geschäftsführer Trei Real Estate",
-    "contactChannel": "deutschland@treirealestate.com · +49 211 54011-000",
+    "contactName": "Familie Haub · Molento (Single Family Office)",
+    "contactRole": "Family Office; operative Immobilien über Trei Real Estate GmbH",
+    "contactChannel": "RE-Anfragen praktisch über Trei Real Estate, Düsseldorf",
     "contactLinkedin": "https://www.linkedin.com/in/pepijn-morshuis-4503b019/",
     "contactLinkedinName": "Pepijn Morshuis",
     "category": "gruen",
@@ -1256,7 +1256,8 @@ window.FO_DATA = [
             "label": "Immobilien Zeitung – Verkauf",
             "url": "https://www.iz.de/transaktionen/news/-soravia-kauft-die-muelheimer-tengelmann-zentrale-156396"
           }
-        ]
+        ],
+        "note": "Immobilie der Familie Haub über die operative Gesellschaft Trei Real Estate"
       },
       {
         "name": "Fischerhof (Wohnquartier)",
@@ -1274,7 +1275,8 @@ window.FO_DATA = [
             "label": "Trei Real Estate – Immobilien",
             "url": "https://www.treirealestate.com/immobilien"
           }
-        ]
+        ],
+        "note": "Immobilie der Familie Haub über die operative Gesellschaft Trei Real Estate"
       }
     ],
     "heatmap": [
@@ -2126,6 +2128,28 @@ window.FO_DATA = [
           {
             "label": "Beisheim – Anlageklassen",
             "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
+          }
+        ]
+      },
+      {
+        "name": "Berlin Marriott Hotel (Beisheim Center)",
+        "address": "Inge-Beisheim-Platz 1, 10785 Berlin",
+        "lat": 52.5095,
+        "lng": 13.3745,
+        "usage": "Hotel",
+        "area": "5-Sterne-Hotel (Beisheim Center, Potsdamer Platz)",
+        "purchaseDate": "Bestand",
+        "valueEUR": 150,
+        "status": "Bestand",
+        "images": [],
+        "sources": [
+          {
+            "label": "Beisheim – Anlageklassen",
+            "url": "https://www.beisheim.com/ch/de/investments/anlageklassen"
+          },
+          {
+            "label": "altss – Beisheim",
+            "url": "https://altss.com/profile/beisheim-holding-otto-beisheim-family-office"
           }
         ]
       }
