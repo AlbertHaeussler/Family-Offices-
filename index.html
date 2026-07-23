@@ -244,8 +244,14 @@ function App(){
   const passesBase=o=> activeCats.has(o.category)&&(country==="all"||o.land===country)&&(typF==="all"||o.typ===typF)
     &&o.aum.value>=minAum&&o.aum.value<=maxAum&&o.reQuote.value*100>=minReQ&&(!onlyObjects||o.confirmedObjects.length>0);
   const officeUsagePass=o=> USAGE_KEYS.some(k=>o.usage[k]>0&&activeUsages.has(k));
-  const confInRadius=o=> !pin?[]:o.confirmedObjects.filter(ob=>activeUsages.has(ob.usage)&&(showSold||!isSold(ob))&&hv(pin.lat,pin.lng,ob.lat,ob.lng)<=pinRadius);
-  const heatOverlap=o=> !pin?[]:(o.heatmap||[]).filter(r=>(r.usages===null||r.usages.some(u=>activeUsages.has(u)))&&hv(pin.lat,pin.lng,r.center[0],r.center[1])<=pinRadius+r.radiusKm);
+  // usage filtering, applied identically to object pins AND heatmap regions.
+  // When no usage is narrowed (all active) everything shows; once you pick e.g.
+  // only Büro, regions must explicitly include Büro — unspecified regions drop out.
+  const allUsages=activeUsages.size===USAGE_KEYS.length;
+  const usageOfObj=ob=> activeUsages.has(ob.usage);
+  const usageOfRegion=r=> allUsages || (Array.isArray(r.usages) && r.usages.some(u=>activeUsages.has(u)));
+  const confInRadius=o=> !pin?[]:o.confirmedObjects.filter(ob=>usageOfObj(ob)&&(showSold||!isSold(ob))&&hv(pin.lat,pin.lng,ob.lat,ob.lng)<=pinRadius);
+  const heatOverlap=o=> !pin?[]:(o.heatmap||[]).filter(r=>usageOfRegion(r)&&hv(pin.lat,pin.lng,r.center[0],r.center[1])<=pinRadius+r.radiusKm);
 
   const visible=useMemo(()=>{const out=[];
     DATA.forEach(o=>{ if(!passesBase(o))return;
@@ -312,7 +318,7 @@ function App(){
   // heatmap polygons + object pins
   useEffect(()=>{const oly=objL.current,hly=heatL.current;if(!oly)return;oly.clearLayers();hly.clearLayers();
     let objs=[],heats=[];
-    if(selected.size>0){DATA.filter(o=>selected.has(o.id)).forEach(o=>{o.confirmedObjects.forEach(ob=>objs.push({o,ob}));(o.heatmap||[]).forEach(r=>heats.push({o,r}));});}
+    if(selected.size>0){DATA.filter(o=>selected.has(o.id)).forEach(o=>{o.confirmedObjects.forEach(ob=>{if(usageOfObj(ob))objs.push({o,ob});});(o.heatmap||[]).forEach(r=>{if(usageOfRegion(r))heats.push({o,r});});});}
     else if(pin){visible.forEach(({o,conf,heat})=>{conf.forEach(ob=>objs.push({o,ob}));heat.forEach(r=>heats.push({o,r}));});}
     heats.forEach(({o,r})=>{const col=HEAT[r.intensity]||HEAT.mittel;const seed=seedOf(o.id+r.name);
       const halo=L.polygon(blob(r.center,r.radiusKm*1.14,seed),{stroke:false,fillColor:col,fillOpacity:.14,className:"heatpoly",interactive:false}).addTo(hly);
