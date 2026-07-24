@@ -112,6 +112,11 @@
   th:hover{color:var(--red)}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   tr:hover td{background:rgba(10,31,68,.05)}
+  .objbar{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--stroke);font-size:12px;color:var(--muted);background:rgba(255,255,255,.45);flex:0 0 auto}
+  .objbar .seg{display:flex;gap:2px;background:rgba(10,31,68,.07);border-radius:9px;padding:3px}
+  .objbar .seg button{border:none;background:transparent;padding:5px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .objbar .seg button.on{background:var(--navy);color:#fff;box-shadow:0 1px 3px rgba(10,31,68,.3)}
+  .objbar .seg button:disabled{opacity:.4;cursor:not-allowed}
   .s3wrap{position:absolute;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;background:rgba(10,31,68,.32)}
   .s3{width:min(470px,92vw);max-height:86vh;overflow:auto;padding:0}
   .s3 .hd{padding:12px 16px;border-bottom:1px solid var(--stroke);display:flex;align-items:center;gap:10px}
@@ -285,6 +290,7 @@ function App(){
   const [soloSel,setSoloSel]=useState(false);
   const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal"),[tableTab,setTableTab]=useState("firms");
   const [objSortKey,setObjSortKey]=useState("Wert"),[objSortDir,setObjSortDir]=useState(-1);
+  const [objScope,setObjScope]=useState("all"); // "all" = ganzer Bestand · "radius" = nur im Pin-Radius
   const [sortKey,setSortKey]=useState("aumV"),[sortDir,setSortDir]=useState(-1);
   const [detail,setDetail]=useState(null);
   const [baseLayer,setBaseLayer]=useState("sat"),[showDisc,setShowDisc]=useState(false);
@@ -431,30 +437,31 @@ function App(){
     aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
     rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return typeof x==="number"?(x-y)*sortDir:(""+x).localeCompare(""+y)*sortDir;});return rows;},[visible,sortKey,sortDir]);
   // flat list of every confirmed object of the currently visible firms (same data as the xlsx "Objekte" sheet)
-  const objectRows=useMemo(()=>{const rows=[];
-    visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>rows.push({
+  const objectRows=useMemo(()=>{const rows=[];const useRadius=objScope==="radius"&&pin;
+    visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>{
+      if(useRadius&&hv(pin.lat,pin.lng,ob.lat,ob.lng)>pinRadius)return; // nur Objekte im Radius
+      rows.push({
       key:o.id+"|"+ob.name, office:o, ob, Firma:o.kurz, Voll:o.name, Objekt:ob.name,
       Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"", Flaeche:ob.area||"",
-      Kauf:ob.purchaseDate||"", Wert:ob.valueEUR, Status:ob.status||"", Sold:isSold(ob)})));
+      Kauf:ob.purchaseDate||"", Wert:ob.valueEUR, Status:ob.status||"", Sold:isSold(ob)});}));
     rows.sort((a,b)=>{const x=a[objSortKey],y=b[objSortKey];
       if(objSortKey==="Wert")return ((+x||0)-(+y||0))*objSortDir;
       if(objSortKey==="Sold")return ((x?1:0)-(y?1:0))*objSortDir;
       return (""+(x||"")).localeCompare(""+(y||""),"de",{numeric:true})*objSortDir;});
-    return rows;},[visible,showSold,objSortKey,objSortDir]);
+    return rows;},[visible,showSold,objSortKey,objSortDir,objScope,pin,pinRadius]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function sortObj(k){objSortKey===k?setObjSortDir(d=>-d):(setObjSortKey(k),setObjSortDir(1));}
   function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
     const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
-    // second tab: every known object of the listed firms
-    const objRows=[];
-    visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>objRows.push({
-      "Family Office (exakt)":o.name, Objekt:ob.name, Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"",
-      "Fläche":ob.area||"", Kaufdatum:ob.purchaseDate||"", "Wert (Mio €)":ob.valueEUR??"",
-      Status:ob.status||"", Verkauft:isSold(ob)?"ja":"nein"})));
-    if(objRows.length===0) objRows.push({"Family Office (exakt)":"—",Objekt:"keine öffentlich belegten Objekte",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"","Wert (Mio €)":"",Status:"",Verkauft:""});
+    // second tab: objects, exactly as currently scoped/sorted in the Objekte view
+    const objRows=objectRows.map(r=>({
+      "Family Office (exakt)":r.Voll, Objekt:r.Objekt, Nutzung:r.Nutzung, Adresse:r.Adresse,
+      "Fläche":r.Flaeche, Kaufdatum:r.Kauf, "Wert (Mio €)":r.Wert??"",
+      Status:r.Status, Verkauft:r.Sold?"ja":"nein"}));
+    if(objRows.length===0) objRows.push({"Family Office (exakt)":"—",Objekt:"keine Objekte in dieser Auswahl",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"","Wert (Mio €)":"",Status:"",Verkauft:""});
     const ws2=XLSX.utils.json_to_sheet(objRows);
-    XLSX.utils.book_append_sheet(wb,ws2,"Objekte");
+    XLSX.utils.book_append_sheet(wb,ws2,objScope==="radius"&&pin?"Objekte im Radius":"Objekte");
     XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
 
   const selOffices=DATA.filter(o=>selected.has(o.id));
@@ -616,15 +623,26 @@ function App(){
                <td className="num">{r.aumV}</td><td className="num">{r.reV}</td><td className="num">{Math.round(r.reP*100)}%</td>
                <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td></tr>))}</tbody>
            </table></div>}
-           {winMode!=="min" && tableTab==="objects" && <div className="tblscroll"><table>
+           {winMode!=="min" && tableTab==="objects" && <React.Fragment>
+             <div className="objbar">
+               <span>Umfang:</span>
+               <div className="seg">
+                 <button className={objScope==="all"?"on":""} onClick={()=>setObjScope("all")}>Alle im Bestand</button>
+                 <button className={objScope==="radius"?"on":""} onClick={()=>pin&&setObjScope("radius")} disabled={!pin}
+                   title={pin?"":"Erst einen Radius-Pin setzen"}>{pin?`Nur im Radius (${pinRadius} km)`:"Nur im Radius"}</button>
+               </div>
+               <span style={{marginLeft:"auto"}}>{objectRows.length} Objekte{objScope==="radius"&&pin?" im Radius":""}</span>
+             </div>
+             <div className="tblscroll"><table>
              <thead><tr>{objCols.map(([k,l])=><th key={k} className={k==="Wert"?"num":""} onClick={()=>sortObj(k)}>{l}{sortMark(objSortKey===k,objSortDir)}</th>)}</tr></thead>
              <tbody>{objectRows.length===0
-               ? <tr><td colSpan={9} style={{color:"#5b6577",padding:"14px"}}>Keine öffentlich belegten Objekte in der aktuellen Auswahl.</td></tr>
+               ? <tr><td colSpan={9} style={{color:"#5b6577",padding:"14px"}}>{objScope==="radius"&&pin?"Keine belegten Objekte in diesem Radius.":"Keine öffentlich belegten Objekte in der aktuellen Auswahl."}</td></tr>
                : objectRows.map(r=>(<tr key={r.key} className="objrow" onClick={()=>setDetail({kind:"object",office:r.office,data:r.ob})}>
                    <td>{r.Voll}</td><td><b>{r.Objekt}</b>{r.Sold&&<span className="sold-badge">verkauft</span>}</td><td>{r.Nutzung}</td>
                    <td>{r.Adresse}</td><td>{r.Flaeche}</td><td>{r.Kauf}</td>
                    <td className="num">{r.Wert??""}</td><td>{r.Status}</td><td>{r.Sold?"ja":"nein"}</td></tr>))}</tbody>
-           </table></div>}
+           </table></div>
+           </React.Fragment>}
          </div>
        </div>
      )}
