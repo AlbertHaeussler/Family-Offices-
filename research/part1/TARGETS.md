@@ -43,4 +43,20 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konz
 - Wirtgen Invest, HQ Trust/Harald Quandt, Viessmann → bereits in `data.js`.
 - Messer, Villeroy & Boch, Vorwerk, Stihl, Fresenius → **skip (operativ / kein separates FO)**.
 
-### Stand Part 1: 21 FO-Einträge in `data-part1.js` · skips dokumentiert. (Broad-Sweep-Runde durch Session-Limit unterbrochen — weitere Namen offen.)
+### Stand nach Runde 2: 21 FO-Einträge in `data-part1.js`
+
+## Runde 3 — bundesweiter Sweep (via familyofficehub/altss/familyofficeresearch/Northdata/IZ)
+- [~] Schörghuber (Bayerische Hausbau) — **von Part 3 übernommen** (dort `schoerghuber`, 5 bestätigte Objekte). Aus `data-part1.js` wieder ENTFERNT, um ID-Doppel zu vermeiden. (Meine zusätzlich recherchierten Objekte Arabellahaus/Rosewood/Stachus Rondell/Nockherberg könnten dort ergänzt werden.)
+- [x] `syngroh_grohe` — Syngroh / Family Office Klaus Grohe (Hansgrohe), Schiltach (SFO, gelb).
+- [x] `oberwelland_storck` — TAO Holding / OW Familien Verwaltung (Familie Oberwelland, Storck), Berlin (SFO, gelb).
+- [x] `lennertz_co` — Lennertz & Co. GmbH, Hamburg (MFO, gelb, >1 Mrd €).
+- [x] `faber_castell_vv` — Faber-Castell Immobilienverwaltung (Familie Graf von Faber-Castell), Stein b. Nürnberg (SFO, gelb).
+- [x] `schuerfeld_group` — Schürfeld Group (Familie Schürfeld), Hamburg (Beteiligungsholding, gelb).
+
+### Runde-3-skips (operativ / kein separates FO)
+- Sennheiser (nur Ownership-Holding), Knauf (Eigentümerholding, kein diversifiziertes FO), Grupp/Trigema, Klöckner → skip.
+- Mohn, Miele, Melitta/Bentz, Bahlsen, Fischer, Kärcher, Diehl, Liebherr → in Part-2/Part-3-Zuständigkeit bzw. dort geprüft; hier nicht gedoppelt.
+
+> HINWEIS: Diese 6 wurden BEWUSST in `data-part1.js` eingetragen (nicht in andere Parts) — Regel: nur die eigene Datei anfassen. Mehrere davon (Schörghuber, Faber-Castell, Syngroh) liegen thematisch in Süd/BW; falls Part 3 sie später ebenfalls findet, bitte dort NICHT doppeln (IDs siehe oben).
+
+### Stand Part 1 gesamt: 26 FO-Einträge in `data-part1.js` (Schörghuber an Part 3 abgetreten) · 3 skips (R1) + weitere skips dokumentiert.

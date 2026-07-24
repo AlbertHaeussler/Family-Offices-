@@ -295,44 +295,61 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     ]
   },
 
-  // ===== Schörghuber (Familienholding mit RE-Kern Bayerische Hausbau) =====
+  // ===== Peter Möhrle Holding (Hamburger SFO, Erlös Max Bahr) =====
   {
-    id:"schoerghuber",
-    name:"Schörghuber Unternehmensgruppe (Familie Schörghuber)", kurz:"Schörghuber",
+    id:"moehrle",
+    name:"Peter Möhrle Holding GmbH & Co. KG (Familie Möhrle)", kurz:"Peter Möhrle Holding",
     typ:"SFO",
     land:"Deutschland",
-    hqAddress:"Denninger Straße 165, 81925 München",
-    hqLat:48.156, hqLng:11.635,
-    website:"schoerghuber.group", domain:"hausbau.de",
-    linkedin:"", contactName:"Alexandra Schörghuber / Nico Nusmeier", contactRole:"Vorsitzende Stiftungsrat / Vorstandsvorsitzender", contactChannel:"über hausbau.de",
+    hqAddress:"Rentzelstraße 10a, 20146 Hamburg",
+    hqLat:53.564, hqLng:9.976,
+    website:"petermoehrle.de", domain:"petermoehrle.de",
+    linkedin:"", contactName:"Peter Möhrle Holding (Geschäftsführung)", contactRole:"Single Family Office", contactChannel:"über petermoehrle.de",
     contactLinkedin:"", contactLinkedinName:"",
-    category:"gruen",
-    aum:{ value:3.6, unit:"Mrd €", basis:"quelle", note:"Immobilien-Bestandsportfolio der RE-Tochter Bayerische Hausbau ~3,6 Mrd €, Schwerpunkt München. Gruppe zudem Getränke (Paulaner/BHI), Hotels (Arabella), Seafood. Eigentümer: Schörghuber Stiftung & Co. Holding KG.", sources:[
-      {label:"Bayerische Hausbau – Portfolio (~3,6 Mrd €)", url:"https://www.hausbau-realestate.de/unternehmen/portfolio"},
-      {label:"Bayerische Hausbau – Schörghuber-Gruppe", url:"https://www.hausbau.de/unternehmen/schoerghuber-unternehmensgruppe"}
-    ] },
-    reQuote:{ value:0.6, basis:"extrapolation", note:"Reine Einschätzung – Immobilien (Bayerische Hausbau) sind ein Kerngeschäft der Gruppe; exakte Quote am Familienvermögen nicht öffentlich.", sources:[] },
-    reInvestedEUR:3.6,
-    usage:{ Buero:45, Wohnen:25, Retail:15, Hotel:15 },
+    category:"gelb",
+    aum:{ value:0.5, unit:"Mrd €", basis:"extrapolation", note:"SFO gegr. 2007 (Erlös aus Verkauf der Baumarktkette Max Bahr) – investiert in Private Equity, Immobilien & Direktbeteiligungen. Vermögen nicht offengelegt. Reine Einschätzung.", sources:[] },
+    reQuote:{ value:0.3, basis:"extrapolation", note:"Reine Einschätzung – Immobilien sind eine der Anlageklassen des SFO; Quote nicht offengelegt.", sources:[] },
+    reInvestedEUR:0.2,
+    usage:{ Buero:40, Wohnen:40, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (Sitz & SFO)", intensity:"mittel", usages:["Buero","Wohnen"], center:[53.564,9.976], radiusKm:20,
+        basis:"quelle", note:"Hamburger Single Family Office mit Anlageklasse Immobilien.", sources:[
+          {label:"private-banking-magazin – Peter Möhrle Holding", url:"https://www.private-banking-magazin.de/peter-moehrle-holding-will-das-team-verstaerken-1397034325/"},
+          {label:"Altss – Peter Möhrle Holding (Hamburg SFO)", url:"https://altss.com/profile/peter-mohrle-holding"}
+        ] }
+    ]
+  },
+
+  // ===== Näder Holding (Familie Näder / Ottobock; RE-Flagship Bötzow Berlin) =====
+  {
+    id:"naeder",
+    name:"Näder Holding GmbH & Co. KG (Familie Näder)", kurz:"Näder Holding",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Max-Näder-Straße 15, 37115 Duderstadt",
+    hqLat:51.514, hqLng:10.259,
+    website:"naeder.by", domain:"ottobock.com",
+    linkedin:"", contactName:"Prof. Hans Georg Näder", contactRole:"Gesellschafter / CEO Ottobock", contactChannel:"über ottobock.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation", note:"Näder Holding ist die Verwaltungs-/Investmentgesellschaft der Familie Näder, Kern ist Ottobock (Bewertung mehrere Mrd €). Genaues Vermögen nicht offengelegt. Reine Einschätzung.", sources:[] },
+    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien sind eine Nebenanlageklasse (Flagship Bötzow-Areal Berlin); Quote nicht offengelegt.", sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:45, Wohnen:30, Gastro:25 },
     confirmedObjects:[
-      { name:"THE m.pire", address:"Marcel-Breuer-Straße 2-12, 80807 München", lat:48.190, lng:11.572,
-        usage:"Buero", area:"~45.000 m² (23-geschossiger Skyline Tower + 4 Campusgebäude)", purchaseDate:"Bestand (Eigentum Bayerische Hausbau)", valueEUR:null, status:"Bestand",
+      { name:"Bötzow-Areal (ehem. Bötzow-Brauerei)", address:"Prenzlauer Allee 242, 10405 Berlin", lat:52.532, lng:13.424,
+        usage:"Buero", area:"~24.000 m² Areal (Büro, Wohnen, Gastronomie; Redevelopment mit David Chipperfield)", purchaseDate:"2010 (Ankauf durch H. G. Näder)", valueEUR:null, status:"Bestand/Redevelopment",
         images:[], sources:[
-          {label:"Immobilien Zeitung – THE m.pire München", url:"https://www.iz.de/profile/projekte/THE%20m.pire%20M%C3%BCnchen%20(Geb%C3%A4udekomplex)/"},
-          {label:"Bayerische Hausbau – Portfolio THE m.pire", url:"https://development.hausbau.de/en/company/our-portfolio/the-mpire"}
-        ] },
-      { name:"BIKINI BERLIN (Bikini-Haus)", address:"Budapester Straße 38-50, 10787 Berlin", lat:52.5057, lng:13.3378,
-        usage:"Retail", area:"Concept-Mall + Büro (denkmalgeschütztes Bikini-Haus)", purchaseDate:"Bestand/Entwicklung (Eröffnung 2014)", valueEUR:null, status:"Bestand",
-        images:[], sources:[
-          {label:"Bayerische Hausbau – Portfolio BIKINI BERLIN", url:"https://development.hausbau.de/en/company/our-portfolio/bikini-berlin"},
-          {label:"Wikipedia – Bikini-Haus", url:"https://de.wikipedia.org/wiki/Bikini-Haus"}
+          {label:"Ottobock Newsroom – Meilenstein Bötzow-Areal", url:"https://corporate.ottobock.com/en/media/newsroom/milestone-for-the-boetzow-site"},
+          {label:"Tagesspiegel – Otto Bock zieht in die alte Brauerei", url:"https://www.tagesspiegel.de/berlin/prothesenbauer-otto-bock-zieht-in-die-alte-brauerei-ein-6939328.html"}
         ] }
     ],
     heatmap:[
-      { name:"München (Sitz & Bayerische Hausbau)", intensity:"hoch", usages:["Buero","Wohnen","Hotel"], center:[48.156,11.635], radiusKm:25,
-        basis:"quelle", note:"Kernmarkt der Bayerischen Hausbau (~3,6 Mrd € Bestand).", sources:[{label:"Bayerische Hausbau – Portfolio", url:"https://www.hausbau-realestate.de/unternehmen/portfolio"}] },
-      { name:"Berlin (BIKINI)", intensity:"mittel", usages:["Retail","Buero"], center:[52.5057,13.3378], radiusKm:8,
-        basis:"quelle", note:"BIKINI BERLIN im Bestandsportfolio.", sources:[{label:"Bayerische Hausbau – Portfolio", url:"https://development.hausbau.de/en/company/our-portfolio/bikini-berlin"}] }
+      { name:"Berlin (Bötzow-Areal, Prenzlauer Berg)", intensity:"hoch", usages:["Buero","Wohnen","Gastro"], center:[52.532,13.424], radiusKm:6,
+        basis:"quelle", note:"Flagship-Immobilie der Familie Näder (ehem. Bötzow-Brauerei).", sources:[{label:"Ottobock Newsroom – Bötzow", url:"https://corporate.ottobock.com/en/media/newsroom/milestone-for-the-boetzow-site"}] },
+      { name:"Duderstadt (Sitz / Ottobock-Campus)", intensity:"niedrig", usages:["Buero"], center:[51.514,10.259], radiusKm:10,
+        basis:"quelle", note:"Sitz der Familie Näder / Ottobock.", sources:[{label:"Näder Holding – Familienimperium Ottobock", url:"https://naeder.by/posts/n%C3%A4der-holding/"}] }
     ]
   }
 

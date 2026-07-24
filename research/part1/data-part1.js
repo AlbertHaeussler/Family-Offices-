@@ -156,7 +156,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     confirmedObjects:[
       { name:"Fürstlich Castell'sches Domänenamt / Weingut", address:"Schlossplatz 5, 97355 Castell", lat:49.7458, lng:10.3555,
         usage:"Sonstiges", area:"~110 ha Weinberge (davon ~70 ha Eigenbesitz)", purchaseDate:"Familienbesitz seit Jahrhunderten", valueEUR:null, status:"Bestand",
-        images:[], sources:[{label:"Wikipedia Domänenamt",url:"https://de.wikipedia.org/wiki/F%C3%BCrstlich_Castell%E2%80%99sches_Dom%C3%A4nenamt"},{label:"VDP Winzer",url:"https://www.vdp.de/de/die-winzer/franken/fuerstlich-castellsches-domaenenamt"}] },
+        images:["https://commons.wikimedia.org/wiki/Special:FilePath/Blick_auf_(Castell)_Unterfranken.jpg?width=800"], sources:[{label:"Wikipedia Domänenamt",url:"https://de.wikipedia.org/wiki/F%C3%BCrstlich_Castell%E2%80%99sches_Dom%C3%A4nenamt"},{label:"VDP Winzer",url:"https://www.vdp.de/de/die-winzer/franken/fuerstlich-castellsches-domaenenamt"},{label:"Bild: Wikimedia Commons (Ortsansicht Castell)",url:"https://commons.wikimedia.org/wiki/File:Blick_auf_(Castell)_Unterfranken.jpg"}] },
       { name:"Forstbetrieb Fürstlich Castell (Steigerwald)", address:"Raum Castell, 97355 Castell (Steigerwald)", lat:49.74, lng:10.36,
         usage:"Sonstiges", area:"~5.000 ha Wald", purchaseDate:"Familienbesitz", valueEUR:null, status:"Bestand",
         images:[], sources:[{label:"Family Office Research",url:"https://www.familyofficeresearch.de/2025/03/07/die-reichsten-w%C3%BCrzburger/"}] }
@@ -493,6 +493,155 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     heatmap:[
       { name:"Neuss / Rheinland", intensity:"mittel", usages:["Buero","Wohnen"], center:[51.198,6.690], radiusKm:20,
         basis:"quelle", note:"Sitz Neuss; weiteres RE in Köln/Ruhr/Berlin genannt, aber ohne verifizierte Einzeladressen.", sources:[{label:"werhahn.de",url:"https://www.werhahn.de/"}] }
+    ]
+  },
+
+  // ===== Runde 3: bundesweiter Sweep =====
+  // HINWEIS: Schörghuber wurde parallel von Part 3 (Süd/Bayern, thematisch korrekt)
+  // eingetragen (id "schoerghuber", 5 bestätigte Objekte) — daher hier NICHT doppeln.
+
+  {
+    id:"syngroh_grohe",
+    name:"Syngroh Beteiligungsgesellschaft mbH / Syngroh Capital (Family Office der Familie Klaus Grohe)",
+    kurz:"Syngroh (Grohe/Hansgrohe)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Auestraße 25, 77761 Schiltach",
+    hqLat:48.2880, hqLng:8.3410,
+    website:"syngroh.com", domain:"syngroh.com",
+    linkedin:"", contactName:"Richard Grohe · Ralph Becker (Geschäftsführer FO)", contactRole:"Familie / Geschäftsführung Family Office",
+    contactChannel:"über Syngroh Capital / syngroh advisory",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:3.0, unit:"Mrd €", basis:"quelle",
+      note:"Milliardenvermögen der Familie Klaus Grohe; dominiert von ~32 % an Hansgrohe SE, dazu Direktbeteiligungen (Syngroh Capital) und Immobilien (Poligroh). Hansgrohe SE = operativ, separat.",
+      sources:[{label:"private-banking-magazin – Hansgrohe Single Family Office",url:"https://www.private-banking-magazin.de/interview-hansgrohe-single-family-office-richard-grohe-ralph-becker/"},{label:"familyofficehub – Syngroh Schiltach",url:"https://familyofficehub.io/family-office-portraits/german-single-family-offices/syngroh-single-family-office-in-schiltach-germany/"}] },
+    reQuote:{ value:0.1, basis:"extrapolation",
+      note:"Reine Einschätzung: RE über die Tochter Poligroh (~100 Wohneinheiten) ist ein Nebenbaustein; Kern ist die Hansgrohe-Beteiligung. Keine öffentlichen Einzeladressen.",
+      sources:[{label:"wir-Magazin – Syngroh/Poligroh",url:"https://www.wirmagazin.de/beteiligungsholding/zurueck-auf-start-syngroh-grohe-holding-investments-8683/"}] },
+    reInvestedEUR:0.2,
+    usage:{ Wohnen:80, Buero:10, Sonstiges:10 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Schwarzwald / Schiltach", intensity:"niedrig", usages:["Wohnen"], center:[48.2880,8.3410], radiusKm:20,
+        basis:"quelle", note:"Wohnimmobilien über Poligroh; Sitz des FO in Schiltach.",
+        sources:[{label:"Northdata – Syngroh Beteiligungsgesellschaft mbH",url:"https://www.northdata.com/Syngroh+Beteiligungsgesellschaft+mbH,+Schiltach/Amtsgericht+Stuttgart+HRB+745743"}] }
+    ]
+  },
+
+  {
+    id:"oberwelland_storck",
+    name:"TAO Holding GmbH / OW Familien Verwaltungs GmbH (Family Office Familie Oberwelland, August Storck)",
+    kurz:"Oberwelland (Storck)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Waldstraße 27, 13403 Berlin",
+    hqLat:52.5622, hqLng:13.3560,
+    website:"", domain:"",
+    linkedin:"", contactName:"Axel Oberwelland", contactRole:"Inhaber / Prinzipal",
+    contactChannel:"über TAO Holding GmbH / OW Familien Verwaltungs GmbH (Berlin)",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:3.5, unit:"Mrd €", basis:"quelle",
+      note:"Vermögen Axel Oberwelland ~3,5 Mrd € (dominiert vom operativen Wert der August Storck KG); privates FO investiert über TAO Holding & OW Familien Verwaltungs GmbH in Immobilien und Beteiligungen. August Storck KG = operativ, separat.",
+      sources:[{label:"Forbes – Axel Oberwelland & family",url:"https://www.forbes.com/profile/axel-oberwelland/"},{label:"Family Office Research – reichste Berliner",url:"https://www.familyofficeresearch.de/die-reichsten-berliner/"}] },
+    reQuote:{ value:0.1, basis:"extrapolation",
+      note:"Reine Einschätzung: TAO Holding/OW investieren u.a. in Immobilien, aber ohne öffentlich belegte Einzelobjekte; Kernvermögen ist die Storck-Beteiligung.",
+      sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:40, Wohnen:40, Sonstiges:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Berlin (Sitz)", intensity:"niedrig", usages:["Buero","Wohnen"], center:[52.5622,13.3560], radiusKm:15,
+        basis:"quelle", note:"Sitz der Familienvehikel (TAO Holding / Oberwelland Familien Beteiligungs KG, Waldstraße 27).",
+        sources:[{label:"Northdata – Oberwelland Familien Beteiligungs KG, Berlin",url:"https://www.northdata.de/Oberwelland%20Familien%20Beteiligungs%20KG,%20Berlin/Amtsgericht%20Charlottenburg%20(Berlin)%20HRA%2048083%20B"}] }
+    ]
+  },
+
+  {
+    id:"lennertz_co",
+    name:"Lennertz & Co. GmbH (Multi Family Office)",
+    kurz:"Lennertz & Co.",
+    typ:"MFO",
+    land:"Deutschland",
+    hqAddress:"Düsternstraße 10, 20355 Hamburg",
+    hqLat:53.5545, hqLng:9.9870,
+    website:"lennertz.com", domain:"lennertz.com",
+    linkedin:"https://www.linkedin.com/company/lennertz-co", contactName:"Philipp Lennertz", contactRole:"Geschäftsführender Gesellschafter",
+    contactChannel:"über Lennertz & Co. – Alternative Investments/Family-Office-Services",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.0, unit:"Mrd €", basis:"quelle",
+      note:"Verwaltet >1 Mrd € liquides Vermögen (2015 gegründet); Plattform für Alternative Investments (VC, PE, Blockchain, Immobilien).",
+      sources:[{label:"altss – Lennertz & Co.",url:"https://altss.com/profile/lennertz-and-co-gmbh"},{label:"Northdata – Lennertz & Co. Family Office GmbH",url:"https://www.northdata.com/Lennertz%20&%20Co%C2%B7%20Family%20Office%20GmbH,%20Hamburg/HRB%20137568"}] },
+    reQuote:{ value:0.1, basis:"extrapolation",
+      note:"Reine Einschätzung: RE als eine von mehreren Alternative-Investment-Klassen (u.a. Luxus-RE-Projektentwicklung), überwiegend über Fonds/Club-Deals, kein eigenes Objektportfolio.",
+      sources:[] },
+    reInvestedEUR:0.1,
+    usage:{ Wohnen:50, Buero:30, Sonstiges:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (Sitz) / überregional (Fonds)", intensity:"niedrig", usages:["Wohnen","Buero"], center:[53.5545,9.9870], radiusKm:10,
+        basis:"quelle", note:"MFO allokiert für Klienten u.a. in Immobilienfonds; kein direktes Einzelobjekt-Portfolio.",
+        sources:[{label:"lennertz.com",url:"https://www.lennertz.com/"}] }
+    ]
+  },
+
+  {
+    id:"faber_castell_vv",
+    name:"Faber-Castell Immobilienverwaltung / Schlossvilla Vermögensverwaltung (Familie Graf von Faber-Castell)",
+    kurz:"Faber-Castell (Familie)",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Nürnberger Straße 2, 90547 Stein",
+    hqLat:49.4132, hqLng:11.0170,
+    website:"faber-castell.de", domain:"faber-castell.de",
+    linkedin:"", contactName:"Charles Graf von Faber-Castell", contactRole:"Familie / Geschäftsführung",
+    contactChannel:"über Faber-Castell Immobilienverwaltung GmbH & Co. KG (Stein)",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.5, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: Familienvermögen aus Anteilen an A.W. Faber-Castell AG (operativ, separat) plus privater Grund-/Immobilienbesitz um Schloss Stein; kein öffentliches AUM. RE-Verwaltung über Faber-Castell Immobilienverwaltung GmbH & Co. KG = RE-Tochter, nicht selbst das FO.",
+      sources:[{label:"private-banking-magazin – neue Inhaberstrategie Faber-Castell",url:"https://www.private-banking-magazin.de/bei-familie-faber-castell-greift-eine-neue-inhaberstrategie/"}] },
+    reQuote:{ value:0.2, basis:"extrapolation",
+      note:"Reine Einschätzung: Faber-Castell Immobilienverwaltung + Schlossvilla Vermögensverwaltung verwalten eigene und fremde Objekte; keine öffentlich belegten Einzelobjekte außer dem Schlossareal Stein.",
+      sources:[{label:"Companyhouse – Faber-Castell Immobilienverwaltung GmbH & Co. KG",url:"https://www.companyhouse.de/en/Faber-Castell-Immobilienverwaltung-GmbH-Co-KG-Stein"}] },
+    reInvestedEUR:0.1,
+    usage:{ Wohnen:40, Buero:30, Sonstiges:30 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Stein / Nürnberg", intensity:"niedrig", usages:["Wohnen","Sonstiges"], center:[49.4132,11.0170], radiusKm:10,
+        basis:"quelle", note:"Sitz und Grundbesitz der Familie rund um Schloss Faber-Castell in Stein bei Nürnberg.",
+        sources:[{label:"Branchenbuch – Faber-Castell Immobilienverwaltung, Nürnberger Str. 2, Stein",url:"https://branchenbuch.meinestadt.de/stein-mittelfranken/company/14578071"}] }
+    ]
+  },
+
+  {
+    id:"schuerfeld_group",
+    name:"Schürfeld Group / G. Schürfeld + Co. (GmbH & Co.) KG (Familie Schürfeld)",
+    kurz:"Schürfeld Group",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Domstraße 18, 20095 Hamburg",
+    hqLat:53.5486, hqLng:9.9955,
+    website:"schuerfeld-group.com", domain:"schuerfeld-group.com",
+    linkedin:"https://de.linkedin.com/company/sch%C3%BCrfeld-group", contactName:"Familie Schürfeld", contactRole:"Gesellschafterfamilie",
+    contactChannel:"über Schürfeld Group – Beteiligungsmanagement",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:1.0, unit:"Mrd €", basis:"extrapolation",
+      note:"Reine Einschätzung: familiengeführte Beteiligungsholding (seit 1937), Portfolio-Unternehmen mit >1,5 Mrd € Umsatz/12.000 MA; Privatvermögen nicht veröffentlicht.",
+      sources:[{label:"Wikipedia – Schürfeld",url:"https://de.wikipedia.org/wiki/Sch%C3%BCrfeld"},{label:"Northdata – G. Schürfeld & Co. (GmbH & Co.) KG",url:"https://www.northdata.com/G%C2%B7%20Sch%C3%BCrfeld%20&%20Co%C2%B7%20(GmbH%20&%20Co%C2%B7)%20KG,%20Hamburg/HRA%2041054"}] },
+    reQuote:{ value:0.05, basis:"extrapolation",
+      note:"Reine Einschätzung: Schwerpunkt Mittelstands-Beteiligungen (Papier/Verpackung/Druck, dazu Start-ups wie 1Komma5°); kein belegter Immobilien-Kern.",
+      sources:[] },
+    reInvestedEUR:0.05,
+    usage:{ Sonstiges:100 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (Sitz)", intensity:"niedrig", usages:["Sonstiges"], center:[53.5486,9.9955], radiusKm:8,
+        basis:"quelle", note:"Sitz der Beteiligungsholding; kein dokumentiertes Immobilien-Investment.",
+        sources:[{label:"Schürfeld Group – Profil",url:"https://schuerfeld-group.com/en/profile/"}] }
     ]
   }
 
