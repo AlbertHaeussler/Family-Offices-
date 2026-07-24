@@ -54,7 +54,10 @@
   .pchip{display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;padding:2px 3px;border-radius:7px;user-select:none}
   .pchip:hover{background:rgba(10,31,68,.06)}.pchip.off{opacity:.36;text-decoration:line-through}
   .sw{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
-  .adv{position:absolute;top:92px;left:14px;width:300px;max-height:calc(100vh - 200px);overflow:auto;z-index:500;padding:14px}
+  .adv{position:absolute;top:92px;left:14px;width:300px;max-height:calc(100vh - 106px);overflow:auto;z-index:500;padding:14px;resize:both;min-width:250px;min-height:150px;max-width:min(560px,60vw)}
+  /* Mac-style drag-to-resize: grip in the bottom-right corner */
+  .rightcol .panel{resize:vertical;overflow:auto;min-height:70px}
+  .adv::-webkit-resizer,.rightcol .panel::-webkit-resizer,.win::-webkit-resizer{background:linear-gradient(135deg,transparent 0 46%,rgba(10,31,68,.4) 46% 54%,transparent 54% 70%,rgba(10,31,68,.4) 70% 78%,transparent 78%)}
   .fld{margin:9px 0}.fld label{font-size:11px;color:var(--muted);display:block;margin-bottom:4px}
   select,input[type=number],input[type=text]{width:100%;padding:7px 9px;border:1px solid rgba(255,255,255,.6);border-radius:10px;font-size:13px;background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--txt);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(10,31,68,.06)}
   .row2{display:flex;gap:8px}
@@ -92,7 +95,8 @@
   .obj{font-size:12px;padding:7px 0;border-top:1px solid var(--stroke);cursor:pointer}
   .obj:hover{color:var(--navy)}.obj b{font-weight:700}.obj .a{color:var(--muted)}
   .winwrap{position:absolute;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(10,31,68,.3)}
-  .win{width:min(1180px,95vw);height:min(78vh,760px);display:flex;flex-direction:column;overflow:hidden}
+  .win{width:min(1180px,95vw);height:min(78vh,760px);display:flex;flex-direction:column;overflow:hidden;resize:both;min-width:420px;min-height:220px;max-width:98vw;max-height:96vh}
+  .win.max{resize:none}
   .win.min{height:46px}.win.max{width:100vw;height:100vh;border-radius:0}
   .titlebar{height:46px;flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.7)}
   .titlebar .t{font-size:13px;font-weight:700;color:var(--navy)}.titlebar .sp{flex:1}
