@@ -284,6 +284,7 @@ function App(){
   const [selQuery,setSelQuery]=useState("");
   const [soloSel,setSoloSel]=useState(false);
   const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal"),[tableTab,setTableTab]=useState("firms");
+  const [objSortKey,setObjSortKey]=useState("Wert"),[objSortDir,setObjSortDir]=useState(-1);
   const [sortKey,setSortKey]=useState("aumV"),[sortDir,setSortDir]=useState(-1);
   const [detail,setDetail]=useState(null);
   const [baseLayer,setBaseLayer]=useState("sat"),[showDisc,setShowDisc]=useState(false);
@@ -435,8 +436,13 @@ function App(){
       key:o.id+"|"+ob.name, office:o, ob, Firma:o.kurz, Voll:o.name, Objekt:ob.name,
       Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"", Flaeche:ob.area||"",
       Kauf:ob.purchaseDate||"", Wert:ob.valueEUR, Status:ob.status||"", Sold:isSold(ob)})));
-    return rows;},[visible,showSold]);
+    rows.sort((a,b)=>{const x=a[objSortKey],y=b[objSortKey];
+      if(objSortKey==="Wert")return ((+x||0)-(+y||0))*objSortDir;
+      if(objSortKey==="Sold")return ((x?1:0)-(y?1:0))*objSortDir;
+      return (""+(x||"")).localeCompare(""+(y||""),"de",{numeric:true})*objSortDir;});
+    return rows;},[visible,showSold,objSortKey,objSortDir]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
+  function sortObj(k){objSortKey===k?setObjSortDir(d=>-d):(setObjSortKey(k),setObjSortDir(1));}
   function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
     const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
@@ -453,6 +459,8 @@ function App(){
 
   const selOffices=DATA.filter(o=>selected.has(o.id));
   const cols=[["Voll","Family Office (exakt)"],["Name","Kurzname"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
+  const objCols=[["Voll","Family Office"],["Objekt","Objekt"],["Nutzung","Nutzung"],["Adresse","Adresse"],["Flaeche","Fläche"],["Kauf","Kaufdatum"],["Wert","Wert (Mio €)"],["Status","Status"],["Sold","Verkauft"]];
+  const sortMark=(active,dir)=> active? (dir>0?" ▲":" ▼") : <span style={{opacity:.28}}> ↕</span>;
 
   return (
    <React.Fragment>
@@ -601,7 +609,7 @@ function App(){
              <button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
            </div>
            {winMode!=="min" && tableTab==="firms" && <div className="tblscroll"><table>
-             <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortKey===k?(sortDir>0?" ▲":" ▼"):""}</th>)}</tr></thead>
+             <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortMark(sortKey===k,sortDir)}</th>)}</tr></thead>
              <tbody>{tableRows.map(r=>(<tr key={r.id}>
                <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
                <td>{r.Voll}</td><td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
@@ -609,7 +617,7 @@ function App(){
                <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td></tr>))}</tbody>
            </table></div>}
            {winMode!=="min" && tableTab==="objects" && <div className="tblscroll"><table>
-             <thead><tr><th>Family Office</th><th>Objekt</th><th>Nutzung</th><th>Adresse</th><th>Fläche</th><th>Kaufdatum</th><th className="num">Wert (Mio €)</th><th>Status</th><th>Verkauft</th></tr></thead>
+             <thead><tr>{objCols.map(([k,l])=><th key={k} className={k==="Wert"?"num":""} onClick={()=>sortObj(k)}>{l}{sortMark(objSortKey===k,objSortDir)}</th>)}</tr></thead>
              <tbody>{objectRows.length===0
                ? <tr><td colSpan={9} style={{color:"#5b6577",padding:"14px"}}>Keine öffentlich belegten Objekte in der aktuellen Auswahl.</td></tr>
                : objectRows.map(r=>(<tr key={r.key} className="objrow" onClick={()=>setDetail({kind:"object",office:r.office,data:r.ob})}>
