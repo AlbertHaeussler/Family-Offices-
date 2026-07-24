@@ -30,3 +30,26 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part2.js` schreiben. Operative Konz
 
 ## Bonus geprüft
 - Otto Family Office (Hamburg) — bereits in `data.js` abgedeckt (`otto`/CURA) → nicht doppeln.
+
+---
+
+# SCHRITT 2 — zusätzliche Family Offices (über TARGETS hinaus)
+
+## Neu eingetragen
+- [x] **Peter Möhrle Holding** (`moehrle`, gelb) — Hamburg, Rentzelstraße 10a. SFO (Erlös Max Bahr), Anlageklasse Immobilien.
+- [x] **Näder Holding** (`naeder`, gelb) — Duderstadt, Max-Näder-Str. 15 (Familie Näder/Ottobock).
+  Bestätigtes Objekt: **Bötzow-Areal, Prenzlauer Allee 242, Berlin** (ehem. Bötzow-Brauerei, Chipperfield-Redevelopment).
+
+## Von anderen Parts belegt (nicht doppeln)
+- Schörghuber, Krieger, Mittelsten Scheid (Vorwerk), Bahlsen, Mohn/BVG, Volkhardt, Inselkammer,
+  Doblinger, Samwer, Hector, Hymer → **part3**. Werhahn, Henkel (hfo_henkel), Röchling, Merck → **part1**.
+  (Schörghuber war kurz in part2 eingetragen → als Dublette wieder entfernt, liegt in part3.)
+
+## Geprüft, verworfen
+- Ganske, Bertelsmann/Mohn, Miele/Zinkann, Bahlsen, Melitta → skip (operativ), s.o.
+- Rethmann (Selm), Funke (Essen), Grillo (Duisburg) → operativ/Konzern-Holding, kein privates Anlage-FO.
+
+## Hinweis
+Parallel-Recherche-Agenten für weitere Nord/NRW-Kandidaten wurden vom Session-Limit (Reset 17:10 UTC)
+abgebrochen; Kandidatenliste (HELM/Schnabel, Jungheinrich-Familien, Engelhorn, Wecken u.a.) kann in
+einer Folgesitzung weiter abgearbeitet werden.

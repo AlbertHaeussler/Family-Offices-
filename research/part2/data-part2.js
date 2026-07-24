@@ -101,7 +101,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Handels-/Familien-Dynastien Nord & NRW =====
   {
     id:"rossmann",
-    name:"Rossmann Beteiligungs GmbH (Familie Roßmann)", kurz:"Rossmann Family Office",
+    name:"Familie Roßmann (Rossmann Beteiligungs GmbH)", kurz:"Roßmann (Familie)",
     typ:"SFO",
     land:"Deutschland",
     hqAddress:"Isernhägener Straße 16, 30938 Burgwedel",
@@ -114,7 +114,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
       {label:"Forbes – Dirk Rossmann", url:"https://www.forbes.com/profile/dirk-rossmann/"},
       {label:"private-banking-magazin – Rossmann Family Office bei Aurubis", url:"https://www.private-banking-magazin.de/rossmann-family-office-steigt-bei-aurubis-ein/"}
     ] },
-    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien überwiegend operativ (Filial-/Logistikobjekte über Dirk Rossmann Immobiliengruppe), nicht als Kapitalanlage-Portfolio.", sources:[] },
+    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien überwiegend operativ über die RE-Tochter Dirk Rossmann Immobiliengruppe GmbH (Filial-/Logistikobjekte), nicht als Kapitalanlage-Portfolio.", sources:[] },
     reInvestedEUR:0.7,
     usage:{ Retail:40, Logistik:30, Buero:20, Wohnen:10 },
     confirmedObjects:[],
@@ -125,7 +125,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"deichmann_fo",
-    name:"Deichmann-Familienverwaltungsgesellschaft mbH (Familie Deichmann)", kurz:"Deichmann Family Office",
+    name:"Familie Deichmann (Deichmann-Familienverwaltungsgesellschaft mbH)", kurz:"Deichmann (Familie)",
     typ:"SFO",
     land:"Deutschland",
     hqAddress:"Deichmannweg 9, 45359 Essen",
@@ -292,6 +292,64 @@ window.FO_DATA = (window.FO_DATA || []).concat([
         basis:"quelle", note:"Operativer Sitz Aldi Süd; RE überwiegend Filial-/Logistikbestand.", sources:[{label:"Wikipedia – Siepmann-Stiftung", url:"https://de.wikipedia.org/wiki/Siepmann-Stiftung"}] },
       { name:"Eichenau (Stiftungssitz)", intensity:"niedrig", usages:["Sonstiges"], center:[48.17,11.30], radiusKm:10,
         basis:"quelle", note:"Sitz der Siepmann-Stiftung (Südgewerbegebiet Eichenau).", sources:[{label:"Bayer. Stiftungsverzeichnis", url:"https://stiftungen.bayern.de/stiftung/13258"}] }
+    ]
+  },
+
+  // ===== Peter Möhrle Holding (Hamburger SFO, Erlös Max Bahr) =====
+  {
+    id:"moehrle",
+    name:"Peter Möhrle Holding GmbH & Co. KG (Familie Möhrle)", kurz:"Peter Möhrle Holding",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Rentzelstraße 10a, 20146 Hamburg",
+    hqLat:53.564, hqLng:9.976,
+    website:"petermoehrle.de", domain:"petermoehrle.de",
+    linkedin:"", contactName:"Peter Möhrle Holding (Geschäftsführung)", contactRole:"Single Family Office", contactChannel:"über petermoehrle.de",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:0.5, unit:"Mrd €", basis:"extrapolation", note:"SFO gegr. 2007 (Erlös aus Verkauf der Baumarktkette Max Bahr) – investiert in Private Equity, Immobilien & Direktbeteiligungen. Vermögen nicht offengelegt. Reine Einschätzung.", sources:[] },
+    reQuote:{ value:0.3, basis:"extrapolation", note:"Reine Einschätzung – Immobilien sind eine der Anlageklassen des SFO; Quote nicht offengelegt.", sources:[] },
+    reInvestedEUR:0.2,
+    usage:{ Buero:40, Wohnen:40, Retail:20 },
+    confirmedObjects:[],
+    heatmap:[
+      { name:"Hamburg (Sitz & SFO)", intensity:"mittel", usages:["Buero","Wohnen"], center:[53.564,9.976], radiusKm:20,
+        basis:"quelle", note:"Hamburger Single Family Office mit Anlageklasse Immobilien.", sources:[
+          {label:"private-banking-magazin – Peter Möhrle Holding", url:"https://www.private-banking-magazin.de/peter-moehrle-holding-will-das-team-verstaerken-1397034325/"},
+          {label:"Altss – Peter Möhrle Holding (Hamburg SFO)", url:"https://altss.com/profile/peter-mohrle-holding"}
+        ] }
+    ]
+  },
+
+  // ===== Näder Holding (Familie Näder / Ottobock; RE-Flagship Bötzow Berlin) =====
+  {
+    id:"naeder",
+    name:"Näder Holding GmbH & Co. KG (Familie Näder)", kurz:"Näder Holding",
+    typ:"SFO",
+    land:"Deutschland",
+    hqAddress:"Max-Näder-Straße 15, 37115 Duderstadt",
+    hqLat:51.514, hqLng:10.259,
+    website:"naeder.by", domain:"ottobock.com",
+    linkedin:"", contactName:"Prof. Hans Georg Näder", contactRole:"Gesellschafter / CEO Ottobock", contactChannel:"über ottobock.com",
+    contactLinkedin:"", contactLinkedinName:"",
+    category:"gelb",
+    aum:{ value:5.0, unit:"Mrd €", basis:"extrapolation", note:"Näder Holding ist die Verwaltungs-/Investmentgesellschaft der Familie Näder, Kern ist Ottobock (Bewertung mehrere Mrd €). Genaues Vermögen nicht offengelegt. Reine Einschätzung.", sources:[] },
+    reQuote:{ value:0.15, basis:"extrapolation", note:"Reine Einschätzung – Immobilien sind eine Nebenanlageklasse (Flagship Bötzow-Areal Berlin); Quote nicht offengelegt.", sources:[] },
+    reInvestedEUR:0.3,
+    usage:{ Buero:45, Wohnen:30, Gastro:25 },
+    confirmedObjects:[
+      { name:"Bötzow-Areal (ehem. Bötzow-Brauerei)", address:"Prenzlauer Allee 242, 10405 Berlin", lat:52.532, lng:13.424,
+        usage:"Buero", area:"~24.000 m² Areal (Büro, Wohnen, Gastronomie; Redevelopment mit David Chipperfield)", purchaseDate:"2010 (Ankauf durch H. G. Näder)", valueEUR:null, status:"Bestand/Redevelopment",
+        images:[], sources:[
+          {label:"Ottobock Newsroom – Meilenstein Bötzow-Areal", url:"https://corporate.ottobock.com/en/media/newsroom/milestone-for-the-boetzow-site"},
+          {label:"Tagesspiegel – Otto Bock zieht in die alte Brauerei", url:"https://www.tagesspiegel.de/berlin/prothesenbauer-otto-bock-zieht-in-die-alte-brauerei-ein-6939328.html"}
+        ] }
+    ],
+    heatmap:[
+      { name:"Berlin (Bötzow-Areal, Prenzlauer Berg)", intensity:"hoch", usages:["Buero","Wohnen","Gastro"], center:[52.532,13.424], radiusKm:6,
+        basis:"quelle", note:"Flagship-Immobilie der Familie Näder (ehem. Bötzow-Brauerei).", sources:[{label:"Ottobock Newsroom – Bötzow", url:"https://corporate.ottobock.com/en/media/newsroom/milestone-for-the-boetzow-site"}] },
+      { name:"Duderstadt (Sitz / Ottobock-Campus)", intensity:"niedrig", usages:["Buero"], center:[51.514,10.259], radiusKm:10,
+        basis:"quelle", note:"Sitz der Familie Näder / Ottobock.", sources:[{label:"Näder Holding – Familienimperium Ottobock", url:"https://naeder.by/posts/n%C3%A4der-holding/"}] }
     ]
   }
 

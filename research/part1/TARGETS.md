@@ -25,4 +25,38 @@ Regeln: SHARED_INSTRUCTIONS.md. Nur in `data-part1.js` schreiben. Operative Konz
 - [x] B. Braun / Familie Braun — Melsungen — **skip (operativ)**: nur Konzern-Ownership-Holdings (B. Braun Familienholding SE & Co. KG); kein dediziertes Familien-SFO belegt.
 - [x] Boehringer Ingelheim / Familie von Baumbach — Ingelheim → `profunda` (gelb, SFO). Pharmakonzern = operativ (skip); dediziertes SFO **Profunda** (mit RE-Arm Profunda real estate; Sitz Ingelheim→Frankfurt) aufgenommen.
 
-### Ergebnis Part 1: 12 FO-Einträge in `data-part1.js` · 3 skips (operativ/offshore: Engelhorn, Voith, B. Braun)
+### Ergebnis Part 1 (Runde 1): 12 FO-Einträge · 3 skips (operativ/offshore: Engelhorn, Voith, B. Braun)
+
+## Runde 2 — weitere echte FOs (Rhein-Main / West), gefunden via familyofficehub/altss/Northdata/IZ
+- [x] `cara_investment` — Cara Investment GmbH, Frankfurt (SFO, **grün**) — RE-Tochter Cara Real Estate; **bestätigtes Gebäude Untermainkai 27–28, Frankfurt** (ODDO-BHF-Tower als Track Record verkauft).
+- [x] `metzler_familie` — Familie von Metzler / B. Metzler seel. Sohn & Co., Frankfurt (SFO, gelb) — älteste dt. Familienbank als FO-Vehikel.
+- [x] `hrk_lunis` — HRK LUNIS AG, Frankfurt (MFO, gelb).
+- [x] `brehmer_cie` — BREHMER & CIE. Family Office, Frankfurt (MFO, gelb).
+- [x] `fbg_family_office` — Family Office der Frankfurter Bankgesellschaft, Frankfurt (MFO, gelb).
+- [x] `kuder_familypartner` — Kuder Familypartner GmbH, Hofheim/Taunus (MFO, gelb).
+- [x] `fv_frankfurter_vermoegen` — FV Frankfurter Vermögen AG, Bad Homburg (VV/FO-Services, gelb).
+- [x] `hfo_henkel` — HFO GmbH / Henkel Family Office, Düsseldorf (SFO, gelb, ~8,5 Mrd €).
+- [x] `werhahn` — Wilh. Werhahn KG, Neuss (diversifizierte Familienholding, gelb).
+
+### Runde-2-skips (bereits erfasst / operativ)
+- Ströher (Wella) → schon in `data.js` (`stroeher`); Wella-Campus Berliner Allee 65 Darmstadt nur als Hinweis, kein Doppel.
+- Wirtgen Invest, HQ Trust/Harald Quandt, Viessmann → bereits in `data.js`.
+- Messer, Villeroy & Boch, Vorwerk, Stihl, Fresenius → **skip (operativ / kein separates FO)**.
+
+### Stand nach Runde 2: 21 FO-Einträge in `data-part1.js`
+
+## Runde 3 — bundesweiter Sweep (via familyofficehub/altss/familyofficeresearch/Northdata/IZ)
+- [~] Schörghuber (Bayerische Hausbau) — **von Part 3 übernommen** (dort `schoerghuber`, 5 bestätigte Objekte). Aus `data-part1.js` wieder ENTFERNT, um ID-Doppel zu vermeiden. (Meine zusätzlich recherchierten Objekte Arabellahaus/Rosewood/Stachus Rondell/Nockherberg könnten dort ergänzt werden.)
+- [x] `syngroh_grohe` — Syngroh / Family Office Klaus Grohe (Hansgrohe), Schiltach (SFO, gelb).
+- [x] `oberwelland_storck` — TAO Holding / OW Familien Verwaltung (Familie Oberwelland, Storck), Berlin (SFO, gelb).
+- [x] `lennertz_co` — Lennertz & Co. GmbH, Hamburg (MFO, gelb, >1 Mrd €).
+- [x] `faber_castell_vv` — Faber-Castell Immobilienverwaltung (Familie Graf von Faber-Castell), Stein b. Nürnberg (SFO, gelb).
+- [x] `schuerfeld_group` — Schürfeld Group (Familie Schürfeld), Hamburg (Beteiligungsholding, gelb).
+
+### Runde-3-skips (operativ / kein separates FO)
+- Sennheiser (nur Ownership-Holding), Knauf (Eigentümerholding, kein diversifiziertes FO), Grupp/Trigema, Klöckner → skip.
+- Mohn, Miele, Melitta/Bentz, Bahlsen, Fischer, Kärcher, Diehl, Liebherr → in Part-2/Part-3-Zuständigkeit bzw. dort geprüft; hier nicht gedoppelt.
+
+> HINWEIS: Diese 6 wurden BEWUSST in `data-part1.js` eingetragen (nicht in andere Parts) — Regel: nur die eigene Datei anfassen. Mehrere davon (Schörghuber, Faber-Castell, Syngroh) liegen thematisch in Süd/BW; falls Part 3 sie später ebenfalls findet, bitte dort NICHT doppeln (IDs siehe oben).
+
+### Stand Part 1 gesamt: 26 FO-Einträge in `data-part1.js` (Schörghuber an Part 3 abgetreten) · 3 skips (R1) + weitere skips dokumentiert.

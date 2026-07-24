@@ -54,7 +54,10 @@
   .pchip{display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;padding:2px 3px;border-radius:7px;user-select:none}
   .pchip:hover{background:rgba(10,31,68,.06)}.pchip.off{opacity:.36;text-decoration:line-through}
   .sw{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
-  .adv{position:absolute;top:92px;left:14px;width:300px;max-height:calc(100vh - 200px);overflow:auto;z-index:500;padding:14px}
+  .adv{position:absolute;top:92px;left:14px;width:300px;max-height:calc(100vh - 106px);overflow:auto;z-index:500;padding:14px;resize:both;min-width:250px;min-height:150px;max-width:min(560px,60vw)}
+  /* Mac-style drag-to-resize: grip in the bottom-right corner */
+  .rightcol .panel{resize:vertical;overflow:auto;min-height:70px}
+  .adv::-webkit-resizer,.rightcol .panel::-webkit-resizer,.win::-webkit-resizer{background:linear-gradient(135deg,transparent 0 46%,rgba(10,31,68,.4) 46% 54%,transparent 54% 70%,rgba(10,31,68,.4) 70% 78%,transparent 78%)}
   .fld{margin:9px 0}.fld label{font-size:11px;color:var(--muted);display:block;margin-bottom:4px}
   select,input[type=number],input[type=text]{width:100%;padding:7px 9px;border:1px solid rgba(255,255,255,.6);border-radius:10px;font-size:13px;background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--txt);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(10,31,68,.06)}
   .row2{display:flex;gap:8px}
@@ -92,10 +95,16 @@
   .obj{font-size:12px;padding:7px 0;border-top:1px solid var(--stroke);cursor:pointer}
   .obj:hover{color:var(--navy)}.obj b{font-weight:700}.obj .a{color:var(--muted)}
   .winwrap{position:absolute;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:rgba(10,31,68,.3)}
-  .win{width:min(1180px,95vw);height:min(78vh,760px);display:flex;flex-direction:column;overflow:hidden}
+  .win{width:min(1180px,95vw);height:min(78vh,760px);display:flex;flex-direction:column;overflow:hidden;resize:both;min-width:420px;min-height:220px;max-width:98vw;max-height:96vh}
+  .win.max{resize:none}
   .win.min{height:46px}.win.max{width:100vw;height:100vh;border-radius:0}
   .titlebar{height:46px;flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.7)}
   .titlebar .t{font-size:13px;font-weight:700;color:var(--navy)}.titlebar .sp{flex:1}
+  .tabs{display:flex;gap:4px;background:rgba(10,31,68,.06);border-radius:10px;padding:3px;margin-right:8px}
+  .tabbtn{appearance:none;border:none;background:transparent;border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--navy);cursor:pointer;transition:all .15s}
+  .tabbtn:hover{background:rgba(255,255,255,.5)}
+  .tabbtn.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(10,31,68,.18)}
+  .objrow{cursor:pointer}
   .tblscroll{flex:1;overflow:auto}
   table{border-collapse:collapse;width:100%;font-size:12.5px}
   th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--stroke);white-space:nowrap}
@@ -157,6 +166,15 @@
   .selrow{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:5px 6px;border-radius:7px;cursor:pointer}
   .selrow:hover{background:rgba(10,31,68,.06)}
   .sc-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+  .sr-nm{flex:0 0 auto}
+  .sr-sub{color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-left:2px}
+  .selsearch{position:relative;margin-top:7px;display:flex;align-items:center}
+  .selsearch .ss-ico{position:absolute;left:8px;font-size:12px;opacity:.65;pointer-events:none}
+  .ss-in{width:100%;box-sizing:border-box;padding:7px 26px 7px 27px;border:1px solid var(--stroke);border-radius:8px;
+    font-size:12.5px;color:var(--navy);background:rgba(255,255,255,.9);outline:none}
+  .ss-in:focus{border-color:var(--navy);box-shadow:0 0 0 2px rgba(10,31,68,.12)}
+  .ss-x{position:absolute;right:7px;font-size:11px;color:var(--muted);cursor:pointer;padding:2px}
+  .ss-x:hover{color:var(--navy)}
   @media (max-width:900px){ .rightcol{width:220px} .adv{width:230px} .seldock{width:210px} }
 </style>
 </head>
@@ -173,6 +191,34 @@ const hv=(a,b,c,d)=>{const R=6371,t=x=>x*Math.PI/180;const p=t(c-a),q=t(d-b);
   const s=Math.sin(p/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(q/2)**2;return 2*R*Math.asin(Math.sqrt(s));};
 const isSold=ob=>/verkauf/i.test(ob.status||"");
 const ico=d=>`https://icons.duckduckgo.com/ip3/${d}.ico`;
+// normalize for fuzzy search: lowercase, strip diacritics, expand umlauts, drop noise
+const foNorm=s=>(s||"").toLowerCase()
+  .replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")
+  .normalize("NFD").replace(/[̀-ͯ]/g,"")
+  .replace(/[^a-z0-9]+/g," ").trim();
+// is `q` a (gapped) subsequence of `t`? -> tolerates typos/missing letters
+function foSubseq(q,t){let i=0;for(let j=0;j<t.length&&i<q.length;j++)if(t[j]===q[i])i++;return i===q.length;}
+// score how well a firm matches query q (higher = better; 0 = no match)
+function foScore(o,qRaw){
+  const q=foNorm(qRaw); if(!q) return 1;
+  const hay=foNorm([o.kurz,o.name,o.land,o.hqAddress].filter(Boolean).join(" "));
+  const kurz=foNorm(o.kurz), name=foNorm(o.name), ident=foNorm((o.kurz||"")+" "+(o.name||""));
+  if(!hay) return 0;
+  const toks=q.split(" ").filter(Boolean);
+  let score=0;
+  for(const tk of toks){
+    let s=0;
+    if(kurz===tk||name===tk) s=100;
+    else if(kurz.startsWith(tk)) s=80;
+    else if(new RegExp("(^| )"+tk).test(hay)) s=60;      // word-boundary match anywhere
+    else if(hay.includes(tk)) s=45;                        // substring anywhere
+    else if(tk.length>=3&&foSubseq(tk,kurz)) s=30;         // fuzzy vs short name
+    else if(tk.length>=4&&foSubseq(tk,ident)) s=18;        // fuzzy vs firm/family name (not address)
+    if(s===0) return 0;                                    // every token must match somewhere
+    score+=s;
+  }
+  return score;
+}
 const HEAT={ niedrig:"#5aa9ff", mittel:"#ffb02e", hoch:"#ff5a5f" };
 function seedOf(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%1000;return h/1000*6.28;}
 // organic (non-circular) region polygon
@@ -235,7 +281,9 @@ function App(){
   const [addr,setAddr]=useState(""),[geoBusy,setGeoBusy]=useState(false),[geoErr,setGeoErr]=useState("");
   const [selected,setSelected]=useState(new Set());
   const [selOpen,setSelOpen]=useState(false);
-  const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal");
+  const [selQuery,setSelQuery]=useState("");
+  const [soloSel,setSoloSel]=useState(false);
+  const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal"),[tableTab,setTableTab]=useState("firms");
   const [sortKey,setSortKey]=useState("aumV"),[sortDir,setSortDir]=useState(-1);
   const [detail,setDetail]=useState(null);
   const [baseLayer,setBaseLayer]=useState("sat"),[showDisc,setShowDisc]=useState(false);
@@ -298,8 +346,9 @@ function App(){
   // HQ markers: big push-pin when zoomed out, full nameplate (logo + name on a
   // white shield) once you zoom in.
   useEffect(()=>{const lyr=hqL.current;if(!lyr)return;lyr.clearLayers();
-    const far=zoom<8;
+    const far=zoom<8, solo=soloSel&&selected.size>0;
     visible.forEach(({o,type})=>{
+      if(solo&&!selected.has(o.id))return; // "nur Auswahl": hide every non-selected firm
       const sel=selected.has(o.id),hl=(o.id===highlightId),est=(type==="estimated"),ring=CM[o.category].color;
       let icon,ttOff;
       if(far){ // a real map pin in the company's status colour
@@ -318,7 +367,7 @@ function App(){
       m.on("click",()=>toggleSelect(o.id));
       m.bindTooltip(`<b>${o.kurz}</b><br>${o.hqAddress}${est?'<br><i>im Radius: geschätzt (Heatmap)</i>':''}`,{direction:"top",offset:[0,ttOff]});
     });
-  },[visible,selected,highlightId,zoom]);
+  },[visible,selected,highlightId,zoom,soloSel]);
 
   // heatmap polygons + object pins
   useEffect(()=>{const oly=objL.current,hly=heatL.current;if(!oly)return;oly.clearLayers();hly.clearLayers();
@@ -380,6 +429,13 @@ function App(){
   const tableRows=useMemo(()=>{const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,Voll:o.name,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
     aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
     rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return typeof x==="number"?(x-y)*sortDir:(""+x).localeCompare(""+y)*sortDir;});return rows;},[visible,sortKey,sortDir]);
+  // flat list of every confirmed object of the currently visible firms (same data as the xlsx "Objekte" sheet)
+  const objectRows=useMemo(()=>{const rows=[];
+    visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>rows.push({
+      key:o.id+"|"+ob.name, office:o, ob, Firma:o.kurz, Voll:o.name, Objekt:ob.name,
+      Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"", Flaeche:ob.area||"",
+      Kauf:ob.purchaseDate||"", Wert:ob.valueEUR, Status:ob.status||"", Sold:isSold(ob)})));
+    return rows;},[visible,showSold]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
@@ -479,6 +535,9 @@ function App(){
      <div className="seldock glass">
        <div className="seldock-h"><b>Auswahl · {selected.size}</b>
          {selected.size>0 && <button className="mini" onClick={()=>setSelected(new Set())}>alle ✕</button>}</div>
+       {selected.size>0 &&
+         <div className="togg" style={{padding:"2px 0 8px"}} onClick={()=>setSoloSel(v=>!v)}>
+           <div className={"switch"+(soloSel?" on":"")}><i/></div> Nur Auswahl zeigen</div>}
        {selected.size===0
          ? <div className="selempty">Noch keine Firma ausgewählt. Unten hinzufügen oder auf der Karte antippen.</div>
          : <div className="selchips">
@@ -487,13 +546,42 @@ function App(){
                  <span className="nm">{o.kurz}</span><span className="x" title="abwählen" onClick={()=>toggleSelect(o.id)}>✕</span></div>))}
            </div>}
        <div className="selexp">
-         <div className="selexp-h" onClick={()=>setSelOpen(v=>!v)}>
+         <div className="selexp-h" onClick={()=>{setSelOpen(v=>{if(v)setSelQuery("");return !v;});}}>
            <span>Firma hinzufügen · {DATA.filter(o=>!selected.has(o.id)).length}</span><span>{selOpen?"▾":"▸"}</span></div>
-         {selOpen && <div className="selexp-list">
-           {DATA.filter(o=>!selected.has(o.id)).sort((a,b)=>a.kurz.localeCompare(b.kurz)).map(o=>(
-             <div key={o.id} className="selrow" onClick={()=>toggleSelect(o.id)}>
-               <span className="sc-dot" style={{background:CM[o.category].color}}/>{o.kurz}</div>))}
-         </div>}
+         {selOpen && (()=>{
+           const avail=DATA.filter(o=>!selected.has(o.id));
+           const q=selQuery.trim();
+           let rows;
+           if(q){
+             rows=avail.map(o=>({o,s:foScore(o,q)})).filter(r=>r.s>0)
+               .sort((a,b)=>b.s-a.s || a.o.kurz.localeCompare(b.o.kurz)).map(r=>r.o);
+           } else {
+             rows=avail.slice().sort((a,b)=>a.kurz.localeCompare(b.kurz));
+           }
+           return (<React.Fragment>
+             <div className="selsearch">
+               <span className="ss-ico">🔎</span>
+               <input className="ss-in" type="text" value={selQuery} autoFocus
+                 placeholder="Firma / Familie suchen (ungefähr reicht)…"
+                 onChange={e=>setSelQuery(e.target.value)}
+                 onKeyDown={e=>{
+                   if(e.key==="Enter"&&rows.length){toggleSelect(rows[0].id);setSelQuery("");}
+                   else if(e.key==="Escape"){setSelQuery("");}
+                 }}/>
+               {selQuery&&<span className="ss-x" title="Leeren" onClick={()=>setSelQuery("")}>✕</span>}
+             </div>
+             {rows.length===0
+               ? <div className="selempty" style={{padding:"8px 4px"}}>Keine Firma gefunden für „{q}".</div>
+               : <div className="selexp-list">
+                   {rows.map(o=>(
+                     <div key={o.id} className="selrow" onClick={()=>{toggleSelect(o.id);}}>
+                       <span className="sc-dot" style={{background:CM[o.category].color}}/>
+                       <span className="sr-nm">{o.kurz}</span>
+                       {q&&o.kurz&&foNorm(o.name)!==foNorm(o.kurz)&&<span className="sr-sub">{o.name}</span>}
+                     </div>))}
+                 </div>}
+           </React.Fragment>);
+         })()}
        </div>
      </div>
 
@@ -504,16 +592,30 @@ function App(){
          <div className={"win glass "+(winMode==="min"?"min":winMode==="max"?"max":"")}>
            <div className="titlebar">
              <Lights onClose={()=>setShowTable(false)} onMin={()=>setWinMode(m=>m==="min"?"normal":"min")} onMax={()=>setWinMode(m=>m==="max"?"normal":"max")}/>
-             <span className="t">Family Offices — {tableRows.length} Einträge{selected.size?` · ${selected.size} ausgewählt`:""}</span>
-             <span className="sp"/><button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
+             <span className="t">{tableTab==="firms"?`Family Offices — ${tableRows.length} Einträge`:`Objekte — ${objectRows.length} Einträge`}{selected.size?` · ${selected.size} ausgewählt`:""}</span>
+             <span className="sp"/>
+             <div className="tabs">
+               <button className={"tabbtn"+(tableTab==="firms"?" on":"")} onClick={()=>setTableTab("firms")}>Firmen ({tableRows.length})</button>
+               <button className={"tabbtn"+(tableTab==="objects"?" on":"")} onClick={()=>setTableTab("objects")}>Objekte ({objectRows.length})</button>
+             </div>
+             <button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
            </div>
-           {winMode!=="min" && <div className="tblscroll"><table>
+           {winMode!=="min" && tableTab==="firms" && <div className="tblscroll"><table>
              <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortKey===k?(sortDir>0?" ▲":" ▼"):""}</th>)}</tr></thead>
              <tbody>{tableRows.map(r=>(<tr key={r.id}>
                <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
                <td>{r.Voll}</td><td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
                <td className="num">{r.aumV}</td><td className="num">{r.reV}</td><td className="num">{Math.round(r.reP*100)}%</td>
                <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td></tr>))}</tbody>
+           </table></div>}
+           {winMode!=="min" && tableTab==="objects" && <div className="tblscroll"><table>
+             <thead><tr><th>Family Office</th><th>Objekt</th><th>Nutzung</th><th>Adresse</th><th>Fläche</th><th>Kaufdatum</th><th className="num">Wert (Mio €)</th><th>Status</th><th>Verkauft</th></tr></thead>
+             <tbody>{objectRows.length===0
+               ? <tr><td colSpan={9} style={{color:"#5b6577",padding:"14px"}}>Keine öffentlich belegten Objekte in der aktuellen Auswahl.</td></tr>
+               : objectRows.map(r=>(<tr key={r.key} className="objrow" onClick={()=>setDetail({kind:"object",office:r.office,data:r.ob})}>
+                   <td>{r.Voll}</td><td><b>{r.Objekt}</b>{r.Sold&&<span className="sold-badge">verkauft</span>}</td><td>{r.Nutzung}</td>
+                   <td>{r.Adresse}</td><td>{r.Flaeche}</td><td>{r.Kauf}</td>
+                   <td className="num">{r.Wert??""}</td><td>{r.Status}</td><td>{r.Sold?"ja":"nein"}</td></tr>))}</tbody>
            </table></div>}
          </div>
        </div>
