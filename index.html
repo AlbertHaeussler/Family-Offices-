@@ -16,6 +16,7 @@
 <script src="./research/part2/data-part2.js"></script>
 <script src="./research/part3/data-part3.js"></script>
 <script src="./research/part4/data-part4.js"></script>
+<script src="./descriptions.js"></script>
 <style>
   :root{
     --navy:#0A1F44; --navy2:#13294B; --gold:#FFC72C; --red:#E4002B;
@@ -111,7 +112,16 @@
   th{position:sticky;top:0;background:#f3f5f9;cursor:pointer;user-select:none;font-weight:700;color:var(--navy)}
   th:hover{color:var(--red)}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.warum{white-space:normal;min-width:220px;max-width:300px;font-size:11.5px;color:#3b4658;line-height:1.35}
   tr:hover td{background:rgba(10,31,68,.05)}
+  /* AI-description blocks in the detail panels */
+  .aibox{background:rgba(10,31,68,.045);border:1px solid var(--stroke);border-radius:11px;padding:9px 11px;margin:8px 0}
+  .aibox .ai-h{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:5px}
+  .ai-tag{font-size:9px;font-weight:700;color:#5b4b00;background:var(--gold);border-radius:5px;padding:1px 5px;letter-spacing:0}
+  .aibox ul{margin:2px 0 0;padding-left:16px}.aibox li{font-size:12px;line-height:1.5;margin:2px 0}
+  .aibox .row{font-size:12px;line-height:1.45;margin:3px 0}.aibox .row b{color:var(--navy)}
+  .why{background:linear-gradient(140deg,rgba(255,199,44,.16),rgba(255,199,44,.06));border:1px solid rgba(255,199,44,.5);border-radius:11px;padding:9px 11px;margin:8px 0;font-size:12.5px;line-height:1.45;color:#5a4200}
+  .why b{color:#0A1F44}
   .objbar{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--stroke);font-size:12px;color:var(--muted);background:rgba(255,255,255,.45);flex:0 0 auto}
   .objbar .seg{display:flex;gap:2px;background:rgba(10,31,68,.07);border-radius:9px;padding:3px}
   .objbar .seg button{border:none;background:transparent;padding:5px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--navy)}
@@ -191,11 +201,45 @@ const DATA=window.FO_DATA, UL=window.USAGE_LABELS, UC=window.USAGE_COLORS, CM=wi
 const USAGE_KEYS=Object.keys(UL), CATS=["gruen","gelb","rot"];
 // small type "logo" per usage: office=skyscraper, living=house, logistics=truck, …
 const USAGE_EMOJI={ Buero:"🏢", Wohnen:"🏠", Retail:"🏬", Logistik:"🚚", Hotel:"🏨", Gastro:"🍽️", Sonstiges:"🏙️" };
+// merge curated descriptions (descriptions.js) into the firm objects by id
+const DESC=window.FO_DESC||{};
+DATA.forEach(o=>{const d=DESC[o.id];if(!d)return;
+  if(d.about&&!o.about)o.about=d.about;
+  if(d.structure&&!o.structure)o.structure=d.structure;
+  if(d.objects)(o.confirmedObjects||[]).forEach(ob=>{if(!ob.connection&&d.objects[ob.name])ob.connection=d.objects[ob.name];});
+  if(d.sources)o._srcNotes=d.sources;
+});
 const fmtB=n=> n>=1? (n>=10?n.toFixed(0):n.toFixed(1))+" Mrd €" : (n*1000).toFixed(0)+" Mio €";
 const hv=(a,b,c,d)=>{const R=6371,t=x=>x*Math.PI/180;const p=t(c-a),q=t(d-b);
   const s=Math.sin(p/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(q/2)**2;return 2*R*Math.asin(Math.sqrt(s));};
 const isSold=ob=>/verkauf/i.test(ob.status||"");
 const ico=d=>`https://icons.duckduckgo.com/ip3/${d}.ico`;
+// auto short profile from structured fields (used when no curated `about` exists)
+function autoAbout(o){
+  const top=USAGE_KEYS.filter(k=>(o.usage[k]||0)>0).sort((a,b)=>o.usage[b]-o.usage[a]).slice(0,3).map(k=>UL[k]);
+  const city=(o.hqAddress||"").split(",").pop().trim();
+  const out=[`${o.typ==="SFO"?"Single Family Office":o.typ==="MFO"?"Multi Family Office":"Family Office"}${city?` mit Sitz in ${city}`:""}.`,
+    `Verwaltetes Vermögen ~${fmtB(o.aum.value)}${o.aum.basis==="extrapolation"?" (geschätzt)":""}, davon ~${Math.round(o.reQuote.value*100)} % Immobilien (${fmtB(o.reInvestedEUR)}).`];
+  if(top.length)out.push(`Immobilien-Schwerpunkt: ${top.join(", ")}.`);
+  return out;
+}
+// structure/contact block: curated if present, else assembled from existing contact fields
+function foStructure(o){
+  if(o.structure)return {...o.structure,curated:true};
+  const managers=(o.contactName||"").split(/·|;|\n/).map(s=>s.trim()).filter(Boolean);
+  return {fo:`${o.name} (${o.typ})`, managers, decisions:o.contactRole||"", contact:o.contactChannel||"", curated:false};
+}
+// deterministic "why does this firm match the current search"
+function whyMatch(o,conf,heat,hasPin,activeUsages){
+  if(hasPin){const parts=[];
+    if(conf&&conf.length){const nm=conf.slice(0,2).map(ob=>`${ob.name} (${UL[ob.usage]||ob.usage})`).join(", ");
+      parts.push(`${conf.length} bestätigte(s) Objekt(e) im Umkreis: ${nm}${conf.length>2?` +${conf.length-2}`:""}`);}
+    if(heat&&heat.length){const r=heat[0];
+      parts.push(`Investitionsregion „${r.name}" (${r.intensity}${r.basis==="extrapolation"?", geschätzt":""}) überschneidet den Radius`);}
+    return parts.join(" · ")||"Erfüllt die Filterkriterien im Radius";}
+  const us=USAGE_KEYS.filter(k=>(o.usage[k]||0)>0&&(!activeUsages||activeUsages.has(k))).sort((a,b)=>o.usage[b]-o.usage[a]).map(k=>UL[k]);
+  return `Investiert in ${us.slice(0,3).join(", ")||"Immobilien"} · Immobilienquote ${Math.round(o.reQuote.value*100)} %`;
+}
 // normalize for fuzzy search: lowercase, strip diacritics, expand umlauts, drop noise
 const foNorm=s=>(s||"").toLowerCase()
   .replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")
@@ -244,7 +288,7 @@ function Lights({onClose,onMin,onMax}){
   </div>);
 }
 
-function Sources({field,label}){
+function Sources({field,label,notes}){
   if(!field)return null;
   const ext=field.basis==="extrapolation", noSrc=!field.sources||field.sources.length===0;
   return (<div className="src">
@@ -254,6 +298,9 @@ function Sources({field,label}){
     {!ext&&<span>Quelle: </span>}
     {!noSrc&&field.sources.map((s,i)=><span key={i}>{i>0?" · ":""}<a href={s.url} target="_blank" rel="noopener">{s.label}</a></span>)}
     {field.note&&<div style={{marginTop:2,fontStyle:"italic"}}>{field.note}</div>}
+    {notes&&!noSrc&&field.sources.filter(s=>notes[s.label]).map((s,i)=>(
+      <div key={i} style={{marginTop:4,paddingLeft:8,borderLeft:"2px solid var(--stroke)"}}>
+        <b style={{color:"#3b4658"}}>{s.label}:</b> {notes[s.label]}</div>))}
   </div>);
 }
 
@@ -309,6 +356,7 @@ function App(){
   const usageOfRegion=r=> allUsages || (Array.isArray(r.usages) && r.usages.some(u=>activeUsages.has(u)));
   const confInRadius=o=> !pin?[]:o.confirmedObjects.filter(ob=>usageOfObj(ob)&&(showSold||!isSold(ob))&&hv(pin.lat,pin.lng,ob.lat,ob.lng)<=pinRadius);
   const heatOverlap=o=> !pin?[]:(o.heatmap||[]).filter(r=>usageOfRegion(r)&&hv(pin.lat,pin.lng,r.center[0],r.center[1])<=pinRadius+r.radiusKm);
+  const matchReason=o=> whyMatch(o, pin?confInRadius(o):null, pin?heatOverlap(o):null, !!pin, activeUsages);
 
   const visible=useMemo(()=>{const out=[];
     DATA.forEach(o=>{ if(!passesBase(o))return;
@@ -434,7 +482,7 @@ function App(){
     setGeoBusy(false);}
 
   const tableRows=useMemo(()=>{const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,Voll:o.name,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
-    aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
+    aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName,Warum:matchReason(o)}));
     rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return typeof x==="number"?(x-y)*sortDir:(""+x).localeCompare(""+y)*sortDir;});return rows;},[visible,sortKey,sortDir]);
   // flat list of every confirmed object of the currently visible firms (same data as the xlsx "Objekte" sheet)
   const objectRows=useMemo(()=>{const rows=[];const useRadius=objScope==="radius"&&pin;
@@ -451,7 +499,7 @@ function App(){
     return rows;},[visible,showSold,objSortKey,objSortDir,objScope,pin,pinRadius]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function sortObj(k){objSortKey===k?setObjSortDir(d=>-d):(setObjSortKey(k),setObjSortDir(1));}
-  function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
+  function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,"Warum passt (Suche)":r.Warum,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
     const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
     // second tab: objects, exactly as currently scoped/sorted in the Objekte view
@@ -465,7 +513,7 @@ function App(){
     XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
 
   const selOffices=DATA.filter(o=>selected.has(o.id));
-  const cols=[["Voll","Family Office (exakt)"],["Name","Kurzname"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
+  const cols=[["Voll","Family Office (exakt)"],["Name","Kurzname"],["Warum","Warum passt (Suche)"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
   const objCols=[["Voll","Family Office"],["Objekt","Objekt"],["Nutzung","Nutzung"],["Adresse","Adresse"],["Flaeche","Fläche"],["Kauf","Kaufdatum"],["Wert","Wert (Mio €)"],["Status","Status"],["Sold","Verkauft"]];
   const sortMark=(active,dir)=> active? (dir>0?" ▲":" ▼") : <span style={{opacity:.28}}> ↕</span>;
 
@@ -507,7 +555,7 @@ function App(){
          <div className="panel glass detail">
            <div className="lights" style={{marginBottom:8}}><span className="light l-red" title="Auswahl schließen" onClick={()=>setSelected(new Set())}/><span className="light l-yellow dis"/><span className="light l-green dis"/></div>
            <h3>{selOffices.length===1?selOffices[0].kurz:selOffices.length+" Offices ausgewählt"}</h3>
-           {selOffices.length===1 ? <FirmDetail o={selOffices[0]} onObj={(o,ob)=>setDetail({kind:"object",office:o,data:ob})} onReg={(o,r)=>setDetail({kind:"region",office:o,data:r})}/> :
+           {selOffices.length===1 ? <FirmDetail o={selOffices[0]} reason={matchReason(selOffices[0])} onObj={(o,ob)=>setDetail({kind:"object",office:o,data:ob})} onReg={(o,r)=>setDetail({kind:"region",office:o,data:r})}/> :
              <div className="meta">{selOffices.map(o=>o.kurz).join(" · ")}<br/>Objekte &amp; Heatmaps aller ausgewählten Offices sind eingeblendet.</div>}
          </div>
        )}
@@ -619,7 +667,7 @@ function App(){
              <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortMark(sortKey===k,sortDir)}</th>)}</tr></thead>
              <tbody>{tableRows.map(r=>(<tr key={r.id}>
                <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
-               <td>{r.Voll}</td><td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
+               <td>{r.Voll}</td><td>{r.Name}</td><td className="warum">{r.Warum}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
                <td className="num">{r.aumV}</td><td className="num">{r.reV}</td><td className="num">{Math.round(r.reP*100)}%</td>
                <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td></tr>))}</tbody>
            </table></div>}
@@ -652,9 +700,23 @@ function App(){
   );
 }
 
-function FirmDetail({o,onObj,onReg}){
+function FirmDetail({o,onObj,onReg,reason}){
+  const about=o.about||autoAbout(o), st=foStructure(o);
   return (<div>
     <div className="brandhead">{o.domain&&<img src={ico(o.domain)} onError={e=>e.target.style.display='none'}/>}<div className="meta" style={{marginBottom:0}}>{o.name}</div></div>
+    {reason&&<div className="why"><b>Warum in deiner Suche:</b> {reason}</div>}
+    <div className="aibox">
+      <div className="ai-h">Kurzprofil {!o.about&&<span className="ai-tag">auto</span>}{o.about&&<span className="ai-tag">KI-recherchiert</span>}</div>
+      <ul>{about.map((b,i)=><li key={i}>{b}</li>)}</ul>
+    </div>
+    <div className="aibox">
+      <div className="ai-h">Struktur &amp; Ansprache {st.curated&&<span className="ai-tag">KI-recherchiert</span>}</div>
+      {st.fo&&<div className="row"><b>Family Office:</b> {st.fo}</div>}
+      {st.managers&&st.managers.length>0&&<div className="row"><b>{st.managers.length>1?"Verantwortliche":"Verantwortlich"}:</b> {st.managers.join(" · ")}</div>}
+      {st.decisions&&<div className="row"><b>Ankäufe:</b> {st.decisions}</div>}
+      {st.contact&&<div className="row"><b>Bei wem melden:</b> {st.contact}</div>}
+      {!st.curated&&<div className="row" style={{color:"var(--muted)",fontStyle:"italic"}}>Aus Kontaktdaten abgeleitet – noch nicht kuratiert.</div>}
+    </div>
     <div className="kv"><span>Typ</span><span>{o.typ} · {o.land}</span></div>
     <div className="kv"><span>Headquarter</span><span>{o.hqAddress}</span></div>
     <div className="kv"><span>Website</span><span><a className="lnk" href={/^https?:/.test(o.website)?o.website:"https://"+o.domain} target="_blank">{o.website}</a></span></div>
@@ -692,6 +754,10 @@ function Seite3({detail,onClose}){
         <span className="tag" style={{background:col}}>{isObj?(isSold(data)?"Verkauftes Objekt":"Bestätigtes Objekt"):"Heatmap-Region (geschätzt)"}</span>
         <h3 style={{marginTop:8}}>{data.name}</h3>
         {isObj ? (<div>
+          <div className="aibox">
+            <div className="ai-h">Verbindung zu {office.kurz} {data.connection&&<span className="ai-tag">KI-recherchiert</span>}</div>
+            <div className="row">{data.connection || `Öffentlich ${office.kurz} zugerechnet. Die genaue Zurechnung ergibt sich aus den Quellen unten${data.purchaseDate?` (Hinweis: „${data.purchaseDate}")`:""}.`}</div>
+          </div>
           <div className="kv"><span>Adresse</span><span>{data.address}</span></div>
           <div className="kv"><span>Nutzungsart</span><span>{UL[data.usage]}</span></div>
           <div className="kv"><span>Fläche</span><span>{data.area||"—"}</span></div>
@@ -699,7 +765,7 @@ function Seite3({detail,onClose}){
           <div className="kv"><span>Wert (Schätzung)</span><span>~{data.valueEUR} Mio €</span></div>
           <div className="kv"><span>Status</span><span>{data.status}{isSold(data)&&<span className="sold-badge">verkauft</span>}</span></div>
           {data.images&&data.images.length>0? <div style={{marginTop:8}}>{data.images.map((u,i)=><img key={i} src={u} style={{width:"100%",borderRadius:10,marginBottom:6}}/>)}</div> : <div className="src" style={{marginTop:8}}>Keine Bilder verfügbar.</div>}
-          <div className="srcbox"><Sources field={{basis:"quelle",sources:data.sources}} label="Quelle"/></div>
+          <div className="srcbox"><Sources field={{basis:"quelle",sources:data.sources}} label="Quelle" notes={office._srcNotes}/></div>
         </div>) : (<div>
           <div className="kv"><span>Region</span><span>{data.name}</span></div>
           <div className="kv"><span>Investitionsintensität</span><span style={{textTransform:"capitalize"}}>{data.intensity}</span></div>

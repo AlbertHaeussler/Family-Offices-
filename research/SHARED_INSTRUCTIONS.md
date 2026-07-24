@@ -98,3 +98,20 @@ node -e "global.window={}; require('./data.js'); require('./research/partN/data-
 ## 5) Deine Zielliste
 Steht in `research/partN/TARGETS.md`. Arbeite sie ab, hake ab, ergänze gern weitere echte FOs, die
 dir begegnen (aber prüfe, dass sie nicht in einem anderen Part stehen — siehe MASTER_LIST.md).
+
+## 6) OPTIONALE Beschreibungsfelder (Klartext für den Makler)
+Die App zeigt jetzt erklärende Texte. Fehlen sie, erzeugt die App ein Auto-Kurzprofil aus den Zahlen –
+aber echte, kuratierte Texte sind viel besser. Ergänze pro Firma (alle optional, direkt im Firmen-Objekt):
+
+```js
+about:["3–5 Stichpunkte: von welcher Familie/Unternehmer, was sie hauptsächlich machen, Investitionsfokus"],
+structure:{
+  fo:"Was genau das Family Office ist (Gesellschaft/Holding).",
+  managers:["Investment-/Vermögensmanager mit Namen, wenn belegt","weitere Person(en)"],
+  decisions:"Wer Ankäufe entscheidet/durchführt (z.B. eigene Immobilien-Tochter).",
+  contact:"Bei WEM sich ein Makler mit einem Objekt melden sollte – NICHT die falsche Stelle."
+},
+```
+Und **je bestätigtem Objekt** ein Feld `connection:"Warum ist dieses Objekt genau diesem FO zuzurechnen"`
+(z.B. „über Beteiligung X gehalten"). Nur schreiben, was belegt/plausibel ist – keine erfundenen Namen.
+Kuratierte Texte werden in der UI als „KI-recherchiert" markiert; Auto-Profile als „auto".
