@@ -96,6 +96,11 @@
   .win.min{height:46px}.win.max{width:100vw;height:100vh;border-radius:0}
   .titlebar{height:46px;flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.7)}
   .titlebar .t{font-size:13px;font-weight:700;color:var(--navy)}.titlebar .sp{flex:1}
+  .tabs{display:flex;gap:4px;background:rgba(10,31,68,.06);border-radius:10px;padding:3px;margin-right:8px}
+  .tabbtn{appearance:none;border:none;background:transparent;border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--navy);cursor:pointer;transition:all .15s}
+  .tabbtn:hover{background:rgba(255,255,255,.5)}
+  .tabbtn.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(10,31,68,.18)}
+  .objrow{cursor:pointer}
   .tblscroll{flex:1;overflow:auto}
   table{border-collapse:collapse;width:100%;font-size:12.5px}
   th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--stroke);white-space:nowrap}
@@ -236,7 +241,7 @@ function App(){
   const [selected,setSelected]=useState(new Set());
   const [selOpen,setSelOpen]=useState(false);
   const [soloSel,setSoloSel]=useState(false);
-  const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal");
+  const [showTable,setShowTable]=useState(false),[winMode,setWinMode]=useState("normal"),[tableTab,setTableTab]=useState("firms");
   const [sortKey,setSortKey]=useState("aumV"),[sortDir,setSortDir]=useState(-1);
   const [detail,setDetail]=useState(null);
   const [baseLayer,setBaseLayer]=useState("sat"),[showDisc,setShowDisc]=useState(false);
@@ -382,6 +387,13 @@ function App(){
   const tableRows=useMemo(()=>{const rows=visOffices.map(o=>({id:o.id,Name:o.kurz,Voll:o.name,HQ:o.hqAddress,Typ:o.typ,Land:o.land,
     aumV:o.aum.value,reV:o.reInvestedEUR,reP:o.reQuote.value,objs:o.confirmedObjects.length,Website:o.website,Kontakt:o.contactName}));
     rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return typeof x==="number"?(x-y)*sortDir:(""+x).localeCompare(""+y)*sortDir;});return rows;},[visible,sortKey,sortDir]);
+  // flat list of every confirmed object of the currently visible firms (same data as the xlsx "Objekte" sheet)
+  const objectRows=useMemo(()=>{const rows=[];
+    visOffices.forEach(o=>o.confirmedObjects.forEach(ob=>rows.push({
+      key:o.id+"|"+ob.name, office:o, ob, Firma:o.kurz, Voll:o.name, Objekt:ob.name,
+      Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"", Flaeche:ob.area||"",
+      Kauf:ob.purchaseDate||"", Wert:ob.valueEUR, Status:ob.status||"", Sold:isSold(ob)})));
+    return rows;},[visible,showSold]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
     "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
@@ -509,16 +521,30 @@ function App(){
          <div className={"win glass "+(winMode==="min"?"min":winMode==="max"?"max":"")}>
            <div className="titlebar">
              <Lights onClose={()=>setShowTable(false)} onMin={()=>setWinMode(m=>m==="min"?"normal":"min")} onMax={()=>setWinMode(m=>m==="max"?"normal":"max")}/>
-             <span className="t">Family Offices — {tableRows.length} Einträge{selected.size?` · ${selected.size} ausgewählt`:""}</span>
-             <span className="sp"/><button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
+             <span className="t">{tableTab==="firms"?`Family Offices — ${tableRows.length} Einträge`:`Objekte — ${objectRows.length} Einträge`}{selected.size?` · ${selected.size} ausgewählt`:""}</span>
+             <span className="sp"/>
+             <div className="tabs">
+               <button className={"tabbtn"+(tableTab==="firms"?" on":"")} onClick={()=>setTableTab("firms")}>Firmen ({tableRows.length})</button>
+               <button className={"tabbtn"+(tableTab==="objects"?" on":"")} onClick={()=>setTableTab("objects")}>Objekte ({objectRows.length})</button>
+             </div>
+             <button className="btn sec" onClick={exportXlsx}>Export .xlsx</button>
            </div>
-           {winMode!=="min" && <div className="tblscroll"><table>
+           {winMode!=="min" && tableTab==="firms" && <div className="tblscroll"><table>
              <thead><tr><th></th>{cols.map(([k,l])=><th key={k} className={["aumV","reV","reP","objs"].includes(k)?"num":""} onClick={()=>sortBy(k)}>{l}{sortKey===k?(sortDir>0?" ▲":" ▼"):""}</th>)}</tr></thead>
              <tbody>{tableRows.map(r=>(<tr key={r.id}>
                <td><input type="checkbox" checked={selected.has(r.id)} onChange={()=>toggleSelect(r.id)}/></td>
                <td>{r.Voll}</td><td>{r.Name}</td><td>{r.HQ}</td><td>{r.Typ}</td><td>{r.Land}</td>
                <td className="num">{r.aumV}</td><td className="num">{r.reV}</td><td className="num">{Math.round(r.reP*100)}%</td>
                <td className="num">{r.objs}</td><td>{r.Website}</td><td>{r.Kontakt}</td></tr>))}</tbody>
+           </table></div>}
+           {winMode!=="min" && tableTab==="objects" && <div className="tblscroll"><table>
+             <thead><tr><th>Family Office</th><th>Objekt</th><th>Nutzung</th><th>Adresse</th><th>Fläche</th><th>Kaufdatum</th><th className="num">Wert (Mio €)</th><th>Status</th><th>Verkauft</th></tr></thead>
+             <tbody>{objectRows.length===0
+               ? <tr><td colSpan={9} style={{color:"#5b6577",padding:"14px"}}>Keine öffentlich belegten Objekte in der aktuellen Auswahl.</td></tr>
+               : objectRows.map(r=>(<tr key={r.key} className="objrow" onClick={()=>setDetail({kind:"object",office:r.office,data:r.ob})}>
+                   <td>{r.Voll}</td><td><b>{r.Objekt}</b>{r.Sold&&<span className="sold-badge">verkauft</span>}</td><td>{r.Nutzung}</td>
+                   <td>{r.Adresse}</td><td>{r.Flaeche}</td><td>{r.Kauf}</td>
+                   <td className="num">{r.Wert??""}</td><td>{r.Status}</td><td>{r.Sold?"ja":"nein"}</td></tr>))}</tbody>
            </table></div>}
          </div>
        </div>
