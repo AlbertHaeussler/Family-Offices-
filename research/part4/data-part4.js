@@ -3,6 +3,8 @@
 window.FO_DATA = (window.FO_DATA || []).concat([
   {
     "id": "jacobs",
+    "uid": "",
+    "ankaufsprofil": "Jacobs Holding/Jacobs Capital (Family Office der Familie Jacobs, ~CHF 8 Mrd. AUM) ist primär Private-Equity-orientiert; Immobilien/Real Assets werden eher selektiv als Direkt-/Liebhaberobjekte gehalten (u.a. Newsells Park Stud in UK, Schloss Marbach am Bodensee in DE) statt über ein klassisches Ankaufsprofil. Kein publiziertes Immobilien-Ankaufsraster; Fokus Real Assets Süddeutschland/Bodensee, opportunistisch. Quelle: jacobscap.com, caproasia und altss/Preqin.",
     "name": "Jacobs Holding AG / Jacobs Capital (Family Office Jacobs)",
     "kurz": "Jacobs",
     "typ": "SFO",
@@ -82,6 +84,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     "id": "happel",
+    "uid": "CHE-334.124.802 (HFI Global AG)",
+    "ankaufsprofil": "HFI Global (2021 gegründet, Nachfolger der Luserve AG, Sitz Luzern) ist das Family Office von Otto Happel (nach GEA-Verkauf) mit ~3 Mrd. USD AUM und diversifizierter Strategie über Real Estate, Private Equity und Venture Capital. Ein detailliertes, öffentliches Immobilien-Ankaufsprofil (Assetklassen/Ticket/Regionen) ist nicht publiziert; Immobilien werden als ein Baustein einer breit diversifizierten Allokation gehalten. Quelle: altss.com (HFI Global) und Forbes.",
     "name": "Luserve AG / HFI Global (Family Office Otto Happel)",
     "kurz": "Happel (Luserve)",
     "typ": "SFO",
@@ -141,6 +145,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     "id": "porschepiech",
+    "uid": "",
+    "ankaufsprofil": "Der Piëch-Familienzweig investiert über die österreichischen Privatstiftungen bzw. die Agron GmbH in erstklassige Gewerbeimmobilien in Deutschland und Österreich – u.a. Hindenburgbau Stuttgart, Forum1 Böblingen, Stachus-Passagen München sowie eine Wohnimmobilie in Salzburg. Fokus: Prime-Bestandsobjekte (Büro/Handel), Core, Bestandshaltung, Schwerpunkt Region Stuttgart. Kein öffentliches Ankaufsraster mit Ticketgrößen. Quelle: altss.com und Stuttgarter Zeitung.",
     "name": "Familie Porsche/Piëch (Privatstiftungen / Beteiligungsholding)",
     "kurz": "Porsche/Piëch",
     "typ": "SFO",

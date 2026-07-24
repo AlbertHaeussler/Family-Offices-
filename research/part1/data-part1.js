@@ -6,6 +6,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"focam",
+    uid:"",
+    ankaufsprofil:"Kein offenes Ankaufsprofil. Die FOCAM AG (Multi Family Office, Frankfurt/München/Hamburg) allokiert für Unternehmerfamilien u.a. in Immobilien; eigene Bestände über FOCAM Real Estate GmbH in Frankfurt, Berlin und München sowie Forst-/Gutsvermögen in Thüringen/Bayern. Ableitbar: diversifizierte Core-Bestandsimmobilien in deutschen A-Städten plus Land-/Forstwerte, mandatsgetrieben (Quelle: familyoffice.de/Preqin/Altss, kein publiziertes Ankaufsprofil).",
     name:"FOCAM AG (Multi Family Office)", kurz:"FOCAM",
     typ:"MFO",
     land:"Deutschland",
@@ -28,6 +30,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"deutsche_oppenheim",
+    uid:"HRB Köln (Deutsche Oppenheim Family Office AG)",
+    ankaufsprofil:"Als Multi Family Office kauft die Deutsche Oppenheim nicht auf eigenes Buch, sondern begleitet vermögende Familien, Stiftungen und Kirchen bei Immobilientransaktionen (Strategie, Transaktion, Management, Reporting) über alle Assetklassen. Schwerpunkt: werthaltige Core-Bestandsimmobilien, Fokusregion München/bundesweit. Ein publiziertes Ankaufsprofil mit Ticketgrößen ist nicht auffindbar. (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil; vgl. deutsche-oppenheim.de/Immobilien)",
     name:"Deutsche Oppenheim Family Office AG", kurz:"Deutsche Oppenheim",
     typ:"MFO",
     land:"Deutschland",
@@ -50,6 +54,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"tresono",
+    uid:"",
+    ankaufsprofil:"Bankenunabhängiges Multi Family Office in Köln mit Fokus auf Sachwerte; strukturiert, bewertet und managt Immobilien für rund 30 Unternehmerfamilien und Stiftungen von der Investmentstrategie über Transaktionsberatung bis Asset Management. Regionaler Schwerpunkt Köln/Rheinland, Core-orientierte Bestandsobjekte. Kein eigenes Produkt, kein publiziertes Ankaufsprofil mit Tickets auffindbar. (abgeleitet aus tresono.de und App-Daten, kein publiziertes Ankaufsprofil)",
     name:"TRESONO Family Office AG", kurz:"Tresono",
     typ:"MFO",
     land:"Deutschland",
@@ -72,6 +78,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"feri_fo",
+    uid:"HRB 9763 (Feri Institutional & Family Office GmbH, Bad Homburg)",
+    ankaufsprofil:"FERI (Bad Homburg/Rhein-Main) bietet institutionellen und Family-Office-Kunden Zugang zu überwiegend indirekten Immobilienanlagen über das gesamte Risikospektrum Core, Core+, Value-Add bis Opportunistic und über die Nutzungen Büro, Handel, Wohnen, Logistik und Spezialimmobilien, DACH und international. Investition primär via Fonds/Co-Investments, risiko-/renditeindividuell. Quelle: Immobilienstrategien-Seite auf feri.de.",
     name:"FERI — Institutional & Family Office GmbH", kurz:"FERI",
     typ:"MFO",
     land:"Deutschland",
@@ -94,6 +102,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"oddo_bhf_fo",
+    uid:"",
+    ankaufsprofil:"ODDO BHF Family Office (Standort Frankfurt, Paris, Zürich) berät vermögende Familien in Wealth Architecture und vermittelt Immobilien; bei Direktinvestments werden Wohn-, Büro- oder Gewerbeobjekte für einzelne oder wenige Investoren erworben, verwaltet und veräußert, in- und ausländisch. Kein publiziertes Ankaufsprofil mit festen Ticketgrößen/Risikoklassen auffindbar. (abgeleitet aus pwm.oddo-bhf.com und App-Daten, kein publiziertes Ankaufsprofil)",
     name:"ODDO BHF Family Office GmbH", kurz:"ODDO BHF FO",
     typ:"MFO",
     land:"Deutschland",
@@ -116,6 +126,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"habbel_pohlig",
+    uid:"",
+    ankaufsprofil:"Habbel, Pohlig & Partner (Wiesbaden, ca. 600 Mio. EUR AuM) ist ein bankenunabhängiger Vermögensverwalter mit Kerngeschäft liquides Wertpapier-Portfoliomanagement für Private, Stiftungen und institutionelle Anleger. Ein Immobilien-Ankaufsprofil bzw. eigenständige Immobilienankäufe sind öffentlich nicht erkennbar; der Fokus liegt auf liquiden Anlagen. nicht öffentlich ermittelbar",
     name:"Habbel, Pohlig & Partner (Vermögensverwaltung / MFO)", kurz:"Habbel Pohlig",
     typ:"MFO",
     land:"Deutschland",
@@ -140,6 +152,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"castell",
+    uid:"",
+    ankaufsprofil:"Die Fürstlich Castell'sche Gruppe (SFO der Familie zu Castell, Bank in Würzburg) hält und bewirtschaftet vor allem land-/forstwirtschaftlichen Grundbesitz und Immobilien im Raum Castell/Steigerwald/Unterfranken; die Tochter Castell Immobilien GmbH unterstützt bei An-/Verkauf, Vermietung und Bewertung. Kein publiziertes Ankaufsprofil mit Ticketgrößen/Risikoklassen. (abgeleitet aus castell-bank.de und App-Daten, kein publiziertes Ankaufsprofil)",
     name:"Fürstlich Castell'sches Vermögen (Familie zu Castell) / F & C Capital GmbH", kurz:"Castell",
     typ:"SFO",
     land:"Deutschland",
@@ -171,6 +185,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"roechling_immo",
+    uid:"HRA 87237 München (Röchling Immobilien GmbH & Co. KG Mauerkircher Straße)",
+    ankaufsprofil:"Privates Immobilienvehikel der Familie Röchling in München (Röchling Immobilien GmbH & Co. KG Mauerkircher Straße, Sitz München-Bogenhausen). Fokus: langfristiges Halten von Wohn-/Zinshaus-Bestand im gehobenen Münchner Stadtgebiet (Bogenhausen), Core, Bestand vor Development, Off-Market über persönliche Netzwerke. Kein publiziertes Ankaufsprofil. (abgeleitet aus Handelsregister/App-Daten, kein publiziertes Ankaufsprofil)",
     name:"Familie Röchling — Privatimmobilien (München)", kurz:"Röchling (Familie)",
     typ:"SFO",
     land:"Deutschland",
@@ -197,6 +213,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"merck_vermoegens",
+    uid:"HRA 4605 Darmstadt (Emanuel-Merck-Vermögens-KG)",
+    ankaufsprofil:"Single Family Office der Familie Merck (gegr. 1967, Sitz Darmstadt). Verwaltet Familienvermögen inkl. Immobilien; über die Merck Real Estate GmbH auch betrieblicher/gewerblicher Immobilienbesitz im Raum Darmstadt/Südhessen. Ein öffentliches Immobilien-Ankaufsprofil mit Assetklassen, Tickets und Risikoklasse ist nicht auffindbar. (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil)",
     name:"Emanuel-Merck-Vermögens-KG (Familie Merck)", kurz:"Merck (Vermögens-KG)",
     typ:"SFO",
     land:"Deutschland",
@@ -226,6 +244,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"burda_bpi",
+    uid:"HRA 105973 München (Burda Principal Investments GmbH & Co. KG)",
+    ankaufsprofil:"Burda Principal Investments (München, Arabellapark) ist tatsächlich der Wachstums-/Growth-Equity-Arm der Familie Burda für digitale Technologie- und Medienunternehmen, KEIN Immobilieninvestor. Immobilienbezug der Familie Burda beschränkt sich im Wesentlichen auf eigengenutzte/gehaltene Objekte in München. Ein Immobilien-Ankaufsprofil existiert für BPI nicht. (abgeleitet aus App-Daten; BPI publiziert kein Immobilien-Ankaufsprofil)",
     name:"Burda Principal Investments (Familie Burda)", kurz:"Burda (BPI)",
     typ:"SFO",
     land:"Deutschland",
@@ -248,6 +268,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"wacker_familie",
+    uid:"HRB 515 München (Dr. Alexander Wacker Familiengesellschaft mbH)",
+    ankaufsprofil:"Dr. Alexander Wacker Familiengesellschaft mbH (München, gegr. 1920, ~23 Gesellschafter) ist die Familienholding rund um die Wacker-Chemie-Beteiligung und verwaltet Beteiligungen und Vermögenswerte der Familie. Immobilien werden im privaten Rahmen (München/Oberbayern, Tegernsee) gehalten; ein öffentliches Immobilien-Ankaufsprofil mit Assetklassen/Tickets ist nicht auffindbar. (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil)",
     name:"Dr. Alexander Wacker Familiengesellschaft (Familie Wacker)", kurz:"Wacker (Familie)",
     typ:"SFO",
     land:"Deutschland",
@@ -270,6 +292,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"profunda",
+    uid:"",
+    ankaufsprofil:"Profunda ist das Single Family Office der Familie Boehringer/von Baumbach (Boehringer Ingelheim), Sitz Ingelheim am Rhein. Es verwaltet langfristig das Familienvermögen über mehrere Assetklassen; Immobilien im Raum Rhein-Main und Hamburg. Ein publiziertes Immobilien-Ankaufsprofil (Assetklassen, Tickets, Risikoprofil) ist nicht öffentlich. (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil)",
     name:"Profunda (Family Office der Familie Boehringer/von Baumbach)", kurz:"Profunda",
     typ:"SFO",
     land:"Deutschland",
@@ -296,6 +320,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"cara_investment",
+    uid:"",
+    ankaufsprofil:"Single Family Office in Frankfurt (gegr. 2010, Goethestr. 34). Investiert in Prime-Immobilien in Europa und den USA sowie in Projektentwicklungen; hält zahlreiche Frankfurter Objekte. Dokumentierte Deals: Ankauf Untermainkai 27-28 (2020) und Waterloo Place London (~93 Mio. USD), Verkauf Oddo-BHF-Tower für ~300 Mio. EUR. Profil: Core/Prime plus opportunistisches Development, großvolumige Tickets, Off-Market. Quelle: private-banking-magazin, listenchampion 2020.",
     name:"Cara Investment GmbH (Single Family Office)", kurz:"Cara Investment",
     typ:"SFO",
     land:"Deutschland",
@@ -322,6 +348,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"metzler_familie",
+    uid:"HRB 16849 Frankfurt (Metzler Immobilien GmbH)",
+    ankaufsprofil:"B. Metzler seel. Sohn & Co. (Frankfurt, älteste in Familienbesitz geführte Bank) ist seit den 1970ern über Metzler Real Estate im Immobiliengeschäft: Beratung und Management überwiegend indirekter Immobilieninvestments (Europa, USA, Asien) für private und institutionelle Kunden, Asset-/Transaktionsmanagement in Deutschland. Eigenankäufe der Familie sind gering; kein publiziertes eigenes Ankaufsprofil. (abgeleitet aus metzler.com und App-Daten)",
     name:"Familie von Metzler / B. Metzler seel. Sohn & Co. (Familienbank als FO-Vehikel)", kurz:"Metzler (Familie)",
     typ:"SFO",
     land:"Deutschland",
@@ -344,6 +372,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"hrk_lunis",
+    uid:"",
+    ankaufsprofil:"HRK LUNIS (bankenunabhängiger Vermögensverwalter, ~5,5 Mrd. EUR AuM, Frankfurt/bundesweit) hat 2023 das Wertiq Family Office gegründet; hauseigene Immobilienexperten unterstützen Kunden bei An- und Verkauf von Immobilien im Rahmen des Family-Office-Mandats. Advisory, kein Eigenankauf auf Buch; kein publiziertes Ankaufsprofil mit Tickets/Risikoklassen. (abgeleitet aus hrklunis.de und App-Daten, kein publiziertes Ankaufsprofil)",
     name:"HRK LUNIS AG (Multi Family Office)", kurz:"HRK Lunis",
     typ:"MFO",
     land:"Deutschland",
@@ -366,6 +396,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"brehmer_cie",
+    uid:"",
+    ankaufsprofil:"BREHMER & CIE. Family Office (Frankfurt, gegr. 2009, BaFin-/Bundesbank-reguliertes Wertpapierinstitut) ist ein eigentümergeführtes Multi Family Office für Unternehmerfamilien und Stiftungen; Immobilienanlagen sind Teil der Vermögensverwaltung/-strukturierung. Beratungsmandat, kein Eigenankauf; ein publiziertes Immobilien-Ankaufsprofil mit Assetklassen/Tickets ist nicht auffindbar. (abgeleitet aus brehmer-cie.com und App-Daten, kein publiziertes Ankaufsprofil)",
     name:"BREHMER & CIE. Family Office GmbH", kurz:"Brehmer & Cie.",
     typ:"MFO",
     land:"Deutschland",
@@ -388,6 +420,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"fbg_family_office",
+    uid:"",
+    ankaufsprofil:"Immobilien als Sachwert-Baustein der Gesamtvermögensstrategie vermögender Familien/Institutionen; Direktankauf und Bestandsmanagement in Deutschland und im Ausland. Laut private-banking-magazin (2023) begleitete das FBG-Family-Office in zwei Jahren Immobilientransaktionen von rund 200 Mio. EUR; seit 2023 eigener Head of Real Estate (Thomas Krahl). Kein publiziertes Assetklassen-/Ticket-Raster; Fokus auf individuelle Mandats-Lösungen, tendenziell Core/Core+ (abgeleitet aus Presse- und App-Daten).",
     name:"Family Office der Frankfurter Bankgesellschaft AG", kurz:"FBG Family Office",
     typ:"MFO",
     land:"Deutschland",
@@ -410,6 +444,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"kuder_familypartner",
+    uid:"HRB 100950 (AG Frankfurt am Main)",
+    ankaufsprofil:"Inhabergeführtes Multi Family Office (gegr. 2014, Hofheim/Rhein-Main) mit Vermögensstrategie und -verwaltung für vermögende Familien; keine erlaubnispflichtigen Bankgeschäfte. Ein explizites Immobilien-Ankaufsprofil (Assetklassen, Ticket, Risikoprofil) ist nicht öffentlich publiziert; Immobilien werden im Rahmen individueller Mandate strategisch allokiert, regionaler Schwerpunkt Rhein-Main (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil).",
     name:"Kuder Familypartner GmbH (Multi Family Office)", kurz:"Kuder Familypartner",
     typ:"MFO",
     land:"Deutschland",
@@ -432,6 +468,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"fv_frankfurter_vermoegen",
+    uid:"HRB 16825 (AG Bad Homburg)",
+    ankaufsprofil:"Inhabergeführter, unabhängiger Vermögensverwalter (Bad Homburg/Rhein-Main) mit BaFin-Lizenz; Schwerpunkt liquide Anlagen und vier eigene Fonds. Immobilienbezug primär über Finanzierungs-/Kreditvermittlung und Beratung, kein publiziertes eigenes Ankaufsprofil für Direkterwerb. Immobilien werden als Sachwert im Rahmen individueller Mandate berücksichtigt (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil). Quelle: frankfurter-vermoegen.com, VuV-Profil.",
     name:"FV Frankfurter Vermögen AG (Vermögensverwaltung / Family-Office-Services)", kurz:"Frankfurter Vermögen",
     typ:"MFO",
     land:"Deutschland",
@@ -454,6 +492,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"hfo_henkel",
+    uid:"",
+    ankaufsprofil:"Single Family Office der Familie Henkel (gegr. 2006, Düsseldorf), eines der größten unabhängigen Family Offices im deutschsprachigen Raum; Gesamtvermögensstrukturierung. Ein konkretes Immobilien-Ankaufsprofil (Assetklassen, Ticket, Regionen) ist nicht öffentlich publiziert. Family Offices dieser Größe favorisieren i. d. R. langfristige Core/Core+-Direktinvestments; Schwerpunkt vermutlich Deutschland/Rheinland (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil).",
     name:"HFO GmbH — Henkel Family Office (Familie Henkel)", kurz:"Henkel Family Office",
     typ:"SFO",
     land:"Deutschland",
@@ -476,6 +516,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"werhahn",
+    uid:"",
+    ankaufsprofil:"Diversifizierte Familienholding (Wilh. Werhahn KG, Neuss, 100% familiengeführt) mit eigenem Geschäftsfeld Immobilien, geführt über Werhahn Haus & Grund. Fokus laut Unternehmens-/Wikipedia-Angaben auf gemischt genutzte und gewerbliche Bestandsimmobilien in Neuss, Köln, Berlin und dem Ruhrgebiet; langfristiger Bestandshalter, Core-/Core+-Profil. Kein öffentliches Ankaufs-Ticket publiziert (Quelle: werhahn.de, de.wikipedia.org).",
     name:"Wilh. Werhahn KG (Familie Werhahn — diversifizierte Familienholding)", kurz:"Werhahn",
     typ:"SFO",
     land:"Deutschland",
@@ -502,6 +544,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"syngroh_grohe",
+    uid:"",
+    ankaufsprofil:"Single Family Office der Familie Klaus Grohe (Syngroh Beteiligungsgesellschaft/Syngroh Capital, Schiltach/Schwarzwald, gegr. 2017); Dachstruktur für Unternehmensbeteiligungen, Immobilien und Finanzanlagen. Investitionsschwerpunkt laut unternehmeredition.de/Handelsblatt sind Direktbeteiligungen an Mittelstandsfirmen (EV 20–100 Mio. EUR); Immobilien als eigener, langfristiger Vermögensbaustein ohne publiziertes Ankaufsprofil (abgeleitet aus Presse-/App-Daten, kein publiziertes Ankaufsprofil).",
     name:"Syngroh Beteiligungsgesellschaft mbH / Syngroh Capital (Family Office der Familie Klaus Grohe)",
     kurz:"Syngroh (Grohe/Hansgrohe)",
     typ:"SFO",
@@ -531,6 +575,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"oberwelland_storck",
+    uid:"",
+    ankaufsprofil:"Family Office der Familie Oberwelland (August Storck KG); Axel Oberwelland investiert eigenes Vermögen über TAO Holding GmbH bzw. OW Familien Verwaltungs GmbH (u. a. Hulebimax Immobilien Verwaltungs GmbH) in Immobilien und Beteiligungen. Ein konkretes Ankaufsprofil (Assetklassen, Ticket, Risikoprofil) ist nicht öffentlich publiziert; langfristiger Bestandshalter, Sitz Berlin (Quelle: die-deutsche-wirtschaft.de, forbes.com; kein publiziertes Ankaufsprofil).",
     name:"TAO Holding GmbH / OW Familien Verwaltungs GmbH (Family Office Familie Oberwelland, August Storck)",
     kurz:"Oberwelland (Storck)",
     typ:"SFO",
@@ -560,6 +606,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"lennertz_co",
+    uid:"",
+    ankaufsprofil:"Inhabergeführtes Multi Family Office (Hamburg) und lizenzierte KVG (Lennertz & Co. Capital, BaFin-Vollerlaubnis 2024). Immobilien-Zugang überregional über Fondslösungen mit Fokus Real Estate DACH-Region sowie Luxus-Immobilien-Projektentwicklung; Zugang als Dachfonds, SPVs und Direktinvestments. Risikoprofil eher Value-Add/Development. Kein Einzel-Ticket publiziert (Quelle: lennertz.com, private-banking-magazin, dfpa.info).",
     name:"Lennertz & Co. GmbH (Multi Family Office)",
     kurz:"Lennertz & Co.",
     typ:"MFO",
@@ -589,6 +637,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"faber_castell_vv",
+    uid:"HRA 7779 (AG Fürth)",
+    ankaufsprofil:"Immobilien-/Vermögensverwaltungsgesellschaften der Familie Graf von Faber-Castell (Faber-Castell Immobilienverwaltung GmbH & Co. KG bzw. Schlossvilla Vermögensverwaltung, Sitz Stein bei Nürnberg). Zweck laut Handelsregister/Firmenwissen: Verwaltung eigener und fremder Grundstücke sowie Bestandsvermietung. Langfristiger Bestandshalter im Raum Stein/Nürnberg; kein publiziertes Ankaufsprofil (Quelle: firmenwissen.de, kein publiziertes Ankaufsprofil).",
     name:"Faber-Castell Immobilienverwaltung / Schlossvilla Vermögensverwaltung (Familie Graf von Faber-Castell)",
     kurz:"Faber-Castell (Familie)",
     typ:"SFO",
@@ -618,6 +668,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"schuerfeld_group",
+    uid:"",
+    ankaufsprofil:"Strategisches Single Family Office der Familie Schürfeld (Hamburg, seit 1937); organisch gewachsenes Beteiligungsportfolio mit über 2,5 Mrd. EUR Umsatz. Schwerpunkt sind unternehmerische Industrie-/Wachstumsbeteiligungen; ein eigenes Immobilien-Ankaufsprofil (Assetklassen, Ticket, Regionen) ist nicht öffentlich publiziert. Immobilien werden allenfalls als langfristiger Vermögensbaustein am Standort Hamburg gehalten (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil).",
     name:"Schürfeld Group / G. Schürfeld + Co. (GmbH & Co.) KG (Familie Schürfeld)",
     kurz:"Schürfeld Group",
     typ:"SFO",

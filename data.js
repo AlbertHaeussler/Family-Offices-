@@ -7,6 +7,8 @@
 window.FO_DATA = [
   {
     "id": "otto",
+    "uid": "",
+    "ankaufsprofil": "Fokus auf Shopping-Center und innerstädtische Handels-/Mixed-Use-Immobilien, gesteuert über die ECE Group (rund 200 Center, ~30 Mrd. EUR Marktwert). Langfristiger Bestandshalter (Core) mit Schwerpunkten Hamburg, Rhein-Main, Berlin und Rhein-Ruhr; großvolumige Deals bis in den dreistelligen Mio-Bereich (z. B. Deutsche-EuroShop-Übernahme gemeinsam mit Oaktree). Kein publiziertes Ankaufsprofil (abgeleitet aus ECE-Portfolio/App-Nutzungsdaten). Quelle: ece.com, GoingPublic/private-banking-magazin 2022-2024.",
     "name": "CURA Vermögensverwaltung G.m.b.H. & Co. KG",
     "kurz": "Otto Family Office (CURA)",
     "typ": "SFO",
@@ -512,6 +514,8 @@ window.FO_DATA = [
   },
   {
     "id": "wirtgen",
+    "uid": "HRB 10492 (AG Montabaur)",
+    "ankaufsprofil": "Investiert in bereits am Markt etablierte, gut gemanagte Bestandsimmobilien in Top-7-Lagen in Deutschland und Europa; Nutzungsschwerpunkte Büro, Handel, Wohnen und Hospitality (u. a. A-Rosa Resort 2022). Ausgeprägtes Core-/urbanes Bestandsprofil mit langfristigem Halt; Regionen u. a. Frankfurt/Rhein-Main, Hamburg, Düsseldorf. Konkrete Ticketgrößen nicht publiziert. Quelle: Real-Estate-Seite auf wirtgen-invest.de; IZ-Unternehmensprofil.",
     "name": "WIRTGEN INVEST Holding GmbH",
     "kurz": "Wirtgen Invest",
     "typ": "SFO",
@@ -838,6 +842,8 @@ window.FO_DATA = [
   },
   {
     "id": "hqtrust",
+    "uid": "",
+    "ankaufsprofil": "Als Multi Family Office kein eigenes festes Ankaufsprofil, sondern mandantenindividuelle Immobilienstrategien über die gesamte Wertschöpfungskette: Direktinvestments via Managed Accounts (individuelle Fondsmandate) sowie indirekte Anlagen über Zielfonds. Pro Mandant werden Immobilienquote und -strategie festgelegt; Ankäufe laufen über Pipeline-Calls und Objektprüfung. Sitz Rhein-Main. Quelle: hqtrust.de (Immobilien-Artikel), IZ.",
     "name": "HQ Trust GmbH (Harald Quandt Holding)",
     "kurz": "HQ Trust / Harald Quandt",
     "typ": "MFO",
@@ -918,6 +924,8 @@ window.FO_DATA = [
   },
   {
     "id": "dohle",
+    "uid": "",
+    "ankaufsprofil": "Family Office verwaltet Immobilien und landwirtschaftliche Flächen im In- und Ausland als langfristigen Bestand; Beispiele sind das Hotel Vier Jahreszeiten (Hamburg) und Anteile am Golf Club Gut Lärchenhof. Schwerpunktregion Rheinland (Siegburg/Köln/Bonn). Kein publiziertes Ankaufsprofil; Ankäufe überwiegend diskret im Eigenbestand (abgeleitet aus Portfolio/App-Daten). Quelle: dohle-gruppe.com/invest, regiomanager, Wikipedia.",
     "name": "DOHLE Family Office (Handelsgruppe Holding GmbH & Co. KG)",
     "kurz": "Dohle Family Office",
     "typ": "SFO",
@@ -1024,6 +1032,8 @@ window.FO_DATA = [
   },
   {
     "id": "koehler",
+    "uid": "",
+    "ankaufsprofil": "Ankauf von Wohn- und Geschäftshäusern sowie Gewerbe- und Logistikimmobilien; Portfolio aus Logistik, Büro und Wohnen mit Fokus Metropolregion Stuttgart und Süddeutschland, teils DACH-weit. Aktiver, renditeorientierter Investor (u. a. 10. Transaktion allein 2021, Ankauf Wohn-/Geschäftshaus von BNP Paribas REIM). Ticketgrößen nicht publiziert. Quelle: koehlergroup.com, presse-blog 2022, die-deutsche-wirtschaft.",
     "name": "KOEHLER GROUP Holding GmbH",
     "kurz": "KOEHLER GROUP",
     "typ": "SFO",
@@ -1195,6 +1205,8 @@ window.FO_DATA = [
   },
   {
     "id": "molento",
+    "uid": "",
+    "ankaufsprofil": "Über die operative Trei Real Estate: einerseits Nahversorgungs- und Fachmarktimmobilien im Bestand (Deutschland/Polen, vermietet u. a. an Aldi, Lidl, Edeka, Rewe, Kaufland), andererseits Wohn-Development in Deutschland, Polen und den USA (rund 4.000 Einheiten in Planung/Bau) sowie Fachmarktzentren (Vendo Park, Polen). Projektentwickler und Asset Manager zugleich. Quelle: treirealestate.com, private-banking-magazin, IZ.",
     "name": "Molento (Family Office der Familie Haub / Tengelmann)",
     "kurz": "Molento (Haub)",
     "typ": "SFO",
@@ -1322,6 +1334,8 @@ window.FO_DATA = [
   },
   {
     "id": "kuehne",
+    "uid": "",
+    "ankaufsprofil": "Internationales Immobilienportfolio über drei Kontinente, gebündelt in Kühne Holding/Kühne Real Estate; zuletzt großvolumige, prime-orientierte Ankäufe wie das Münchner Wohnquartier Welfengarten (320 Wohnungen für 264,5 Mio. EUR, Rekordpreis) sowie Logistikimmobilien. Fokus auf Core/Prime-Bestand, Wohnen und Logistik; Kernregion Hamburg, opportunistisch auch München. Kein festes publiziertes Profil. Quelle: kuehne-holding.com, Handelsblatt/Business Insider 2024.",
     "name": "Kühne Holding AG (inkl. Kühne Real Estate AG)",
     "kurz": "Kühne Holding",
     "typ": "SFO",
@@ -1409,6 +1423,8 @@ window.FO_DATA = [
   },
   {
     "id": "viessmann",
+    "uid": "",
+    "ankaufsprofil": "Junges Family Office (2024) mit langfristigem, generationsübergreifendem Ansatz; investiert und entwickelt gewerbliche Immobilien in Deutschland mit Fokus auf Energieeffizienz und Nachhaltigkeit, ergänzt um Forst, regenerative Landwirtschaft und Erneuerbare. 2025 Minderheitsbeteiligung an der Urban-Investment-Plattform Urban Partners. Portfolio im Aufbau, kein festes Ankaufsprofil publiziert. Quelle: viessmann.family/viessmann.group, PERE-Profil.",
     "name": "Viessmann Generations Group GmbH & Co. KG",
     "kurz": "Viessmann Generations Group",
     "typ": "SFO",
@@ -1476,6 +1492,8 @@ window.FO_DATA = [
   },
   {
     "id": "athos",
+    "uid": "",
+    "ankaufsprofil": "Ankauf großvolumiger Trophy- und Mixed-Use-Immobilien in erstklassigen Innenstadtlagen; Beispiele: Fünf Höfe in München (über 700 Mio. EUR, 2024, von Union Investment) und Villa Kennedy in Frankfurt. Core/Prime-Profil, langfristiger Bestandshalter, Tickets im dreistelligen Mio-Bereich. Sitz München. Kein publiziertes Ankaufsprofil (abgeleitet aus Transaktionen/App-Daten). Quelle: immobilienmanager.de, private-banking-magazin, CoStar 2024.",
     "name": "ATHOS Service GmbH (Strüngmann Family Office)",
     "kurz": "ATHOS (Strüngmann)",
     "typ": "SFO",
@@ -1535,6 +1553,8 @@ window.FO_DATA = [
   },
   {
     "id": "mayfair",
+    "uid": "HRB 120948 (AG Hamburg)",
+    "ankaufsprofil": "Investiert neben Unternehmensbeteiligungen und Finanzanlagen in direkt gehaltene, selbst gemanagte Immobilien als langfristigen Bestand; Sitz und Schwerpunkt Hamburg (rund 50 Mitarbeiter). Konkrete Assetklassen, Ticketgrößen oder ein publiziertes Ankaufsprofil sind nicht öffentlich; Ankäufe erfolgen diskret/off-market (abgeleitet aus App-/Unternehmensdaten). Quelle: mayfair-hamburg.de, Wikipedia, Northdata (HRB 120948).",
     "name": "Mayfair Vermögensverwaltungs SE (Familie Herz)",
     "kurz": "Mayfair (Herz)",
     "typ": "SFO",
@@ -1602,6 +1622,8 @@ window.FO_DATA = [
   },
   {
     "id": "aqton",
+    "uid": "",
+    "ankaufsprofil": "AQTON ist primär eine langfristige Beteiligungsholding (u. a. BMW, Solarwatt); ein eigenes Immobilien-Ankaufsprofil ist öffentlich nicht dokumentiert. Immobilienengagements erfolgen im Eigenbestand rund um den Sitz Bad Homburg (Günther-Quandt-Haus) und diskret/off-market (abgeleitet aus App-Daten, kein publiziertes Ankaufsprofil). Quelle: aqton.eu, Wikipedia, Crunchbase.",
     "name": "AQTON SE (Family Office Stefan Quandt)",
     "kurz": "AQTON (S. Quandt)",
     "typ": "SFO",
@@ -1661,6 +1683,8 @@ window.FO_DATA = [
   },
   {
     "id": "skion",
+    "uid": "",
+    "ankaufsprofil": "SKion ist auf industrielle Beteiligungen (Minderheitsanteile, Zielumsätze 300 Mio.–2,5 Mrd. EUR) fokussiert; Immobilien spielen eine untergeordnete, primär bestandshaltende Rolle. Ein publiziertes Immobilien-Ankaufsprofil existiert nicht; Engagements erfolgen diskret im Eigenbestand rund um den Sitz Rhein-Main/Bad Homburg (abgeleitet aus App-Daten, kein publiziertes Ankaufsprofil). Quelle: skion.de, familyofficehub.io.",
     "name": "SKion GmbH (Family Office Susanne Klatten)",
     "kurz": "SKion (Klatten)",
     "typ": "SFO",
@@ -1720,6 +1744,8 @@ window.FO_DATA = [
   },
   {
     "id": "dievini",
+    "uid": "",
+    "ankaufsprofil": "dievini selbst ist eine Biotech-Beteiligungsholding; die Immobilienaktivitäten der Familie Hopp konzentrieren sich als langfristige Bestands- und Entwicklungsengagements auf die Metropolregion Rhein-Neckar (Walldorf/Heidelberg), überwiegend Wohn- und regionale Projektimmobilien. Ein publiziertes Immobilien-Ankaufsprofil existiert nicht (abgeleitet aus regionalem Portfolio/App-Daten). Quelle: rnz.de, IZ-Schlagwortarchiv Dietmar Hopp.",
     "name": "dievini Hopp BioTech holding (Family Office Dietmar Hopp)",
     "kurz": "dievini (Hopp)",
     "typ": "SFO",
@@ -1779,6 +1805,8 @@ window.FO_DATA = [
   },
   {
     "id": "ehlerding",
+    "uid": "",
+    "ankaufsprofil": "Fokus auf Wohnimmobilien (Bestand und Entwicklung) sowie Beteiligungen; nach der WCM-Ära wieder aktiver Immobilienunternehmer, u. a. über die Beteiligung an Erwe und ein Wohnprojekt im Werftquartier Bremerhaven (108 Wohnungen, Baustart Ende 2025). Schwerpunkt Hamburg und bundesweit. Kein festes publiziertes Ankaufsprofil (abgeleitet aus Projekten/App-Daten). Quelle: Immobilien Zeitung, undervalued-shares-Interview, Wikipedia.",
     "name": "Family Office Karl Ehlerding",
     "kurz": "Ehlerding",
     "typ": "SFO",
@@ -1847,6 +1875,8 @@ window.FO_DATA = [
   },
   {
     "id": "jab",
+    "uid": "",
+    "ankaufsprofil": "Über JAB Real Estate value-add/opportunistische Strategie: Ankauf unterbewerteter Objekte, die zu modernen, gehobenen Mehrfamilien-(Multifamily-)Wohnanlagen entwickelt/repositioniert werden; Zielgruppe junge, einkommensstarke Städter, Assetklassen Wohnen und Retail (Opportunity Funds IV/V). Schwerpunkt USA/urbane Lagen; Dachholding in Luxemburg. Quelle: jabrealestate.com (Investment Strategy/Criteria), Preqin/PitchBook.",
     "name": "JAB Holding Company (Family Office Reimann)",
     "kurz": "JAB (Reimann)",
     "typ": "MFO",
@@ -1906,6 +1936,8 @@ window.FO_DATA = [
   },
   {
     "id": "iho",
+    "uid": "HRA 2681 (AG Fürth)",
+    "ankaufsprofil": "Kein publiziertes Ankaufsprofil. Die IHO/INA-Holding Schaeffler ist primär strategische Beteiligungsholding (Schaeffler, Continental, Aumovio); Immobilien wurden früher über Schaeffler Immobilien gehalten und dienen v.a. betrieblichen Zwecken rund um den Sitz Herzogenaurach/Franken. Ableitbar: Bestandsimmobilien mit Unternehmensbezug, kein aktiver Marktankauf erkennbar (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil; Quelle: Northdata/schaeffler.com).",
     "name": "IHO Holding / INA-Holding Schaeffler (Family Office Schaeffler)",
     "kurz": "IHO (Schaeffler)",
     "typ": "SFO",
@@ -1966,6 +1998,8 @@ window.FO_DATA = [
   },
   {
     "id": "vem",
+    "uid": "",
+    "ankaufsprofil": "Kein publiziertes Ankaufsprofil. VEM Vermögensverwaltung (Family Office Merckle, Blaubeuren) steuert laut Northdata rund 15 Objektgesellschaften, die Entwicklung, Vermietung und Verwaltung von Gewerbeimmobilien in Familienbesitz betreiben, mit Schwerpunkt ostdeutsche Standorte (von Adolf Merckle erworbener Bestand). Ableitbar: Fokus Gewerbe-Bestand, kein offen kommunizierter Neuankauf (abgeleitet aus Northdata/Presse, kein publiziertes Ankaufsprofil).",
     "name": "VEM Vermögensverwaltung (Family Office Merckle)",
     "kurz": "VEM (Merckle)",
     "typ": "SFO",
@@ -2025,6 +2059,8 @@ window.FO_DATA = [
   },
   {
     "id": "beisheim",
+    "uid": "",
+    "ankaufsprofil": "Beisheim Holding (Otto-Beisheim-Family-Office) investiert bei Immobilien primär auf Werterhalt mit laufendem Cashflow; Direktanlagen v.a. in den Segmenten Büro, Handel/Gewerbe und Wohnen in Deutschland, ergänzt durch Engagements in Europa/Nordamerika. Distressed- und Frühphasen-Situationen werden explizit gemieden (Risikoprofil eher Core/Core+). Bestandshaltung dominiert; Referenz u.a. Beisheim Center Potsdamer Platz Berlin. Quelle: beisheim.com (Investments/Anlageklassen).",
     "name": "Beisheim Holding (Family Office Otto Beisheim)",
     "kurz": "Beisheim",
     "typ": "SFO",
@@ -2180,6 +2216,8 @@ window.FO_DATA = [
   },
   {
     "id": "wuerth",
+    "uid": "HRA 720740 (AG Stuttgart)",
+    "ankaufsprofil": "Kein eigenständiges publiziertes Family-Office-Ankaufsprofil. Immobilien laufen über Würth Immobilien GmbH & Co. KG (Künzelsau): Verwaltung und Verwertung eigenen Vermögens, insb. Grundbesitz, überwiegend betriebs-/standortbezogen im Raum Künzelsau/Hohenlohe. Ableitbar: eigengenutzter und betrieblicher Bestand, kein aktiver Drittmarkt-Ankauf erkennbar (abgeleitet aus Northdata/companyhouse, kein publiziertes Ankaufsprofil).",
     "name": "Würth Family Office (Familie Würth)",
     "kurz": "Würth",
     "typ": "SFO",
@@ -2240,6 +2278,8 @@ window.FO_DATA = [
   },
   {
     "id": "vonfinck",
+    "uid": "HRB 305126 (von Finck'sche Vermögensverwaltung GmbH)",
+    "ankaufsprofil": "Kein publiziertes Ankaufsprofil. Das Family Office von Finck hält über die Custodia Holding (SE) umfangreichen Immobilienbestand in Münchner Prime-Lagen (u.a. Maximilianstraße). Charakter: langfristige Bestandshaltung erstklassiger Innenstadtimmobilien, Verkäufe eher selten und opportunistisch. Ableitbar: Core-Prime-Wohn-/Geschäftshäuser in München, sehr geringe Verkaufsneigung (abgeleitet aus Presse/Northdata, kein publiziertes Ankaufsprofil).",
     "name": "Family Office von Finck (Custodia Vermögensverwaltung)",
     "kurz": "von Finck",
     "typ": "SFO",
@@ -2314,6 +2354,8 @@ window.FO_DATA = [
   },
   {
     "id": "haniel",
+    "uid": "HRA 11420 (AG Duisburg)",
+    "ankaufsprofil": "Kein klassisches Ankaufsprofil. Haniel Immobilien GmbH & Co. KG (Duisburg) betreibt An-/Verkauf, Verwaltung und Entwicklung von Immobilien inkl. Planung/Projektentwicklung, mit Schwerpunkt am Sitz Duisburg/Rhein-Ruhr (Franz-Haniel-Platz). Historisch auch Verkäufe (z.B. Büros Ruhrort an BlueRock 2017). Ableitbar: gemischter Bestand mit Entwicklungskomponente im Ruhrgebiet (abgeleitet aus Northdata/haniel.de, kein publiziertes Ankaufsprofil).",
     "name": "Franz Haniel & Cie. GmbH (Familie Haniel)",
     "kurz": "Haniel",
     "typ": "SFO",
@@ -2373,6 +2415,8 @@ window.FO_DATA = [
   },
   {
     "id": "maxingvest",
+    "uid": "",
+    "ankaufsprofil": "Kein publiziertes Immobilien-Ankaufsprofil. maxingvest (Family Office Herz, Hamburg) ist primär Beteiligungsholding (Tchibo, Beiersdorf); Immobilien treten öffentlich kaum als eigene Assetklasse hervor und sind überwiegend am Sitz Hamburg verankert. Ableitbar: allenfalls Bestand mit Unternehmensbezug, kein aktiv kommunizierter Immobilien-Ankauf (abgeleitet aus App-/Portfoliodaten, kein publiziertes Ankaufsprofil).",
     "name": "maxingvest ag (Familie Herz – Michael & Wolfgang)",
     "kurz": "maxingvest (Herz)",
     "typ": "SFO",
@@ -2428,6 +2472,8 @@ window.FO_DATA = [
   },
   {
     "id": "stroeher",
+    "uid": "",
+    "ankaufsprofil": "Kein publiziertes Ankaufsprofil. Das Ströher Family Office (Wella-Erben Sylvia & Ulrich Ströher) verwaltet u.a. das rund 5,9 ha große frühere Wella-Areal an der Berliner Allee in Darmstadt sowie weitere Immobilien (auch in Basel). Charakter: langfristige Bestands- und Arealentwicklung im Umfeld Darmstadt. Ableitbar: Fokus eigenes Areal/Bestand, kein breiter Drittmarkt-Ankauf publiziert (Quelle: Immobilien Zeitung/Thomas Daily, kein publiziertes Ankaufsprofil).",
     "name": "Ströher Family Office (Wella-Erben)",
     "kurz": "Ströher (Wella)",
     "typ": "SFO",
@@ -2502,6 +2548,8 @@ window.FO_DATA = [
   },
   {
     "id": "plattner",
+    "uid": "HRA 7177 (AG Potsdam)",
+    "ankaufsprofil": "Kein festes Ankaufsprofil publiziert. HPC Germany (Family Office Hasso Plattner, Potsdam) tätigt Immobilien-/Entwicklungsengagements v.a. in Potsdam/Berlin-Brandenburg; bekannt wurde die (letztlich zurückgezogene) Bewerbung um die nördliche Speicherstadt Potsdam (rund 4 ha, geplantes Wohn-/Gewerbequartier mit Hotel/Boardinghouse). Ableitbar: regional fokussierte Projektentwicklung/Bestand im Raum Potsdam (Quelle: Thomas Daily/Tagesspiegel, kein publiziertes Ankaufsprofil).",
     "name": "Hasso Plattner Foundation / HPC Germany (Family Office Plattner)",
     "kurz": "Plattner",
     "typ": "SFO",
@@ -2576,6 +2624,8 @@ window.FO_DATA = [
   },
   {
     "id": "tschira",
+    "uid": "",
+    "ankaufsprofil": "Kein publiziertes Immobilien-Ankaufsprofil. Das Family Office der Familie Klaus Tschira wird über Aeris Capital AG (Pfäffikon/CH) geführt; die Klaus Tschira Stiftung fördert Wissenschaft, ist aber kein RE-Investor. Immobilienbezug v.a. am Sitz Heidelberg/Rhein-Neckar. Ableitbar: standortnaher Bestand/Stiftungsliegenschaften, kein aktiv kommuniziertes Ankaufsprofil (abgeleitet aus App-/Portfoliodaten, kein publiziertes Ankaufsprofil).",
     "name": "Family Office Tschira (Familie Klaus Tschira)",
     "kurz": "Tschira",
     "typ": "SFO",
@@ -2635,6 +2685,8 @@ window.FO_DATA = [
   },
   {
     "id": "sixt",
+    "uid": "HRB 144988 (AG München)",
+    "ankaufsprofil": "Kein publiziertes Ankaufsprofil. Die Erich Sixt Vermögensverwaltung GmbH (Family Office Sixt, Pullach i. Isartal) hält reale Vermögenswerte v.a. mit Bezug zum Kerngeschäft/Sitz (u.a. Sixt-Zentrale Pullach, Wohnanwesen Grünwald, Auslandsimmobilien). Immobilien-An-/Verkauf, Vermietung und Projektentwicklung laufen über die Esmeralda GmbH. Ableitbar: eigengenutzter/privater Bestand im Raum München, kein breiter Marktankauf publiziert (abgeleitet aus Northdata/Preqin, kein publiziertes Ankaufsprofil).",
     "name": "Erich Sixt Vermögensverwaltung GmbH (Family Office Sixt)",
     "kurz": "Sixt",
     "typ": "SFO",
@@ -2694,6 +2746,8 @@ window.FO_DATA = [
   },
   {
     "id": "stella",
+    "uid": "HRB 118793 (AG München)",
+    "ankaufsprofil": "Kein eigenes Ankaufsprofil bei Stella; die Immobilienaktivitäten des Family Office Thiele (Knorr-Bremse/Vossloh) laufen über die OPES Immobilien GmbH, die laut Eigenangabe die gesamte Wertschöpfungskette bundesweit (teils auch im Ausland) abdeckt. Ableitbar: aktiver Investor/Entwickler mit breitem Nutzungsspektrum und Bestand-plus-Development-Ansatz, Steuerung aus München. Quelle: Northdata/Presse zu Stella & OPES (kein separates publiziertes Ankaufsprofil).",
     "name": "Stella Vermögensverwaltung GmbH (Family Office Thiele)",
     "kurz": "Stella (Thiele)",
     "typ": "SFO",
@@ -2753,6 +2807,8 @@ window.FO_DATA = [
   },
   {
     "id": "cofra",
+    "uid": "",
+    "ankaufsprofil": "COFRA/Brenninkmeijer investiert Immobilien über Redevco: Fokus auf hochwertige, nahversorgungsorientierte Fachmarkt-/Retailparks sowie innerstädtische Handelsimmobilien, zunehmend Mixed-Use (Umbau von High-Street-Flächen), Logistik und Wohnen. In Deutschland rund 4,4 Mrd. EUR AuM, europaweit ca. 10 Mrd. EUR; Marktführer bei großflächigen Handelsimmobilien. Bestand plus Repositionierung/Development; Ankauf ganzer Center (z.B. Bahnhofsarkaden Leutkirch). Quelle: de.wikipedia/Redevco, schwaebische.de.",
     "name": "COFRA Holding AG / Anthos (Family Office Brenninkmeijer)",
     "kurz": "Cofra (Brenninkmeijer)",
     "typ": "SFO",
@@ -2846,6 +2902,8 @@ window.FO_DATA = [
   },
   {
     "id": "schmidtruthenbeck",
+    "uid": "",
+    "ankaufsprofil": "Kein publiziertes Ankaufsprofil. Das Family Office Schmidt-Ruthenbeck (Metro-Mitgründerfamilie; Struktur u.a. über das Schweizer Vehikel Cambiata) ist im Immobilien-/Hotelsegment aktiv; berichtet wurde u.a. über ein Hotelimmobilien-Portfolio (Interesse der Familie Otto an sechs Hotels). Ableitbar: Schwerpunkt Hotel- und Handelsimmobilien in Deutschland, Bestandshaltung (Quelle: Immobilien Zeitung/Family Capital, kein publiziertes Ankaufsprofil).",
     "name": "Family Office Schmidt-Ruthenbeck (Metro-Mitgründer)",
     "kurz": "Schmidt-Ruthenbeck",
     "typ": "SFO",

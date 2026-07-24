@@ -5,6 +5,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Hamburg — Multi Family Offices (gelb: Kapital/Beratung, kein eigener RE-Kern) =====
   {
     id:"spudy",
+    uid:"",
+    ankaufsprofil:"Unabhängiges Multi Family Office (Hamburg) mit eigener Immobilieneinheit Spudy Real Estate (Neuer Jungfernstieg 15). Betreut große, komplexe Privat- und institutionelle Vermögen und investiert für Mandanten in Wohn- und Gewerbeimmobilien sowie Unternehmensbeteiligungen. Ein konkretes Ankaufsraster (Ticket, Risikoklasse) ist nicht öffentlich publiziert; überwiegend langfristige Bestandsinvestments (abgeleitet aus spudy.com/IZ-Profil und App-Daten, kein publiziertes Ankaufsprofil).",
     name:"Spudy & Co. Family Office GmbH", kurz:"Spudy Family Office",
     typ:"MFO",
     land:"Deutschland",
@@ -29,6 +31,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"kontora",
+    uid:"",
+    ankaufsprofil:"Unabhängiges Multi/Investment Family Office (Hamburg, fee-only) mit eigenem Head of Real Estate & Direct Investments; Immobilien-Projektentwicklungen und Co-Investments für Mandanten, oft off-market. Belegte Deals: Areal 'Auf AEG' Nürnberg (~50.000 qm, ~130 Mio. EUR), Bestand Kopenhagen, Value-Add-Bürorevitalisierung Tower 99 Stuttgart, Motel One München. Risikoprofil Core+ bis Value-Add/Opportunistic (Quelle: kontora.com, IZ, dfpa.info).",
     name:"Kontora Family Office GmbH", kurz:"Kontora",
     typ:"MFO",
     land:"Deutschland",
@@ -55,6 +59,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"marcardstein",
+    uid:"",
+    ankaufsprofil:"Älteste rein auf Family-Office-Services fokussierte Privatbank (Hamburg, seit 1998 MFO); Immobilienteam managt physische und fondsbasierte Portfolios. Reales-Asset-Buch enthält u. a. deutsches Wohn-Direktportfolio und US-Wohn-Value-Add; geografische Reichweite Europa, USA, Asien. Belegter Ankauf: Görttwiete 16-20 Hamburg von Art-Invest für Mandanten. Risikoprofil Core bis Value-Add, Bestand plus Fonds (Quelle: marcard.de, art-invest.de, IZ).",
     name:"Marcard, Stein & Co AG", kurz:"Marcard, Stein & Co",
     typ:"MFO",
     land:"Deutschland",
@@ -76,6 +82,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"berenbergfo",
+    uid:"",
+    ankaufsprofil:"Berenberg Real Estate begleitet Family Offices, HNWI und Institutionelle bei An-/Verkauf von Wohn- und Gewerbeimmobilien und strukturiert offene/geschlossene AIF. Belegte Single-Family-Office-Ankäufe: Wohnungsportfolio Leipzig, Wohnprojekt Fischerhof Mainz, Wohnanlage Berlin-Hellersdorf. Zunehmend Chancen bei Projektentwicklung; Risikoprofil Core+ bis Value-Add, Fokus deutsche Großstädte, Wohnen (Quelle: berenberg.de Pressemeldungen).",
     name:"Berenberg Family Office (Joh. Berenberg, Gossler & Co. KG)", kurz:"Berenberg Family Office",
     typ:"MFO",
     land:"Deutschland",
@@ -101,6 +109,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Handels-/Familien-Dynastien Nord & NRW =====
   {
     id:"rossmann",
+    uid:"HRB 120132 (AG Hannover, Rossmann Beteiligungs GmbH)",
+    ankaufsprofil:"Immobilienaktivitäten der Familie Roßmann über DR Immobilien (Dirk Rossmann Immobiliengruppe, Großburgwedel) und Rossmann Beteiligungs GmbH. DR Immobilien agiert bundesweit als Direktinvestor: Ankauf, Entwicklung, Bau und Betrieb v. a. anspruchsvoller Gewerbeimmobilien für den eigenen wachsenden Bestand, alle Projektphasen inhouse; Beteiligungs-GmbH für Kapitalanlagen. Langfristiger Bestandshalter, kein publiziertes Ticket (Quelle: unternehmen.rossmann.de, northdata).",
     name:"Familie Roßmann (Rossmann Beteiligungs GmbH)", kurz:"Roßmann (Familie)",
     typ:"SFO",
     land:"Deutschland",
@@ -125,6 +135,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"deichmann_fo",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Laut Handelsregister/Companyhouse hält und entwickelt die Deichmann-Familienverwaltungsgesellschaft Immobilien über Objektgesellschaften wie die 'Wohn- und Geschäftshäuser Köln Bonner Straße/Koblenzer Straße GbR' – Fokus Wohn- und Geschäftshäuser in Köln sowie Verwaltungsgrundbesitz am Sitz Essen; langfristiger Bestandshalter (buy-and-hold), Off-Market üblich. (abgeleitet aus App-Portfolio/Nutzungsdaten und Registerdaten, kein publiziertes Ankaufsprofil)",
     name:"Familie Deichmann (Deichmann-Familienverwaltungsgesellschaft mbH)", kurz:"Deichmann (Familie)",
     typ:"SFO",
     land:"Deutschland",
@@ -155,6 +167,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"fielmann_fo",
+    uid:"HRB 159551 (Hamburg)",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Das Fielmann Family Office (HRB 159551, Hamburg) steuert neben Direkt- und VC-Beteiligungen ein Immobilienportfolio sowie Land-/Forstwirtschaft in Schleswig-Holstein/Plön. Ableitbar: Bestandsimmobilien und Agrar-/Forstflächen im Raum Hamburg/Norddeutschland, langfristiger Vermögenserhalt, Core-Charakter. Quelle: private-banking-magazin/Northdata. (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil)",
     name:"Fielmann Family Office GmbH (Familie Fielmann)", kurz:"Fielmann Family Office",
     typ:"SFO",
     land:"Deutschland",
@@ -178,6 +192,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"jahrholding",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Jahr-Gruppe entwickelt Immobilien am Sitz Hamburg und in Berlin: Leuchtturm ist das Mixed-Use-Ensemble 'John-Jahr-Haus' (Ku'damm 72-75, City West) mit ~16.900 m² Büro, ~4.300 m² Wohnen plus Einzelhandel/Gastronomie. Ableitbar: innerstädtische Mixed-Use-/Büro-Projektentwicklung in Top-Lagen, Value-Add/Development statt reiner Bestand. Quelle: HAMBURG TEAM/Konii-Pressemeldung. (kein publiziertes Ankaufsprofil)",
     name:"Jahr Holding GmbH (Familie Jahr)", kurz:"Jahr Holding",
     typ:"SFO",
     land:"Deutschland",
@@ -211,6 +227,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Oetker (Investment-/Beteiligungszweig nach dem Familien-Split 2021) =====
   {
     id:"oetker_geschwister",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Das Immobiliengeschäft der Familie Oetker läuft über die Sparte 'Columbus Properties' (Office Real Estate) der Oetker Collection KG; hinzu kommen die Luxushotels der Oetker Collection (u.a. Baden-Baden). Ableitbar: Büro-/Bestandsimmobilien am Sitz Bielefeld sowie Hotelimmobilien, langfristige Bestandshaltung. Quelle: oetker-collection.com (Business Divisions). (abgeleitet aus Unternehmensangaben, kein publiziertes Ankaufsprofil)",
     name:"Geschwister Oetker Beteiligungen KG / Oetker Collection KG (Familie Oetker)", kurz:"Geschwister Oetker",
     typ:"SFO",
     land:"Deutschland",
@@ -246,6 +264,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Aldi-Erben (sehr private Stiftungsvermögen; RE weitgehend operativ) =====
   {
     id:"albrecht_nord",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Über die Markus-/Lukas-/Jakobus-Stiftung Grundstücksgesellschaft (Herten) und diverse ALDI-Grundstücksgesellschaften hält die Familie Albrecht (Aldi Nord) Handels-/Einzelhandelsimmobilien: primär Grundstücke und Filialobjekte, die an Aldi-Regionalgesellschaften vermietet werden; Schwerpunkt Ruhrgebiet/Essen. Bestandshalter, eigenbedarfsgetrieben. Quelle: Creditreform/Companyhouse-Registerdaten. (kein publiziertes Ankaufsprofil)",
     name:"Markus-/Lukas-/Jakobus-Stiftung (Familie Albrecht, Aldi Nord)", kurz:"Albrecht Nord (Stiftungen)",
     typ:"SFO",
     land:"Deutschland",
@@ -270,6 +290,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   },
   {
     id:"albrecht_sued",
+    uid:"HRA 8385 (Aldi Grundstücksges. mbH & Co. KG, Duisburg)",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Siepmann-Stiftung (Sitz Eichenau) hält über die ALDI SÜD Immobilienverwaltungs-GmbH und die Aldi Grundstücksgesellschaft mbH & Co. KG (Mülheim, HRA 8385) rund 5.000 Filialimmobilien; Buchwert ~4,6 Mrd. €, 2019-21 ca. 544 Mio. € reinvestiert. Fokus Einzelhandels-/Filialimmobilien für Eigenbedarf, Development + Bestand. Quelle: fim-online/Wikipedia. (kein publiziertes Ankaufsprofil)",
     name:"Siepmann-Stiftung (Familie Albrecht/Heister, Aldi Süd)", kurz:"Albrecht Süd (Siepmann-Stiftung)",
     typ:"SFO",
     land:"Deutschland",
@@ -298,6 +320,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Peter Möhrle Holding (Hamburger SFO, Erlös Max Bahr) =====
   {
     id:"moehrle",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Peter Möhrle Holding (Hamburger SFO, gegr. 2007, Vermögen aus Baumarktkette Max Bahr) investiert diversifiziert in Unternehmensbeteiligungen, Wertpapiere und Immobilien. Ableitbar: Immobilien-Direktinvestments mit Schwerpunkt Hamburg/Norddeutschland, langfristiger Vermögenserhalt (Core). Konkrete Assetklassen/Tickets nicht publiziert. Quelle: private-banking-magazin/dasinvestment. (abgeleitet, kein publiziertes Ankaufsprofil)",
     name:"Peter Möhrle Holding GmbH & Co. KG (Familie Möhrle)", kurz:"Peter Möhrle Holding",
     typ:"SFO",
     land:"Deutschland",
@@ -324,6 +348,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
   // ===== Näder Holding (Familie Näder / Ottobock; RE-Flagship Bötzow Berlin) =====
   {
     id:"naeder",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Hans Georg Näder (Ottobock/Näder Holding) erwarb 2010/11 das ~26.000 m² Bötzow-Areal (ehem. Brauerei, Prenzlauer Berg) und entwickelt es mit David Chipperfield Architects denkmalgerecht zu einem Mixed-Use-Campus (Büro/Gewerbe, 'Future Lab'); dazu Ottobock-Campus in Duderstadt. Ableitbar: langfristige, überwiegend eigengenutzte Projektentwicklung an Sonderstandorten. Quelle: Tagesspiegel/entwicklungsstadt.de. (kein publiziertes Ankaufsprofil)",
     name:"Näder Holding GmbH & Co. KG (Familie Näder)", kurz:"Näder Holding",
     typ:"SFO",
     land:"Deutschland",

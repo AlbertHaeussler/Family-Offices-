@@ -142,6 +142,13 @@
   .aibox .row{font-size:12px;line-height:1.45;margin:3px 0}.aibox .row b{color:var(--navy)}
   .why{background:linear-gradient(140deg,rgba(255,199,44,.16),rgba(255,199,44,.06));border:1px solid rgba(255,199,44,.5);border-radius:11px;padding:9px 11px;margin:8px 0;font-size:12.5px;line-height:1.45;color:#5a4200}
   .why b{color:#0A1F44}
+  /* Ankaufsprofil – eigener, klar hervorgehobener Block (liquid glass, Savills-Navy) */
+  .ankbox{background:linear-gradient(140deg,rgba(10,31,68,.10),rgba(10,31,68,.03));border:1px solid rgba(10,31,68,.18);border-radius:11px;padding:10px 12px;margin:8px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+  .ankbox .ai-h{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);margin-bottom:5px}
+  .ankbox .body{font-size:12.5px;line-height:1.5;color:#24314d}
+  .ankbox .na{font-style:italic;color:var(--muted)}
+  .uidline{font-size:10.5px;color:var(--muted);margin-top:2px;letter-spacing:.2px}
+  .uidline b{color:var(--navy);font-weight:600}
   .objbar{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--stroke);font-size:12px;color:var(--muted);background:rgba(255,255,255,.45);flex:0 0 auto}
   .objbar .seg{display:flex;gap:2px;background:rgba(10,31,68,.07);border-radius:9px;padding:3px}
   .objbar .seg button{border:none;background:transparent;padding:5px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--navy)}
@@ -526,18 +533,33 @@ function App(){
     return rows;},[visible,showSold,objSortKey,objSortDir,objScope,pin,pinRadius]);
   function sortBy(k){sortKey===k?setSortDir(d=>-d):(setSortKey(k),setSortDir(1));}
   function sortObj(k){objSortKey===k?setObjSortDir(d=>-d):(setObjSortKey(k),setObjSortDir(1));}
-  function exportXlsx(){const ws=XLSX.utils.json_to_sheet(tableRows.map(r=>({"Family Office (exakt)":r.Voll,Kurzname:r.Name,"Warum passt (Suche)":r.Warum,Headquarter:r.HQ,Typ:r.Typ,Land:r.Land,
-    "AUM (Mrd €)":r.aumV,"Immobilien (Mrd €)":r.reV,"Immobilienquote":Math.round(r.reP*100)+"%",Objekte:r.objs,Website:r.Website,Kontakt:r.Kontakt})));
+  function exportXlsx(){
+    // Export ALLE Firmen – oder exakt die per Checkbox ausgewählten, falls eine Auswahl besteht.
+    const expOffices=selected.size>0?DATA.filter(o=>selected.has(o.id)):DATA.slice();
+    expOffices.sort((a,b)=>(""+a.kurz).localeCompare(""+b.kurz,"de"));
+    const ws=XLSX.utils.json_to_sheet(expOffices.map(o=>({
+      "Family Office (exakt)":o.name, Kurzname:o.kurz, "Argo UID":o.uid||"",
+      "Warum passt (Suche)":matchReason(o), Headquarter:o.hqAddress, Typ:o.typ, Land:o.land,
+      "AUM":fmtB(o.aum.value), "AUM (Mrd €, Zahl)":o.aum.value,
+      "Immobilien":fmtB(o.reInvestedEUR), "Immobilien (Mrd €, Zahl)":o.reInvestedEUR,
+      "Immobilienquote":Math.round(o.reQuote.value*100)+"%",
+      "Ankaufsprofil":o.ankaufsprofil||"nicht öffentlich ermittelbar",
+      Objekte:o.confirmedObjects.length, Website:o.website, Kontakt:o.contactName})));
     const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Family Offices");
-    // second tab: objects, exactly as currently scoped/sorted in the Objekte view
-    const objRows=objectRows.map(r=>({
-      "Family Office (exakt)":r.Voll, Objekt:r.Objekt, Nutzung:r.Nutzung, Adresse:r.Adresse,
-      "Fläche":r.Flaeche, Kaufdatum:r.Kauf, "Wert (Mio €)":r.Wert??"",
-      Status:r.Status, Verkauft:r.Sold?"ja":"nein"}));
-    if(objRows.length===0) objRows.push({"Family Office (exakt)":"—",Objekt:"keine Objekte in dieser Auswahl",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"","Wert (Mio €)":"",Status:"",Verkauft:""});
+    // zweites Tab: alle Objekte der exportierten Firmen (Radius-Filter bleibt respektiert, wenn aktiv)
+    const useRadius=objScope==="radius"&&pin;
+    const objRows=[];
+    expOffices.forEach(o=>o.confirmedObjects.forEach(ob=>{
+      if(useRadius&&hv(pin.lat,pin.lng,ob.lat,ob.lng)>pinRadius)return;
+      objRows.push({
+        "Family Office (exakt)":o.name, "Argo UID":o.uid||"", Objekt:ob.name,
+        Nutzung:UL[ob.usage]||ob.usage, Adresse:ob.address||"", "Fläche":ob.area||"",
+        Kaufdatum:ob.purchaseDate||"", "Wert":(ob.valueEUR!=null?ob.valueEUR+" Mio €":""),
+        "Wert (Mio €, Zahl)":ob.valueEUR??"", Status:ob.status||"", Verkauft:isSold(ob)?"ja":"nein"});}));
+    if(objRows.length===0) objRows.push({"Family Office (exakt)":"—","Argo UID":"",Objekt:"keine Objekte in dieser Auswahl",Nutzung:"",Adresse:"",Fläche:"",Kaufdatum:"",Wert:"","Wert (Mio €, Zahl)":"",Status:"",Verkauft:""});
     const ws2=XLSX.utils.json_to_sheet(objRows);
-    XLSX.utils.book_append_sheet(wb,ws2,objScope==="radius"&&pin?"Objekte im Radius":"Objekte");
-    XLSX.writeFile(wb,"family_offices_auswahl.xlsx");}
+    XLSX.utils.book_append_sheet(wb,ws2,useRadius?"Objekte im Radius":"Objekte");
+    XLSX.writeFile(wb,selected.size>0?"family_offices_auswahl.xlsx":"family_offices_alle.xlsx");}
 
   const selOffices=DATA.filter(o=>selected.has(o.id));
   const cols=[["Voll","Family Office (exakt)"],["Name","Kurzname"],["Warum","Warum passt (Suche)"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
@@ -730,8 +752,14 @@ function App(){
 function FirmDetail({o,onObj,onReg,reason}){
   const about=o.about||autoAbout(o), st=foStructure(o);
   return (<div>
-    <div className="brandhead">{o.domain&&<img src={ico(o.domain)} onError={e=>e.target.style.display='none'}/>}<div className="meta" style={{marginBottom:0}}>{o.name}</div></div>
+    <div className="brandhead">{o.domain&&<img src={ico(o.domain)} onError={e=>e.target.style.display='none'}/>}<div><div className="meta" style={{marginBottom:0}}>{o.name}</div><div className="uidline">Argo UID: <b>{o.uid?o.uid:"—"}</b></div></div></div>
     {reason&&<div className="why"><b>Warum in deiner Suche:</b> {reason}</div>}
+    <div className="ankbox">
+      <div className="ai-h">Ankaufsprofil</div>
+      {o.ankaufsprofil && o.ankaufsprofil!=="nicht öffentlich ermittelbar"
+        ? <div className="body">{o.ankaufsprofil}</div>
+        : <div className="body na">{o.ankaufsprofil||"nicht öffentlich ermittelbar"}</div>}
+    </div>
     <div className="aibox">
       <div className="ai-h">Kurzprofil {!o.about&&<span className="ai-tag">auto</span>}{o.about&&<span className="ai-tag">KI-recherchiert</span>}</div>
       <ul>{about.map((b,i)=><li key={i}>{b}</li>)}</ul>

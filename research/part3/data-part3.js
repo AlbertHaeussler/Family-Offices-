@@ -6,6 +6,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"holtzbrinck_dvh",
+    uid:"HRB 249629 (München, DvH Real Estate GmbH)",
+    ankaufsprofil:"DvH Real Estate GmbH (München, HRB 249629), Immobilienarm der Dieter von Holtzbrinck Vermögensverwaltung, realisiert Wohn- und Gewerbe-Projektentwicklungen in Top-Lagen München, Hamburg, Köln und Berlin – teils im Joint Venture. Projektvolumen einzeln 5-90 Mio. €, kumuliert >400 Mio. €; nach Fertigstellung Exit-Verkauf oder selektive Übernahme in den eigenen Bestand. Profil: Value-Add/Development, auch international. Quelle: Ankaufs-/Unternehmensseite dvhrealestate.de/unternehmen.",
     name:"Dieter von Holtzbrinck Vermögensverwaltung GmbH (Familie von Holtzbrinck)",
     kurz:"von Holtzbrinck (DvH)",
     typ:"SFO",
@@ -60,6 +62,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"actris_hopp",
+    uid:"HRB 712321 (Mannheim, Actris GmbH)",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Actris GmbH (Mannheim, HRB 712321) ist die zentrale Immobilien- und Holdinggesellschaft der Familie Hopp (dievini). Portfolio: Mixed-Use, Wohnen und Grundstücks-/Projektentwicklung im Rhein-Neckar-Raum (Mannheim, Heidelberg) und Rhein-Main (Frankfurt); u.a. Entwicklung des ehem. Kaufhof-Gebäudes in Heidelberg (2026). Bestand + Development, regionaler Fokus. Quelle: Wikipedia/Northdata/Presse 2026. (kein publiziertes Ankaufsprofil)",
     name:"Actris GmbH (operatives Immobilien-Vehikel der Familie Hopp; FO = dievini)",
     kurz:"Hopp Immobilien-Vehikel (Actris)",
     typ:"SFO",
@@ -101,6 +105,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"kipp",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Erben Karl-Heinz Kipp (Massa-Gründer), heute geführt von Ursula Bechtolsheimer-Kipp und Götz Bechtolsheimer, halten Handelsimmobilien im Raum Rheinhessen/Alzey sowie ein Luxushotel-Portfolio in der Schweiz (Tschuggen/Arosa, Eden Roc/Ascona, Carlton/St. Moritz; CH-Invest ~300 Mio. CHF). Ableitbar: Bestandshaltung Handels-/Hotelimmobilien, teils Hotel-Neubau. Quelle: NZZ/Tagesanzeiger. (kein publiziertes Ankaufsprofil)",
     name:"Family Office Kipp / Bechtolsheimer (Erben Karl-Heinz Kipp, Massa-Gründer)",
     kurz:"Kipp (Bechtolsheimer)",
     typ:"SFO",
@@ -140,6 +146,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"mueller_erwin",
+    uid:"HRA 721048 (EM Grundstücks GmbH & Co. KG, Ulm)",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Grundstücksgesellschaften des Erwin Müller (Müller Drogeriemarkt) – u.a. EM Grundstücks GmbH & Co. KG (Ulm, HRA 721048) – bezwecken laut Register Erwerb, Halten und Vermietung von Grundstücken aller Art; erworben wurde u.a. eine ehem. Hertie-Immobilie in Hilden. Ableitbar: Handels-/Bestandsimmobilien im Raum Ulm/Neu-Ulm und Rheinland, buy-and-hold. Quelle: Northdata/IZ. (abgeleitet aus Register-/App-Daten, kein publiziertes Ankaufsprofil)",
     name:"Erwin und Reinhard Müller Grundstücks GmbH (Vermögen Erwin Müller, Müller Drogerie)",
     kurz:"Erwin Müller (Grundbesitz)",
     typ:"SFO",
@@ -182,6 +190,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"schwarz_dieter",
+    uid:"",
+    ankaufsprofil:"nicht öffentlich ermittelbar",
     name:"Dieter Schwarz TV-Vermögensverwaltung GmbH (Vermögen Dieter Schwarz, Lidl/Kaufland)",
     kurz:"Schwarz Family Office",
     typ:"SFO",
@@ -211,6 +221,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"duerr_heinz",
+    uid:"HRB 69478 B (Berlin)",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Heinz Dürr Invest GmbH (Berlin, HRB 69478 B) ist die Beteiligungs-/Vermögensholding des Privatvermögens der Familie Heinz Dürr mit satzungsmäßigem Zweck Erwerb und Verwaltung von Beteiligungen. Ein explizites Immobilien-Ankaufsprofil ist nicht publiziert; App-seitig Regionsbezug Berlin. Ableitbar: allenfalls Bestandsimmobilien im Raum Berlin. (abgeleitet aus App-Portfolio/Registerdaten, kein publiziertes Ankaufsprofil)",
     name:"Heinz Dürr Invest GmbH (Privatvermögen Familie Heinz Dürr)",
     kurz:"Heinz Dürr (Invest)",
     typ:"SFO",
@@ -242,6 +254,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"sandschott",
+    uid:"HRB 16789 (Stuttgart)",
+    ankaufsprofil:"Kein Immobilien-Ankaufsprofil publiziert. Sand und Schott GmbH (Stuttgart, HRB 16789, gegr. 1994) ist ein bankenunabhängiger Vermögensverwalter/MFO mit ~500 Mio. € AuM und Standorten in München und Ettlingen; Schwerpunkt liquide Wertpapier-Vermögensverwaltung für private und institutionelle Kunden. Ein eigenes Immobilien-Ankaufsprofil ist nicht öffentlich erkennbar. Quelle: sand-schott.de/vuv.de. (kein publiziertes Immobilien-Ankaufsprofil)",
     name:"Sand und Schott GmbH (bankenunabhängige Vermögensverwaltung / Family-Office-Services)",
     kurz:"Sand und Schott",
     typ:"MFO",
@@ -271,6 +285,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"lautenschlaeger",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil auffindbar. Manfred Lautenschläger (MLP-Mitgründer, Vermögen ~2,9 Mrd. €, Heidelberg) hält privaten Immobilienbesitz im Raum Heidelberg/Rhein-Neckar; MLP baute über die Beteiligung DEUTSCHLAND.Immobilien Group ein Anlage-Immobiliengeschäft auf. Für das Privatvermögen: Fokus Wohn-/Bestandsimmobilien Rhein-Neckar, kleineres Volumen (~0,2 Mrd.), Bestandshaltung, vermutlich Off-Market. (abgeleitet aus App-Portfolio/Nutzungsdaten und Wikipedia/IK-Gruppe-Profil, kein publiziertes Ankaufsprofil)",
     name:"Manfred Lautenschläger Beteiligungen GmbH (Vermögen MLP-Gründer M. Lautenschläger)",
     kurz:"Lautenschläger (ML)",
     typ:"SFO",
@@ -304,6 +320,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"schoerghuber",
+    uid:"",
+    ankaufsprofil:"Über RE-Tochter Bayerische Hausbau: Ankauf von Grundstücken und Bestandsobjekten für Projekt- und Quartiersentwicklungen (Wohnen/Gewerbe). Einzelgrundstücke ab ca. 7.500 m² Geschossflächenpotenzial; Münchner Objekte innerhalb des Mittleren Rings ab 5.000 m² BGF, wenn Wertentwicklungspotenzial (Baurechtsreserven, Instandhaltungsstau, Leerstand, Mietrestlaufzeiten <5 Jahre) besteht. Regionen: München, Hamburg, Nürnberg, Augsburg und Umland. Value-Add/Development-orientiert. Quelle: Ankaufsseite hausbau.de (ankauf@hausbau.de).",
     name:"Schörghuber Stiftung & Co. Holding KG (Familie Schörghuber) – RE-Tochter Bayerische Hausbau",
     kurz:"Schörghuber (Bayerische Hausbau)",
     typ:"SFO",
@@ -360,6 +378,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"doblinger",
+    uid:"",
+    ankaufsprofil:"Über RE-Töchter DIBAG Industriebau (Wohn-, Gewerbe-, Verwaltungsbauten, Shoppingcenter, Spezialimmobilien), Bayerische Gewerbebau (Logistikimmobilien) und WSB Bayern (Wohnbestand). Schwerpunkt München/Süddeutschland und Augsburg; sowohl Development als auch Bestandshaltung. Signifikante Ankäufe im Bürobereich, u.a. 2022 vier Münchner Büroobjekte von der BayernLB für rund 360 Mio. €. Ticketgrößen im dreistelligen Mio.-Bereich möglich. Quelle: Doblinger-Website, Immobilien Zeitung und CoStar-Bericht 2022.",
     name:"Doblinger Beteiligung GmbH (Familie Doblinger) – RE-Töchter DIBAG / Bayerische Gewerbebau",
     kurz:"Doblinger",
     typ:"SFO",
@@ -402,6 +422,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"krieger",
+    uid:"HRB 13187 (AG Cottbus)",
+    ankaufsprofil:"Ankauf von Grundstücken und Handelsimmobilien für Eigenentwicklung – v.a. Standorte für die eigenen Möbelhäuser (Höffner, Möbel Kraft, Sconto) sowie Fachmarkt-/Einzelhandelsflächen und Wohnentwicklung. Begleitung des gesamten Prozesses vom Grundstückskauf über Planung/Baurecht bis Fertigstellung; Schwerpunkt Berlin/Brandenburg und Ostdeutschland. Bestandshaltung Handel plus Development; opportunistische Zukäufe (z.B. Galeria-Gebäude Chemnitz). Quelle: krieger.de (Projektentwicklung) und Immobilien Zeitung.",
     name:"Krieger Grundstück AG (Familie Kurt Krieger, Höffner) – privater Grundbesitz",
     kurz:"Krieger (Grundbesitz)",
     typ:"SFO",
@@ -458,6 +480,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"samwer",
+    uid:"",
+    ankaufsprofil:"Augustus (Family Office der Samwer-Brüder) investiert langfristig, nachhaltig und mit eigener Wertschöpfungskette (Architektur, Asset-/Property-Management) in zentrale Berliner Bestandsimmobilien – u.a. Ullsteinhaus, Bayerhaus sowie Objekte in Tempelhof und Schöneberg; Portfolio in zentraler Lage mit dreistelligem Mio.-Wert. Fokus: Wohn-/Gewerbe-Bestand in Berlin, Core/Core+, Bestandshaltung, überwiegend off-market. Quelle: augustus.berlin und wer-zu-wem/Presseberichte.",
     name:"Augustus Capital / Arvantis (Family Office der Samwer-Brüder)",
     kurz:"Samwer Family Office",
     typ:"SFO",
@@ -502,6 +526,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"inselkammer",
+    uid:"",
+    ankaufsprofil:"INKA/AIM-Unternehmensgruppe (Family Office der Familie Dr. Hans Inselkammer) hält und entwickelt Immobilien in der Münchner Altstadt, v.a. rund ums Platzl (Hotel Platzl, Gastronomie, Einzelhandel). Aktuell Wandel zu innerstädtischer Mixed-Use-Entwicklung – z.B. Umnutzung Kaufinger Str. 13 (ehem. C&A) zu Büro/Handel/Gastro/Wohnen. Fokus: Highstreet-/Altstadtlagen München, Bestand plus Repositionierung/Development. Quelle: Wikipedia, exklusiv-muenchen.de und Abendzeitung München.",
     name:"Familie Inselkammer (Platzl Hotel / Ayinger) – Münchner Vermögen",
     kurz:"Inselkammer",
     typ:"SFO",
@@ -536,6 +562,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"volkhardt",
+    uid:"",
+    ankaufsprofil:"Sehr fokussiertes, strategisch-eigennütziges Ankaufsprofil rund um das Hotel Bayerischer Hof am Promenadeplatz (München-Altstadt). Zukäufe dienen der Arrondierung/Erweiterung des Hotels – zuletzt der Restanteil des Palais Montgelas für über 30 Mio. € (Falk Volkhardt hatte 1969 den Großteil erworben). Prime-Altstadtlage, Bestandshaltung, Off-Market. Kein breites externes Investitionsprofil. Quelle: ahgz.de und Abendzeitung München.",
     name:"Familie Volkhardt (Hotel Bayerischer Hof, Gebrüder Volkhardt KG)",
     kurz:"Volkhardt (Bayerischer Hof)",
     typ:"SFO",
@@ -574,6 +602,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"bahlsen_fo",
+    uid:"HRA 202580 (AG Hannover)",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Die Lorenz Bahlsen Familien Holding hält als Vermögensvehikel neben Beteiligungen/Wertpapieren ein Immobilienportfolio aus hochwertigen Bestandsobjekten in gefragten Lagen, ausgerichtet auf stabile Wertentwicklung und laufende Miet-/Pachterträge; Sitz Hannover (Lister Damm 2). Fokus: Core-Bestandshaltung Wohnen/Gewerbe, kleines Volumen. (abgeleitet aus App-Portfolio/Nutzungsdaten und Northdata/Unternehmensportrait, kein publiziertes Ankaufsprofil)",
     name:"Lorenz Bahlsen Familien Holding (Familie Bahlsen) – Vermögensvehikel",
     kurz:"Bahlsen (Familienholding)",
     typ:"SFO",
@@ -603,6 +633,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"mittelstenscheid",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Immobilien-Ankaufsprofil auffindbar; keine eigenständige Family-Office-Immobilienstrategie öffentlich dokumentiert. Die Familie Mittelsten Scheid (Vorwerk, Wuppertal, Vermögen ~3,2 Mrd. €) hält Immobilien primär im Raum Wuppertal/Bergisches Land, kleines Volumen. Fokus vermutlich Bestandshaltung Wohnen/Gewerbe in der Heimatregion. (abgeleitet aus App-Portfolio/Nutzungsdaten, kein publiziertes Ankaufsprofil)",
     name:"Familie Mittelsten Scheid (Vorwerk) – Familienvermögen",
     kurz:"Mittelsten Scheid (Vorwerk)",
     typ:"SFO",
@@ -632,6 +664,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"hector_fo",
+    uid:"",
+    ankaufsprofil:"Das Hector Family Office/Eagle Advisors (Hans-Werner Hector, SAP-Mitgründer) ist v.a. für opportunistische Prime-Luxus-Immobilienkäufe in den USA bekannt (u.a. vier Penthouses in New York für zusammen ~120 Mio. USD, Villa im Benedict Canyon LA für 43 Mio. USD). Ein Ankaufsprofil für Deutschland/Rhein-Neckar (Weinheim) ist nicht publiziert; heimatregional kleines Bestandsvolumen. Quelle: dot.LA/Northdata; DE-Teil abgeleitet aus App-Portfolio/Nutzungsdaten.",
     name:"Hector Family Office (Hans-Werner Hector, SAP-Mitgründer)",
     kurz:"Hector (SAP)",
     typ:"SFO",
@@ -662,6 +696,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"hymer_fo",
+    uid:"",
+    ankaufsprofil:"Kein publiziertes Ankaufsprofil. Nach dem Verkauf der Erwin Hymer Group an Thor Industries (~2,1 Mrd. €, davon ~1,9 Mrd. Cash) hält die Familie Immobilien über eigene Gesellschaften (u.a. Hymer Immobilien GmbH & Co. KG, Bad Waldsee), deren Zweck Erwerb, Verwaltung, Vermietung und Verkauf eigener und fremder Immobilien ist. Fokus: Bestandshaltung im Raum Oberschwaben/Bad Waldsee, kleines Volumen. (abgeleitet aus Northdata-Gesellschaftszweck und App-Daten, kein publiziertes Ankaufsprofil)",
     name:"Familie Hymer (Vermögen nach Verkauf Erwin Hymer Group an Thor)",
     kurz:"Hymer (post-exit)",
     typ:"SFO",
@@ -691,6 +727,8 @@ window.FO_DATA = (window.FO_DATA || []).concat([
 
   {
     id:"mohn_bvg",
+    uid:"HRB 1645 (AG Gütersloh)",
+    ankaufsprofil:"Die Bertelsmann Verwaltungsgesellschaft (BVG) ist ein Kontroll- und Beteiligungsvehikel der Familie Mohn – sie bündelt die Stimmrechte an Bertelsmann SE & Co. KGaA und steuert die Vermögensverwaltung, betreibt aber kein eigenes operatives Immobilien-Ankaufsgeschäft (re-investiertes Immobilienvolumen ~0). Ein publiziertes Immobilien-Ankaufsprofil existiert nicht. Quelle: Northdata (HRB 1645) und Bertelsmann-Gesellschafterstruktur.",
     name:"Bertelsmann Verwaltungsgesellschaft (Family Office der Familie Mohn)",
     kurz:"Mohn (BVG)",
     typ:"SFO",
