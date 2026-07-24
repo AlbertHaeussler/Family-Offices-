@@ -1,0 +1,91 @@
+> **AUS DER 280er-LISTE (dedupliziert, ohne E-Mails aus Vertraulichkeit).**
+> Adresse + Familie sind vorbefüllt. Aufgabe je Eintrag: FO-Definition prüfen (Nicht-FOs /
+> reine RE-Firmen / PE / Ausland-ohne-DE-Bezug SKIPPEN), category, AUM/reQuote + Quellen,
+> usage, heatmap und v. a. **bestätigte deutsche Gebäude** ergänzen. **Erst gegen data.js
+> prüfen — einige könnten schon drin sein!**
+
+# Part 1 — Zuliste aus 280er (83)
+
+- [ ] **4L Vision GmbH** — Karlsruhe 76135 · Lorenzstraße 29 · Fam: Suikat, Knorz
+- [ ] **A&V holding GmbH & Co. KG** — Kempen 47906 · Schorndorfer Str. 17 · Fam: Ackermans-Voelkel
+- [ ] **Amadeus Private Capital GmbH** — Limburg 65549 · Robert-Bosch-Straße 16
+- [ ] **Arminius Kapitalgesellschaft** — Frankfurt 60311 · Bethmannstraße 56
+- [ ] **Bauwens GmbH & Co. KG** — Frankfurt am Main 60325 · Kettenhofweg 6 · Fam: Bauwens-Adenauer
+- [ ] **Beteiligungsgesellschaft Kronseder mbH** — Neutraubling 93073 · Königsberger Str. 4 · Fam: Kronseder
+- [ ] **Brenner Holding** — Wiesbaden 65185 · Adolfsallee 21 · Fam: Brenner
+- [ ] **Broermann Invest GmbH** — Königstein 61462 · Debusweg 3 · Fam: Große-Boermann
+- [ ] **Buchmann Immobilien** — Frankfurt  60439 · Limescorso 8 · Fam: Josef Buchmann
+- [ ] **BWG Bayerische Wohn- und Gewerbebau GmbH** — Willmering 93497 · Chamer Straße · Fam: Fischer
+- [ ] **C. Deilmann GmbH & Co. KG** — Bad Bentheim 48455 · Osterberg 8 · Fam: Deilmann
+- [ ] **C.C.Christiansen GmbH & Co. KG** — Flensburg 24939 · Neustadt 56 · Fam: Christiansen
+- [ ] **Cairos Immobilien GmbH** — Frankfurt am Main 60323 · Grüneburgweg 115
+- [ ] **Conren Land** — Frankfurt am Main 60322 · Bockenheimer Anlage 2
+- [ ] **Coresis Management** — Frankfurt am Main 60322 · Eschersheimer Landstraße 14
+- [ ] **Dahlke Family Office** — Hückelhoven 41836 · Parkhofstraße 115
+- [ ] **Deranto Investment GmbH & Co. KG** — Gelsenkirchen 45891 · Ludwig-Erhard-Straße 3 · Fam: Holger Lampatz
+- [ ] **Devario Invest GmbH** — Monheim 40789 · Rheinpromenade 9 · Fam: Toeller
+- [ ] **Dr. Reichhardt** — Frankfurt am Main 60313 · Bleichstraße 2-4 · Fam: Reichardt
+- [ ] **Dreger Immobiliengruppe** — ?  · ?
+- [ ] **Dria GmbH** — Heinsberg 52525 · Apfelstraße 82 · Fam: Dahlke
+- [ ] **Düsterberg-Eissing Family Office GmbH** — Neuss 41466 · Gerhard-Hoehme-Allee 2 · Fam: Eissing
+- [ ] **DZ Invest GmbH** — Langen 63225 · Robert-Bosch-Str. 28
+- [ ] **EHM Strategic Asset Management** — Hartenstein 8118 · Am Fischerberg 7
+- [ ] **faktum-b GmbH** — Frankfurt 60323 · Liebigstraße 53
+- [ ] **FAMILY OFFICE ROTH** — Landau i. d. Pfalz 76814 · Postfach 2463 · Fam: Roth
+- [ ] **Family Office Wimmer GmbH** — Pfarrkirchen 84347 · Ringstraße 14 · Fam: Wimmer
+- [ ] **Famos Immobilien GmbH** — Korschenbroich 41352 · Raderbroich 9 · Fam: Otten
+- [ ] **FASTRADA Family Office GmbH** — Würselen 52146 · Fastradaallee 1
+- [ ] **Finanzberatung Investfinanz GmbH & Co. Immobilien KG** — Viernheim 68519 · Industriestraße 25 · Fam: Gutperle
+- [ ] **FN Capital Holding GmbH** — Rostocl 18055 · Rosa-Luxemburg-Straße 9
+- [ ] **Franger Investment KGaA** — Ketsch 68775 · Dahlienweg 15 · Fam: Franger
+- [ ] **Fränkle Family Office GmbH** — ?  · ?
+- [ ] **Freiberger Verwaltungs GmbH** — Amerang 83123 · Freibergerplatz 1 · Fam: Freiberger
+- [ ] **Fürstliche Hofkammer** — Bückeburg 31675 · Schlossplatz 6 · Fam: Schaumburg-Lippe
+- [ ] **Gebrüder Mende FO GmbH & Co. KG** — Karlsruhe 76227 · An der Raumfabrik 33a · Fam: Mende
+- [ ] **Gertler Estates GmbH** — Frankfurt am Main 60323 · Kleine Wiesenau 1 · Fam: Gertler
+- [ ] **GS Real Estate GmbH** — Frankfurt 60320 · Roseggerstraße 31 · Fam: zu Solms-Laubach
+- [ ] **H & W Family Office GmbH & Co. KG** — Bamberg 96047 · Schützenstraße 21
+- [ ] **HANSE REAL ESTATE Investment GmbH & Co. KG** — Rastede 26180 · Bahnhofstr. 21 · Fam: Claas E. Daun
+- [ ] **Harpen** — ?  · ?
+- [ ] **Hartinger Unternehmensgruppe** — ?  · ?
+- [ ] **HBB** — ?  · ?
+- [ ] **Heureka Real Estate GmbH** — ?  · ?
+- [ ] **Hevella Capital GmbH & Co. KGaA** — Potsdam 14482 · August-Bebel-Straße 68 · Fam: Rolf Elgeti, Axel von Starck
+- [ ] **HLB Family Office GmbH** — Erkrath 40699 · Mettmanner Straße 25
+- [ ] **Jargonnant Partners S.a.r.l.** — ?  · ?
+- [ ] **JC Investments GmbH** — Nidderau 61130 · Liebigstraße 16 · Fam: Clauss
+- [ ] **JUNiCKE Gruppe** — ?  · ?
+- [ ] **JW Investment Holding** — ?  · ?
+- [ ] **Kaldox Gruppe** — ?  · ?
+- [ ] **Karg Vermögensmanagement GmbH** — Frankfurt 60528 · Lyoner Str. 15
+- [ ] **KIND Hotel Beteiligungs GmbH** — Burgwedel 30938 · Kokenhorststraße 3-5 · Fam: Martin Kind
+- [ ] **Krulich Immobilien** — ?  · ?
+- [ ] **Lahav Family Office** — Ramat Negev (Israel)  · Southern District 85510
+- [ ] **Lindenstruth GmbH** — Soest 59494 · Lange Wende 45 · Fam: Lindenstruht
+- [ ] **Lück Invest** — Gießen 35392 · Leihgesterner Weg 33 · Fam: Lück
+- [ ] **Mankel Family Office GmbH** — Ennepetal 58256 · Am Kaiser 7 · Fam: Mankel
+- [ ] **MANN Management GmbH** — Karlsruhe 76137 · Durlacher Allee 109 · Fam: Johannes Mann
+- [ ] **May & Co. Holding GmbH** — Itzehoe 25524 · Lindenstraße 54 · Fam: May
+- [ ] **Medizintechnik Beteiligungs-Verwaltungsgesellschaft Valley mbH** — Valley-Oberlaindern 83626 · Medizinpark 1 · Fam: Dirk Ippen
+- [ ] **MWS Capital Holding GmbH** — Remagen 53424 · Zeppelinstr. 17 · Fam: Möhren
+- [ ] **Obotritia Capital KGAA** — Potsdam 14482 · August-Bebel-Straße 68 · Fam: Rolf Elgeti
+- [ ] **PHEROH Holding GmbH** — Neuss 41466 · Schloss Reuschenberg, Gerhard-Hoehme-Allee 2 · Fam: Düsterberg-Eissing
+- [ ] **Priam Immobilien GmbH** — Bad Neuenahr-Ahrweiler 53474 · Wilhelmstr. 43 · Fam: Riegel
+- [ ] **Qanat Management GmbH** — Riedstadt 64560 · Weserstraße 16
+- [ ] **REKU-Holding** — Melsungen 34212 · Franz-Gleim-Straße 45 · Fam: Kuge
+- [ ] **ROTHENBERGER 4xS Vermögensverwaltung GmbH** — Frankfurt 60327 · Friedrich-Ebert-Anlage 3 · Fam: Rothenberger
+- [ ] **S. K. Management- und Beteiligungs GmbH** — Baden-Baden 76530 · Ludwig-Wilhelm-Str. 1 · Fam: Siegmund Kiener
+- [ ] **SBInvest GmbH** — Inning am Ammersee 82266 · Neubruch 1 · Fam: Bringmann
+- [ ] **Schawei Holding GmbH & Co. KG (Schadeberg Family Office)** — Kreuztal 57223 · Hagener Str. 261 · Fam: Schadeberg
+- [ ] **SCHNEIDER Family Office** — Alfter 53347 · Am Villepohl 4
+- [ ] **solvia Vermögensverwaltungs GmbH** — Wolfenbüttel 38302 · Neuer Weg 9 · Fam: Florian Rehm
+- [ ] **Southern Blue Beteiligungsgesellschaft mbH** — Holzkirchen 83607 · Bergfeldstr. 5 · Fam: Dr. Hannspeter Schubert
+- [ ] **SWT Verwaltungs GmbH / Sissi Wersing GmbH** — Rain 86641 · Oberes Eck 2 · Fam: Wersing
+- [ ] **Tessner Holding KG** — Goslar 38640 · Breite Str. 98 · Fam: Tessner
+- [ ] **TETRIS Grundbesitz GmbH & Co. KG** — Reichenschwand 91244 · Schloßweg 14 · Fam: Rudolf Wöhrl
+- [ ] **TFO GmbH** — Bensheim 64625 · Ernst-Ludwig-Promenade 16a
+- [ ] **Tilad Investment** — Dubai  · ?
+- [ ] **Unger Capital Management GmbH** — Weiden 92637 · Alte Reichsstraße 1 · Fam: Unger
+- [ ] **Valorata GmbH** — Ammerbuch 72119 · Nelkenstr. 3 · Fam: Asch
+- [ ] **Wetzel Holding** — Wohltorf 21521 · Waldstrasse 5 · Fam: Wetzel
+- [ ] **Zimmermann Investment GmbH & Co. KG** — Werdohl 58791 · Eicken 1 · Fam: Reinhold Zimmermann

@@ -1,0 +1,90 @@
+> **AUS DER 280er-LISTE (dedupliziert, ohne E-Mails aus Vertraulichkeit).**
+> Adresse + Familie sind vorbefüllt. Aufgabe je Eintrag: FO-Definition prüfen (Nicht-FOs /
+> reine RE-Firmen / PE / Ausland-ohne-DE-Bezug SKIPPEN), category, AUM/reQuote + Quellen,
+> usage, heatmap und v. a. **bestätigte deutsche Gebäude** ergänzen. **Erst gegen data.js
+> prüfen — einige könnten schon drin sein!**
+
+# Part 2 — Zuliste aus 280er (82)
+
+- [ ] **4 Friends Investment GmbH** — Berlin 10178 · Neue Schönhauser Str. 20
+- [ ] **AENU Advisor GmbH** — Berlin 10119 · Zehdenicker Str. 1 · Fam: Heilemann
+- [ ] **AGUSTA GmbH** — Hamburg 22301 · Dorotheenstraße 64
+- [ ] **ANH Hausbesitz GmbH & Co. Kommanditgesellschaft** — Arnsberg 59755 · Neheimer Markt 2 · Fam: Bremke & Hoerster
+- [ ] **Anter-Group** — Düsseldorf 40221 · Kaistraße 20 · Fam: Anter
+- [ ] **Artmax** — Braunschweig 38122 · Frankfurter Straße 5
+- [ ] **Asset Immobilien GmbH & Co. KG** — Rheda-Wiedenbrück 33378 · Bahnhofstraße 18
+- [ ] **Athos** — Hamburg 20354 · Neuer Jungfernstieg 5
+- [ ] **Aurec Real Estate Europe GmbH** — Berlin 10623 · Bleibtreustr. 41 · Fam: Morris Kahn
+- [ ] **Auretas Family Trust GmbH** — Hamburg 20457 · Überseeallee 10
+- [ ] **Axtmann Holding GmbH** — Schönefeld 12529 · Willy-Brandt-Platz 2 · Fam: Axtmann
+- [ ] **Bechtolsheim Real Estate** — Düsseldorf 40547 · Kaiser-Friedrich-Ring 63 · Fam: Philipp Freiherr von Bechtholsheim 
+- [ ] **Becken Holding GmbH** — Hamburg 20354 · Esplanade 41 · Fam: Becken
+- [ ] **Becker & Kries** — Berlin 10719 · Meinekestraße 25 · Fam: Becker & Kries
+- [ ] **Black Horse Investments GmbH** — Düsseldorf 40211 · Dreischeibenhaus · Fam: Patrick Schwarz-Schütte
+- [ ] **BMO** — Berlin 12623 · Treskowstraße · Fam: Oetzel
+- [ ] **Breidenbach von Schlieffen & Co. GmbH** — Hamburg 20354 · Poststraße 14-16 · Fam: Breidenbach und v. Schlieffen
+- [ ] **Brune Immobilien GmbH** — Düsseldorf 40472 · Kanzlerstr. 4 · Fam: Brune
+- [ ] **Cinco Capital GmbH** — Hamburg 20148 · Badestraße 2 · Fam: Lars Hinrichs
+- [ ] **CJH Family Office GmbH** — Düsseldorf 40212 · Blumenstr. 2-4
+- [ ] **Claus Unternehmensgruppe (BEB Real Invest GmbH)** — Berlin 13507 · Am Borsigturm 53
+- [ ] **COPRO Gruppe** — Berlin 10117 · Jägerstraße 4
+- [ ] **Corvis Immobilien Management GmbH** — Essen 45136 · Max-Keith-Straße 66
+- [ ] **Dana Invest** — Köln 50674 · Händelstraße 25-29
+- [ ] **DBE GmbH** — Meerbusch 40667 · Poststrasse 20
+- [ ] **Dereco Real Estate** — Köln 50678 · Im Zollhafen 2-4
+- [ ] **Dirk Cordes Beteiligungsgesellschaft mbH** — Kiel 24118 · Fraunhoferstraße 13 · Fam: Dirk Cordes
+- [ ] **Droege Group AG** — Düsseldorf 40213 · Poststraße 5 – 6 · Fam: Droege
+- [ ] **E.R. CAPITAL HOLDING GmbH & Cie. KG** — Hamburg 20354 · Alsterufer 36 · Fam: Erck Rickmers
+- [ ] **EHP Erste Hanseatische Projektmanagement GmbH** — Hamburg 20148 · Rothenbaumchaussee 54
+- [ ] **Equity Seven Beteiligungsgesellschaft mbH** — Hamburg 22085 · Stormsweg 5a · Fam: Kai Teute
+- [ ] **eValue AG** — Düsseldorf 40476 · Kennedydamm 1 · Fam: Falk
+- [ ] **Fährhaus Investment Group GmbH** — Hamburg 22763 · Neumühlen 51
+- [ ] **Frenkel Family Office GmbH** — Berlin 10629 · Schlüterstr. 37 · Fam: Frenkel
+- [ ] **FRIBA Investment GmbH & Co. KG** — Bremen 28759 · Zum Alten Speicher 11 · Fam: Lürßen
+- [ ] **Garbe** — Hamburg 20457 · Versmannstraße 2 · Fam: Garbe
+- [ ] **GO Invest GmbH** — Düsseldorf 40221 · Holzstraße 2 · Fam: Gordon
+- [ ] **Gröner Family Office GmbH** — Berlin 14197 · Binger Straße 40 · Fam: Gröner
+- [ ] **Groth Gruppe** — Berlin 10707 · Kurfürstendamm 63 · Fam: Groth
+- [ ] **Günther Holding SE** — Hamburg 20459 · Steinhöft 11 · Fam: Günther
+- [ ] **hc2h Holding GmbH** — Hamburg 22301 · Gellertstrasse 51a
+- [ ] **HEC Vermögensverwaltung GmbH** — Berlin 13357 · Exerzierstraße 24 · Fam: Haindl
+- [ ] **Hermann Friedrich Bruhn GmbH & Co KG** — Hamburg 20149 · Oderfelder Straße 23 · Fam: Hermann Friedrich Bruhn
+- [ ] **HOPF Immobilien-Entwicklungs-GmbH & Co. KG** — Essen 45131 · Rüttenscheider Straße 199 · Fam: Holthoff-Pförtner
+- [ ] **HWS Immobilien und Vermögensverwaltung GmbH** — Hamburg 20149 · Harvestehuder Weg 92
+- [ ] **Jahn Vermögensverwaltung GmbH** — Essen 45307 · Adlerstraße 15 · Fam: Jahn
+- [ ] **JASIKA Holding GmbH** — Hamburg 20457 · Am Kaiserkai 53
+- [ ] **JP Beteiligungs-Gesellschaft mbH** — Hamburg 20095 · Alstertor 9
+- [ ] **Kalodion GmbH** — Berlin 10117 · Unter den Linden 10 · Fam: David Zimmer
+- [ ] **Karl Gladigau GmbH** — Hamburg 20457 · Brandstwiete 1 · Fam: Gladigau
+- [ ] **kjup Capital GmbH** — Hamburg 20459 · Alter Wall 12
+- [ ] **Kleine & Cie GmbH** — Hannover 30159 · Luisenstraße 4 · Fam: Kleine
+- [ ] **Kordes Invest GmbH** — Berlin 10117 · Oranienburger Straße 66
+- [ ] **Laborgh Investment GmbH** — Berlin 10707 · Kurfürstendamm 178 · Fam: Reggeborgh
+- [ ] **LCL Immobilien Düsseldorf GmbH** — Düsseldorf 40549 · Werftstraße 25 · Fam: Lammerting
+- [ ] **MARX City Investor GmbH & Co. KG** — Essen 45133 · Freiherr-vom-Stein-Straße 386a · Fam: Marx
+- [ ] **Meridianus Immobilien GmbH & Co. KG** — Wuppertal 42103 · Briller Straße 2 · Fam: Dr. Helmuth Liesegang, Dr. Hendrik Liesegang
+- [ ] **Mount Real Estate Capital Partners** — Hamburg 20354 · Alsterufer 3
+- [ ] **NBT INVEST GmbH & Co. KG** — Hamburg 22335 · Sportallee 47 · Fam: Axel Schulze-Ketelhut, Steffen Schulze-Ketelhut
+- [ ] **Nicolas Berggruen Holdings GmbH** — Berlin 10829 · Wilhelm-Kabus-Straße 42/44 · Fam: Nicolas Berggruen
+- [ ] **Peper & Söhne GmbH** — Bremen 28309 · Allerkai 4 · Fam: Peper
+- [ ] **Prof.Dr.Dr.Thomas Olbricht Vermögensverwaltung** — Essen 45219 · Oefte 6 · Fam: Olbricht
+- [ ] **PRS Family Trust GmbH** — Berlin 10789 · Tauentzienstr. 11 · Fam: Rainer Schorr
+- [ ] **Purplerhino** — Dortmund 44139 · Rosemeyerstr. 14
+- [ ] **R.O.I. GmbH** — Berlin 10117 · Marienstraße 9 · Fam: Ulrich Urban
+- [ ] **Raffay & Cie. GmbH** — Berlin 10719 · Meinekestraße 5
+- [ ] **RAS Holding GmbH** — Düsseldorf 40545 · Kaiser-Friedrich-Ring 14 · Fam: Richard Schmitz
+- [ ] **ROCKSTONE Real Estate GmbH & Co. KG** — Hamburg 20354 · Neuer Wall 30
+- [ ] **Roth & Sohn GmbH** — Berlin 10707 · Kurfürstendamm 178-179 · Fam: Roth
+- [ ] **Rück Immobilien GmbH & Co. Neue Mitte KG** — Essen 45276 · Bochumer Straße 39 · Fam: Kröger-Rück
+- [ ] **Ruddat Grundbesitz GmbH & Co. KG** — Bremen 28195 · Obernstraße 39 – 43 · Fam: Ruddat
+- [ ] **Sassenscheidt GmbH & Co. KG** — Düsseldorf 40213 · Hohe Straße 8 · Fam: Sassenscheidt
+- [ ] **Silberbaum Capital GmbH** — Hamburg 20148 · Mittelweg 144
+- [ ] **Situs I GmbH** — Köln 50859 · Aachener Straße 1334
+- [ ] **STOFANEL Investment AG** — Berlin 10117 · Unter den Linden 78 · Fam: Stoffel
+- [ ] **Treibreu Group** — Berlin 10405 · Saarbrücker Straße 20/21 · Fam: Treibreu
+- [ ] **v. Nordeck Holding GmbH & Co. KG** — Bielefeld 33604 · Königsbrügge 8 · Fam: von Nordeck
+- [ ] **Vermögensverwaltung Erben Dr. Karl Goldschmidt GmbH** — Essen 45138 · Moltkestraße 29 · Fam: Goldschmidt
+- [ ] **Vibro Vermögensverwaltungs- und Beteiligungs-GmbH** — Mönchengladbach 41061 · Mozartstraße 19 · Fam: Viehof
+- [ ] **Von der Mark Vermögensverwaltungsgesellschaft mbH** — Hannover 30559 · Ostfeldstr. 46 · Fam: Von der Mark
+- [ ] **Westminster Immobilien GmbH** — Schönefeld 15259 · Willy-Brandt-Platz 2
+- [ ] **zwei.7 Holding GmbH** — Osnabrück 49078 · Heger-Tor-Wall 26 · Fam: Karsten Wulf
