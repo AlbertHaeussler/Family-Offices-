@@ -156,7 +156,7 @@ window.FO_DATA = (window.FO_DATA || []).concat([
     confirmedObjects:[
       { name:"Fürstlich Castell'sches Domänenamt / Weingut", address:"Schlossplatz 5, 97355 Castell", lat:49.7458, lng:10.3555,
         usage:"Sonstiges", area:"~110 ha Weinberge (davon ~70 ha Eigenbesitz)", purchaseDate:"Familienbesitz seit Jahrhunderten", valueEUR:null, status:"Bestand",
-        images:[], sources:[{label:"Wikipedia Domänenamt",url:"https://de.wikipedia.org/wiki/F%C3%BCrstlich_Castell%E2%80%99sches_Dom%C3%A4nenamt"},{label:"VDP Winzer",url:"https://www.vdp.de/de/die-winzer/franken/fuerstlich-castellsches-domaenenamt"}] },
+        images:["https://commons.wikimedia.org/wiki/Special:FilePath/Blick_auf_(Castell)_Unterfranken.jpg?width=800"], sources:[{label:"Wikipedia Domänenamt",url:"https://de.wikipedia.org/wiki/F%C3%BCrstlich_Castell%E2%80%99sches_Dom%C3%A4nenamt"},{label:"VDP Winzer",url:"https://www.vdp.de/de/die-winzer/franken/fuerstlich-castellsches-domaenenamt"},{label:"Bild: Wikimedia Commons (Ortsansicht Castell)",url:"https://commons.wikimedia.org/wiki/File:Blick_auf_(Castell)_Unterfranken.jpg"}] },
       { name:"Forstbetrieb Fürstlich Castell (Steigerwald)", address:"Raum Castell, 97355 Castell (Steigerwald)", lat:49.74, lng:10.36,
         usage:"Sonstiges", area:"~5.000 ha Wald", purchaseDate:"Familienbesitz", valueEUR:null, status:"Bestand",
         images:[], sources:[{label:"Family Office Research",url:"https://www.familyofficeresearch.de/2025/03/07/die-reichsten-w%C3%BCrzburger/"}] }
