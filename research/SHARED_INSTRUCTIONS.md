@@ -45,6 +45,12 @@ In `data-partN.js` ein Objekt in das `concat([...])`-Array einfügen (Komma-getr
   website:"domain.de", domain:"domain.de",     // domain = für Logo (icons.duckduckgo.com). Kein Logo/keine Website -> domain:""
   linkedin:"", contactName:"...", contactRole:"...", contactChannel:"...",
   contactLinkedin:"", contactLinkedinName:"", // optional, nur wenn verifiziert
+  uid:"",                                     // Argo UID / Handelsregister-Nr., falls bekannt (sonst "")
+  ankaufsprofil:"nicht öffentlich ermittelbar", // PFLICHT: recherchierter Freitext, WAS das FO kauft:
+                                              // Assetklassen/Nutzung, Ticketgröße (€), Regionen,
+                                              // Core/Value-Add/Opportunistic, Bestand vs. Development,
+                                              // Off-Market-Präferenz. Mit Quelle im Text. Wenn nichts
+                                              // öffentlich: "nicht öffentlich ermittelbar".
   category:"gruen",                            // "gruen"=großes RE | "gelb"=minimal/kein RE-Kern, aber Kapital | "rot"=kein RE & kein Interesse
   aum:{ value:5.0, unit:"Mrd €", basis:"quelle", note:"...", sources:[{label:"...",url:"https://..."}] },
   reQuote:{ value:0.3, basis:"quelle", note:"...", sources:[{label:"...",url:"https://..."}] }, // Anteil RE am Vermögen (0..1)
@@ -115,3 +121,10 @@ structure:{
 Und **je bestätigtem Objekt** ein Feld `connection:"Warum ist dieses Objekt genau diesem FO zuzurechnen"`
 (z.B. „über Beteiligung X gehalten"). Nur schreiben, was belegt/plausibel ist – keine erfundenen Namen.
 Kuratierte Texte werden in der UI als „KI-recherchiert" markiert; Auto-Profile als „auto".
+
+## 7) ANKAUFSPROFIL (PFLICHT für JEDE Firma — neu!)
+Für **jedes** FO ein Feld `ankaufsprofil` recherchieren und lesbar formulieren: **was kauft das
+FO?** (Assetklassen/Nutzung · Ticketgröße in € · Regionen/Städte · Core/Value-Add/Opportunistic ·
+Bestand vs. Development · Off-Market-Präferenz). Quelle im Text nennen (Website/Ankaufsprofil-Seite/
+Presse). Wenn nichts öffentlich: `"nicht öffentlich ermittelbar"`. Gilt auch für die bereits
+vorhandenen Firmen (nachtragen).
