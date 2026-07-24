@@ -214,13 +214,20 @@ const hv=(a,b,c,d)=>{const R=6371,t=x=>x*Math.PI/180;const p=t(c-a),q=t(d-b);
   const s=Math.sin(p/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(q/2)**2;return 2*R*Math.asin(Math.sqrt(s));};
 const isSold=ob=>/verkauf/i.test(ob.status||"");
 const ico=d=>`https://icons.duckduckgo.com/ip3/${d}.ico`;
-// auto short profile from structured fields (used when no curated `about` exists)
+// auto short profile from structured fields (used when no curated `about` exists) – simple language
 function autoAbout(o){
   const top=USAGE_KEYS.filter(k=>(o.usage[k]||0)>0).sort((a,b)=>o.usage[b]-o.usage[a]).slice(0,3).map(k=>UL[k]);
-  const city=(o.hqAddress||"").split(",").pop().trim();
-  const out=[`${o.typ==="SFO"?"Single Family Office":o.typ==="MFO"?"Multi Family Office":"Family Office"}${city?` mit Sitz in ${city}`:""}.`,
-    `Verwaltetes Vermögen ~${fmtB(o.aum.value)}${o.aum.basis==="extrapolation"?" (geschätzt)":""}, davon ~${Math.round(o.reQuote.value*100)} % Immobilien (${fmtB(o.reInvestedEUR)}).`];
-  if(top.length)out.push(`Immobilien-Schwerpunkt: ${top.join(", ")}.`);
+  const city=(o.hqAddress||"").split(",").pop().trim().replace(/^\d[\d\s]*/,"");
+  const fam=(o.kurz.match(/\(([^)]+)\)/)||[])[1];
+  const kind=o.typ==="SFO"?"das private Geld-Team einer einzelnen reichen Familie"
+            :o.typ==="MFO"?"ein Geld-Team, das für mehrere reiche Familien arbeitet"
+            :"ein Geld-Team, das ein großes Vermögen verwaltet";
+  const out=[
+    `Das hier ist ${kind}${fam?` – nämlich die Familie ${fam}`:""}${city?`. Das Büro sitzt in ${city}`:""}.`,
+    `Ein „Family Office" ist einfach das Team, das sich um das ganze Geld einer Familie kümmert und es anlegt – zum Beispiel in Firmen, Aktien und in Häuser und Grundstücke.`,
+    `Insgesamt geht es um rund ${fmtB(o.aum.value)}${o.aum.basis==="extrapolation"?" (geschätzt)":""}. Davon stecken ungefähr ${fmtB(o.reInvestedEUR)} in Immobilien – das sind etwa ${Math.round(o.reQuote.value*100)} von 100 Teilen des Vermögens.`
+  ];
+  if(top.length)out.push(`Am liebsten kaufen sie diese Art von Immobilien: ${top.join(", ")}.`);
   return out;
 }
 // structure/contact block: curated if present, else assembled from existing contact fields
@@ -756,7 +763,7 @@ function Seite3({detail,onClose}){
         {isObj ? (<div>
           <div className="aibox">
             <div className="ai-h">Verbindung zu {office.kurz} {data.connection&&<span className="ai-tag">KI-recherchiert</span>}</div>
-            <div className="row">{data.connection || `Öffentlich ${office.kurz} zugerechnet. Die genaue Zurechnung ergibt sich aus den Quellen unten${data.purchaseDate?` (Hinweis: „${data.purchaseDate}")`:""}.`}</div>
+            <div className="row">{data.connection || `Dieses Gebäude wird ${office.kurz} zugerechnet. ${data.purchaseDate?`Ein Hinweis darauf steht schon im Feld Kaufdatum: „${data.purchaseDate}". `:""}Wie genau die Familie dahintersteht, kannst du in den Quellen ganz unten nachlesen.`}</div>
           </div>
           <div className="kv"><span>Adresse</span><span>{data.address}</span></div>
           <div className="kv"><span>Nutzungsart</span><span>{UL[data.usage]}</span></div>
