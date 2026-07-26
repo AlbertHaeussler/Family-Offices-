@@ -24,8 +24,37 @@ python3 -m http.server 8080
 3. Root Directory: `webapp`. Framework: Other. Deploy.
 
 ## Dateien
-- `index.html` – die App (UI, Karte, Filter, Tabelle, Export).
-- `data.js` – der Datensatz (10 Family Offices, Objekte, Koordinaten).
+- `index.html` – die App (UI, Karte, Filter, Tabelle, Export, **Markt-Radar**).
+- `data.js` – der Family-Office-Datensatz (Firmen, Objekte, Koordinaten, Heatmaps).
+- `news.js` – **NEWS-Datensatz** (Deal-News: wer hat wo was gekauft/verkauft). Zum
+  Sammeln & Aktualisieren gedacht (statisch, versioniert, per Extraktion nachfüllbar).
+
+## Markt-Radar (News-Suche) – neues Chapter
+Ziel: beim Verkauf einer Immobilie in Sekunden die passenden Käufer finden.
+- **News-Pins auf der Karte** (Toggle „📰 News" unten): grün = *besitzt* (gekauft und
+  laut News nicht wieder verkauft), rot = *besessen* (verkauft bzw. wieder verkauft).
+  Respektiert Radius-Pin und Nutzungs-Filter → „wer ist in dieser Region aktiv und
+  kauft diese Objektart".
+- **Markt-Radar-Fenster** (Button oben mittig): großes Freitext-Suchfeld in
+  natürlicher Sprache, z.B. *„Wer kauft gerade in Berlin Büros?"*. Darüber eine
+  kurze, menschlich lesbare **KI-Antwort** (deterministisch aus den strukturierten
+  News erzeugt – läuft ohne Backend/API-Key), darunter alle passenden Artikel als
+  Karten. Zusätzliche Filter: Rolle (Käufer/Verkäufer), Status, Objektart, Zeitraum,
+  „nur im Radius".
+
+### News-Daten pflegen (`news.js`)
+Jeder Eintrag beschreibt einen Deal aus den News. Wichtige Felder: `firma`,
+`rolle` (Käufer/Verkäufer), `status` (`besitzt`|`besessen`), `objektart`
+(Buero|Wohnen|Retail|Logistik|Hotel|Gastro|Sonstiges), `stadt`, `region`,
+`lat`/`lng`, `wertMioEUR`, `datum` (YYYY-MM-DD), `headline`, `summary`, `quelle`.
+Neue News = weitere Objekte ans `window.FO_NEWS`-Array anhängen und `FO_NEWS_STAND`
+hochsetzen. Die Beispieldaten sind realistisch modelliert und werden durch die echte
+Extraktion ersetzt.
+
+> **KI-Antwort später „echt" machen:** Der Antworttext wird heute deterministisch aus
+> den Treffern gebaut (`answerNews`). Für frei formulierte Fragen mit echtem LLM lässt
+> sich in `runNewsAsk` eine Vercel-Serverless-Funktion (`/api/…`) einhängen, die den
+> API-Key serverseitig hält – die App bleibt ansonsten statisch.
 
 ## Features (Stand Pilot)
 - Karte DE + Nachbarländer, HQ mit Logo (via Clearbit), zoombar bis Straßenebene.

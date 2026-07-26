@@ -37,6 +37,7 @@
 <script src="./research/gen/data-gen19.js"></script>
 <script src="./research/gen/data-gen20.js"></script>
 <script src="./descriptions.js"></script>
+<script src="./news.js"></script>
 <style>
   :root{
     --navy:#0A1F44; --navy2:#13294B; --gold:#FFC72C; --red:#E4002B;
@@ -218,6 +219,50 @@
   .ss-x{position:absolute;right:7px;font-size:11px;color:var(--muted);cursor:pointer;padding:2px}
   .ss-x:hover{color:var(--navy)}
   @media (max-width:900px){ .rightcol{width:220px} .adv{width:230px} .seldock{width:210px} }
+  /* ---- Markt-Radar (News) ---- */
+  .radarBtn{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:500;display:flex;align-items:center;gap:8px;padding:9px 16px;border:none;border-radius:14px;cursor:pointer;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(140deg,var(--navy),var(--navy2));box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 4px 14px rgba(10,31,68,.3)}
+  .radarBtn:hover{filter:brightness(1.15)}
+  .radarBtn .pdot{display:flex;gap:3px}
+  .radarBtn .pdot i{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .newswin{width:min(1080px,95vw);height:min(84vh,860px);display:flex;flex-direction:column;overflow:hidden;resize:both;min-width:380px;min-height:300px;max-width:98vw;max-height:96vh}
+  .newswin.min{height:46px}.newswin.max{width:100vw;height:100vh;border-radius:0;resize:none}
+  .askbar{flex:0 0 auto;padding:16px 18px 12px;border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.55)}
+  .askrow{display:flex;gap:10px;align-items:center}
+  .askin{flex:1;padding:13px 16px;border:1px solid rgba(10,31,68,.18);border-radius:13px;font-size:15px;color:var(--navy);background:rgba(255,255,255,.92);outline:none;box-shadow:inset 0 1px 2px rgba(10,31,68,.06)}
+  .askin:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(10,31,68,.12)}
+  .askin::placeholder{color:#9aa3b2}
+  .askbtn{flex:0 0 auto;padding:13px 20px;border:none;border-radius:13px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(140deg,var(--gold),#f0b400);color:#5a4200;box-shadow:0 2px 8px rgba(240,180,0,.35)}
+  .askbtn:hover{filter:brightness(1.06)}
+  .askhints{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .askhint{font-size:11.5px;color:var(--navy);background:rgba(10,31,68,.06);border:1px solid rgba(10,31,68,.08);border-radius:20px;padding:4px 11px;cursor:pointer;user-select:none}
+  .askhint:hover{background:rgba(10,31,68,.12)}
+  .aians{margin:12px 18px 0;background:linear-gradient(140deg,rgba(255,199,44,.15),rgba(255,199,44,.05));border:1px solid rgba(255,199,44,.5);border-radius:14px;padding:13px 15px}
+  .aians .aih{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7a5a00;margin-bottom:6px}
+  .aians .aitxt{font-size:14px;line-height:1.55;color:#3a2f00}
+  .aians .aitxt b{color:var(--navy)}
+  .newsfilt{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--stroke)}
+  .newsfilt .grp{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+  .newsfilt select{width:auto;min-width:120px;padding:6px 8px}
+  .newsfilt .seg{display:flex;gap:2px;background:rgba(10,31,68,.07);border-radius:9px;padding:3px}
+  .newsfilt .seg button{border:none;background:transparent;padding:5px 11px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:var(--navy)}
+  .newsfilt .seg button.on{background:var(--navy);color:#fff;box-shadow:0 1px 3px rgba(10,31,68,.3)}
+  .newsfilt .seg button:disabled{opacity:.4;cursor:not-allowed}
+  .newslist{flex:1;overflow:auto;padding:12px 18px 20px;display:flex;flex-direction:column;gap:10px}
+  .newscard{display:flex;gap:12px;padding:12px 14px;border:1px solid var(--stroke);border-left:4px solid var(--nc,#34c759);border-radius:13px;background:rgba(255,255,255,.6);cursor:pointer;transition:box-shadow .12s,transform .12s}
+  .newscard:hover{box-shadow:0 6px 18px rgba(10,31,68,.14);transform:translateY(-1px)}
+  .newscard .nleft{flex:0 0 46px;display:flex;flex-direction:column;align-items:center;gap:4px;padding-top:2px}
+  .newscard .nbadge{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#fff;border:2px solid var(--nc,#34c759)}
+  .newscard .nstat{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--nc,#34c759)}
+  .newscard .nbody{flex:1;min-width:0}
+  .newscard .nhead{font-size:14px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:3px}
+  .newscard .nmeta{font-size:11.5px;color:var(--muted);margin-bottom:5px}
+  .newscard .nmeta b{color:#3b4658}
+  .newscard .nsum{font-size:12.5px;line-height:1.45;color:#3b4658}
+  .newscard .nfoot{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:11px;color:var(--muted)}
+  .newscard .npill{font-size:10.5px;font-weight:700;color:#fff;background:var(--nc,#34c759);border-radius:6px;padding:1px 7px}
+  .newscard .nval{font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+  .newsempty{padding:40px 20px;text-align:center;color:var(--muted);font-size:13px;line-height:1.5}
+  .newsfoot{flex:0 0 auto;padding:9px 18px;border-top:1px solid var(--stroke);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.45)}
 </style>
 </head>
 <body>
@@ -314,6 +359,105 @@ function blob(center,radiusKm,seed){
   return pts;
 }
 
+/* =======================  NEWS / MARKT-RADAR  ======================= */
+const NEWS=window.FO_NEWS||[];
+const NEWS_STAND=window.FO_NEWS_STAND||"";
+// green = owns now, red = owned before
+const NEWS_COL={ besitzt:"#34c759", besessen:"#ff3b30" };
+const NEWS_STATUS_LABEL={ besitzt:"besitzt", besessen:"besessen" };
+// object-type synonyms (human words -> usage keys)
+const USAGE_SYNONYMS={
+  Buero:["buero","buros","bueros","office","offices","bueroturm","buerohaus","bueropark","bank","banken"],
+  Wohnen:["wohn","wohnung","wohnungen","wohnanlage","wohnportfolio","wohnquartier","residential","apartment","mietshaus","zinshaus"],
+  Retail:["retail","einzelhandel","laden","geschaeftshaus","fachmarkt","fachmarktzentrum","shopping","handel","highstreet","kaufhaus","supermarkt","nahversorgung"],
+  Logistik:["logistik","lager","halle","warehouse","logistikpark","logistikzentrum","distribution","light industrial","gewerbepark"],
+  Hotel:["hotel","hotels","beherbergung","hospitality","boardinghouse"],
+  Gastro:["gastro","gastronomie","restaurant","gaststaette"],
+  Sonstiges:["mixed","gemischt","quartier","sonstiges"]
+};
+// city -> broad region (for "in der Region"-Text). Built from the data.
+const NEWS_CITIES=Array.from(new Set(NEWS.map(n=>n.stadt).filter(Boolean)));
+const NEWS_REGIONS=Array.from(new Set(NEWS.map(n=>n.region).filter(Boolean)));
+// parse a human question into structured filters
+function parseNewsQuery(qRaw){
+  const q=foNorm(qRaw);
+  const toks=q.split(" ").filter(Boolean);
+  const cities=NEWS_CITIES.filter(c=>q.includes(foNorm(c)));
+  const regions=NEWS_REGIONS.filter(r=>foNorm(r).length>3 && q.includes(foNorm(r)));
+  const usages=USAGE_KEYS.filter(k=>{
+    const syns=USAGE_SYNONYMS[k]||[];
+    return q.includes(foNorm(UL[k])) || syns.some(s=>toks.some(t=>t.startsWith(s)||s.startsWith(t)&&t.length>=3));
+  });
+  let rolle=null;
+  if(/\b(kauf|kaeuf|erwirbt|erwerb|uebernimmt|uebernahme|invest|sucht)\w*/.test(q)) rolle="Käufer";
+  if(/\b(verkauf|veraeuss|trennt|abstoss|verkaeuf)\w*/.test(q)) rolle=rolle?null:"Verkäufer"; // both -> no filter
+  // timeframe: "letzten 12 monaten", "letztes jahr", "24 monate"…
+  let months=null;
+  const mm=q.match(/(\d{1,2})\s*monat/); if(mm) months=+mm[1];
+  else if(/letzt\w*\s*jahr|vorigen jahr|12 monat/.test(q)) months=12;
+  else if(/2\s*jahr|24 monat/.test(q)) months=24;
+  // stopwords we don't want as free-text tokens
+  const stop=new Set(["wer","was","wo","welche","welcher","gerade","aktuell","kauft","kaufte","kaufen","gekauft","verkauft","verkaufte","in","im","der","die","das","den","und","oder","ein","eine","zeig","zeige","mir","alle","letzten","letzte","monaten","monate","jahr","jahren","hat","haben","aktiv","aktive","firma","firmen","offices","office","family"]);
+  const cityToks=new Set(cities.flatMap(c=>foNorm(c).split(" ")));
+  const usageToks=new Set(usages.flatMap(k=>[foNorm(UL[k]),...(USAGE_SYNONYMS[k]||[])].flatMap(s=>s.split(" "))));
+  const free=toks.filter(t=>t.length>=3&&!stop.has(t)&&!cityToks.has(t)&&!usageToks.has(t));
+  return {cities,regions,usages,rolle,months,free,raw:qRaw};
+}
+const monthsSince=(iso,ref)=>{const d=new Date(iso+"T00:00:00");return (ref.getFullYear()-d.getFullYear())*12+(ref.getMonth()-d.getMonth());};
+// score+filter news for a parsed query. refDate = "today" from data stand.
+function filterNews(p,ref){
+  return NEWS.map(n=>{
+    let s=0;
+    if(p.cities.length){ if(p.cities.includes(n.stadt)) s+=40; else if(p.regions.includes(n.region)) s+=15; else return null; }
+    else if(p.regions.length){ if(p.regions.includes(n.region)) s+=20; else return null; }
+    if(p.usages.length){ if(p.usages.includes(n.objektart)) s+=30; else return null; }
+    if(p.rolle){ if(n.rolle===p.rolle) s+=20; else return null; }
+    if(p.months!=null){ if(monthsSince(n.datum,ref)<=p.months) s+=10; else return null; }
+    if(p.free.length){
+      const hay=foNorm([n.firma,n.objekt,n.headline,n.summary,n.stadt,n.region].join(" "));
+      const hits=p.free.filter(t=>hay.includes(t)).length;
+      if(hits===0 && !p.cities.length && !p.usages.length && !p.rolle) return null;
+      s+=hits*8;
+    }
+    s+=1; // baseline so an empty query returns everything
+    return {n,s};
+  }).filter(Boolean).sort((a,b)=> b.s-a.s || (b.n.datum>a.n.datum?1:-1)).map(x=>x.n);
+}
+const fmtMio=v=> v==null?"":(v>=1000?(v/1000).toFixed(1)+" Mrd €":Math.round(v)+" Mio €");
+const monthName=iso=>{const M=["Jan.","Feb.","März","Apr.","Mai","Juni","Juli","Aug.","Sept.","Okt.","Nov.","Dez."];const d=new Date(iso+"T00:00:00");return M[d.getMonth()]+" "+d.getFullYear();};
+// natural-language list: "A", "A und B", "A, B und C"
+// nicer spoken nouns per usage-key for the answer text
+const USAGE_NOUN={ Buero:"Büros", Wohnen:"Wohnungen", Retail:"Einzelhandel", Logistik:"Logistik-Immobilien", Hotel:"Hotels", Gastro:"Gastro-Objekte", Sonstiges:"gemischte Objekte" };
+const andList=arr=> arr.length<=1?(arr[0]||""):arr.slice(0,-1).join(", ")+" und "+arr.slice(-1);
+const uniqNames=arr=>arr.map(n=>n.firma).filter((v,i,a)=>a.indexOf(v)===i);
+// build a short, human answer text from the matched news (deterministic – no LLM needed).
+// `matched` is exactly the list the user sees, so answer & list never disagree.
+function answerNews(matched,p,ref){
+  if(!matched.length){
+    return {plain:`Zu dieser Suche gibt es aktuell keine passenden News. Versuch es allgemeiner – z.B. nur die Stadt oder nur die Objektart.`,parts:[],buyers:[],sellers:[]};
+  }
+  const buyers=matched.filter(n=>n.rolle==="Käufer");
+  const sellers=matched.filter(n=>n.rolle==="Verkäufer");
+  const where=p.cities.length?p.cities.join(" / "):(p.regions.length?p.regions.join(" / "):"Deutschland");
+  const objWord=p.usages.length?p.usages.map(k=>USAGE_NOUN[k]||UL[k]).join(" & "):"Immobilien";
+  const period=p.months?`In den letzten ${p.months} Monaten`:`Im erfassten Zeitraum`;
+  const deals=x=>`${x} ${x===1?"Deal":"Deals"}`;
+  const parts=[];
+  if(buyers.length){
+    const nm=uniqNames(buyers);
+    parts.push(`${period} haben in ${where} ${andList(nm)} ${objWord} gekauft (${deals(buyers.length)}).`);
+  }
+  if(sellers.length){
+    const nm=uniqNames(sellers);
+    parts.push(`${buyers.length?"Verkauft haben":`${period} haben in ${where}`} ${andList(nm)}${buyers.length?"":` ${objWord}`} verkauft (${deals(sellers.length)}) – oft ein Zeichen, dass sie wieder zukaufen.`);
+  }
+  const top=matched.slice().sort((a,b)=>(b.wertMioEUR||0)-(a.wertMioEUR||0))[0];
+  if(top&&top.wertMioEUR) parts.push(`Grösster Deal: ${top.firma} – ${top.objekt} (${fmtMio(top.wertMioEUR)}), ${monthName(top.datum)}.`);
+  const total=matched.reduce((s,n)=>s+(n.wertMioEUR||0),0);
+  if(total) parts.push(`Erfasstes Volumen: ${fmtMio(total)} über ${matched.length} ${matched.length===1?"Meldung":"Meldungen"}.`);
+  return {plain:parts.join(" "),parts,buyers:uniqNames(buyers),sellers:uniqNames(sellers)};
+}
+
 function Lights({onClose,onMin,onMax}){
   return (<div className="lights">
     <span className="light l-red" title="Schließen" onClick={onClose}/>
@@ -357,7 +501,7 @@ function Pie({data}){
 }
 
 function App(){
-  const mapRef=useRef(null),hqL=useRef(null),objL=useRef(null),heatL=useRef(null),pinL=useRef(null),tiles=useRef({});
+  const mapRef=useRef(null),hqL=useRef(null),objL=useRef(null),heatL=useRef(null),pinL=useRef(null),newsL=useRef(null),tiles=useRef({});
   const [activeCats,setActiveCats]=useState(new Set(CATS));
   const [activeUsages,setActiveUsages]=useState(new Set(USAGE_KEYS));
   const [country,setCountry]=useState("all"),[typF,setTypF]=useState("all");
@@ -376,6 +520,15 @@ function App(){
   const [detail,setDetail]=useState(null);
   const [baseLayer,setBaseLayer]=useState("sat"),[showDisc,setShowDisc]=useState(false);
   const [zoom,setZoom]=useState(6);
+  // ---- Markt-Radar (News) ----
+  const [showNews,setShowNews]=useState(false),[newsMode,setNewsMode]=useState("normal");
+  const [newsQuery,setNewsQuery]=useState(""),[newsAsk,setNewsAsk]=useState(""); // newsAsk = submitted query
+  const [newsRolle,setNewsRolle]=useState("all"),[newsUsage,setNewsUsage]=useState("all"),[newsStatus,setNewsStatus]=useState("all");
+  const [newsMonths,setNewsMonths]=useState(0); // 0 = alle
+  const [newsPinOnly,setNewsPinOnly]=useState(false);
+  const [showNewsPins,setShowNewsPins]=useState(false); // news layer on the main map
+  const [newsDetail,setNewsDetail]=useState(null);
+  const NEWS_REF=useMemo(()=>new Date((NEWS_STAND?NEWS_STAND+"-28":"2026-07-28")+"T00:00:00"),[]);
   const sref=useRef({});
   const countries=useMemo(()=>["all",...Array.from(new Set(DATA.map(o=>o.land)))],[]);
 
@@ -421,7 +574,7 @@ function App(){
       L.geoJSON(window.BORDERS,{interactive:false,style:{color:"#ffffff",weight:5,opacity:.35,fill:false}}).addTo(map);
       L.geoJSON(window.BORDERS,{interactive:false,style:{color:"#0A1F44",weight:2.5,opacity:.85,fill:false}}).addTo(map);
     }
-    heatL.current=L.layerGroup().addTo(map);hqL.current=L.layerGroup().addTo(map);objL.current=L.layerGroup().addTo(map);pinL.current=L.layerGroup().addTo(map);
+    heatL.current=L.layerGroup().addTo(map);hqL.current=L.layerGroup().addTo(map);objL.current=L.layerGroup().addTo(map);pinL.current=L.layerGroup().addTo(map);newsL.current=L.layerGroup().addTo(map);
     const applyZoom=()=>{setZoom(map.getZoom());};
     map.on("zoomend",applyZoom);applyZoom();
     map.on("click",e=>{if(sref.current.pinMode){setPin({lat:e.latlng.lat,lng:e.latlng.lng});setPinMode(false);}});
@@ -502,6 +655,26 @@ function App(){
       L.marker([pin.lat,pin.lng],{interactive:false,icon:L.divIcon({className:"",html:'<div style="font-size:26px;transform:translate(-13px,-24px)">📍</div>',iconSize:[0,0]})}).addTo(lyr);}
   },[pin,pinRadius]);
 
+  // NEWS pins on the main map (green = besitzt / rot = besessen). Respects the radius pin + usage filter.
+  useEffect(()=>{const lyr=newsL.current;if(!lyr)return;lyr.clearLayers();
+    if(!showNewsPins)return;
+    let items=NEWS.slice();
+    if(pin) items=items.filter(n=>hv(pin.lat,pin.lng,n.lat,n.lng)<=pinRadius);
+    if(activeUsages.size!==USAGE_KEYS.length) items=items.filter(n=>activeUsages.has(n.objektart));
+    const far=zoom<11;
+    items.forEach(n=>{
+      const col=NEWS_COL[n.status]||"#34c759";
+      const emoji=USAGE_EMOJI[n.objektart]||"📰";
+      const size=far?15:28;
+      const html=`<div class="objbadge" style="width:${size}px;height:${size}px;background:#fff;border:${Math.max(2,size*0.15)}px solid ${col}">`
+        +`<span class="objico" style="font-size:${Math.round(size*0.56)}px">${emoji}</span></div>`;
+      const icon=L.divIcon({html,className:"",iconSize:[size,size],iconAnchor:[size/2,size/2]});
+      const m=L.marker([n.lat,n.lng],{icon,zIndexOffset:2000}).addTo(lyr);
+      m.on("click",()=>setNewsDetail(n));
+      m.bindTooltip(`<b>${n.firma}</b> · <span style="color:${col}">${NEWS_STATUS_LABEL[n.status]}</span><br>${n.objekt}<br>${n.stadt} · ${monthName(n.datum)}`,{direction:"top",offset:[0,-size/2]});
+    });
+  },[showNewsPins,pin,pinRadius,activeUsages,zoom]);
+
   function toggleSelect(id){setSelected(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});}
   function toggleCat(c){setActiveCats(p=>{const n=new Set(p);n.has(c)?n.delete(c):n.add(c);return n;});}
   function toggleUsage(k){setActiveUsages(p=>{const n=new Set(p);n.has(k)?n.delete(k):n.add(k);return n;});}
@@ -561,6 +734,27 @@ function App(){
     XLSX.utils.book_append_sheet(wb,ws2,useRadius?"Objekte im Radius":"Objekte");
     XLSX.writeFile(wb,selected.size>0?"family_offices_auswahl.xlsx":"family_offices_alle.xlsx");}
 
+  // ---- Markt-Radar results (parsed free-text query + explicit dropdown filters + optional radius) ----
+  const newsParsed=useMemo(()=>parseNewsQuery(newsAsk),[newsAsk]);
+  const newsResults=useMemo(()=>{
+    let list=filterNews(newsParsed,NEWS_REF);
+    if(newsRolle!=="all") list=list.filter(n=>n.rolle===newsRolle);
+    if(newsUsage!=="all") list=list.filter(n=>n.objektart===newsUsage);
+    if(newsStatus!=="all") list=list.filter(n=>n.status===newsStatus);
+    if(newsMonths>0) list=list.filter(n=>monthsSince(n.datum,NEWS_REF)<=newsMonths);
+    if(newsPinOnly&&pin) list=list.filter(n=>hv(pin.lat,pin.lng,n.lat,n.lng)<=pinRadius);
+    return list;
+  },[newsParsed,newsRolle,newsUsage,newsStatus,newsMonths,newsPinOnly,pin,pinRadius]);
+  const newsAnswer=useMemo(()=> newsAsk.trim()? answerNews(newsResults,newsParsed,NEWS_REF) : null,[newsAsk,newsResults,newsParsed]);
+  function runNewsAsk(q){const s=(q!=null?q:newsQuery).trim();setNewsQuery(s);setNewsAsk(s);
+    // each question starts fresh (no leaked filters), then reflect the understood intent in the dropdowns
+    const p=parseNewsQuery(s);
+    setNewsRolle(p.rolle||"all");
+    setNewsUsage(p.usages.length===1?p.usages[0]:"all");
+    setNewsMonths(p.months||0);
+    setNewsStatus("all");
+  }
+
   const selOffices=DATA.filter(o=>selected.has(o.id));
   const cols=[["Voll","Family Office (exakt)"],["Name","Kurzname"],["Warum","Warum passt (Suche)"],["HQ","Headquarter"],["Typ","Typ"],["Land","Land"],["aumV","AUM"],["reV","Immob. €"],["reP","Immob. %"],["objs","# Obj."],["Website","Website"],["Kontakt","Kontakt"]];
   const objCols=[["Voll","Family Office"],["Objekt","Objekt"],["Nutzung","Nutzung"],["Adresse","Adresse"],["Flaeche","Fläche"],["Kauf","Kaufdatum"],["Wert","Wert (Mio €)"],["Status","Status"],["Sold","Verkauft"]];
@@ -585,6 +779,11 @@ function App(){
          Gestrichelter Logo-Rahmen = im Radius nur über Heatmap getroffen (geschätzt).
        </div>
      )}
+
+     <button className="radarBtn" onClick={()=>{setShowNews(true);setNewsMode("normal");}} title="Markt-Radar: News-Suche nach Käufern/Verkäufern">
+       <span className="pdot"><i style={{background:NEWS_COL.besitzt}}/><i style={{background:NEWS_COL.besessen}}/></span>
+       Markt-Radar · News-Suche
+     </button>
 
      {/* RIGHT COLUMN (stacked, never overlapping) */}
      <div className="rightcol">
@@ -641,6 +840,7 @@ function App(){
      <div className="layerToggle glass">
        <button className={baseLayer==="sat"?"on":""} onClick={()=>setBaseLayer("sat")}>Satellit</button>
        <button className={baseLayer==="street"?"on":""} onClick={()=>setBaseLayer("street")}>Karte</button>
+       <button className={showNewsPins?"on":""} onClick={()=>setShowNewsPins(v=>!v)} title="News-Deals als Pins (grün=besitzt, rot=besessen)">📰 News</button>
      </div>
 
      {/* BOTTOM-LEFT: selected firms + expandable picker of the rest */}
@@ -744,6 +944,96 @@ function App(){
        </div>
      )}
 
+     {showNews && (
+       <div className="winwrap" onMouseDown={e=>{if(e.target.classList.contains("winwrap"))setShowNews(false);}}>
+         <div className={"newswin glass "+(newsMode==="min"?"min":newsMode==="max"?"max":"")}>
+           <div className="titlebar">
+             <Lights onClose={()=>setShowNews(false)} onMin={()=>setNewsMode(m=>m==="min"?"normal":"min")} onMax={()=>setNewsMode(m=>m==="max"?"normal":"max")}/>
+             <span className="t">Markt-Radar — {newsResults.length} News · wer kauft &amp; verkauft was, wo</span>
+             <span className="sp"/>
+             <button className="btn sec" onClick={()=>{setShowNewsPins(true);setShowNews(false);}} title="Die aktuellen Treffer als Pins auf der Karte">Auf Karte zeigen</button>
+           </div>
+           {newsMode!=="min" && <React.Fragment>
+             <div className="askbar">
+               <div className="askrow">
+                 <input className="askin" type="text" value={newsQuery} autoFocus
+                   placeholder="Frag den Markt … z.B. „Wer kauft gerade in Berlin Büros?“"
+                   onChange={e=>setNewsQuery(e.target.value)}
+                   onKeyDown={e=>{if(e.key==="Enter")runNewsAsk();else if(e.key==="Escape"){setNewsQuery("");setNewsAsk("");}}}/>
+                 <button className="askbtn" onClick={()=>runNewsAsk()}>Antwort holen</button>
+               </div>
+               <div className="askhints">
+                 {["Wer kauft gerade in Berlin Büros?","Wohnungen München letzte 12 Monate","Wer verkauft Logistik?","Retail Frankfurt","Wer kauft Hotels?"].map(h=>
+                   <span key={h} className="askhint" onClick={()=>runNewsAsk(h)}>{h}</span>)}
+                 {(newsQuery||newsAsk)&&<span className="askhint" style={{color:"var(--red)"}} onClick={()=>{setNewsQuery("");setNewsAsk("");}}>✕ zurücksetzen</span>}
+               </div>
+             </div>
+             {newsAnswer && <div className="aians">
+               <div className="aih">🤖 KI-Antwort {newsResults.length>0&&<span style={{fontWeight:600,color:"#9a7a00"}}>· {newsResults.length} passende Meldungen</span>}</div>
+               <div className="aitxt">{newsAnswer.plain}</div>
+             </div>}
+             <div className="newsfilt">
+               <div className="grp"><span>Rolle:</span>
+                 <div className="seg">
+                   <button className={newsRolle==="all"?"on":""} onClick={()=>setNewsRolle("all")}>Alle</button>
+                   <button className={newsRolle==="Käufer"?"on":""} onClick={()=>setNewsRolle("Käufer")}>Käufer</button>
+                   <button className={newsRolle==="Verkäufer"?"on":""} onClick={()=>setNewsRolle("Verkäufer")}>Verkäufer</button>
+                 </div>
+               </div>
+               <div className="grp"><span>Status:</span>
+                 <div className="seg">
+                   <button className={newsStatus==="all"?"on":""} onClick={()=>setNewsStatus("all")}>Alle</button>
+                   <button className={newsStatus==="besitzt"?"on":""} style={newsStatus==="besitzt"?{background:NEWS_COL.besitzt}:{}} onClick={()=>setNewsStatus("besitzt")}>besitzt</button>
+                   <button className={newsStatus==="besessen"?"on":""} style={newsStatus==="besessen"?{background:NEWS_COL.besessen}:{}} onClick={()=>setNewsStatus("besessen")}>besessen</button>
+                 </div>
+               </div>
+               <div className="grp"><span>Objektart:</span>
+                 <select value={newsUsage} onChange={e=>setNewsUsage(e.target.value)}>
+                   <option value="all">Alle Arten</option>
+                   {USAGE_KEYS.map(k=><option key={k} value={k}>{UL[k]}</option>)}
+                 </select>
+               </div>
+               <div className="grp"><span>Zeitraum:</span>
+                 <select value={newsMonths} onChange={e=>setNewsMonths(+e.target.value)}>
+                   <option value={0}>Alle</option><option value={6}>6 Monate</option>
+                   <option value={12}>12 Monate</option><option value={24}>24 Monate</option>
+                 </select>
+               </div>
+               {pin && <div className="togg" style={{padding:0}} onClick={()=>setNewsPinOnly(v=>!v)}>
+                 <div className={"switch"+(newsPinOnly?" on":"")}><i/></div> nur im Radius ({pinRadius} km)</div>}
+             </div>
+             <div className="newslist">
+               {newsResults.length===0
+                 ? <div className="newsempty">Keine passenden News.<br/>Tipp: allgemeiner suchen – nur Stadt oder nur Objektart – oder Filter zurücksetzen.</div>
+                 : newsResults.map(n=>(
+                     <div key={n.id} className="newscard" style={{"--nc":NEWS_COL[n.status]}} onClick={()=>setNewsDetail(n)}>
+                       <div className="nleft">
+                         <div className="nbadge">{USAGE_EMOJI[n.objektart]||"📰"}</div>
+                         <div className="nstat">{NEWS_STATUS_LABEL[n.status]}</div>
+                       </div>
+                       <div className="nbody">
+                         <div className="nhead">{n.headline}</div>
+                         <div className="nmeta"><b>{n.firma}</b> · {n.rolle} · {n.stadt} · {monthName(n.datum)}</div>
+                         <div className="nsum">{n.summary}</div>
+                         <div className="nfoot">
+                           <span className="npill">{UL[n.objektart]}</span>
+                           {n.wertMioEUR&&<span className="nval">{fmtMio(n.wertMioEUR)}</span>}
+                           <span style={{marginLeft:"auto"}}>Quelle: {n.quelle.label}</span>
+                         </div>
+                       </div>
+                     </div>))}
+             </div>
+             <div className="newsfoot">
+               <span>📰 {NEWS.length} News im Datensatz · Stand {NEWS_STAND}</span>
+               <span style={{marginLeft:"auto"}}>grün = besitzt (gekauft, nicht wieder verkauft) · rot = besessen (verkauft)</span>
+             </div>
+           </React.Fragment>}
+         </div>
+       </div>
+     )}
+
+     {newsDetail && <NewsDetail n={newsDetail} onClose={()=>setNewsDetail(null)} onFirm={id=>{setNewsDetail(null);setShowNews(false);toggleSelect(id);}}/>}
+
      {detail && <Seite3 detail={detail} onClose={()=>setDetail(null)}/>}
    </React.Fragment>
   );
@@ -828,6 +1118,37 @@ function Seite3({detail,onClose}){
           <div className="src" style={{marginTop:8}}>Keine exakte Adresse / kein Kaufdatum / kein exakter Wert – da nicht vorhanden.</div>
           <div className="srcbox"><Sources field={data} label="Beleg"/></div>
         </div>)}
+      </div>
+    </div>
+  </div>);
+}
+
+function NewsDetail({n,onClose,onFirm}){
+  const col=NEWS_COL[n.status]||"#34c759";
+  const inDb=n.firmaId && DATA.some(o=>o.id===n.firmaId);
+  return (<div className="s3wrap" onMouseDown={e=>{if(e.target.classList.contains("s3wrap"))onClose();}}>
+    <div className="s3 glass">
+      <div className="hd">
+        <div className="lights"><span className="light l-red" onClick={onClose}/><span className="light l-yellow dis"/><span className="light l-green dis"/></div>
+        <span style={{fontSize:20}}>{USAGE_EMOJI[n.objektart]||"📰"}</span>
+        <span style={{fontSize:12,fontWeight:700,color:"#0A1F44"}}>{n.firma}</span>
+      </div>
+      <div className="bd">
+        <span className="tag" style={{background:col}}>{n.rolle} · {n.status==="besitzt"?"besitzt jetzt":"besaß (verkauft)"}</span>
+        <h3 style={{marginTop:8}}>{n.headline}</h3>
+        <div className="aibox">
+          <div className="ai-h">Zusammenfassung</div>
+          <div className="row">{n.summary}</div>
+        </div>
+        <div className="kv"><span>Firma</span><span>{n.firma}</span></div>
+        <div className="kv"><span>Objekt</span><span>{n.objekt}</span></div>
+        <div className="kv"><span>Objektart</span><span>{UL[n.objektart]||n.objektart}</span></div>
+        <div className="kv"><span>Stadt / Region</span><span>{n.stadt} · {n.region}</span></div>
+        <div className="kv"><span>Volumen</span><span>{n.wertMioEUR?fmtMio(n.wertMioEUR):"—"}</span></div>
+        <div className="kv"><span>Datum</span><span>{monthName(n.datum)}</span></div>
+        <div className="kv"><span>Status</span><span>{n.status==="besitzt"?"gekauft, nicht wieder verkauft":"verkauft bzw. wieder verkauft"}</span></div>
+        {inDb && <div className="btnrow" style={{marginTop:10}}><button className="btn wide" onClick={()=>onFirm(n.firmaId)}>Family Office in der Karte anzeigen</button></div>}
+        <div className="srcbox"><div className="src"><span className="lab">Quelle:</span> <a href={n.quelle.url} target="_blank" rel="noopener">{n.quelle.label}</a></div></div>
       </div>
     </div>
   </div>);
