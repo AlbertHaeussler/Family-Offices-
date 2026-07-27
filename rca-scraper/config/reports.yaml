@@ -51,20 +51,26 @@ reports:
       isTransactionsRequest: true
       isHoldingsRequest: false
 
+  # Holdings mode = current ownership. Toggle confirmed via diagnose-modes:
+  # PropertiesRequestType=0 fills data.pinHoldingItems (~48.7k German holdings).
   holdings:
     endpoint_path: "/api/v1/propertySearch/search"
     capture_file: "transactions.json"        # reuse the same captured base request
     page_size_key: "Size"
-    page_size: 3000
-    rows_key: "data.pinHoldingItems"        # holdings-mode row array
+    page_size: 10000
+    rows_key: "data.pinHoldingItems"
     total_key: "data.resultCount"
     id_key: "PropertyId"
+    # Try date partitioning first; it self-diagnoses and aborts fast if the
+    # DateRange filter doesn't narrow holdings (then we switch axis).
+    partition: "date"
+    date_path: "TransactionSearchFilters.DateRange"
+    date_type: 0
+    date_format: "%m/%d/%Y"
+    date_start: "1970-01-01"
+    saturation: 6000
     overrides:
-      isTransactionsRequest: false
-      isHoldingsRequest: true
-    tiling: true
-    saturation: 2000
-    bounds: *germany
+      PropertiesRequestType: 0
 
   registered_properties:
     endpoint_path: "/api/v1/propertySearch/search"
