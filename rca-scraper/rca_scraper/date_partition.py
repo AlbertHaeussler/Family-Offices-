@@ -74,14 +74,17 @@ def _fetch(client: RcaClient, report: Report, payload: dict) -> tuple[list, int 
     return rows, total
 
 
-def _detect_date_type(client: RcaClient, report: Report, base: dict) -> int | None:
-    """Find a DateRangeType that measurably narrows results, else None."""
+def _detect_date_type(client: RcaClient, report: Report, base: dict) -> tuple[int | None, int | None]:
+    """Find a DateRangeType that measurably narrows results.
+
+    Returns (working_type_or_None, baseline_total).
+    """
     # Baseline: the unfiltered query's total.
     _, rc_full = _fetch(client, report, base)
     log.info("Baseline resultCount (no date filter): %s", rc_full)
     if not rc_full:
         log.warning("No baseline resultCount; can't verify date filtering.")
-        return report.date_type
+        return report.date_type, rc_full
 
     # A narrow, recent window that should contain far fewer than everything.
     hi = date.today()
@@ -92,8 +95,8 @@ def _detect_date_type(client: RcaClient, report: Report, base: dict) -> int | No
         log.info("  DateRangeType=%d over last 365d -> resultCount=%s", dtype, rc)
         if rc is not None and 0 < rc < rc_full * 0.9:
             log.info("[green]DateRangeType=%d narrows results — using it.[/green]", dtype)
-            return dtype
-    return None
+            return dtype, rc_full
+    return None, rc_full
 
 
 def extract_by_date(cfg: Config, report: Report, base: dict, store: SqliteStore,
@@ -105,7 +108,9 @@ def extract_by_date(cfg: Config, report: Report, base: dict, store: SqliteStore,
         # --- determine the working DateRangeType (cached across resumes) ---
         dtype = store.get_meta("date_type")
         if dtype is None:
-            dtype = _detect_date_type(client, report, base)
+            dtype, baseline = _detect_date_type(client, report, base)
+            if baseline:
+                store.set_meta("baseline_total", baseline)
             if dtype is None:
                 log.error("[red]No DateRangeType narrowed the results.[/red] The date "
                           "filter isn't taking effect, so partitioning can't work. "
@@ -158,4 +163,15 @@ def extract_by_date(cfg: Config, report: Report, base: dict, store: SqliteStore,
 
     if not queue:
         store.set_meta("complete", True)
-        log.info("[green]Date sweep complete.[/green] Stored %d unique rows.", store.count())
+        stored = store.count()
+        baseline = store.get_meta("baseline_total")
+        log.info("[green]Date sweep complete.[/green] Stored %d unique rows.", stored)
+        if baseline:
+            pct = 100 * stored / baseline if baseline else 0
+            if stored < baseline * 0.98:
+                log.warning("Coverage %d/%d (%.1f%%). The shortfall is likely rows "
+                            "with no date (they fall outside every window). Tell the "
+                            "maintainer if you need those swept separately.",
+                            stored, baseline, pct)
+            else:
+                log.info("Coverage %d/%d (%.1f%%) — looks complete.", stored, baseline, pct)
