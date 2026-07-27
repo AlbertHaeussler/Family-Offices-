@@ -119,12 +119,18 @@ def capture(cfg: Config, report: str | None = None, headless: bool = False,
     elif reuse:
         log.warning("--reuse requested but no saved session found; you'll log in fresh.")
 
+    def attach(pg) -> None:
+        """Wire request/response sniffers onto a page (incl. newly opened tabs)."""
+        pg.on("request", on_request)
+        pg.on("response", on_response)
+
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=headless)
         context = browser.new_context(storage_state=reuse_state)
+        # Capture on EVERY tab — RCA opens investor profiles in a new tab.
+        context.on("page", attach)
         page = context.new_page()
-        page.on("request", on_request)
-        page.on("response", on_response)
+        attach(page)
         page.goto(cfg.base_url, wait_until="domcontentloaded")
 
         log.info("[bold cyan]A browser window has opened.[/bold cyan]")
@@ -133,6 +139,7 @@ def capture(cfg: Config, report: str | None = None, headless: bool = False,
         log.info("3) Visit EACH tab you want, letting its data load fully:")
         log.info("   Transactions, Investors, Funds, Trends, Registered Properties.")
         log.info("   (Scroll / sort so the table actually fetches its rows.)")
+        log.info("   Investor profiles open in a NEW TAB — that's fine, we capture it too.")
         input("\n>>> When you've loaded every tab, return here and press ENTER to save...\n")
 
         storage_state = context.storage_state()
