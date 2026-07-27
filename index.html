@@ -403,7 +403,9 @@ function parseNewsQuery(qRaw){
   const free=toks.filter(t=>t.length>=3&&!stop.has(t)&&!cityToks.has(t)&&!usageToks.has(t));
   return {cities,regions,usages,rolle,months,free,raw:qRaw};
 }
-const monthsSince=(iso,ref)=>{const d=new Date(iso+"T00:00:00");return (ref.getFullYear()-d.getFullYear())*12+(ref.getMonth()-d.getMonth());};
+// robust gegen "YYYY-MM-DD", "YYYY-MM" und leere Werte
+const parseDay=iso=>{const s=String(iso||"").slice(0,10);const p=s.match(/^(\d{4})-(\d{2})(?:-(\d{2}))?/);return p?new Date(+p[1],+p[2]-1,+(p[3]||1)):null;};
+const monthsSince=(iso,ref)=>{const d=parseDay(iso);if(!d)return 9999;return (ref.getFullYear()-d.getFullYear())*12+(ref.getMonth()-d.getMonth());};
 // score+filter news for a parsed query. refDate = "today" from data stand.
 function filterNews(p,ref){
   return NEWS.map(n=>{
@@ -424,12 +426,18 @@ function filterNews(p,ref){
   }).filter(Boolean).sort((a,b)=> b.s-a.s || (b.n.datum>a.n.datum?1:-1)).map(x=>x.n);
 }
 const fmtMio=v=> v==null?"":(v>=1000?(v/1000).toFixed(1)+" Mrd €":Math.round(v)+" Mio €");
-const monthName=iso=>{const M=["Jan.","Feb.","März","Apr.","Mai","Juni","Juli","Aug.","Sept.","Okt.","Nov.","Dez."];const d=new Date(iso+"T00:00:00");return M[d.getMonth()]+" "+d.getFullYear();};
+const monthName=iso=>{const M=["Jan.","Feb.","März","Apr.","Mai","Juni","Juli","Aug.","Sept.","Okt.","Nov.","Dez."];const d=parseDay(iso);return d?M[d.getMonth()]+" "+d.getFullYear():(iso||"—");};
 // natural-language list: "A", "A und B", "A, B und C"
 // nicer spoken nouns per usage-key for the answer text
 const USAGE_NOUN={ Buero:"Büros", Wohnen:"Wohnungen", Retail:"Einzelhandel", Logistik:"Logistik-Immobilien", Hotel:"Hotels", Gastro:"Gastro-Objekte", Sonstiges:"gemischte Objekte" };
 const andList=arr=> arr.length<=1?(arr[0]||""):arr.slice(0,-1).join(", ")+" und "+arr.slice(-1);
-const uniqNames=arr=>arr.map(n=>n.firma).filter((v,i,a)=>a.indexOf(v)===i);
+// unique firm names, ranked by how often they appear (most active first)
+function uniqNames(arr){const c={};arr.forEach(n=>c[n.firma]=(c[n.firma]||0)+1);
+  return Object.keys(c).sort((a,b)=>c[b]-c[a]);}
+// cap a long name list for the spoken answer: "A, B, C und D" + "u.a."
+function namePhrase(names,cap=6){
+  if(names.length<=cap) return andList(names);
+  return names.slice(0,cap).join(", ")+" u.a.";}
 // build a short, human answer text from the matched news (deterministic – no LLM needed).
 // `matched` is exactly the list the user sees, so answer & list never disagree.
 function answerNews(matched,p,ref){
@@ -445,11 +453,11 @@ function answerNews(matched,p,ref){
   const parts=[];
   if(buyers.length){
     const nm=uniqNames(buyers);
-    parts.push(`${period} haben in ${where} ${andList(nm)} ${objWord} gekauft (${deals(buyers.length)}).`);
+    parts.push(`${period} haben in ${where} ${namePhrase(nm)} ${objWord} gekauft (${deals(buyers.length)}${nm.length>1?`, ${nm.length} Käufer`:""}).`);
   }
   if(sellers.length){
     const nm=uniqNames(sellers);
-    parts.push(`${buyers.length?"Verkauft haben":`${period} haben in ${where}`} ${andList(nm)}${buyers.length?"":` ${objWord}`} verkauft (${deals(sellers.length)}) – oft ein Zeichen, dass sie wieder zukaufen.`);
+    parts.push(`${buyers.length?"Verkauft haben":`${period} haben in ${where}`} ${namePhrase(nm)}${buyers.length?"":` ${objWord}`} verkauft (${deals(sellers.length)}) – oft ein Zeichen, dass sie wieder zukaufen.`);
   }
   const top=matched.slice().sort((a,b)=>(b.wertMioEUR||0)-(a.wertMioEUR||0))[0];
   if(top&&top.wertMioEUR) parts.push(`Grösster Deal: ${top.firma} – ${top.objekt} (${fmtMio(top.wertMioEUR)}), ${monthName(top.datum)}.`);
@@ -658,9 +666,12 @@ function App(){
   // NEWS pins on the main map (green = besitzt / rot = besessen). Respects the radius pin + usage filter.
   useEffect(()=>{const lyr=newsL.current;if(!lyr)return;lyr.clearLayers();
     if(!showNewsPins)return;
-    let items=NEWS.slice();
-    if(pin) items=items.filter(n=>hv(pin.lat,pin.lng,n.lat,n.lng)<=pinRadius);
+    let items=NEWS.filter(n=>n.lat!=null&&n.lng!=null); // nur geocodierte News als Pin
     if(activeUsages.size!==USAGE_KEYS.length) items=items.filter(n=>activeUsages.has(n.objektart));
+    if(pin) items=items.filter(n=>hv(pin.lat,pin.lng,n.lat,n.lng)<=pinRadius);
+    // Performance: bei sehr vielen Treffern die größten Deals zeigen (Radius/Filter engt weiter ein)
+    const CAP=500;
+    if(items.length>CAP) items=items.slice().sort((a,b)=>(b.wertMioEUR||0)-(a.wertMioEUR||0)).slice(0,CAP);
     const far=zoom<11;
     items.forEach(n=>{
       const col=NEWS_COL[n.status]||"#34c759";
@@ -1005,7 +1016,8 @@ function App(){
              <div className="newslist">
                {newsResults.length===0
                  ? <div className="newsempty">Keine passenden News.<br/>Tipp: allgemeiner suchen – nur Stadt oder nur Objektart – oder Filter zurücksetzen.</div>
-                 : newsResults.map(n=>(
+                 : <React.Fragment>
+                   {newsResults.slice(0,150).map(n=>(
                      <div key={n.id} className="newscard" style={{"--nc":NEWS_COL[n.status]}} onClick={()=>setNewsDetail(n)}>
                        <div className="nleft">
                          <div className="nbadge">{USAGE_EMOJI[n.objektart]||"📰"}</div>
@@ -1013,7 +1025,7 @@ function App(){
                        </div>
                        <div className="nbody">
                          <div className="nhead">{n.headline}</div>
-                         <div className="nmeta"><b>{n.firma}</b> · {n.rolle} · {n.stadt} · {monthName(n.datum)}</div>
+                         <div className="nmeta"><b>{n.firma}</b>{n.investortyp?` (${n.investortyp})`:""} · {n.rolle} · {n.stadt||"—"} · {monthName(n.datum)}</div>
                          <div className="nsum">{n.summary}</div>
                          <div className="nfoot">
                            <span className="npill">{UL[n.objektart]}</span>
@@ -1022,6 +1034,8 @@ function App(){
                          </div>
                        </div>
                      </div>))}
+                   {newsResults.length>150 && <div className="newsempty" style={{padding:"14px"}}>… und {newsResults.length-150} weitere Treffer. Frage/Filter verfeinern (Stadt, Objektart, Zeitraum), um sie einzugrenzen.</div>}
+                   </React.Fragment>}
              </div>
              <div className="newsfoot">
                <span>📰 {NEWS.length} News im Datensatz · Stand {NEWS_STAND}</span>
@@ -1141,6 +1155,7 @@ function NewsDetail({n,onClose,onFirm}){
           <div className="row">{n.summary}</div>
         </div>
         <div className="kv"><span>Firma</span><span>{n.firma}</span></div>
+        {n.investortyp&&<div className="kv"><span>Investorentyp</span><span>{n.investortyp}</span></div>}
         <div className="kv"><span>Objekt</span><span>{n.objekt}</span></div>
         <div className="kv"><span>Objektart</span><span>{UL[n.objektart]||n.objektart}</span></div>
         <div className="kv"><span>Stadt / Region</span><span>{n.stadt} · {n.region}</span></div>
@@ -1148,7 +1163,7 @@ function NewsDetail({n,onClose,onFirm}){
         <div className="kv"><span>Datum</span><span>{monthName(n.datum)}</span></div>
         <div className="kv"><span>Status</span><span>{n.status==="besitzt"?"gekauft, nicht wieder verkauft":"verkauft bzw. wieder verkauft"}</span></div>
         {inDb && <div className="btnrow" style={{marginTop:10}}><button className="btn wide" onClick={()=>onFirm(n.firmaId)}>Family Office in der Karte anzeigen</button></div>}
-        <div className="srcbox"><div className="src"><span className="lab">Quelle:</span> <a href={n.quelle.url} target="_blank" rel="noopener">{n.quelle.label}</a></div></div>
+        <div className="srcbox"><div className="src"><span className="lab">Quelle:</span> {n.quelle.url?<a href={n.quelle.url} target="_blank" rel="noopener">{n.quelle.label}</a>:<span>{n.quelle.label||"—"}</span>}</div></div>
       </div>
     </div>
   </div>);

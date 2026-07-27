@@ -26,8 +26,14 @@ python3 -m http.server 8080
 ## Dateien
 - `index.html` – die App (UI, Karte, Filter, Tabelle, Export, **Markt-Radar**).
 - `data.js` – der Family-Office-Datensatz (Firmen, Objekte, Koordinaten, Heatmaps).
-- `news.js` – **NEWS-Datensatz** (Deal-News: wer hat wo was gekauft/verkauft). Zum
-  Sammeln & Aktualisieren gedacht (statisch, versioniert, per Extraktion nachfüllbar).
+- `news.js` – **NEWS-Datensatz** (Deal-News: wer hat wo was gekauft/verkauft).
+  Aktuell ~1.700 echte Transaktionen aus den Auswertungen Thomas Daily/Savills +
+  Green Street. Erzeugt/aktualisiert über `tools/`.
+- `tools/import-xlsx.mjs` – wandelt strukturierte Excel-Auswertungen in `news.js`
+  (Käufer→„besitzt"/grün, Verkäufer→„besessen"/rot). Städte-Gazetteer für Pins;
+  `lat/lng` optional (ohne Koordinaten trotzdem in der Suche).
+- `tools/extract-news.mjs` – für Roh-News/E-Mails ohne Struktur: extrahiert Deals
+  per Claude-API und hängt sie an `news.js` an.
 
 ## Markt-Radar (News-Suche) – neues Chapter
 Ziel: beim Verkauf einer Immobilie in Sekunden die passenden Käufer finden.
