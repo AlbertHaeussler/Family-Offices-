@@ -80,6 +80,12 @@ def _cmd_discover_endpoints(cfg, args) -> int:
     return 0
 
 
+def _cmd_investor_filter(cfg, args) -> int:
+    from .diagnose import diagnose_investor_filter
+    diagnose_investor_filter(cfg, args.guid)
+    return 0
+
+
 def _cmd_export(cfg, args) -> int:
     from .extract import export_only
     if args.report not in cfg.reports:
@@ -127,6 +133,10 @@ def build_parser() -> argparse.ArgumentParser:
     de.add_argument("--property-id", default=None,
                     help="A PropertyId to scan property tabs (else taken from transactions).")
 
+    inf = sub.add_parser("investor-filter",
+                         help="Headlessly find how to filter propertySearch to one investor.")
+    inf.add_argument("--guid", required=True, help="A company GUID to test the filter with.")
+
     inv = sub.add_parser("investors",
                          help="Fetch investor profiles (headless) for companies in transactions.")
     inv.add_argument("--limit", type=int, default=None,
@@ -150,6 +160,7 @@ def main(argv: list[str] | None = None) -> int:
         "investors": _cmd_investors,
         "diagnose-modes": _cmd_diagnose,
         "discover-endpoints": _cmd_discover_endpoints,
+        "investor-filter": _cmd_investor_filter,
     }
     try:
         return handlers[args.command](cfg, args)

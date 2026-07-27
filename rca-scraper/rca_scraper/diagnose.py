@@ -69,3 +69,59 @@ def diagnose_modes(cfg: Config, report_name: str = "transactions") -> None:
         log.warning("None of the candidates produced holdings rows. We'll need to "
                     "capture the real HOLDINGS-toggle request from the UI (one click, "
                     "no investor profile involved).")
+
+
+def diagnose_investor_filter(cfg: Config, guid: str,
+                             report_name: str = "transactions") -> None:
+    """Find how to filter propertySearch to a single investor (company).
+
+    If we can restrict the search to one company, we get that investor's deals
+    AND holdings (with full 97-field per-object detail) straight from the
+    endpoint we already have — no UI, no per-tab endpoints.
+    """
+    report = cfg.reports[report_name]
+    base = json.loads(load_capture(cfg, report_name)["post_data"])
+    base["Size"] = 500
+
+    candidates: list[tuple[str, dict]] = [
+        ("InvestorGroupFilters=[guid]", {"InvestorGroupFilters": [guid]}),
+        ("InvestorGroupFilters=[{id}]", {"InvestorGroupFilters": [{"id": guid}]}),
+        ("InvestorGroupFilters=[{companyId}]", {"InvestorGroupFilters": [{"companyId": guid}]}),
+        ("InvestorGroupFilters=[{id,type:0}]", {"InvestorGroupFilters": [{"id": guid, "type": 0}]}),
+        ("InvestorGroupFilters=[{id,name,type:8}]",
+         {"InvestorGroupFilters": [{"id": guid, "name": "", "type": 8}]}),
+        ("InvestorGroupFilters=[{masterCompanyId}]",
+         {"InvestorGroupFilters": [{"masterCompanyId": guid}]}),
+        ("InvestorGroupFilters=[{companyId,capitalRole:owner}]",
+         {"InvestorGroupFilters": [{"companyId": guid, "capitalRole": "owner"}]}),
+        ("CompanyIds=[guid]", {"CompanyIds": [guid]}),
+        ("InvestorIds=[guid]", {"InvestorIds": [guid]}),
+        ("RolesQueryWordFilters=[{id}]", {"RolesQueryWordFilters": [{"id": guid}]}),
+        ("KeywordQueryWordFilters=[{id}]", {"KeywordQueryWordFilters": [{"id": guid}]}),
+    ]
+
+    log.info("Baseline (no investor filter) vs %d candidate filters ...", len(candidates))
+    with RcaClient(cfg) as client:
+        base_rc = (client.post(report.endpoint_path, base).get("data") or {}).get("resultCount")
+        log.info("%-44s resultCount=%s", "BASELINE", base_rc)
+        hits = []
+        for label, patch in candidates:
+            payload = copy.deepcopy(base)
+            payload.update(patch)
+            try:
+                data = client.post(report.endpoint_path, payload).get("data", {})
+            except Exception as exc:  # noqa: BLE001
+                log.warning("%-44s ERROR: %s", label, exc)
+                continue
+            rc = data.get("resultCount")
+            txn = len(data.get("pinTransactionItems") or [])
+            mark = ""
+            if rc is not None and base_rc and 0 < rc < base_rc * 0.5:
+                mark = "  <-- FILTER WORKS"
+                hits.append(label)
+            log.info("%-44s resultCount=%-7s txn=%-5d%s", label, rc, txn, mark)
+    if hits:
+        log.info("[green]Investor filter found:[/green] %s", hits)
+    else:
+        log.warning("No candidate narrowed the results — the investor filter uses a "
+                    "different shape; we'll read it from one UI capture.")
