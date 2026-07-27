@@ -1,0 +1,25 @@
+[project]
+name = "rca-scraper"
+version = "0.1.0"
+description = "Production-grade extractor for MSCI Real Capital Analytics (app.rcanalytics.com) via its JSON API."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx[http2]>=0.27",   # fast direct API calls (site speaks HTTP/2)
+    "playwright>=1.44",     # headed login + capture of the rcajwt cookie / real request payload
+    "PyYAML>=6.0",          # config + report registry
+    "python-dotenv>=1.0",  # .env for any non-interactive secrets
+    "tenacity>=8.2",        # retries with exponential backoff
+    "rich>=13.7",           # readable logs + progress
+]
+
+[project.scripts]
+rca-scrape = "rca_scraper.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rca_scraper*"]

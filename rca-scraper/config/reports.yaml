@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Report / table registry — the "which tables to extract" list.
+#
+# Each entry is one extractable table. Adding a new table is (ideally) just
+# adding a block here + capturing it once with `rca-scrape capture --report X`.
+#
+# Fields:
+#   endpoint_path : API path (relative to site.base_url).
+#   capture_file  : filename under captures/ holding the real request payload
+#                   (created by `rca-scrape capture`). Keeps the exact query the
+#                   site sends — do not hand-edit unless you know the schema.
+#   page_size_key : JSON key in the payload that controls rows per request.
+#   page_size     : value to request per page (raised well above the UI's 500).
+#   total_key     : dotted path in the response to the grand-total count.
+#   rows_key      : dotted path in the response to the array of row objects.
+#   id_key        : field on each row used to de-duplicate across pages/tiles.
+#   overrides     : payload keys to force (e.g. mode flags) when replaying.
+#   tiling        : if true, subdivide MapBounds to get past any server Size cap.
+#
+# NOTE: total_key / rows_key are best-guess placeholders until we see one real
+# response (the `probe` command prints the actual response shape to confirm).
+# ---------------------------------------------------------------------------
+
+reports:
+  transactions:
+    endpoint_path: "/api/v1/propertySearch/search"
+    capture_file: "transactions.json"
+    page_size_key: "Size"
+    page_size: 3000
+    total_key: "data.TotalCount"        # TODO confirm via probe
+    rows_key: "data.Properties"          # TODO confirm via probe
+    id_key: "PropertyId"                 # TODO confirm via probe
+    overrides:
+      isTransactionsRequest: true
+      isHoldingsRequest: false
+    tiling: true
+
+  holdings:
+    endpoint_path: "/api/v1/propertySearch/search"
+    capture_file: "holdings.json"
+    page_size_key: "Size"
+    page_size: 3000
+    total_key: "data.TotalCount"        # TODO confirm via probe
+    rows_key: "data.Properties"          # TODO confirm via probe
+    id_key: "PropertyId"                 # TODO confirm via probe
+    overrides:
+      isTransactionsRequest: false
+      isHoldingsRequest: true
+    tiling: true
+
+  # Further tables (investors/players, funds, trends, registered properties, …)
+  # get added here as we capture each one. Left as a stub for now:
+  # investors:
+  #   endpoint_path: "/api/v1/..."      # capture to discover
+  #   capture_file: "investors.json"
+  #   ...

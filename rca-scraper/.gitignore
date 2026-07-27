@@ -1,0 +1,22 @@
+# Secrets & captured session material (NEVER commit — contains live JWTs/cookies)
+.env
+sessions/
+captures/
+
+# Extraction output
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/

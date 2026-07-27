@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Global configuration for rca-scraper.
+# Values here can be overridden by environment variables (see .env.example).
+# Report/table definitions live in reports.yaml.
+# ---------------------------------------------------------------------------
+
+site:
+  base_url: "https://app.rcanalytics.com"
+  # The app's own origin/referer — sent so requests look like they come from the SPA.
+  origin: "https://app.rcanalytics.com"
+
+auth:
+  # Where the captured browser session (cookies incl. rcajwt) is persisted.
+  session_dir: "sessions"
+  # Default named profile; lets you keep more than one account/session.
+  profile: "default"
+
+capture:
+  # Where intercepted request payloads/headers are stored (one file per report).
+  dir: "captures"
+  # Endpoints we sniff while you use the site during `capture`.
+  # A request whose URL contains any of these substrings is recorded.
+  sniff_url_contains:
+    - "/api/v1/propertySearch/search"
+    - "/api/v1/"          # broad net so we also catch investors/funds/etc.
+
+http:
+  timeout_seconds: 90
+  retries: 4
+  backoff_base_seconds: 2   # 2s, 4s, 8s, 16s
+  # HTTP/2 matches the live site (see :authority/:method pseudo-headers in DevTools).
+  http2: true
+
+output:
+  dir: "data"
+  formats: ["csv", "sqlite"]   # staging layer 1 outputs
+  sqlite_path: "data/rca.sqlite"
+
+logging:
+  level: "INFO"            # DEBUG | INFO | WARNING | ERROR
+  dir: "logs"
