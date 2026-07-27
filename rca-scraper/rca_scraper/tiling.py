@@ -60,16 +60,19 @@ def extract_report(cfg: Config, report: Report, capture: dict, payload_base: dic
     """Drive the quadtree extraction for one report into `store`."""
     stats = TileStats()
 
-    # --- resume: reload queue from checkpoint, else seed with world bounds --
-    wb = cfg.world_bounds
-    world: Tile = (wb["west"], wb["south"], wb["east"], wb["north"])
+    # --- resume: reload queue from checkpoint, else seed with start bounds ---
+    if report.bounds and len(report.bounds) == 4:
+        world: Tile = tuple(float(x) for x in report.bounds)  # [w,s,e,n]
+    else:
+        wb = cfg.world_bounds
+        world = (wb["west"], wb["south"], wb["east"], wb["north"])
     queue: list[Tile] = [tuple(t) for t in store.get_meta("queue", default=None) or []]
     started = store.get_meta("started", default=False)
     if not started:
         queue = [world]
         store.set_meta("started", True)
-        store.set_meta("queue", [list(world) for world in queue])
-        log.info("Seeding quadtree with world bounds %s", world)
+        store.set_meta("queue", [list(t) for t in queue])
+        log.info("Seeding quadtree with start bounds %s", world)
     else:
         log.info("Resuming: %d tiles queued, %d rows already stored.",
                  len(queue), store.count())

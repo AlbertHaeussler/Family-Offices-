@@ -62,9 +62,14 @@ cp .env.example .env               # optional; usually you can leave it empty
 # 1. See which tables are configured
 rca-scrape reports
 
-# 2. Log in and capture a table's request (opens a browser window)
-rca-scrape capture --report transactions
-#    -> log in, open the Transactions table, let it load, press ENTER
+# 2. Log in ONCE and visit every tab you want (opens a browser window)
+rca-scrape capture
+#    -> log in, set Geography = Germany, then open each tab
+#       (Transactions, Investors, Funds, Trends, Registered Properties),
+#       let each load, and press ENTER. One login captures them all —
+#       important because a new RCA login evicts the previous session.
+#    -> writes captures/discovered.json (endpoints + response shapes) so the
+#       non-property tables can be configured without a second login.
 
 # 3. (optional) Probe: replay the request and inspect the response shape / cap
 rca-scrape probe --report transactions --size 3000

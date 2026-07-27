@@ -14,40 +14,10 @@ from typing import Any
 
 from .client import RcaClient, build_payload, load_capture, response_get
 from .config import Config
+from .inspect_shape import ROWS_HINTS, find_arrays, find_totals
 from .logging_setup import get_logger
 
 log = get_logger("probe")
-
-# Field names that commonly hold the row array / grand total in list APIs.
-_ROWS_HINTS = ("properties", "results", "rows", "items", "records", "data", "hits")
-_TOTAL_HINTS = ("total", "totalcount", "count", "totalresults", "totalrecords",
-                "recordcount", "matchcount")
-
-
-def _find_arrays(obj: Any, path: str = "") -> list[tuple[str, int]]:
-    """Return (dotted_path, length) for every list of dicts in the tree."""
-    found: list[tuple[str, int]] = []
-    if isinstance(obj, dict):
-        for k, v in obj.items():
-            p = f"{path}.{k}" if path else k
-            if isinstance(v, list) and v and isinstance(v[0], dict):
-                found.append((p, len(v)))
-            found.extend(_find_arrays(v, p))
-    return found
-
-
-def _find_totals(obj: Any, path: str = "") -> list[tuple[str, int]]:
-    """Return (dotted_path, value) for int fields whose name looks like a total."""
-    found: list[tuple[str, int]] = []
-    if isinstance(obj, dict):
-        for k, v in obj.items():
-            p = f"{path}.{k}" if path else k
-            if isinstance(v, int) and not isinstance(v, bool):
-                if any(h in k.lower() for h in _TOTAL_HINTS):
-                    found.append((p, v))
-            elif isinstance(v, dict):
-                found.extend(_find_totals(v, p))
-    return found
 
 
 def probe(cfg: Config, report_name: str, size: int) -> None:
@@ -73,16 +43,16 @@ def probe(cfg: Config, report_name: str, size: int) -> None:
     log.info("Top-level keys: %s", top)
 
     # --- auto-detect the row array & total -------------------------------
-    arrays = sorted(_find_arrays(data), key=lambda t: -t[1])
+    arrays = find_arrays(data)
     if arrays:
         log.info("Arrays of objects found (path -> count):")
         for p, n in arrays[:8]:
-            hint = "  <-- likely rows" if any(h in p.lower() for h in _ROWS_HINTS) else ""
+            hint = "  <-- likely rows" if any(h in p.lower() for h in ROWS_HINTS) else ""
             log.info("    %-40s %6d%s", p, n, hint)
     else:
         log.warning("No arrays of objects found — response shape is unexpected.")
 
-    totals = _find_totals(data)
+    totals = find_totals(data)
     if totals:
         log.info("Total-like fields found (path -> value):")
         for p, v in totals:

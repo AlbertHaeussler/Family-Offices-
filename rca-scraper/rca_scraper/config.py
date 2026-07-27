@@ -41,6 +41,8 @@ class Report:
     overrides: dict = field(default_factory=dict)
     tiling: bool = True
     saturation: int = 2000
+    # Optional [west, south, east, north] start rectangle; overrides world_bounds.
+    bounds: list | None = None
 
 
 @dataclass
