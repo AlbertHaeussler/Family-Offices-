@@ -51,7 +51,8 @@ def _cmd_run(cfg, args) -> int:
     if args.report not in cfg.reports:
         get_logger().error("Unknown report '%s'. See `rca-scrape reports`.", args.report)
         return 2
-    run(cfg, args.report, max_tiles=args.max_tiles, export=not args.no_export)
+    run(cfg, args.report, max_tiles=args.max_tiles, export=not args.no_export,
+        reset=args.reset)
     return 0
 
 
@@ -78,10 +79,12 @@ def build_parser() -> argparse.ArgumentParser:
     pr.add_argument("--size", type=int, default=3000,
                     help="Page size to request (default 3000; try large to test caps).")
 
-    rn = sub.add_parser("run", help="Full extraction via MapBounds tiling -> SQLite + CSV.")
+    rn = sub.add_parser("run", help="Full extraction (date/map partition) -> SQLite + CSV.")
     rn.add_argument("--report", required=True, help="Report name (see `reports`).")
-    rn.add_argument("--max-tiles", type=int, default=None,
-                    help="Stop after N tiles (resumable). Omit to run to completion.")
+    rn.add_argument("--max-tiles", type=int, default=None, metavar="N",
+                    help="Stop after N requests/tiles (resumable). Omit to run fully.")
+    rn.add_argument("--reset", action="store_true",
+                    help="Drop this report's existing rows + checkpoint and start fresh.")
     rn.add_argument("--no-export", action="store_true",
                     help="Skip the CSV export step (SQLite only).")
 

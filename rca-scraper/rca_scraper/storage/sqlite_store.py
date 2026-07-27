@@ -117,6 +117,15 @@ class SqliteStore:
         cur = self.conn.execute(f"SELECT {collist} FROM {_qi(self.report)}")
         yield from cur
 
+    def reset(self) -> None:
+        """Drop this report's table and checkpoint meta for a clean re-run."""
+        self.conn.execute(f"DROP TABLE IF EXISTS {_qi(self.report)}")
+        self.conn.execute("DELETE FROM _meta WHERE report=?", (self.report,))
+        self.conn.commit()
+        self._ensure_table()
+        self._columns = self._existing_columns()
+        log.info("Reset store for report '%s'.", self.report)
+
     def close(self) -> None:
         self.conn.close()
 

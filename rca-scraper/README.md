@@ -84,12 +84,25 @@ rca-scrape export --report transactions
 
 ### How full extraction works
 
-`run` replays your captured query but sweeps the globe with a **MapBounds
-quadtree**: it requests a tile, and if the tile comes back saturated (server
-caps detailed rows at ~2,596) it splits into four and recurses until every tile
-is under the cap. All rows land in SQLite keyed by `(PropertyId, DealId)`, so
-overlapping tiles **de-duplicate automatically**. Portfolio deals (which bundle
-several properties) are expanded into individual property rows.
+The search is bounded by a **geography filter** (e.g. Germany), so the server
+ignores `MapBounds` and returns the same global top-N for every map rectangle —
+map tiling doesn't partition here. What *does* narrow results is the
+**transaction date range**, so `run` partitions by date:
+
+- It **auto-detects the correct `DateRangeType`** at startup (some values mean
+  "all history" and ignore the dates) by finding the one that measurably shrinks
+  the result count — and **aborts loudly** if none does, so it never loops
+  without progress.
+- It then **bisects the date axis**: request a window; if it comes back at/over
+  the page cap it's truncated, so split it in half and recurse. Windows under
+  the cap are complete leaves.
+- All rows land in SQLite keyed by `(PropertyId, DealId)`, so overlapping window
+  edges **de-duplicate automatically**. Portfolio deals (which bundle several
+  properties) are expanded into individual property rows.
+
+`--reset` drops a report's rows + checkpoint to start fresh. A `map` partition
+strategy (quadtree) is still available in config for endpoints that *do* honour
+MapBounds.
 
 - **Resumable:** the tile queue is checkpointed after every tile. If a run is
   interrupted (or you pass `--max-tiles N`), just run the same command again and

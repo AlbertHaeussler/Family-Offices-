@@ -43,6 +43,14 @@ class Report:
     saturation: int = 2000
     # Optional [west, south, east, north] start rectangle; overrides world_bounds.
     bounds: list | None = None
+    # Partition strategy: "date" (recursive date-range bisection), "map"
+    # (MapBounds quadtree — only if the server honours it), or "none" (single).
+    partition: str = "map"
+    # For partition == "date":
+    date_path: str = "TransactionSearchFilters.DateRange"  # dotted path to the DateRange obj
+    date_type: int = 0            # DateRangeType value (auto-detected if it doesn't narrow)
+    date_format: str = "%m/%d/%Y"  # matches the request's DateFormat
+    date_start: str = "1970-01-01"  # earliest date to sweep from (ISO)
 
 
 @dataclass

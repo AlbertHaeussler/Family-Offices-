@@ -35,16 +35,21 @@ reports:
     endpoint_path: "/api/v1/propertySearch/search"
     capture_file: "transactions.json"
     page_size_key: "Size"
-    page_size: 3000
-    rows_key: "data.pinTransactionItems"   # confirmed: 97-col detailed rows
-    total_key: "data.resultCount"           # confirmed: matches-count for the search
-    id_key: "PropertyId"                     # unique per normal row (+DealId composite)
+    page_size: 10000                         # server accepts up to ~10k per request
+    rows_key: "data.pinTransactionItems"     # confirmed: 97-col detailed rows
+    total_key: "data.resultCount"             # confirmed: matches-count for the search
+    id_key: "PropertyId"                       # unique per normal row (+DealId composite)
+    # Geography (Germany) filter dominates -> MapBounds is ignored -> partition
+    # by transaction date instead. DateRangeType is auto-detected at run start.
+    partition: "date"
+    date_path: "TransactionSearchFilters.DateRange"
+    date_type: 0
+    date_format: "%m/%d/%Y"
+    date_start: "1970-01-01"
+    saturation: 6000                          # window with >=6k rows is truncated -> split
     overrides:
       isTransactionsRequest: true
       isHoldingsRequest: false
-    tiling: true
-    saturation: 2000
-    bounds: *germany
 
   holdings:
     endpoint_path: "/api/v1/propertySearch/search"

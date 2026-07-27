@@ -7,6 +7,7 @@ from __future__ import annotations
 
 from .client import RcaClient, build_payload, load_capture, response_get
 from .config import Config, Report
+from .date_partition import extract_by_date
 from .logging_setup import get_logger
 from .normalize import expand_rows
 from .storage import SqliteStore, export_csv
@@ -16,7 +17,7 @@ log = get_logger("extract")
 
 
 def run(cfg: Config, report_name: str, *, max_tiles: int | None = None,
-        export: bool = True) -> None:
+        export: bool = True, reset: bool = False) -> None:
     report = cfg.reports[report_name]
     if report.endpoint_path == "TODO" or report.rows_key == "TODO":
         log.error("Report '%s' isn't configured yet (endpoint/rows still TODO). "
@@ -29,10 +30,15 @@ def run(cfg: Config, report_name: str, *, max_tiles: int | None = None,
 
     store = SqliteStore(cfg.sqlite_path, report_name, id_key=report.id_key)
     try:
+        if reset:
+            store.reset()
+
         if store.get_meta("complete"):
-            log.info("Report '%s' already complete (%d rows). Delete its table/"
-                     "checkpoint to re-run.", report_name, store.count())
-        elif report.tiling:
+            log.info("Report '%s' already complete (%d rows). Re-run with --reset "
+                     "to start over.", report_name, store.count())
+        elif report.partition == "date":
+            extract_by_date(cfg, report, payload_base, store, max_requests=max_tiles)
+        elif report.partition == "map":
             stats = extract_report(cfg, report, capture, payload_base, store,
                                    max_tiles=max_tiles)
             log.info("Tiles processed=%d, rows stored=%d, saturated-at-min=%d",
