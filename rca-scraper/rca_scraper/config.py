@@ -40,6 +40,7 @@ class Report:
     id_key: str = "PropertyId"
     overrides: dict = field(default_factory=dict)
     tiling: bool = True
+    saturation: int = 2000
 
 
 @dataclass
@@ -88,6 +89,20 @@ class Config:
     @property
     def http2(self) -> bool:
         return bool(_deep_get(self.raw, "http.http2", True))
+
+    # --- tiling -----------------------------------------------------------
+    @property
+    def world_bounds(self) -> dict:
+        return _deep_get(self.raw, "tiling.world_bounds",
+                         {"west": -180.0, "south": -60.0, "east": 180.0, "north": 78.0})
+
+    @property
+    def min_tile_degrees(self) -> float:
+        return float(_deep_get(self.raw, "tiling.min_tile_degrees", 0.05))
+
+    @property
+    def request_delay(self) -> float:
+        return float(_deep_get(self.raw, "tiling.request_delay", 0.4))
 
     @property
     def output_dir(self) -> Path:

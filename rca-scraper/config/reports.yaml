@@ -15,10 +15,12 @@
 #   rows_key      : dotted path in the response to the array of row objects.
 #   id_key        : field on each row used to de-duplicate across pages/tiles.
 #   overrides     : payload keys to force (e.g. mode flags) when replaying.
-#   tiling        : if true, subdivide MapBounds to get past any server Size cap.
+#   tiling        : if true, subdivide MapBounds to get past the server's cap.
+#   saturation    : if a tile returns >= this many rows, it's assumed truncated
+#                   and gets split into 4 (observed server cap ~2596).
 #
-# NOTE: total_key / rows_key are best-guess placeholders until we see one real
-# response (the `probe` command prints the actual response shape to confirm).
+# rows_key / total_key / id_key below were CONFIRMED against a live probe
+# response (see README "How it works").
 # ---------------------------------------------------------------------------
 
 reports:
@@ -27,26 +29,28 @@ reports:
     capture_file: "transactions.json"
     page_size_key: "Size"
     page_size: 3000
-    total_key: "data.TotalCount"        # TODO confirm via probe
-    rows_key: "data.Properties"          # TODO confirm via probe
-    id_key: "PropertyId"                 # TODO confirm via probe
+    rows_key: "data.pinTransactionItems"   # confirmed: 97-col detailed rows
+    total_key: "data.resultCount"           # confirmed: matches-count for the search
+    id_key: "PropertyId"                     # unique per normal row (+DealId composite)
     overrides:
       isTransactionsRequest: true
       isHoldingsRequest: false
     tiling: true
+    saturation: 2000
 
   holdings:
     endpoint_path: "/api/v1/propertySearch/search"
     capture_file: "holdings.json"
     page_size_key: "Size"
     page_size: 3000
-    total_key: "data.TotalCount"        # TODO confirm via probe
-    rows_key: "data.Properties"          # TODO confirm via probe
-    id_key: "PropertyId"                 # TODO confirm via probe
+    rows_key: "data.pinHoldingItems"        # holdings-mode row array
+    total_key: "data.resultCount"
+    id_key: "PropertyId"
     overrides:
       isTransactionsRequest: false
       isHoldingsRequest: true
     tiling: true
+    saturation: 2000
 
   # Further tables (investors/players, funds, trends, registered properties, …)
   # get added here as we capture each one. Left as a stub for now:

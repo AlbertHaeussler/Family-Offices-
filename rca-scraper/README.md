@@ -66,15 +66,35 @@ rca-scrape reports
 rca-scrape capture --report transactions
 #    -> log in, open the Transactions table, let it load, press ENTER
 
-# 3. Probe: replay the request and inspect the real response shape + Size cap
+# 3. (optional) Probe: replay the request and inspect the response shape / cap
 rca-scrape probe --report transactions --size 3000
-#    -> prints where the rows/total live, and whether the server caps Size
+
+# 4. Full extraction -> SQLite + CSV (resumable)
+rca-scrape run --report transactions
+#    -> data/rca.sqlite (table `transactions`) + data/transactions.csv
+
+# Re-export CSV from the SQLite table any time
+rca-scrape export --report transactions
 ```
 
-`probe` writes the raw JSON to `data/probe_<report>.json` and reports whether a
-single large request returns everything or tiling is required. Its output is
-what we use to finalise `total_key` / `rows_key` / `id_key` in
-`config/reports.yaml` and to switch on full extraction (`run`, next increment).
+### How full extraction works
+
+`run` replays your captured query but sweeps the globe with a **MapBounds
+quadtree**: it requests a tile, and if the tile comes back saturated (server
+caps detailed rows at ~2,596) it splits into four and recurses until every tile
+is under the cap. All rows land in SQLite keyed by `(PropertyId, DealId)`, so
+overlapping tiles **de-duplicate automatically**. Portfolio deals (which bundle
+several properties) are expanded into individual property rows.
+
+- **Resumable:** the tile queue is checkpointed after every tile. If a run is
+  interrupted (or you pass `--max-tiles N`), just run the same command again and
+  it continues where it left off. Re-running a completed report is a no-op.
+- **Output:** `data/rca.sqlite` (one dynamic-schema table per report, full
+  fidelity incl. a `raw_json` column) plus a clean `data/<report>.csv`.
+
+`probe` (step 3) writes the raw JSON to `data/probe_<report>.json` and prints
+where the rows/total live — handy for confirming a new table's shape before
+adding it to `reports.yaml`.
 
 ---
 
@@ -112,6 +132,10 @@ rca-scraper/
 │   ├── auth.py              # Playwright login + session/request capture
 │   ├── client.py            # httpx replay, retries, rotating-cookie handling
 │   ├── probe.py             # response-shape + Size-cap inspection
+│   ├── normalize.py         # flatten rows, expand portfolios, dedup keys
+│   ├── tiling.py            # MapBounds quadtree extraction (resumable)
+│   ├── extract.py           # run/export orchestration
+│   ├── storage/             # SQLite (source of truth) + CSV export
 │   └── cli.py               # `rca-scrape` entrypoint
 ├── sessions/  captures/  data/  logs/   # git-ignored, created at runtime
 ├── pyproject.toml
@@ -121,5 +145,5 @@ rca-scraper/
 ## Status
 
 - [x] Increment 1 — scaffold, capture (auth + request), probe
-- [ ] Increment 2 — full extraction: Size + MapBounds tiling, SQLite/CSV, resume
+- [x] Increment 2 — full extraction: MapBounds tiling, SQLite/CSV, resume
 - [ ] Increment 3 — all 9+ tables via config + Layer-2 platform integration

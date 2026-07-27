@@ -31,6 +31,16 @@ http:
   # HTTP/2 matches the live site (see :authority/:method pseudo-headers in DevTools).
   http2: true
 
+tiling:
+  # Starting rectangle for the quadtree. Default = whole globe, so extraction is
+  # complete regardless of any geography filter baked into the captured request.
+  world_bounds: {west: -180.0, south: -60.0, east: 180.0, north: 78.0}
+  # Don't subdivide below this size (degrees) — a safety floor against runaway
+  # splitting; a saturated tile this small is logged as a coverage warning.
+  min_tile_degrees: 0.05
+  # Politeness delay between tile requests (seconds).
+  request_delay: 0.4
+
 output:
   dir: "data"
   formats: ["csv", "sqlite"]   # staging layer 1 outputs
