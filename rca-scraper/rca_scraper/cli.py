@@ -74,6 +74,12 @@ def _cmd_diagnose(cfg, args) -> int:
     return 0
 
 
+def _cmd_discover_endpoints(cfg, args) -> int:
+    from .endpoint_discovery import discover
+    discover(cfg, args.guid, property_id=args.property_id)
+    return 0
+
+
 def _cmd_export(cfg, args) -> int:
     from .extract import export_only
     if args.report not in cfg.reports:
@@ -115,6 +121,12 @@ def build_parser() -> argparse.ArgumentParser:
                         help="Probe which request field toggles holdings mode (headless).")
     dg.add_argument("--report", default="transactions", help="Base capture to use.")
 
+    de = sub.add_parser("discover-endpoints",
+                        help="Headlessly scan for per-investor/per-property API tabs.")
+    de.add_argument("--guid", required=True, help="A company GUID (CompanyId) to scan.")
+    de.add_argument("--property-id", default=None,
+                    help="A PropertyId to scan property tabs (else taken from transactions).")
+
     inv = sub.add_parser("investors",
                          help="Fetch investor profiles (headless) for companies in transactions.")
     inv.add_argument("--limit", type=int, default=None,
@@ -137,6 +149,7 @@ def main(argv: list[str] | None = None) -> int:
         "export": _cmd_export,
         "investors": _cmd_investors,
         "diagnose-modes": _cmd_diagnose,
+        "discover-endpoints": _cmd_discover_endpoints,
     }
     try:
         return handlers[args.command](cfg, args)

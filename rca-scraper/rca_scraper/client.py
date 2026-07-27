@@ -137,6 +137,24 @@ class RcaClient:
     def get(self, path: str, extra_headers: dict | None = None) -> dict:
         return self._request("GET", path, extra_headers=extra_headers)
 
+    def try_get(self, path: str) -> tuple[int, object | None, int]:
+        """Single GET for endpoint discovery: returns (status, json|None, bytes).
+
+        Never raises for 4xx/5xx — used to probe whether an endpoint exists.
+        """
+        try:
+            resp = self._client.get(path)
+        except httpx.TransportError as exc:
+            log.debug("try_get transport error %s: %s", path, exc)
+            return (0, None, 0)
+        body = None
+        if "json" in resp.headers.get("content-type", "").lower():
+            try:
+                body = resp.json()
+            except Exception:  # noqa: BLE001
+                body = None
+        return (resp.status_code, body, len(resp.content))
+
     def _request(self, method: str, path: str, *, json: dict | None = None,
                  extra_headers: dict | None = None) -> dict:
         cfg = self.cfg
