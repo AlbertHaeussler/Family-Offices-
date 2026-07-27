@@ -75,26 +75,32 @@ def _fetch(client: RcaClient, report: Report, payload: dict) -> tuple[list, int 
 
 
 def _detect_date_type(client: RcaClient, report: Report, base: dict) -> tuple[int | None, int | None]:
-    """Find a DateRangeType that measurably narrows results.
+    """Find the DateRangeType that honours a *custom* StartDate/EndDate.
+
+    Presets like "last 365 days" also shrink the count but ignore the dates we
+    send — they'd return the same number for any window and silently cap the
+    sweep. So we test each type with a SMALL and a BIG window: only a real
+    custom-range type makes the count scale with window size.
 
     Returns (working_type_or_None, baseline_total).
     """
-    # Baseline: the unfiltered query's total.
     _, rc_full = _fetch(client, report, base)
     log.info("Baseline resultCount (no date filter): %s", rc_full)
     if not rc_full:
         log.warning("No baseline resultCount; can't verify date filtering.")
         return report.date_type, rc_full
 
-    # A narrow, recent window that should contain far fewer than everything.
-    hi = date.today()
-    lo = hi - timedelta(days=365)
+    small = (date(2018, 1, 1), date(2018, 12, 31))     # one year
+    big = (date(2000, 1, 1), date(2024, 12, 31))       # ~25 years
     for dtype in dict.fromkeys([report.date_type, *_TYPE_CANDIDATES]):
-        payload = _payload_for(base, report, lo, hi, dtype)
-        _, rc = _fetch(client, report, payload)
-        log.info("  DateRangeType=%d over last 365d -> resultCount=%s", dtype, rc)
-        if rc is not None and 0 < rc < rc_full * 0.9:
-            log.info("[green]DateRangeType=%d narrows results — using it.[/green]", dtype)
+        _, rc_s = _fetch(client, report, _payload_for(base, report, *small, dtype))
+        _, rc_b = _fetch(client, report, _payload_for(base, report, *big, dtype))
+        log.info("  DateRangeType=%d: 2018=%s vs 2000-2024=%s", dtype, rc_s, rc_b)
+        # Custom range: both narrow the baseline AND the big window holds clearly
+        # more than the small one (a preset would return the same for both).
+        if (rc_s and rc_b and rc_s > 0 and rc_s < rc_full * 0.9
+                and rc_b > rc_s * 1.5 and rc_b <= rc_full * 1.05):
+            log.info("[green]DateRangeType=%d honours custom dates — using it.[/green]", dtype)
             return dtype, rc_full
     return None, rc_full
 
