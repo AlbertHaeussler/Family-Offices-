@@ -33,7 +33,7 @@ def _cmd_capture(cfg, args) -> int:
     if args.report and args.report not in cfg.reports:
         get_logger().error("Unknown report '%s'. See `rca-scrape reports`.", args.report)
         return 2
-    capture(cfg, report=args.report, headless=False)
+    capture(cfg, report=args.report, headless=False, reuse=args.reuse)
     return 0
 
 
@@ -73,6 +73,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     c = sub.add_parser("capture", help="Log in (headed browser) and capture session + request.")
     c.add_argument("--report", help="Save the captured search request for this report.")
+    c.add_argument("--reuse", action="store_true",
+                   help="Reuse the saved session (no new login/email code) if still valid.")
 
     pr = sub.add_parser("probe", help="Replay one captured request and inspect the response.")
     pr.add_argument("--report", required=True, help="Report name (see `reports`).")

@@ -55,7 +55,8 @@ def has_auth_cookie(storage_state: dict, name: str = "rcajwt") -> bool:
     return any(c.get("name") == name for c in storage_state.get("cookies", []))
 
 
-def capture(cfg: Config, report: str | None = None, headless: bool = False) -> None:
+def capture(cfg: Config, report: str | None = None, headless: bool = False,
+            reuse: bool = False) -> None:
     """Open a browser, let the user log in and visit every tab they want, then
     persist the session cookie plus each distinct API endpoint's request AND a
     sample response.
@@ -65,6 +66,11 @@ def capture(cfg: Config, report: str | None = None, headless: bool = False) -> N
     Registered Properties) in the single session and everything is captured
     together. Responses are saved so every table's shape can be configured
     without a second login.
+
+    Args:
+        reuse: load the previously saved session into the browser so you're
+               already logged in — no new email code. Only works while that
+               session is still valid.
     """
     # Imported lazily so the rest of the CLI works even before `playwright
     # install` has been run.
@@ -105,16 +111,24 @@ def capture(cfg: Config, report: str | None = None, headless: bool = False) -> N
         if prev is None or _row_estimate(body) >= _row_estimate(prev):
             responses_by_path[slug] = body
 
+    reuse_state = None
+    if reuse and cfg.session_file().exists():
+        reuse_state = str(cfg.session_file())
+        log.info("Reusing saved session (%s) — you should already be logged in.",
+                 reuse_state)
+    elif reuse:
+        log.warning("--reuse requested but no saved session found; you'll log in fresh.")
+
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=headless)
-        context = browser.new_context()
+        context = browser.new_context(storage_state=reuse_state)
         page = context.new_page()
         page.on("request", on_request)
         page.on("response", on_response)
         page.goto(cfg.base_url, wait_until="domcontentloaded")
 
         log.info("[bold cyan]A browser window has opened.[/bold cyan]")
-        log.info("1) Log in with the account's credentials.")
+        log.info("1) Log in with the account's credentials (skip if already logged in).")
         log.info("2) Set your filter (e.g. Geography = Germany).")
         log.info("3) Visit EACH tab you want, letting its data load fully:")
         log.info("   Transactions, Investors, Funds, Trends, Registered Properties.")
