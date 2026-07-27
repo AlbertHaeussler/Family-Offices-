@@ -56,6 +56,18 @@ def _cmd_run(cfg, args) -> int:
     return 0
 
 
+def _cmd_investors(cfg, args) -> int:
+    from .investors import fetch_investors
+    fetch_investors(cfg, limit=args.limit, min_deals=args.min_deals)
+    if "csv" in cfg.output_formats:
+        from .extract import export_only
+        try:
+            export_only(cfg, "investors")
+        except Exception as exc:  # noqa: BLE001
+            get_logger().warning("CSV export skipped: %s", exc)
+    return 0
+
+
 def _cmd_export(cfg, args) -> int:
     from .extract import export_only
     if args.report not in cfg.reports:
@@ -92,6 +104,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     ex = sub.add_parser("export", help="Re-export a report's SQLite table to CSV.")
     ex.add_argument("--report", required=True, help="Report name (see `reports`).")
+
+    inv = sub.add_parser("investors",
+                         help="Fetch investor profiles (headless) for companies in transactions.")
+    inv.add_argument("--limit", type=int, default=None,
+                     help="Only the top N companies by deal count (great for a test run).")
+    inv.add_argument("--min-deals", type=int, default=1,
+                     help="Skip companies appearing in fewer than N deals (default 1).")
     return p
 
 
@@ -106,6 +125,7 @@ def main(argv: list[str] | None = None) -> int:
         "probe": _cmd_probe,
         "run": _cmd_run,
         "export": _cmd_export,
+        "investors": _cmd_investors,
     }
     try:
         return handlers[args.command](cfg, args)

@@ -83,15 +83,16 @@ reports:
   # --- Non-property tables: separate endpoints + shapes, filled in from the
   #     capture manifest (discovered.json) after the one-login capture session.
   #     Placeholders below are marked TODO and confirmed against real responses.
+  # Investor profiles are fetched headless via `rca-scrape investors` (the
+  # companyprofile/{GUID} API), using GUIDs pulled from the transactions data —
+  # not via a search endpoint. This entry just names the store + id column.
   investors:
-    endpoint_path: "TODO"                    # from discovered.json (Investors tab)
-    capture_file: "investors.json"
-    page_size_key: "Size"
-    page_size: 5000
-    rows_key: "TODO"
-    total_key: "TODO"
-    id_key: "TODO"
-    tiling: false                            # likely a flat list, not map-tiled
+    endpoint_path: "/api/v1/companyprofile"
+    capture_file: "transactions.json"
+    rows_key: "n/a"
+    total_key: "n/a"
+    id_key: "CompanyId"
+    partition: "none"                            # likely a flat list, not map-tiled
 
   funds:
     endpoint_path: "TODO"                    # from discovered.json (Funds tab)

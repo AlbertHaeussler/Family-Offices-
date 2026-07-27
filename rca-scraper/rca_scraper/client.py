@@ -132,6 +132,13 @@ class RcaClient:
             log.debug("Persisted rotated session cookies.")
 
     def post(self, path: str, payload: dict, extra_headers: dict | None = None) -> dict:
+        return self._request("POST", path, json=payload, extra_headers=extra_headers)
+
+    def get(self, path: str, extra_headers: dict | None = None) -> dict:
+        return self._request("GET", path, extra_headers=extra_headers)
+
+    def _request(self, method: str, path: str, *, json: dict | None = None,
+                 extra_headers: dict | None = None) -> dict:
         cfg = self.cfg
 
         @retry(
@@ -141,7 +148,7 @@ class RcaClient:
             retry=retry_if_exception_type((httpx.TransportError, RetryableStatus)),
         )
         def _do() -> dict:
-            resp = self._client.post(path, json=payload, headers=extra_headers or {})
+            resp = self._client.request(method, path, json=json, headers=extra_headers or {})
             if resp.status_code == 202:
                 raise RetryableStatus("202 Accepted (still processing) — retrying")
             if resp.status_code in (429,) or resp.status_code >= 500:
