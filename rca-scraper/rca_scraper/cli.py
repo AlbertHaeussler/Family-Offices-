@@ -68,6 +68,12 @@ def _cmd_investors(cfg, args) -> int:
     return 0
 
 
+def _cmd_diagnose(cfg, args) -> int:
+    from .diagnose import diagnose_modes
+    diagnose_modes(cfg, args.report)
+    return 0
+
+
 def _cmd_export(cfg, args) -> int:
     from .extract import export_only
     if args.report not in cfg.reports:
@@ -105,6 +111,10 @@ def build_parser() -> argparse.ArgumentParser:
     ex = sub.add_parser("export", help="Re-export a report's SQLite table to CSV.")
     ex.add_argument("--report", required=True, help="Report name (see `reports`).")
 
+    dg = sub.add_parser("diagnose-modes",
+                        help="Probe which request field toggles holdings mode (headless).")
+    dg.add_argument("--report", default="transactions", help="Base capture to use.")
+
     inv = sub.add_parser("investors",
                          help="Fetch investor profiles (headless) for companies in transactions.")
     inv.add_argument("--limit", type=int, default=None,
@@ -126,6 +136,7 @@ def main(argv: list[str] | None = None) -> int:
         "run": _cmd_run,
         "export": _cmd_export,
         "investors": _cmd_investors,
+        "diagnose-modes": _cmd_diagnose,
     }
     try:
         return handlers[args.command](cfg, args)
