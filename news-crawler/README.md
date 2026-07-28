@@ -88,7 +88,25 @@ werden übersprungen; jeder Detail-Datensatz wird zusätzlich einzeln als
 Die Spalte **`address` ist bewusst leer** — die Adresse steckt im `content` und
 wird im nächsten Schritt extrahiert (nicht vom Crawler).
 
-## Schritt 2 — Fakten extrahieren & nach Topic sortieren (`extract.mjs`)
+## Schritt 2a — KOSTENLOS nach Topic sortieren (`sort.mjs`)
+
+Willst du einfach **alle Artikel nach Topic sortiert** — ohne einen Cent
+auszugeben und ohne Anthropic-Key? Dann nimm das hier. Es gruppiert die
+gecrawlten Artikel nach dem **Topic-/Sector-Feld, das Green Street selbst
+mitliefert** — keine KI, keine Kosten.
+
+```bash
+node sort.mjs
+```
+Ergebnis: `out/articles-by-topic.csv` (alles) + `out/by-topic-free/<Topic>.csv`
+(eine Tabelle pro Topic), jeweils mit Titel, Excerpt, Inhalt, Datum, Link.
+
+Der Crawl (Schritt 1) + dieser Sort = **komplett gratis** (nur das GS-Abo eurer
+Firma nötig). Schritt 2b unten (KI-Faktenextraktion) ist **optional** und kostet
+die paar Euro — nur nötig, wenn du strukturierte Felder wie „wer hat den Kredit
+für welches Objekt aufgenommen" automatisch rausziehen willst.
+
+## Schritt 2b — Fakten extrahieren & nach Topic sortieren (`extract.mjs`)
 
 Nimmt `out/articles.json` und zieht per Claude in **einem** Call pro Artikel
 die **nutzbaren Fakten** raus. Ein Artikel kann **mehreren Topics** zugeordnet
