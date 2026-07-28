@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+781,1c015adb-c7a8-4f30-86eb-1bbb3d68f9f2,City of Paderborn,User/Other,2,182794.1246272,Office; Dev Site,Paderborn,Dev Site; Office,Paderborn,North Rhine-Westphalia,,2025-12-18 00:00:00
+782,93887f88-02ab-445f-b27f-b2748706c40c,Franklin Templeton Investments,Institutional,2,18499.5486,Office; Other Hospitality,Dortmund; Frankfurt am Main,Office; Other Hospitality,Dortmund; Frankfurt am Main,North Rhine-Westphalia; Hesse,Franklin Real Asset Advisors,2026-05-19 00:00:00
+783,37f0d348-8b67-4c4d-b057-91663582b170,Easternmed Real Estate Capital PLC,Private,2,17999.5608,Office,Hamburg; Munich,Office,Hamburg; Munich,Hamburg; Bavaria,,2025-10-28 00:00:00
+784,1662e7b6-2383-47f6-a6ba-132048494cdb,Hofheimer Wohnungsbau,Private,2,11149.72794,Dev Site; Apartment,Hofheim am Taunus,Dev Site; Apartment,Hofheim am Taunus,Hesse,,2025-12-19 00:00:00
+785,6aa7f831-b9b9-41cd-96f9-9ade06a5789b,LogProject,Private,2,114931.1956104,Dev Site,Dusseldorf; Giengen an der Brenz,Industrial; Dev Site,Isenbuttel; Dusseldorf; Langenfeld (Rheinland),North Rhine-Westphalia; Lower Saxony; Baden-Wurttemberg,,2025-02-13 00:00:00
+786,bd5657ae-402e-4677-a035-dc18a547bcae,Stiftung EVZ,User/Other,2,5299.87068,Apartment; Office,Berlin,Apartment; Office,Berlin,Berlin,,2026-05-04 00:00:00
+787,e5638739-58dd-494a-8d53-cffb0464e407,Schomaker Baugruppe,Private,2,15245.6279976,Retail,Aurich; Nordhorn,Retail,Aurich; Nordhorn,Lower Saxony,,2026-03-03 00:00:00
+788,8ea03d46-2534-4f6d-8ea6-32934238fbb4,INWO - Bau GmbH,Private,2,40998.9996,Dev Site; Retail,Ludwigshafen am Rhein; Bruchsal,Retail; Dev Site; Industrial,Ludwigshafen am Rhein; Bruchsal; Kronau,Baden-Wurttemberg; Rhineland-Palatinate,,2025-11-01 00:00:00
+789,4837ab3d-ab80-444b-a4ce-cf975a698123,City of Bad Homburg,User/Other,2,10114.753194,Apartment,Bad Homburg vor der Hohe,Apartment; Dev Site; Office,Bad Homburg vor der Hohe,Hesse,,2025-05-21 00:00:00
+790,1369a30d-2930-4791-a49b-8bc640ac111c,Acta Group,Private,2,2449.94022,Apartment,Kaiserslautern; Kusel,Apartment,Kaiserslautern; Kusel,Rhineland-Palatinate,,2024-11-06 00:00:00
+791,bedae149-7ac2-4bf4-bc13-f95e93bfbb69,Periskop Partners AG,Institutional,2,260525.6430192,Industrial; Dev Site,Wolfsburg; Duisburg,Industrial; Dev Site,Wolfsburg; Duisburg,Lower Saxony; North Rhine-Westphalia,,2026-06-18 00:00:00
+792,7f9827fe-1679-4bda-be53-dfed6ec289b7,VidaCura GmbH,Private,2,12329.699148,Seniors Housing & Care,Nordkirchen; Witten,Seniors Housing & Care,Nordkirchen; Witten,North Rhine-Westphalia,,2024-11-05 00:00:00
+793,77ccc116-7cad-4ef2-a472-81356624e735,Hilfswerk-Siedlung GmbH,Private,2,7579.815048,Apartment,Bernau bei Berlin; Berlin,Apartment,Bernau bei Berlin; Berlin,Brandenburg; Berlin,,2026-03-09 00:00:00
+794,c58f3539-6edd-485e-8cd9-16d2ed9cd10e,City of Darmstadt,User/Other,2,2915.9288496,Office; Seniors Housing & Care,Darmstadt,Dev Site; Office; Seniors Housing & Care,Darmstadt; Dieburg,Hesse,,2024-11-25 00:00:00
+795,e58d9ddf-51e8-4bd8-b19e-b89346f88fde,Wohn + Stadtbau,User/Other,2,9205.7753736,Dev Site,Munster,Dev Site,Munster,North Rhine-Westphalia,,2025-01-06 00:00:00
+796,59e6aef8-965d-4a77-a419-1b54b4f30420,KVBW,Institutional,2,35299.13868,Office; Apartment,Dusseldorf; Karlsruhe,Office; Apartment,Dusseldorf; Karlsruhe,North Rhine-Westphalia; Baden-Wurttemberg,,2026-07-07 00:00:00
+797,2cee0601-ba33-43bf-86f6-92f7a8b1de75,Stihl,User/Other,2,57598.59456,Dev Site; Industrial,Waiblingen,Dev Site; Industrial,Waiblingen,Baden-Wurttemberg,,2025-04-07 00:00:00
+798,c1ba3599-87c8-42e3-bd88-88a8bb3b4a72,Inka AG,Private,2,9441.7696152,Hotel; Parking Facility,Munich,Hotel; Parking Facility,Munich,Bavaria,,2025-12-19 00:00:00
+799,e46899bc-0c26-4879-84a2-43c028426157,Stumpf AG,Private,2,86397.89184,Retail,Munich; Berlin,Retail; Office,Munich; Berlin; Stuttgart,Bavaria; Berlin; Baden-Wurttemberg,M+W,2025-12-15 00:00:00
+800,2d7e8106-b093-4ddc-85f3-1788e308b489,pantera AG,Private,2,52298.72388,Dev Site,Berlin; Dusseldorf,Dev Site; Hotel; Apartment,Berlin; Aschheim; Dusseldorf,Berlin; Bavaria; North Rhine-Westphalia,,2026-02-04 00:00:00

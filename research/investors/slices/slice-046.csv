@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+901,516fc53d-dbfd-40f0-a0ab-cbe6c25974d6,Sachsische Arzteversorgung,Institutional,1,1596.9610332,Office,Hamburg,Office,Frankfurt am Main; Hamburg,Hesse; Hamburg,,2025-06-04 00:00:00
+902,2c2ddc89-81f0-4162-a91a-2dcbe09b3d87,Hannover Steel,Institutional,1,5289.870924,Office,Dortmund,Office,Bremen; Dortmund; Wietze,Bremen; North Rhine-Westphalia; Lower Saxony,,2025-01-22 00:00:00
+903,4c6d3282-6eee-4302-b8f7-d47ee3f42075,Quilvest,Institutional,1,34999.146,Retail,Radolfzell am Bodensee,Retail; Office,Bergisch Gladbach; Offenbach am Main; Radolfzell am Bodensee,North Rhine-Westphalia; Hesse; Baden-Wurttemberg,,2025-09-02 00:00:00
+904,45b8d585-1f8c-44c5-947d-86755ff7b1ce,TRS of Texas,Institutional,1,54998.658,Dev Site,Wedel,Retail; Dev Site,Laatzen; Wedel,Lower Saxony; Schleswig-Holstein,,2026-05-27 00:00:00
+905,ec60ba0c-60d5-4ff2-922d-53146e43ac81,Hanseatische Immobilien -HIBB,Private,1,6799.83408,Office,Frankfurt am Main,Office; Apartment; Dev Site,Bremen; Hamburg; Frankfurt am Main,Bremen; Hamburg; Hesse,,2026-01-14 00:00:00
+906,51f2ff8c-9494-4f4e-b0de-83d444f2195e,HELMA Eigenheimbau AG,Private,1,13493.6707464,Dev Site,Berlin,Dev Site; Other Hospitality,Kappeln; Berlin; Hanover,Schleswig-Holstein; Berlin; Lower Saxony,HELMA Wohnungsbau GmbH,2026-07-07 00:00:00
+907,3628a9aa-39d0-44d4-96e9-84eff1cc6088,City of Kiel,User/Other,1,118997.0964,Industrial,Kiel,Dev Site; Industrial,Kiel,Schleswig-Holstein,,2026-04-16 00:00:00
+908,6ad558af-a9e9-4df5-8dd4-9c49a7d684d4,TUV-Verband,User/Other,1,6999.8292,Dev Site,Dusseldorf,Dev Site; Office,Essen; Dusseldorf; Huckelhoven,North Rhine-Westphalia; Bavaria,TUV Nord; TUV Rheinland; TUV Sud,2025-12-02 00:00:00
+909,69e678a9-b129-4f16-8a70-b8ec7427d30d,City of Bremerhaven,User/Other,1,,Hotel,Bremerhaven,Dev Site; Retail; Hotel,Bremerhaven,Bremen,,2024-10-01 00:00:00
+910,c140a179-48c4-42c6-b65d-aa08c8e01476,HPE Hanseatische Projektentwicklung,Private,1,1999.9512,Condo,Potsdam,Office; Condo,Hamburg; Potsdam,Hamburg; Brandenburg,,2024-09-23 00:00:00
+911,fb6ce1fb-9608-4844-8248-10f789dd897a,zwei.7 Holding GmbH,Institutional,1,6599.83896,Office,Nuremberg,Industrial; Apartment; Office,Osnabruck; Bonn; Nuremberg,Lower Saxony; North Rhine-Westphalia; Bavaria,,2026-01-28 00:00:00
+912,6b9475ad-5c34-4d05-9ea5-5ec1a8794df6,Geiger Unternehmensgruppe,Private,1,41998.9752,Dev Site,Nersingen,Retail; Hotel; Dev Site,Nersingen; Nurtingen; Stuttgart,Bavaria; Baden-Wurttemberg,,2025-10-30 00:00:00
+913,cd696113-8f93-41b7-898f-e2c6110b15ca,Focus Real Estate GmbH,Private,1,9599.76576,Office,Mettmann,Dev Site; Office; Seniors Housing & Care,Augsburg; Mettmann; Rheine,North Rhine-Westphalia; Bavaria,,2024-11-04 00:00:00
+914,ec4d8a47-0f6d-4780-9935-64ed3baff3e2,Keppel DC REIT,Public,1,11779.712568,Data Center,Offenbach am Main,Data Center,Kelsterbach; Offenbach am Main,Hesse,,2025-03-24 00:00:00
+915,ad2a0232-266a-4e51-a03a-6e868cf8f4e8,Cetrez & Bulut Grundstucksverwaltung OHG,Private,1,12999.6828,Retail,Heidelberg,Retail,Heidelberg,Baden-Wurttemberg,,2026-04-17 00:00:00
+916,f2737732-f833-45ea-abed-3ba74aaccb2b,Wilhelm Wallbrecht,Private,1,3099.92436,Dev Site,Magdeburg,Apartment; Dev Site,Magdeburg; Hanover,Saxony-Anhalt; Lower Saxony,,2025-03-05 00:00:00
+917,9c5e972c-cfba-4cbd-9638-3a6914ba0a78,City of Trier,User/Other,1,16499.5974,Retail,Trier,Dev Site; Retail,Trier,Rhineland-Palatinate,,2025-07-14 00:00:00
+918,a8b85da5-277a-4b26-a070-06800951a7ba,Continental AG,User/Other,1,37599.08256,Dev Site,Hanover,Dev Site; Industrial,Aachen; Karben; Neu-Ulm,North Rhine-Westphalia; Hesse; Bavaria,,2026-02-06 00:00:00
+919,1fa11265-ac82-4672-a6f7-2f01ab4e5fb4,Pheroh Gruppe,Private,1,,Hotel,Mulheim an der Ruhr,Industrial; Hotel; Apartment,Dusseldorf; Mulheim an der Ruhr; Pforzheim,North Rhine-Westphalia; Baden-Wurttemberg,,2026-06-30 00:00:00
+920,b5c6c2dc-885c-4089-bd20-54cca5acade7,Maersk Group,User/Other,1,111997.2672,Dev Site,Duisburg,Office; Industrial; Dev Site,Duisburg; Hamburg,North Rhine-Westphalia; Hamburg,,2025-12-29 00:00:00

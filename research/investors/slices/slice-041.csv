@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+801,93b1289d-5427-4e54-98ef-dec0c6c8a436,BBV,Institutional,2,41844.9789576,Office; Dev Site,Munich; Dusseldorf,Office; Retail; Dev Site,Munich; Wiesbaden; Ingolstadt,Bavaria; Hesse; Saarland,Pangaea Life Capital Partners,2025-12-12 00:00:00
+802,0dff97e9-3953-457c-8a08-7a0ac1197517,PentaF AG,Private,2,44766.9076608,Industrial; Office,Bischofswerda; Dresden,Industrial; Office,Bischofswerda; Dresden,Saxony,,2025-03-27 00:00:00
+803,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Per Invest GmbH,Private,2,9172.776178799999,Office,Dusseldorf; Ludwigsburg,Office,Dusseldorf; Ludwigsburg,North Rhine-Westphalia; Baden-Wurttemberg,,2026-06-22 00:00:00
+804,8abbb72c-52b4-417e-b029-81df2c03a1ae,Suddeutsche Grund u. Immo,Private,2,5399.86824,Apartment,Landstuhl,Apartment,Landstuhl,Rhineland-Palatinate; North Rhine-Westphalia,,2025-10-09 00:00:00
+805,da32a401-ca88-4a05-9b86-c495b7009ce4,General Dynamics,User/Other,2,27499.329,Industrial,Augsburg; Sembach,Industrial,Augsburg; Sembach,Bavaria; Rhineland-Palatinate,General Dynamics European Land Systems,2026-06-18 00:00:00
+806,301b93d4-6287-4ec5-845f-5d6347b94c3a,ABID,Private,2,26999.3412,Dev Site,Limburg an der  Lahn; Hadamar,Dev Site,Limburg an der  Lahn; Hadamar,Hesse,,2025-09-15 00:00:00
+807,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Titus Wohnen,Private,2,13879.661328,Apartment,Neustadt an der Weinstrasse; Frankenthal (Pfalz),Apartment,Neustadt an der Weinstrasse; Frankenthal (Pfalz),Rhineland-Palatinate,,2026-05-12 00:00:00
+808,258fd298-7d48-49a9-9432-96365093fb75,Upscale Real Estate,Private,2,12515.6946096,Industrial; Retail,Waltrop; Solingen,Dev Site; Industrial; Retail,Waltrop; Solingen,North Rhine-Westphalia,,2026-04-01 00:00:00
+809,6f69ea3b-881f-44df-ad37-f4628f75818e,Raiffeisenlandesbank Oberosterreich,Institutional,2,18047.5596288,Office,Munich; Aschheim,Office,Munich; Aschheim,Bavaria,Real-Treuhand Immobilien,2024-12-15 00:00:00
+810,29e117f8-6862-48e6-b622-699165427af2,Horst Schenk Projektentwicklung GmbH,Private,2,9995.7560976,Office; Dev Site,Bad Kreuznach; Frankfurt am Main,Office; Dev Site,Bad Kreuznach; Frankfurt am Main,Rhineland-Palatinate; Hesse,,2025-06-30 00:00:00
+811,3ef719d0-18d8-4d88-aabf-80a3215989af,Novaxia Investissement,Private,2,8511.7923072,Hotel,Bremen; Dresden,Hotel,Bremen; Dresden,Bremen; Saxony,,2024-11-13 00:00:00
+812,d4b0d333-45b3-4ca7-88c1-ba6b3d884702,Neo SCPI,Private,2,8511.7923072,Hotel,Bremen; Dresden,Hotel,Bremen; Dresden,Bremen; Saxony,,2024-11-13 00:00:00
+813,209ca83a-4f8b-4888-9d91-1def05de00aa,3U Holding,User/Other,2,9499.768199999999,Data Center; Industrial,Hanover; Buchholz (Westerwald),Data Center; Dev Site; Industrial,Hanover; Marburg; Buchholz (Westerwald),Lower Saxony; Hesse; Rhineland-Palatinate,,2025-06-05 00:00:00
+814,85d50bf4-fd47-4103-945b-5da4ebd92465,United Benefits,Institutional,2,16579.595448,Office; Apartment,Ismaning; Furth,Office; Apartment,Ismaning; Furth,Bavaria,Wealthcore,2026-01-13 00:00:00
+815,3597be53-b3a9-44dd-bc95-b36c7346ad12,MB Park Deutschland,Private,2,10399.74624,Industrial; Dev Site,Lindau (Bodensee); Oberursel (Taunus),Industrial; Office; Dev Site,Idstein; Hofheim am Taunus; Oberursel (Taunus),Hesse; Bavaria,,2026-04-15 00:00:00
+816,abad3be0-aaf7-42e8-ab87-a88e220b0684,Wohnungsbau-Genossenschaft Kontakt e.G.,User/Other,2,,Apartment,Leipzig,Apartment,Leipzig,Saxony,,2025-12-31 00:00:00
+817,e50fb1b9-a87b-40f5-b720-45becfdc11aa,Procimmo SA,Institutional,2,13459.671576,Industrial; Dev Site,Offenbach am Main; Essen,Industrial; Dev Site,Offenbach am Main; Essen,Hesse; North Rhine-Westphalia,,2026-03-18 00:00:00
+818,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Aktion Mensch e.V. DE,User/Other,2,4939.879464,Dev Site; Other General,Unna; Essen,Dev Site; Other General,Unna; Essen,North Rhine-Westphalia,,2024-09-25 00:00:00
+819,4066293f-ab54-4547-9ce4-e34b47b5a683,Cresco Group,Private,2,43298.94348,Office; Hotel,Berlin,Office; Hotel,Berlin,Berlin,,2025-10-27 00:00:00
+820,95b044eb-c6a9-40f1-abc9-2e6f89406b25,Core Property,Institutional,2,4667.8861008,Apartment; Retail,Cologne; Hanover,Apartment; Retail,Cologne; Hanover; Hamburg,North Rhine-Westphalia; Lower Saxony; Hamburg,,2024-12-20 00:00:00

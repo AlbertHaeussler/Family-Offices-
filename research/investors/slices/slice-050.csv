@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+981,4c48b00f-c8f6-419c-a5d2-da2b723242e8,ABC-Immo GmbH,Private,1,2671.9348032,Retail,Wollstadt,Retail,Wollstadt,Hesse,,2026-02-23 00:00:00
+982,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Mobilwerk GmbH,User/Other,1,1159.971696,Industrial,Schongau,Industrial,Schongau,Bavaria,,2025-12-18 00:00:00
+983,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Liftkontor GmbH,User/Other,1,11999.7072,Dev Site,Bremerhaven,Dev Site,Bremerhaven,Bremen,,2024-10-01 00:00:00
+984,2c03fac5-f1f9-4cf9-bb48-039c55498179,Urban Space Immobilien,Private,1,2527.9383168,Dev Site,Leipzig,Apartment; Office; Dev Site,Berlin; Hamburg; Leipzig,Berlin; Hamburg; Saxony,,2026-05-04 00:00:00
+985,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Astenhohe GmbH,Private,1,1523.9628144,Apartment,Brilon,Apartment,Brilon,North Rhine-Westphalia,,2024-08-12 00:00:00
+986,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Elgeti Brothers GmbH DE,Private,1,10226.7504612,Retail,Saarbrucken,Retail,Saarbrucken,Saarland,,2025-08-03 00:00:00
+987,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Opatz Management GmbH,Private,1,6639.837984,Apartment,Schwanewede,Apartment,Schwanewede,Lower Saxony,,2025-04-29 00:00:00
+988,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Am Roderschacht Immobilien GmbH,Private,1,3599.91216,Apartment,Bochum,Apartment,Bochum,North Rhine-Westphalia,,2026-06-13 00:00:00
+989,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Sumitomo (SHI) Cryogenics of Europe GmbH,User/Other,1,2699.93412,Industrial,Weiterstadt,Industrial,Weiterstadt,Hesse,,2025-04-15 00:00:00
+990,bf36e455-e099-4f9c-bab4-cf72aaaf9000,Rainer Gruppe,Private,1,2389.941684,Apartment,Windischleuba,Apartment,Windischleuba,Thuringia,,2024-09-19 00:00:00
+991,3555db89-a3eb-45ce-a44c-2e7b2325c461,Cyklop GmbH,<unknown>,1,,Industrial,Euskirchen,Industrial,Euskirchen,North Rhine-Westphalia,,2024-12-03 00:00:00
+992,d8d05a56-3674-496e-9f5a-a67234922e14,Procter & Gamble,User/Other,1,1199.97072,Industrial,Frankfurt am Main,Industrial; Office,Euskirchen; Frankfurt am Main; Darmstadt,Hesse; North Rhine-Westphalia,Braun GmbH,2024-12-03 00:00:00
+993,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Aspire Hotel Group,Private,1,,Hotel,Oldenburg (Oldenburg),Hotel,Oldenburg (Oldenburg),Lower Saxony,,2024-11-05 00:00:00
+994,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Andiamo,Private,1,11249.7255,Dev Site,Gera,Dev Site,Gera,Thuringia,,2025-05-13 00:00:00
+995,36e24267-a6d6-4b4d-b7ff-1619645962bf,Delta Development,Private,1,149996.34,Dev Site,Dorsten,Industrial; Office; Dev Site,Rostock; Dorsten; Bornheim,Mecklenburg-West Pomerania; North Rhine-Westphalia; Bavaria,,2025-01-24 00:00:00
+996,4651a332-c1d5-4847-9525-9cec6c95b139,SK Gruppe,Private,1,12768.6884364,Office,Dresden,Office,Dresden,Saxony,,2026-05-22 00:00:00
+997,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Bauknecht Real Estate,Private,1,18399.55104,Office,Stuttgart,Office,Stuttgart,Baden-Wurttemberg,,2025-01-16 00:00:00
+998,3af1bd63-a62b-4d86-a50e-b21b36ad7086,BLI Projektentwicklung,Private,1,3581.9125992,Dev Site,Kaiserslautern,Hotel; Office; Dev Site,Kaiserslautern; Kelsterbach; Bonn,Rhineland-Palatinate; Hesse; North Rhine-Westphalia,,2024-11-18 00:00:00
+999,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,E-Gruppe,User/Other,1,8999.7804,Dev Site,Seesen,Dev Site,Seesen,Lower Saxony,,2025-08-12 00:00:00
+1000,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,Municipality of Battenberg,User/Other,1,42583.960926,Dev Site,Battenberg (Eder),Dev Site,Battenberg (Eder),Hesse,,2026-06-29 00:00:00

@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+821,9bcf19b8-92c0-46f7-9815-a3f61c7a214e,BILTON Holding AG,Private,2,39999.024,Office; Apartment,Hamburg,Office; Apartment,Hamburg,Hamburg,,2024-09-04 00:00:00
+822,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Family Office,Private,2,3999.9024,Industrial; Office,Kaufbeuren; Schonaich,Retail; Apartment; Industrial,Frankfurt am Main; Leipzig; Kaufbeuren,Hesse; Saxony; Bavaria,,2026-01-20 00:00:00
+823,2b774e34-8032-43ce-a5d8-e086599c4bf1,Iremis,Institutional,2,22999.4388,Hotel,Berlin; Dresden,Hotel,Berlin; Dresden,Berlin; Saxony,,2025-09-01 00:00:00
+824,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,"Clarios, LLC.",User/Other,2,35899.12404,Industrial,Braubach; Bobritzsch-Hilbersdorf,Industrial,Braubach; Bobritzsch-Hilbersdorf,Rhineland-Palatinate; Saxony,,2026-05-04 00:00:00
+825,fa4b0dbd-18d5-422b-9d08-7b2f61bd18ba,Penta Infra,Private,2,5099.87556,Data Center,Leipzig; Unterschleissheim,Data Center,Leipzig; Unterschleissheim,Saxony; Bavaria,,2026-01-28 00:00:00
+826,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Erbe Elektromedizin GmbH,Private,2,26499.3534,Industrial; Dev Site,Tubingen; Rottenburg am Neckar,Industrial; Dev Site,Tubingen; Rottenburg am Neckar,Baden-Wurttemberg,,2026-06-23 00:00:00
+827,6ce3a6f2-9097-4b49-9949-bc9cd501028a,Fontas Gruppe,Private,2,11977.7077368,Hotel; Office,Freiburg im Breisgau; Duisburg,Hotel; Office,Freiburg im Breisgau; Duisburg,Baden-Wurttemberg; North Rhine-Westphalia,,2024-09-10 00:00:00
+828,4347380e-a08f-4d43-af6c-ccc1814f67cc,Bayer AG,User/Other,2,7499.817,Apartment,Frankfurt am Main; Wuppertal,Apartment; Office; Industrial,Wuppertal; Berlin; Leverkusen,North Rhine-Westphalia; Hesse; Berlin,,2025-05-19 00:00:00
+829,221d9e4f-c216-4931-bfa7-48b8cefe4a5a,Mutschler Immobilien,Private,2,24259.408056,Retail; Dev Site,Geislingen an der Steige; Soltau,Retail; Office; Dev Site,Soltau; Geislingen an der Steige; Munich,Bavaria; Lower Saxony; Baden-Wurttemberg,,2026-01-13 00:00:00
+830,071cd354-bbb3-4c2f-96ca-b651f692723c,BRAWO RE Management GmbH,Private,2,89662.81217399999,Dev Site,Potsdam; Bochum,Dev Site,Marl; Potsdam; Bochum,North Rhine-Westphalia; Brandenburg,,2026-02-27 00:00:00
+831,ca3822a5-fa5b-4269-8fa6-a248f6789d8e,Munich Residential GmbH,Private,2,8879.783328,Office,Munich,Office; Dev Site,Munich; Nuremberg,Bavaria,,2025-04-01 00:00:00
+832,8a259824-b60d-42b9-971c-960ab3f1c09d,Inmobiliaria Colonial SOCIMI SA,Public,2,46698.86052,Office,Berlin,Office,Berlin,Berlin,,2026-07-03 00:00:00
+833,d5e70ef7-73e7-4ca4-a254-64e6a040f90a,LCN Capital,Institutional,2,65498.4018,Industrial,Hanover; Schkeuditz,Industrial,Hanover; Schkeuditz; Cologne,Lower Saxony; Saxony; North Rhine-Westphalia,,2026-04-16 00:00:00
+834,61115320-d2ea-4316-95ab-eacecf0a2592,Brimmo GmbH,Private,2,8682.7881348,Apartment; Office,Herford; Braunschweig,Apartment; Office,Herford; Braunschweig,North Rhine-Westphalia; Lower Saxony,,2025-03-24 00:00:00
+835,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Variond Holding GmbH,Private,2,7363.8203184,Apartment,Plauen; Taucha,Apartment,Plauen; Taucha,Saxony,,2025-10-01 00:00:00
+836,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,Stadt Bergen,User/Other,2,211524.838668,Dev Site,Bergen,Dev Site,Bergen,Lower Saxony,,2026-03-27 00:00:00
+837,61dad259-2ba2-4d3f-bd44-7b74e7cc3dec,OMEGA Immobilien Group,Institutional,2,6299.84628,Dev Site; Seniors Housing & Care,Duisburg; Stetten am kalten Markt,Dev Site; Apartment; Seniors Housing & Care,Duisburg; Munich; Stetten am kalten Markt,North Rhine-Westphalia; Bavaria; Baden-Wurttemberg,,2026-04-02 00:00:00
+838,55a05f85-fd97-48e9-b97e-396c42b05fe4,GDD Development GmbH,Private,2,79498.0602,Dev Site,Bielefeld,Dev Site; Industrial,Bielefeld,North Rhine-Westphalia,,2024-07-30 00:00:00
+839,6c47ba77-16d1-443f-b06a-1850c6de3e1b,Qcoon GmbH,Private,2,12999.6828,Dev Site; Hotel,Mannheim; Munich,Dev Site; Hotel,Mannheim; Munich,Baden-Wurttemberg; Bavaria,,2025-06-02 00:00:00
+840,928b4992-2f80-438b-b3b8-89f7402e9db9,Sportspar GmbH,User/Other,2,17599.57056,Industrial,Eilenburg; Walow,Industrial,Eilenburg; Walow,Saxony; Mecklenburg-West Pomerania,,2025-05-27 00:00:00

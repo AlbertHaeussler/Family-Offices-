@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+721,6206e7cf-4e66-42a3-ada4-272623a2b277,Medici Holding GmbH,Private,3,2299.94388,Apartment,Gorlitz; Berlin; Pirna,Apartment,Gorlitz; Berlin; Pirna,Saxony; Berlin,,2026-03-30 00:00:00
+722,990d6902-aa9c-4133-9b23-e5712c8b2275,Realterm Global,Private,3,236885.91984252,Industrial,Elmenhorst; Monchengladbach,Industrial,Elmenhorst; Monchengladbach,Schleswig-Holstein; North Rhine-Westphalia,Realterm Logistics,2026-07-16 00:00:00
+723,499704ec-e153-46e1-86d5-06243fc79584,Neuplan GmbH,Private,3,55718.640432,Office; Industrial,Munich,Office; Industrial; Dev Site,Munich,Bavaria,,2025-02-06 00:00:00
+724,473d969f-fb2a-47dd-b5f1-8b370f5087c7,Eckehard Adams,Private,3,30629.0861512,Dev Site,Bochum; Dusseldorf,Dev Site; Apartment,Bochum; Dusseldorf,North Rhine-Westphalia,,2026-06-10 00:00:00
+725,85520c0a-7f96-4264-93a1-160320f3240c,SHIFT Development GmbH,Private,3,11199.72672,Apartment; Office,Berlin,Apartment; Office,Berlin,Berlin,,2025-08-01 00:00:00
+726,7bc16944-3486-4bff-b0b9-87bebb4931d2,Matter Real Estate (UK),Private,3,10855.7351136,Office; Condo,Berlin,Office; Condo; Apartment,Berlin,Berlin,,2026-02-05 00:00:00
+727,169880d7-9bb8-40d1-9f28-b88ffbd76b88,Nanz Endrev Rienth,Private,3,7676.8126812,Apartment,Stuttgart,Apartment,Stuttgart,Baden-Wurttemberg,,2026-07-01 00:00:00
+728,567e38b3-64df-446a-b918-599f6bb3dad3,SM Wirtschaftberatung,Private,3,10469.744532,Hotel; Office,Erfurt; Dresden; Fellbach,Hotel; Office; Industrial,Erfurt; Dresden; Fellbach,Thuringia; Saxony; Baden-Wurttemberg,,2025-03-27 00:00:00
+729,beb9781b-3e81-4a36-a143-24a73e9d8afd,MB Advisors (DE) GmbH,Institutional,3,5699.86092,Apartment,Berlin,Apartment,Berlin,Berlin,,2026-04-29 00:00:00
+730,4c48b00f-c8f6-419c-a5d2-da2b723242e8,IVT AG,Private,3,1199.97072,Apartment,Stuttgart; Ostfildern,Apartment,Stuttgart; Ostfildern,Baden-Wurttemberg,,2025-10-22 00:00:00
+731,be55b490-8bcc-4533-9a57-a178a4b12f4a,Peters Group AG,Private,3,30499.2558,Dev Site,Kremmen; Trebbin; Helmstedt,Dev Site,Kremmen; Trebbin; Helmstedt,Brandenburg; Lower Saxony,,2025-10-06 00:00:00
+732,ae4f06a7-82ef-4fd7-b2c7-6307b2df42d0,BaseCamp Group,Institutional,2,80998.0236,Retail; Industrial,Dortmund; Berlin,Apartment; Office; Retail,Aachen; Gottingen; Dortmund,North Rhine-Westphalia; Lower Saxony; Brandenburg,Triton Development,2025-01-16 00:00:00
+733,2edc2396-fa12-4f38-b846-747dc677ae71,Lapithus,Institutional,2,17625.5699256,Office,Frankfurt am Main,Office; Industrial; Apartment,Erkrath; Cologne; Frankfurt am Main,North Rhine-Westphalia; Hesse; Schleswig-Holstein,,2025-01-01 00:00:00
+734,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Finch Properties,Institutional,2,41998.9752,Office,Frankfurt am Main; Cologne,Office; Dev Site,Frankfurt am Main; Dusseldorf; Cologne,Hesse; North Rhine-Westphalia,,2025-05-01 00:00:00
+735,6f442c63-14cb-4b72-8732-98183acfdc92,Digital Core REIT,Public,2,41866.533244,Data Center,Frankfurt am Main,Data Center,Frankfurt am Main,Hesse,,2024-11-10 00:00:00
+736,e989afdd-4ec6-417e-9b0b-552fd10fc0e8,Siemens,User/Other,2,51498.7434,Industrial; Dev Site,Frankfurt am Main; Ludwigsfelde,Office; Industrial; Dev Site,Munich; Erlangen; Berlin,Bavaria; Berlin; North Rhine-Westphalia,Siemens Corp,2025-07-01 00:00:00
+737,23c60b82-f39a-4174-a894-4131403d1e29,Vantage Data Centers,Private,2,243992.2140404,Dev Site,Bad Vilbel; Gross-Gerau,Data Center; Dev Site,Offenbach am Main; Raunheim; Gross-Gerau,Hesse; Brandenburg,,2025-07-02 00:00:00
+738,04243dde-709d-454c-9760-1b7a8fa56b9d,DIE AG,Private,2,52298.72388,Dev Site,Schonefeld; Berlin,Dev Site; Apartment; Office,Schonefeld; Berlin; Bernau bei Berlin,Brandenburg; Berlin,,2025-08-19 00:00:00
+739,68d0c722-99fe-4a6b-8457-cd756ceb1df5,CV Projektentwicklug,Private,2,10150.7523156,Dev Site,Feldkirchen; Augsburg,Dev Site; Office; Retail,Munich; Nuremberg; Feldkirchen,Bavaria,,2025-10-27 00:00:00
+740,eda23759-4d72-4914-a147-5eab52a55236,Achim-Griese Treuhandgesellschaft,Private,2,5599.86336,Dev Site; Hotel,Bremen; Neubrandenburg,Retail; Hotel; Dev Site,Bremen; Ulm; Essen,Bremen; Baden-Wurttemberg; North Rhine-Westphalia,,2026-06-09 00:00:00
