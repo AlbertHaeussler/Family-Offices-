@@ -115,6 +115,7 @@ async function main() {
   await mkdir(path.join(outDir, 'raw'), { recursive: true });
 
   const client = createClient({
+    bearerToken: process.env.GS_BEARER_TOKEN,
     clientId: process.env.GS_CLIENT_ID,
     clientSecret: process.env.GS_CLIENT_SECRET,
   });

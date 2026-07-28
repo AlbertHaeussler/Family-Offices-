@@ -33,15 +33,25 @@ async function withRetry(fn, { attempts = 5, base = 1500, label = 'request' } = 
   throw lastErr;
 }
 
-export function createClient({ clientId, clientSecret }) {
-  if (!clientId || !clientSecret) {
-    throw new Error('Missing GS_CLIENT_ID / GS_CLIENT_SECRET (see .env.example).');
+export function createClient({ clientId, clientSecret, bearerToken }) {
+  // Two auth modes:
+  //  (A) bearerToken  — a token copied from the logged-in Green Street website
+  //      (browser DevTools → Network → any web-news-service request →
+  //       Authorization: Bearer <token>). No paid API product needed; uses the
+  //       subscription the website already has. Tokens are short-lived — if the
+  //       crawl 401s partway, grab a fresh token and re-run (resume continues).
+  //  (B) clientId/clientSecret — the official OAuth client-credentials flow
+  //      (needs API entitlement).
+  if (!bearerToken && !(clientId && clientSecret)) {
+    throw new Error('Provide GS_BEARER_TOKEN (from the website) or GS_CLIENT_ID + GS_CLIENT_SECRET (see .env.example).');
   }
 
-  let token = null;
-  let tokenExpiresAt = 0;
+  let token = bearerToken || null;
+  let tokenExpiresAt = bearerToken ? Number.MAX_SAFE_INTEGER : 0;
 
   async function getToken() {
+    // Static bearer token: use as-is, never refresh.
+    if (bearerToken) return bearerToken;
     // Reuse cached token until 60s before expiry.
     if (token && Date.now() < tokenExpiresAt - 60_000) return token;
     return withRetry(async () => {
@@ -82,11 +92,19 @@ export function createClient({ clientId, clientSecret }) {
       const res = await fetch(url, { headers: { Authorization: `Bearer ${t}` } });
       if (!res.ok) {
         const body = raw ? '' : await res.text().catch(() => '');
-        const err = new Error(`GET ${path} → ${res.status}: ${body.slice(0, 300)}`);
-        err.status = res.status;
-        // 401 → token issue (retry after refresh); 403/422 → entitlement/validation (do not retry).
-        err.retriable = res.status === 429 || res.status >= 500 || res.status === 424 || res.status === 401;
-        if (res.status === 401) { token = null; tokenExpiresAt = 0; }
+        let err;
+        if (res.status === 401 && bearerToken) {
+          // Static token expired — the user must grab a fresh one from the browser.
+          err = new Error('401: bearer token expired. Copy a fresh Authorization token from the Green Street website (DevTools → Network) into GS_BEARER_TOKEN and re-run — resume continues where it stopped.');
+          err.status = 401;
+          err.retriable = false;
+        } else {
+          err = new Error(`GET ${path} → ${res.status}: ${body.slice(0, 300)}`);
+          err.status = res.status;
+          // 401 (OAuth mode) → refresh & retry; 403/422 → entitlement/validation (do not retry).
+          err.retriable = res.status === 429 || res.status >= 500 || res.status === 424 || res.status === 401;
+          if (res.status === 401) { token = null; tokenExpiresAt = 0; }
+        }
         throw err;
       }
       return raw ? Buffer.from(await res.arrayBuffer()) : res.json();

@@ -21,14 +21,28 @@ Konsequenz für dieses Repo:
   Datum) + ein **Quell-Link** zurück auf Green Street.
 - Diese Trennung ist eure Verantwortung — im Zweifel Green-Street-Vertrag prüfen.
 
-## Setup
+## Setup — zwei Wege, einen wählen
 
 ```bash
 cd news-crawler
-cp .env.example .env      # dann GS_CLIENT_ID / GS_CLIENT_SECRET eintragen
+cp .env.example .env
 ```
 
-Credentials erzeugen: https://my.greenstreet.com/client-credentials
+**Weg 1 – kostenlos, ohne API-Produkt (empfohlen):** Nutzt den Token, den die
+**eingeloggte GS-Website** sowieso verwendet.
+1. Im Browser bei greenstreetnews.com **einloggen**.
+2. **F12** (Entwicklertools) → Reiter **„Network/Netzwerk"** → auf einen
+   Artikel/eine Liste klicken.
+3. Eine Anfrage an **web-news-service.greenstreet.com** anklicken → **„Headers"**
+   → bei **`Authorization: Bearer …`** den Teil **nach `Bearer `** kopieren.
+4. In `.env` als `GS_BEARER_TOKEN=…` einfügen. Fertig.
+
+Der Token läuft nach einer Weile ab — wenn der Crawl mit **401** stoppt, einfach
+einen frischen Token holen und neu starten (macht dank Resume dort weiter, wo er
+war).
+
+**Weg 2 – offizielle API:** `GS_CLIENT_ID` + `GS_CLIENT_SECRET` von
+https://my.greenstreet.com/client-credentials (braucht API-Freischaltung).
 
 ## Nutzung — nur Deutschland
 
