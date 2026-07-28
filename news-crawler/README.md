@@ -88,7 +88,48 @@ werden übersprungen; jeder Detail-Datensatz wird zusätzlich einzeln als
 Die Spalte **`address` ist bewusst leer** — die Adresse steckt im `content` und
 wird im nächsten Schritt extrahiert (nicht vom Crawler).
 
-## Nächster Schritt (Downstream-Mapping, noch nicht gebaut)
+## Schritt 2 — Fakten extrahieren & nach Topic sortieren (`extract.mjs`)
+
+Nimmt `out/articles.json`, sortiert jeden Artikel in eines der **8 GSN-Topics**
+und zieht per Claude die **nutzbaren Fakten** raus — pro Topic ein eigenes
+Schema (z. B. *Financing* → Borrower/Lender/Loan/Objekt; *Investment* →
+Buyer/Seller/Preis).
+
+```bash
+# ANTHROPIC_API_KEY in .env eintragen, dann:
+node extract.mjs --limit=20      # erst 20 zum Testen
+node extract.mjs                 # alles
+node extract.mjs --topic=Financing
+```
+
+**Topics & Kernfelder:**
+| Topic | Rausgezogene Daten |
+|---|---|
+| Financing | borrower, lender, loanAmount, loanType, purpose, ltv, rate, term |
+| Investment | buyer, seller, price, assetType, sizeSqm, yield |
+| Leasing | tenant, landlord, sizeSqm, rent, leaseTerm |
+| Fundraising | fundName, manager, amountRaised, target, strategy, investors |
+| Corporate | companies, eventType, dealValue |
+| People | person, role, newCompany, previousCompany, moveType |
+| Policy & Regulation | jurisdiction, policyTopic, effectiveDate, impact |
+| Sustainability | initiative, metric, targetYear |
+
+Alle Topics teilen: headline, summary (**eigene Worte**, kein GS-Zitat), company,
+property, address, city, country, eventDate, sourceUrl.
+
+**Output:**
+| Datei | Inhalt |
+|---|---|
+| `out/by-topic/<Topic>.csv` | Eine Tabelle **pro Topic** mit dessen Feldern |
+| `out/facts.csv` | Kombinierte Tabelle (gemeinsame Felder) |
+| `out/extracted.json` | Alle Fakten als JSON |
+
+**LLM-Rechtshinweis:** `extract.mjs` schickt Artikeltext an die Anthropic-API.
+Nutze einen kommerziellen/Zero-Retention-Zugang (die kommerzielle API trainiert
+**nicht** auf euren Daten). `summary`/`headline` sind bewusst eigene Paraphrasen,
+keine kopierten GS-Sätze.
+
+## Schritt 3 (Downstream-Mapping, noch nicht gebaut)
 
 1. **Extraktion** je Artikel (LLM mit striktem JSON-Schema):
    `{ address, city, country, assetType, buyer, seller, priceEUR, sizeSqm, dealDate }`.
