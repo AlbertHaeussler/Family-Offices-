@@ -1,6 +1,7 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0\.."
+if exist "node-portable\node.exe" set "PATH=%CD%\node-portable;%PATH%"
 echo ============================================================
 echo   TEST: Wie viele Deutschland-Artikel gibt es?
 echo   (laedt noch nichts herunter - nur Verbindung testen)

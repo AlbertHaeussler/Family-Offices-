@@ -5,8 +5,18 @@ die Dateien in diesem Ordner der Reihe nach an.
 
 ## Einmalig vorbereiten
 
-1. **Node.js installieren:** https://nodejs.org → großen grünen **LTS**-Button
-   laden → Datei öffnen → immer „Next" → „Install" → „Finish".
+1. **Node.js besorgen** — zwei Wege:
+   - **A) Normal installieren** (falls erlaubt): https://nodejs.org → grüner
+     **LTS**-Button → Datei öffnen → immer „Next" → „Install" → „Finish".
+   - **B) Portable, ohne Installation / ohne Admin-Rechte** (für Firmenrechner):
+     1. https://nodejs.org/en/download öffnen.
+     2. Bei „Windows" das Format **„Binary (.zip)"** für **x64** wählen und
+        herunterladen (Datei heißt z. B. `node-v22.x.x-win-x64.zip`).
+     3. ZIP entpacken (Rechtsklick → „Alle extrahieren"). Es entsteht ein
+        Ordner `node-v22.x.x-win-x64`, in dem `node.exe` liegt.
+     4. Diesen Ordner in **`node-portable`** umbenennen und **in den
+        `news-crawler`-Ordner** legen (direkt neben `crawl.mjs`).
+     Die Klick-Dateien finden Node dann automatisch — nichts wird installiert.
 2. **Projekt herunterladen:** Auf der GitHub-Seite des Projekts oben rechts der
    grüne Button **„Code" → „Download ZIP"**. Danach die ZIP-Datei entpacken
    (Rechtsklick → „Alle extrahieren").

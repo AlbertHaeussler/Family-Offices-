@@ -1,6 +1,7 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0\.."
+if exist "node-portable\node.exe" set "PATH=%CD%\node-portable;%PATH%"
 echo ============================================================
 echo   TEST: nur die ersten 20 Artikel auswerten
 echo ============================================================
