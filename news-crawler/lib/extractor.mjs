@@ -1,12 +1,12 @@
-// LLM-based fact extractor. Sends article text to Claude with a strict
-// per-topic tool schema and returns validated structured facts.
+// LLM fact extractor. One call per article returns: which topic(s) apply
+// (1+, or none), the common fields, the topic-specific fields, and a verbatim
+// keyExcerpt. Uses Claude tool-use for guaranteed structured output.
 //
-// LEGAL: article text is sent to the Anthropic API for processing. Use a
-// commercial/zero-retention account (Anthropic's commercial API does not
-// train on your data). Set ANTHROPIC_API_KEY. Do NOT use a provider that
-// retains or trains on inputs — that would be a "transfer to third parties".
+// LEGAL: article text is sent to the Anthropic API. Use a commercial/
+// zero-retention account (the commercial API does not train on your data).
+// Set ANTHROPIC_API_KEY. keyExcerpt is verbatim GS text — internal use.
 
-import { fieldsFor } from './schemas.mjs';
+import { allFieldDefs, TOPICS } from './schemas.mjs';
 
 const API_URL = process.env.ANTHROPIC_BASE_URL
   ? `${process.env.ANTHROPIC_BASE_URL.replace(/\/$/, '')}/v1/messages`
@@ -16,35 +16,44 @@ const VERSION = '2023-06-01';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Build an Anthropic tool input_schema from a topic's field list (all strings).
-function toolFor(topic) {
-  const fields = fieldsFor(topic);
-  const properties = {};
-  for (const f of fields) properties[f.name] = { type: 'string', description: f.desc };
+// Single unified tool covering topics[] + all possible fields.
+function buildTool() {
+  const properties = {
+    topics: {
+      type: 'array',
+      items: { type: 'string', enum: TOPICS },
+      description: 'All topics that apply to this article (one or more). If none of these fit, return an empty array.',
+    },
+  };
+  for (const f of allFieldDefs()) {
+    properties[f.name] = { type: 'string', description: f.desc };
+  }
   return {
     name: 'record_facts',
-    description: `Extract structured facts for a "${topic}" real-estate news item. Leave a field as an empty string if the article does not state it. Never invent values.`,
-    input_schema: { type: 'object', properties, required: [] },
+    description: 'Record structured, usable facts from a commercial real-estate news article. Fill only fields the article actually states; leave the rest as empty strings. Never invent values.',
+    input_schema: { type: 'object', properties, required: ['topics'] },
   };
 }
+
+const TOOL = buildTool();
 
 const SYSTEM = [
   'You extract structured facts from commercial real-estate news articles.',
   'Rules:',
-  '- Only record facts explicitly stated in the article. If unknown, use an empty string.',
-  '- Never copy full sentences from the article. `headline` and `summary` must be your own neutral paraphrase (facts only).',
-  '- Keep amounts as written (with currency symbol). Keep dates as YYYY-MM-DD when possible.',
-  '- Always call the record_facts tool exactly once.',
+  '- Choose ALL applicable topics (an article can have several, e.g. a deal that is both Investment and Financing).',
+  '- Only record facts explicitly stated. If unknown, use an empty string.',
+  '- `headline` and `summary` are YOUR OWN neutral paraphrase — never copy article sentences.',
+  '- `keyExcerpt` is the OPPOSITE: copy the single most important sentence VERBATIM (exact words), max ~350 chars.',
+  '- Keep amounts as written (with currency). Dates as YYYY-MM-DD when possible.',
+  '- Always call record_facts exactly once.',
 ].join('\n');
 
 export function createExtractor({ apiKey, model = MODEL } = {}) {
   if (!apiKey) throw new Error('Missing ANTHROPIC_API_KEY.');
 
-  async function extract(article, topic) {
-    const tool = toolFor(topic);
+  async function extract(article) {
     const text = (article.content || article.excerpt || '').slice(0, 24000);
-    const userMsg =
-      `Topic: ${topic}\nTitle: ${article.title || ''}\n\nArticle:\n${text}`;
+    const userMsg = `Title: ${article.title || ''}\n\nArticle:\n${text}`;
 
     for (let attempt = 0; attempt < 5; attempt++) {
       try {
@@ -57,9 +66,9 @@ export function createExtractor({ apiKey, model = MODEL } = {}) {
           },
           body: JSON.stringify({
             model,
-            max_tokens: 1024,
+            max_tokens: 1200,
             system: SYSTEM,
-            tools: [tool],
+            tools: [TOOL],
             tool_choice: { type: 'tool', name: 'record_facts' },
             messages: [{ role: 'user', content: userMsg }],
           }),

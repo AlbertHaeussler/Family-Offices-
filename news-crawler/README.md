@@ -90,10 +90,12 @@ wird im nächsten Schritt extrahiert (nicht vom Crawler).
 
 ## Schritt 2 — Fakten extrahieren & nach Topic sortieren (`extract.mjs`)
 
-Nimmt `out/articles.json`, sortiert jeden Artikel in eines der **8 GSN-Topics**
-und zieht per Claude die **nutzbaren Fakten** raus — pro Topic ein eigenes
-Schema (z. B. *Financing* → Borrower/Lender/Loan/Objekt; *Investment* →
-Buyer/Seller/Preis).
+Nimmt `out/articles.json` und zieht per Claude in **einem** Call pro Artikel
+die **nutzbaren Fakten** raus. Ein Artikel kann **mehreren Topics** zugeordnet
+werden (z. B. ein Deal, der zugleich *Investment* und *Financing* ist) — oder
+`Other`, falls keins passt. Jede Zeile behält **Link zum Artikel** (`sourceUrl`)
+und einen **wörtlichen Key-Ausschnitt** (`keyExcerpt`); fehlt der Link, wird der
+**ganze Artikeltext** (`fullText`) als Fallback gespeichert.
 
 ```bash
 # ANTHROPIC_API_KEY in .env eintragen, dann:

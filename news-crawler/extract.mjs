@@ -1,16 +1,17 @@
 #!/usr/bin/env node
-// Step 2: read crawled articles, classify by topic, extract usable facts via
-// Claude, and write one table per topic (+ a combined table).
+// Step 2: read crawled articles, extract usable facts + topics via Claude,
+// and write one table per topic (an article can appear under several topics)
+// plus a combined table. Every row keeps the source link + a verbatim key
+// excerpt; if there is no link, the full article text is kept as fallback.
 //
 //   node extract.mjs                 # extract everything not yet done
 //   node extract.mjs --limit=20      # only first 20 (test run)
-//   node extract.mjs --topic=Financing
 //   node extract.mjs --refresh       # re-extract even if cached
 //
-// Requires ANTHROPIC_API_KEY (in .env). See lib/extractor.mjs for the legal note.
+// Requires ANTHROPIC_API_KEY (in .env).
 
 import { createExtractor } from './lib/extractor.mjs';
-import { classifyTopic, fieldsFor, TOPICS } from './lib/schemas.mjs';
+import { TOPICS, columnsForTopic, previewTopic } from './lib/schemas.mjs';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
@@ -46,13 +47,12 @@ async function pool(items, size, worker) {
 
 const csvEscape = (v) => {
   if (v == null) return '';
-  const s = String(v);
+  const s = Array.isArray(v) ? v.join('; ') : String(v);
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 };
 
-function articleUrl(a) {
-  return a.gsNewsUrl || (Array.isArray(a.gsNewsUrl) ? a.gsNewsUrl[0] : '') || '';
-}
+const articleUrl = (a) =>
+  (Array.isArray(a.gsNewsUrl) ? a.gsNewsUrl[0] : a.gsNewsUrl) || '';
 
 async function main() {
   await loadDotenv();
@@ -69,7 +69,6 @@ async function main() {
   const articles = JSON.parse(await readFile(storePath, 'utf8'));
   console.log(`→ ${articles.length} articles loaded`);
 
-  // Resume cache: articleId -> extracted record.
   const cachePath = path.join(outDir, 'extracted.json');
   const cache = new Map();
   if (existsSync(cachePath) && !flags.refresh) {
@@ -82,31 +81,29 @@ async function main() {
   const extractor = createExtractor({ apiKey: process.env.ANTHROPIC_API_KEY });
   console.log(`→ Model: ${extractor.model}`);
 
-  // Decide work list.
-  let work = articles.map((a) => ({ a, topic: classifyTopic(a) }));
-  if (flags.topic) work = work.filter((w) => w.topic === flags.topic);
-  work = work.filter((w) => flags.refresh || !cache.has(String(w.a.id)));
-  if (flags.limit) work = work.slice(0, Number(flags.limit));
-
-  // Topic distribution overview.
+  // Preview distribution (keyword-based, no API cost).
   const dist = {};
-  for (const a of articles) { const t = classifyTopic(a); dist[t] = (dist[t] || 0) + 1; }
-  console.log('→ Topic distribution:', dist);
+  for (const a of articles) { const t = previewTopic(a); dist[t] = (dist[t] || 0) + 1; }
+  console.log('→ Rough topic preview (final topics come from the model):', dist);
+
+  let work = articles.filter((a) => flags.refresh || !cache.has(String(a.id)));
+  if (flags.limit) work = work.slice(0, Number(flags.limit));
   console.log(`→ Extracting ${work.length} articles`);
 
   let done = 0, failed = 0;
-  await pool(work, concurrency, async ({ a, topic }) => {
+  await pool(work, concurrency, async (a) => {
     try {
-      if (topic === 'Other') {
-        cache.set(String(a.id), { articleId: a.id, topic, sourceUrl: articleUrl(a),
-          title: a.title || '', note: 'unclassified topic — no schema applied' });
-      } else {
-        const facts = await extractor.extract(a, topic);
-        cache.set(String(a.id), { articleId: a.id, topic, sourceUrl: articleUrl(a), ...facts });
-      }
+      const facts = await extractor.extract(a);
+      let topics = Array.isArray(facts.topics) ? facts.topics.filter((t) => TOPICS.includes(t)) : [];
+      if (!topics.length) topics = ['Other'];
+      const url = articleUrl(a);
+      const rec = { articleId: a.id, topics, sourceUrl: url, ...facts };
+      rec.topics = topics; // ensure normalized array wins over model's raw value
+      if (!url) rec.fullText = a.content || a.excerpt || ''; // fallback when no link
+      cache.set(String(a.id), rec);
     } catch (e) {
       failed++;
-      console.warn(`  article ${a.id} (${topic}) failed: ${e.message}`);
+      console.warn(`  article ${a.id} failed: ${e.message}`);
     } finally {
       done++;
       if (done % 5 === 0) process.stdout.write(`  ${done}/${work.length} (fail ${failed})\r`);
@@ -115,38 +112,44 @@ async function main() {
   });
   console.log(`\n→ Extraction done (${failed} failed)`);
 
-  // Persist cache.
   const all = [...cache.values()];
   await writeFile(cachePath, JSON.stringify(all, null, 2));
 
-  // Write one CSV per topic.
+  // One CSV per topic (article appears in each of its topics).
   const byTopicDir = path.join(outDir, 'by-topic');
   await mkdir(byTopicDir, { recursive: true });
-  for (const topic of TOPICS) {
-    const rows = all.filter((r) => r.topic === topic);
+  const counts = {};
+  for (const topic of [...TOPICS, 'Other']) {
+    const rows = all.filter((r) => (r.topics || []).includes(topic));
+    counts[topic] = rows.length;
     if (!rows.length) continue;
-    const cols = ['articleId', ...fieldsFor(topic).map((f) => f.name), 'sourceUrl'];
+    const cols = topic === 'Other'
+      ? ['articleId', 'topics', 'headline', 'summary', 'keyExcerpt', 'sourceUrl']
+      : columnsForTopic(topic);
     const csv = [
       cols.join(','),
       ...rows.map((r) => cols.map((c) => csvEscape(r[c])).join(',')),
     ].join('\n');
-    const safe = topic.replace(/[^a-z0-9]+/gi, '_');
-    await writeFile(path.join(byTopicDir, `${safe}.csv`), csv);
+    await writeFile(path.join(byTopicDir, `${topic.replace(/[^a-z0-9]+/gi, '_')}.csv`), csv);
   }
 
-  // Combined master table (shared columns + a JSON blob of topic-specific fields).
-  const masterCols = ['articleId', 'topic', 'headline', 'company', 'property', 'address', 'city', 'country', 'eventDate', 'summary', 'sourceUrl'];
+  // Combined master table.
+  const masterCols = ['articleId', 'topics', 'headline', 'company', 'property', 'address', 'city', 'country', 'eventDate', 'summary', 'keyExcerpt', 'sourceUrl'];
   const master = [
     masterCols.join(','),
     ...all.map((r) => masterCols.map((c) => csvEscape(r[c])).join(',')),
   ].join('\n');
   await writeFile(path.join(outDir, 'facts.csv'), master);
 
+  // App-ready JSON for the webapp (facts + link + excerpt).
+  await writeFile(path.join(outDir, 'news.json'), JSON.stringify(all, null, 2));
+
+  console.log('→ Topic counts:', counts);
   console.log(`\n✓ Wrote:`);
   console.log(`  ${path.join(outDir, 'facts.csv')}  (combined)`);
   console.log(`  ${byTopicDir}/<Topic>.csv  (per topic)`);
-  console.log(`  ${cachePath}  (raw extracted JSON)`);
-  console.log('\n⚠ Internal use only — publish derived facts + source link, not GS text.');
+  console.log(`  ${path.join(outDir, 'news.json')}  (for the app)`);
+  console.log('\n⚠ keyExcerpt/fullText are verbatim GS text — internal app only.');
 }
 
 main().catch((e) => { console.error('\nFATAL:', e.message); process.exit(1); });
