@@ -18,7 +18,13 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else 'research/investors/Properties_and_I
 WORKDIR = 'research/investors/workers'
 
 def norm(s):
-    return ' '.join(str(s).strip().split()).lower() if s is not None else ''
+    if s is None:
+        return ''
+    s = str(s).lower()
+    # fold German umlauts and their ASCII transliterations to one canonical form
+    for a, b in (('ä', 'ae'), ('ö', 'oe'), ('ü', 'ue'), ('ß', 'ss')):
+        s = s.replace(a, b)
+    return ' '.join(s.split())
 
 # 1) collect worker results by normalized investor name (last write wins)
 results = {}
