@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+3401,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Cella GmbH,User/Other,1,24999.39,Dev Site,Altenberge,Dev Site,Altenberge,North Rhine-Westphalia,,2023-01-23 00:00:00
+3402,38007c6b-e2b1-4ae8-9eaa-68515b17b002,Mannheimer Parkhausbetriebe GmbH,Private,1,,Parking Facility,Mannheim,Parking Facility,Mannheim,Baden-Wurttemberg,,2024-07-22 00:00:00
+3403,4c48b00f-c8f6-419c-a5d2-da2b723242e8,WVA & GIG Immobiliengruppe,Private,1,2649.93534,Dev Site,Coesfeld,Dev Site,Coesfeld,North Rhine-Westphalia,,2012-11-30 00:00:00
+3404,eed3e67a-e585-4468-8427-332a41abb4a8,Augustus Capital,Institutional,1,10912.7337228,Office,Berlin,Office,Berlin,Berlin,,2016-04-19 00:00:00
+3405,4c48b00f-c8f6-419c-a5d2-da2b723242e8,MWCM Holding GmbH,Private,1,17599.57056,Office,Bremen,Office,Bremen,Bremen,,2020-12-31 00:00:00
+3406,8124a726-f499-4752-9d10-9dc064580e4c,Panthier Real Estate,Institutional,1,3299.91948,Office,Berlin,Office,Berlin,Berlin,,2022-12-22 00:00:00
+3407,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Saksa,Private,1,2799.93168,Retail,Berlin,Retail,Berlin,Berlin,,2014-06-24 00:00:00
+3408,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Thomas Bscher & Detlef Maruhn,Private,1,27999.3168,Office,Berlin,Office,Berlin,Berlin,,2010-07-13 00:00:00
+3409,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Böhne,Private,1,2124.94815,Retail,Berlin,Retail,Berlin,Berlin,,2003-12-01 00:00:00
+3410,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Dr. Bscher,Private,1,5346.8695332,Office,Berlin,Office,Berlin,Berlin,,2005-09-01 00:00:00
+3411,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Burg & Geisendorfer families,Private,1,5499.8658,Office,Fulda,Office,Fulda,Hesse,,2014-03-31 00:00:00
+3412,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Realique Unternehmensgruppe,Private,1,5399.86824,Dev Site,Bad Harzburg,Dev Site,Bad Harzburg,Lower Saxony,,2024-04-04 00:00:00
+3413,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Chengdu Xiangyan Investment,Private,1,,Hotel,Bad Kreuznach,Hotel,Bad Kreuznach,Rhineland-Palatinate,,2016-10-24 00:00:00
+3414,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Anton Schick GmbH+Co.KG,Private,1,,Hotel,Bad Kissingen,Hotel,Bad Kissingen,Bavaria,,2020-08-03 00:00:00
+3415,4c48b00f-c8f6-419c-a5d2-da2b723242e8,KEG Konversions,Private,1,8918.7823764,Industrial,Frankfurt am Main,Industrial,Frankfurt am Main,Hesse,,2008-03-15 00:00:00
+3416,4c48b00f-c8f6-419c-a5d2-da2b723242e8,SHR Beteiligung,Private,1,7099.82676,Dev Site,Bayreuth,Dev Site,Bayreuth,Bavaria,,2023-10-02 00:00:00
+3417,17d5f531-dae0-4cb2-b30a-48cba2187a90,City of Bayreuth,User/Other,1,12789.687924,Office,Bayreuth,Dev Site; Office,Bayreuth,Bavaria,,2023-10-02 00:00:00
+3418,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Charlie Chua,Private,1,,Hotel,Nidda,Hotel,Nidda,Hesse,,2014-02-26 00:00:00
+3419,3555db89-a3eb-45ce-a44c-2e7b2325c461,Viewegpark Braunschweig Sarl,<unknown>,1,22999.4388,Apartment,Braunschweig,Apartment,Braunschweig,Lower Saxony,,2013-01-29 00:00:00
+3420,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Asco Holding,Private,1,5669.861652,Office,Bonn,Office,Bonn,North Rhine-Westphalia,,2005-12-01 00:00:00

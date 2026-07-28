@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+1301,3c9503e2-81f7-4c5d-be93-3d13c40ee209,Equinix (REIT),Public,1,10599.74136,Data Center,Frankfurt am Main,Dev Site; Data Center,Frankfurt am Main,Hesse,,2023-03-31 00:00:00
+1302,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,City of Kulmbach,User/Other,1,7999.8048,Retail,Kulmbach,Dev Site; Retail,Kulmbach,Bavaria,,2022-04-06 00:00:00
+1303,7b100d29-eb8f-48b2-bc1b-4cf3e802a1d5,City of Schweinfurt,User/Other,1,479984.2925568,Dev Site,Schweinfurt,Dev Site,Schweinfurt,Bavaria,,2016-02-29 00:00:00
+1304,bce52b76-c90b-4fc0-960c-0ede182e0fac,Kalmia Sarl,Private,1,22999.4388,Retail,,Retail,Munsingen,Baden-Wurttemberg,,2018-12-31 00:00:00
+1305,057adf83-c797-48dd-913c-bfa6d5a6c81b,City of Schorndorf,User/Other,1,39998.6910464,Dev Site,Schorndorf,Dev Site,Schorndorf,Baden-Wurttemberg,,2017-06-29 00:00:00
+1306,69100aee-f7a0-489b-bba6-a03aeeece1c6,DBV Winterthur Insurance Group,Institutional,1,2199.94632,Office,Nuremberg,Office,Munich; Wiesbaden; Nuremberg,Bavaria; Hesse,,2015-03-01 00:00:00
+1307,7b8a72bb-f5e0-47a1-b963-bcf076d0233b,Wohnungsgenossenschaft Union Rostock eG,Private,1,,Apartment,Rostock,Dev Site; Apartment,Rostock,Mecklenburg-West Pomerania,,2016-08-27 00:00:00
+1308,7d2dbfc8-9989-4653-a5a5-536eab36e9fc,Arcadia Estates GmbH,Private,1,,Apartment,Berlin,Dev Site; Apartment,Birkenwerder; Berlin,Brandenburg; Berlin,,2022-07-26 00:00:00
+1309,4aa466ac-5601-4c09-8e63-a634466787a8,Falk-Immobilien GmbH,Private,1,72597.624249216,Dev Site,Rastatt,Retail; Hotel; Dev Site,Augsburg; Leipzig; Rastatt,Bavaria; Saxony; Baden-Wurttemberg,,2013-11-26 00:00:00
+1310,3670a807-3341-4fed-ac2f-98905ffff478,Samson,User/Other,1,19999.512,Industrial,Frankfurt am Main,Dev Site; Industrial,Frankfurt am Main; Offenbach am Main,Hesse,,2024-05-04 00:00:00
+1311,4ebe8adf-f0d6-423a-b1c3-26ad9a91dfc2,DIFC,User/Other,1,23336.4305772,Retail,Osnabruck,Retail,Berlin; Osnabruck,Berlin; Lower Saxony,,2023-10-10 00:00:00
+1312,46e12324-efb0-42ef-b63f-ff4c77a4eda7,F4 Immobilien,Private,1,5999.8536,Office,Haar,Office,Munich; Haar,Bavaria,,2020-12-31 00:00:00
+1313,021c706d-cea7-4bf4-97fa-6351dfd6f35b,Dubai Holding,Institutional,1,64997.873322,Retail,Berlin,Retail,Bentwisch; Berlin,Mecklenburg-West Pomerania; Berlin,Longwing,2013-06-27 00:00:00
+1314,964168b0-77a5-40f3-a1ba-6909c4b43357,Schild Holland Fonds,Public,1,,Apartment,Berlin,Retail; Apartment,Heiligenhaus; Berlin; Mullheim,North Rhine-Westphalia; Berlin; Baden-Wurttemberg,,2014-05-31 00:00:00
+1315,4ffec3d3-51a5-4c44-850d-766e42d746f6,Paeschke GmbH,Private,1,10999.7316,Office,Leverkusen,Office; Dev Site,Leverkusen,North Rhine-Westphalia,,2012-09-14 00:00:00
+1316,996ca4d4-2d52-404d-b3ec-d7f91056ecf3,Wogeno e.G.,Private,1,3680.9101836,Dev Site,Munich,Dev Site,Munich,Bavaria,,2012-11-22 00:00:00
+1317,619b75ca-fab9-45d1-8d40-7d5cf8cfc8e5,City of Ludwigsburg,User/Other,1,8099.80236,Office,Ludwigsburg,Dev Site; Retail; Office,Ludwigsburg,Baden-Wurttemberg,,2024-05-31 00:00:00
+1318,e937a284-0346-4cdc-a8ad-e13508a5419a,Panntum,Private,1,34999.146,Dev Site,Kaufbeuren,Dev Site,Munich; Kaufbeuren,Bavaria,,2018-04-06 00:00:00
+1319,382258f4-4af8-4949-9a8a-e609f61373d6,GIG Grundbesitz,Public,1,,Retail,,Industrial; Retail,Eichenau; Wilhelmshaven,Bavaria; Lower Saxony,,2022-06-01 00:00:00
+1320,2c538ba8-c285-4da3-890f-ebf0fd952d4d,Hewlett-Packard,User/Other,1,24999.39,Dev Site,Russelsheim,Dev Site; Office,Weiterstadt; Leinfelden-Echterdingen; Hamburg,Hesse; Baden-Wurttemberg; Hamburg,,2012-09-01 00:00:00

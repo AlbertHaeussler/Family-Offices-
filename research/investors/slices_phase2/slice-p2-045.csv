@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+881,6260fc6f-df47-481e-9e11-39a808fe31c5,Delta Bau,Private,2,17599.57056,Dev Site,Gottingen; Hanover,Office; Dev Site,Gottingen; Hanover; Potsdam,Lower Saxony; Brandenburg,,2017-12-31 00:00:00
+882,b3646821-a9f5-48c6-83ec-13446f1497ad,AWO Bundesverband,Private,2,8703.7876224,Dev Site; Office,Plauen; Moers,Seniors Housing & Care; Office; Dev Site,Stadtallendorf; Wachtersbach; Plauen,North Rhine-Westphalia; Hesse; Lower Saxony,,2023-07-16 00:00:00
+883,e264fbc9-649a-45ec-9ff0-1f386919d919,MOON NEW ERA HOTELS,Private,2,,Hotel,Schwabisch Hall; Triberg im Schwarzwald,Hotel,Schwabisch Hall; Triberg im Schwarzwald,Baden-Wurttemberg,,2018-10-01 00:00:00
+884,4c48b00f-c8f6-419c-a5d2-da2b723242e8,AHORN Hotels & Resorts,Private,2,,Hotel,Braunlage; Oberhof,Hotel,Braunlage; Oberhof,Lower Saxony; Thuringia,,2021-08-05 00:00:00
+885,3783cb3b-9167-40b3-a621-4b4259554678,econcept,Private,2,34394.160762,Dev Site; Retail,Berlin; Bad Laer,Retail; Dev Site; Office,Berlin; Bad Laer,Berlin; Lower Saxony,,2021-03-18 00:00:00
+886,6f17d0af-3c21-4149-9914-4b89607b80c6,Minerva RE Investments,Private,2,34394.160762,Dev Site; Retail,Berlin; Bad Laer,Hotel; Retail; Dev Site,Berlin; Bad Laer,Berlin; Lower Saxony,Minerva Management,2021-03-18 00:00:00
+887,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Privat,<unknown>,2,2001.9511512,Office; Retail,Hamburg; Ebersbach an der Fils,Retail; Office,Ebersbach an der Fils; Hamburg,Baden-Wurttemberg; Hamburg,,2021-06-23 00:00:00
+888,aa511b06-33cc-495a-af00-ea60a8841c0a,McArthurGlen,Private,2,90497.7918,Dev Site; Retail,Remscheid; Ochtrup,Dev Site; Retail,Remscheid; Ochtrup,North Rhine-Westphalia,,2015-11-01 00:00:00
+889,62425d03-738d-4974-813c-4a1ef855e55a,Prebag Gewerbebau,Private,2,12699.69012,Retail,Florsheim am Main; Kusel,Retail,Buttenheim; Arzberg; Burgkunstadt,Bavaria; Rhineland-Palatinate; Hesse,,2023-02-15 00:00:00
+890,e39f6510-1899-4f2c-8072-719b03e33725,City of Solingen,User/Other,2,77898.09924,Office; Dev Site,Solingen,Dev Site; Office; Industrial,Solingen,North Rhine-Westphalia,,2022-04-04 00:00:00
+891,10dc7e9a-03e0-49b1-8a57-741c7bab9461,WFG Herne,User/Other,2,73497.78208416,Dev Site,Herne,Dev Site,Herne,North Rhine-Westphalia,,2019-12-20 00:00:00
+892,fb14a17e-a5ab-4aa6-ba0a-87093e136859,IDR,Private,2,76898.12364,Dev Site; Office,Dusseldorf,Dev Site; Office; Parking Facility,Dusseldorf,North Rhine-Westphalia,,2020-01-30 00:00:00
+893,9a0d7fec-d37b-4774-bb30-240f9e53eae4,fides Wohnungsbay e.G.,Private,2,5678.8614324,Apartment,Altdorf; Bremen,Apartment,Altdorf; Bremen,Bavaria; Bremen,,2011-06-15 00:00:00
+894,b4325bb9-77d9-4bfa-826b-62448a9077b7,Atenor Group,Private,2,10741.7378952,Retail; Office,Dusseldorf,Apartment; Retail; Office,Dusseldorf,North Rhine-Westphalia,,2024-02-02 00:00:00
+895,485b4a40-59d6-4953-8c53-dbbaa1ad56a2,AGIB Real Estate,Private,2,20299.50468,Office,Dusseldorf,Office,Dusseldorf,North Rhine-Westphalia,,2019-10-30 00:00:00
+896,ef4c91d7-effc-42df-8c65-af4b0972a83d,RDR Beteiligungs GmbH,Private,2,20861.4909672,Retail; Office,Berlin; Hamburg,Office; Retail,Hamburg; Berlin; Munich,Hamburg; Berlin; Bavaria,,2019-04-04 00:00:00
+897,735298e9-8b21-4631-80ca-8b9c3f81f92d,GSG Oldenburg,Private,2,38099.07036,Dev Site,Oldenburg (Oldenburg),Dev Site,Oldenburg (Oldenburg),Lower Saxony,,2013-03-21 00:00:00
+898,878530fd-248c-4c82-967c-93e7ab2bba95,Interco Grundvermogen,Private,2,114897.19644,Office,Munich,Office; Industrial,Munich; Kirchheim bei Munchen,Bavaria,,2007-02-28 00:00:00
+899,e19fdaf3-c6c3-4438-95f5-6ac18e9399a0,Stiller Immobilien,Private,2,44543.91310200001,Dev Site,Hamburg; Frankfurt am Main,Office; Dev Site,Hamburg; Frankfurt am Main; Unterfohring,Hamburg; Hesse; Bavaria,,2012-12-31 00:00:00
+900,8e2c0cc6-9ebb-48d2-9d26-13d3dc418025,Government of Oman,Institutional,2,,Hotel,Dresden; Dusseldorf,Hotel,Dresden; Dusseldorf,Saxony; North Rhine-Westphalia,Oman Investment Fund (OIF),2015-12-11 00:00:00

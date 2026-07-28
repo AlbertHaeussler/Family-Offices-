@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+1001,1f0324f3-1fa6-49be-8056-9d908672d108,GEM Ingenieurgesellschaft,Private,2,110997.2916,Dev Site; Apartment,Karlsruhe; Heidelberg,Dev Site; Apartment,Karlsruhe; Heidelberg,Baden-Wurttemberg,,2014-05-19 00:00:00
+1002,f6fb0326-4ce4-4205-9ef7-a87cffa2d753,SEPA mbH,Private,2,55998.6336,Dev Site,Frankfurt am Main; Mosbach,Office; Dev Site; Retail,Frankfurt am Main; Mosbach; Gaggenau,Baden-Wurttemberg; Hesse; North Rhine-Westphalia,,2012-05-10 00:00:00
+1003,d67d12a7-e1a1-4a27-9160-a700a651f7f8,Grimm Holding,Private,2,32141.17827792,Dev Site,Munster; Konigs Wusterhausen,Dev Site,Munster; Konigs Wusterhausen,North Rhine-Westphalia; Brandenburg,,2023-06-22 00:00:00
+1004,b8adbacf-2a69-402d-ada3-81ed43451924,Prime Estates GmbH,Private,2,6201.848671199999,Dev Site; Office,Bad Homburg vor der Hohe; Frankfurt am Main,Apartment; Dev Site; Office,Bad Homburg vor der Hohe; Frankfurt am Main,Hesse,,2014-07-06 00:00:00
+1005,78c12088-c408-447e-9cca-b00a429838ea,Timeless Investments,Private,2,,Other Hospitality,Fintel; Leiwen,Other Hospitality,Fintel; Leiwen,Lower Saxony; Rhineland-Palatinate,,2019-12-10 00:00:00
+1006,f4fda021-f314-4fa3-92c2-f1560fe68fd8,Peek Immobilien,Private,2,11284.724646,Apartment,Osnabruck,Apartment,Osnabruck,Lower Saxony,,2009-09-15 00:00:00
+1007,133b2086-e372-42af-89de-915a1b6905b2,Bremer Heimstiftung,User/Other,2,101881.5140304,Office; Dev Site,Bremen,Office; Dev Site,Bremen,Bremen,,2015-11-05 00:00:00
+1008,26a8cab4-f967-4112-b2d9-0c2b64cff0c8,H.I.G. Capital,Institutional,2,11499.7194,Hotel; Retail,Bad Sobernheim; Mannheim,Hotel; Retail,Bad Sobernheim; Mannheim,Rhineland-Palatinate; Baden-Wurttemberg,,2019-11-20 00:00:00
+1009,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Karl Konecke,Private,2,,Hotel,Worpswede,Hotel,Worpswede,Lower Saxony,,2011-09-15 00:00:00
+1010,20ae209e-a82a-4e90-a89c-d7b433d3a454,BOB AG,Private,2,21068.4859164,Dev Site,Hanover; Dusseldorf,Dev Site,Hanover; Dusseldorf,Lower Saxony; North Rhine-Westphalia,,2019-12-31 00:00:00
+1011,5d607468-8709-4aa3-8a82-dab25304d9da,2VN Immo Concito GmbH,Private,2,8999.7804,Industrial; Dev Site,Frankfurt am Main,Industrial; Dev Site,Frankfurt am Main,Hesse,,2021-03-04 00:00:00
+1012,55ccead6-c9ab-43d6-a96c-57ff012dee87,Flughafen Leipzig/Halle,User/Other,2,63988.438644,Dev Site; Industrial,Schkeuditz,Dev Site; Industrial,Schkeuditz,Saxony,,2021-10-20 00:00:00
+1013,12d8601b-8fa6-4fc7-bc27-d63f7185f62d,Kuhne Holding AG,User/Other,2,30547.2546288,Hotel; Office,Hamburg,Hotel; Office,Hamburg,Hamburg,,2013-05-15 00:00:00
+1014,9c313ef7-8c7c-4af4-b8e0-9d2ad7a644fb,Deutsche Gesetzliche Unfallversicherung e.V. (DGUV),Institutional,2,27599.32656,Office; Dev Site,Berlin; Bochum,Office; Dev Site,Berlin; Bochum,Berlin; North Rhine-Westphalia,,2022-11-17 00:00:00
+1015,7210dfcc-5ae5-4d8e-8ac5-47e14fe60d89,Continentale Versicherungsverbund,Institutional,2,25779.370968,Office; Dev Site,Dortmund,Office; Dev Site,Dortmund,North Rhine-Westphalia,,2020-03-01 00:00:00
+1016,ef226510-827b-4736-aa07-45b707084421,Teamrheinruhr,Private,2,16724.59191,Dev Site,Dortmund; Wuppertal,Apartment; Dev Site; Office,Dortmund; Wuppertal,North Rhine-Westphalia,,2021-01-28 00:00:00
+1017,1a9a5647-d9ea-42f7-b941-ae184fa47e96,Hagag Group Real Estate,Private,2,16548.5962044,Retail,Brilon; Ingolstadt,Retail,Brilon; Ingolstadt,North Rhine-Westphalia; Bavaria,,2021-12-01 00:00:00
+1018,a091efd1-fbe5-4439-87c1-0538685b0f98,Wohnstatten Wanne-Eickel,User/Other,2,16999.5852,Dev Site; Apartment,Herne,Dev Site; Apartment,Herne,North Rhine-Westphalia,,2017-06-01 00:00:00
+1019,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Kevin & Markus Aumann; Michael Ketzler,Private,2,4649.88654,Retail; Industrial,Aschaffenburg; Neu-Anspach,Retail; Industrial,Aschaffenburg; Neu-Anspach,Bavaria; Hesse,,2020-07-03 00:00:00
+1020,a053ed91-7e9a-4618-a457-4450bb56b1cf,Auvidis AG,Private,2,58998.5604,Dev Site,Wurselen; Leverkusen,Dev Site,Wurselen; Leverkusen,North Rhine-Westphalia,,2022-10-26 00:00:00

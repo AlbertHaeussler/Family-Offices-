@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+4101,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Hotel Fahrhaus Munkmarsch GmbH,Private,1,,Hotel,Baiersbronn,Hotel,Baiersbronn,Baden-Wurttemberg,,2017-09-06 00:00:00
+4102,abad3be0-aaf7-42e8-ab87-a88e220b0684,bbg Berliner Baugenossenschaft eG,User/Other,1,,Apartment,Berlin,Apartment,Berlin,Berlin,,2014-09-30 00:00:00
+4103,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,Landkreis Passau,User/Other,1,,Office,Passau,Office,Passau,Bavaria,,2003-12-31 00:00:00
+4104,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Capital H Immobilien,Private,1,4024.90179,Apartment,Germering,Industrial; Apartment,Emmering; Germering,Bavaria,,2020-05-07 00:00:00
+4105,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Brueder Family,Private,1,3599.91216,Apartment,Munich,Apartment,Munich,Bavaria,,2012-02-01 00:00:00
+4106,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,ASG Aluminium und Stahl GmbH,User/Other,1,7269.822612,Dev Site,Juchen,Dev Site,Juchen,North Rhine-Westphalia,,2022-05-13 00:00:00
+4107,4c48b00f-c8f6-419c-a5d2-da2b723242e8,MaTo Immo UG,Private,1,2734.933266,Industrial,Achim,Industrial,Achim,Lower Saxony,,2014-10-09 00:00:00
+4108,abad3be0-aaf7-42e8-ab87-a88e220b0684,Industrie- und Handelskammer Hochrhein-Bodensee,User/Other,1,10699.73892,Office,Konstanz,Office,Konstanz,Baden-Wurttemberg,,2014-08-31 00:00:00
+4109,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,3D-Micromac,User/Other,1,8999.7804,Dev Site,Chemnitz,Dev Site,Chemnitz,Saxony,,2015-10-07 00:00:00
+4110,ac50448d-e544-4100-9f2c-d91ce7940514,Ostermayer Wohnbau,Private,1,20999.4876,Dev Site,Mannheim,Dev Site,Mannheim,Baden-Wurttemberg,,2014-12-16 00:00:00
+4111,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Wolfsteller Projekt und Bau GmbH,Private,1,7392.8196108,Dev Site,Barsinghausen,Dev Site,Barsinghausen,Lower Saxony,,2023-11-23 00:00:00
+4112,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Liebherr-Nenzing GmbH,User/Other,1,43998.9264,Dev Site,Hamburg,Dev Site,Hamburg,Hamburg,,2017-05-09 00:00:00
+4113,dff0eea9-30e5-40e2-9c82-af5ab31bd71d,Bhakti Marga,User/Other,1,4999.878,Hotel,Kirchheim,Hotel,Kirchheim,Hesse,,2020-11-18 00:00:00
+4114,4c48b00f-c8f6-419c-a5d2-da2b723242e8,"""Guter Freund am Preuswald"" Vermogensverwaltung GmbH & Co. KG",Private,1,13599.66816,Apartment,Aachen,Apartment,Aachen,North Rhine-Westphalia,,2018-09-11 00:00:00
+4115,bd5657ae-402e-4677-a035-dc18a547bcae,Lange Rode Stiftung,User/Other,1,1106.9729892,Apartment,Hamburg,Apartment,Hamburg,Hamburg,,2023-04-13 00:00:00
+4116,8ba7f5fb-5bd6-46c7-94ed-a610cddc6c24,GKV-Spitzenverband,Institutional,1,15061.6324872,Office,Berlin,Office,Berlin,Berlin,,2014-09-01 00:00:00
+4117,24adb5fb-5a95-4838-8111-8f0549d7da8f,Marburger Bund Treuhandgesellschaft mbH,Institutional,1,1099.97316,Office,Berlin,Office,Berlin,Berlin,,2004-03-01 00:00:00
+4118,d8fad9e6-8983-4e36-b60f-49fb4cfc6d66,Aegila Cap Mgmt,Institutional,1,55803.638358,Office,Essen,Office,Essen,North Rhine-Westphalia,,2018-10-01 00:00:00
+4119,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Familien Prangenberg und Zaum,Private,1,3499.9146,Office,Viersen,Office,Viersen,North Rhine-Westphalia,,2014-03-31 00:00:00
+4120,3ee910a4-e8ee-4c1c-8d43-1dfcb1f88145,Bloemer am Markt GmbH & Co. KG,Private,1,405.9900936,Retail,Bonn,Retail,Bonn,North Rhine-Westphalia,,2015-01-12 00:00:00

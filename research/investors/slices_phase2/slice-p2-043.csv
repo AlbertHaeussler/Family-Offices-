@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+841,9b12356b-cbed-46cc-bfa0-fcc5ba1c7566,Rosebud Real Estate,Public,2,76797.48692830706,Retail; Apartment,,Retail; Apartment; Office,Wolfsburg; Cologne; Unna,North Rhine-Westphalia; Lower Saxony; Baden-Wurttemberg,,2019-08-13 00:00:00
+842,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Baugenossenschaft Mittelholstein,Private,2,35313.1383384,Dev Site,Kiel,Dev Site,Kiel,Schleswig-Holstein,,2013-12-15 00:00:00
+843,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Zwei & Zwanzig Gruppe,Private,2,1519.962912,Apartment; Office,Wiesbaden,Apartment; Office,Wiesbaden,Hesse,,2021-05-10 00:00:00
+844,2764be98-0d83-457e-bca1-9b2fe14a98db,Meimann Immobilien,Private,2,7099.82676,Retail; Industrial,Warendorf,Retail; Industrial,Warendorf,North Rhine-Westphalia,,2014-03-01 00:00:00
+845,3cef6b5c-80f3-41a7-b4a6-fe49619177b0,LEG NRW GmbH,Private,2,8499.7926,Retail; Apartment,Berlin,Apartment; Office; Retail,Rheinberg; Dusseldorf; Berlin,North Rhine-Westphalia; Berlin,,2012-10-23 00:00:00
+846,aa8886c7-753a-4786-a49b-6df7af32ab39,InterGlobe Enterprises,Institutional,2,,Hotel,Munich; Hamburg,Hotel,Munich; Hamburg,Bavaria; Hamburg,,2019-06-18 00:00:00
+847,6561ff0f-59f1-4859-ac7e-7aaa2ebaf2a4,HWG Halle mbH,Private,2,9999.756000000001,Office,Halle (Saale),Office; Dev Site; Apartment,Halle (Saale),Saxony-Anhalt,,2017-05-09 00:00:00
+848,790ba279-f27a-4202-a456-41160e99c81e,Frank Gruppe,Private,2,71497.6727312,Dev Site,Kiel; Friedrichsdorf,Apartment; Office; Dev Site,Hamburg; Friedrichsdorf; Kronshagen,Hesse; Schleswig-Holstein; Hamburg,,2020-02-06 00:00:00
+849,e3441082-a4d4-4385-b58a-f24cf9c09291,Zima Unternehmensgruppe,Private,2,11385.7221816,Dev Site,Munich,Dev Site; Seniors Housing & Care; Apartment,Munich; Gersthofen,Bavaria,,2019-04-25 00:00:00
+850,e2b2122a-f017-4d21-9589-ccb66db55465,Big Bau,Institutional,2,185793.9681888,Dev Site,Kiel; List,Office; Dev Site; Industrial,Kiel; Berlin; Hamburg,Schleswig-Holstein; Berlin; Hamburg,LEG Entwicklung,2018-01-19 00:00:00
+851,476ddec0-c9b3-4ae1-804b-376bc6bebef1,Mork Immobilien GmbH,Private,2,25299.38268,Dev Site,Stuttgart; Friedrichshafen,Apartment; Dev Site,Stuttgart; Boblingen; Korntal-Munchingen,Baden-Wurttemberg,,2021-12-21 00:00:00
+852,1956ef96-feef-4592-8f84-e0375b31579b,Heimkehr Wohnungsgenossenschaft eG,Private,2,,Apartment,Hanover,Apartment,Hanover,Lower Saxony,,2019-10-21 00:00:00
+853,857a4185-b665-489a-9e92-6f0074ea1a7c,Bulow AG,Private,2,24163.4103984,Dev Site,Leinfelden-Echterdingen; Stuttgart,Office; Hotel; Dev Site,Stuttgart; Leinfelden-Echterdingen; Aschheim,Baden-Wurttemberg; Bavaria,,2021-09-22 00:00:00
+854,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Stichting Schild Duitsland Winkel Fonds,Private,2,,Apartment,Aachen,Apartment,Aachen,North Rhine-Westphalia,,2008-12-08 00:00:00
+855,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Schwabische Liegenschaften GmbH,Private,2,3473.9152344,Apartment,Stuttgart; Pfullingen,Apartment,Stuttgart; Pfullingen,Baden-Wurttemberg,,2022-09-15 00:00:00
+856,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Paul Morzynski,Private,2,,Hotel,Bad Doberan,Hotel,Bad Doberan,Mecklenburg-West Pomerania,,2017-06-30 00:00:00
+857,764418b1-e3b6-40f8-a2ce-7026f7269d37,Glander & Cie.,Private,2,5313.8703384,Dev Site; Seniors Housing & Care,Hamburg,Apartment; Dev Site; Seniors Housing & Care,Hamburg; Stade; Rostock,Hamburg; Lower Saxony; Mecklenburg-West Pomerania,,2024-02-26 00:00:00
+858,0fdcb75c-acf8-4366-a1c1-41b54f4f7da3,British American Tobacco,User/Other,2,19799.51688,Retail,Frankfurt am Main; Hamburg,Retail; Office,Hamburg; Frankfurt am Main; Neunkirchen,Hamburg; Hesse; Saarland,,2016-10-06 00:00:00
+859,53916834-0542-4eef-940f-b994b75aa732,Berliner Volksbank,Institutional,2,18299.55348,Office; Dev Site,Berlin,Office; Dev Site,Berlin,Berlin,,2024-03-04 00:00:00
+860,367efb2c-2d5c-479c-b1cc-e6bbd012e586,Fabrica Immobiliare Sgr,Institutional,2,12169.703052,Office,Berlin; Dusseldorf,Office,Berlin; Dusseldorf,Berlin; North Rhine-Westphalia,,2017-12-08 00:00:00

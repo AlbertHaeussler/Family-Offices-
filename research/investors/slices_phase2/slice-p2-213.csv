@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+4241,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Conzept Immobilien GmbH,Private,1,49998.78,Dev Site,Rottweil,Dev Site,Rottweil,Baden-Wurttemberg,,2016-01-19 00:00:00
+4242,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,GT Gastech GmbH,User/Other,1,2199.94632,Industrial,Witten,Industrial,Witten,North Rhine-Westphalia,,2020-07-14 00:00:00
+4243,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,Versorgungsanstalt des Bundes und der Laender,User/Other,1,10075.7541456,Apartment,Leipzig,Apartment,Leipzig,Saxony,,2012-03-01 00:00:00
+4244,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Triaz Group GmbH,User/Other,1,64998.414,Dev Site,Kenzingen,Dev Site,Kenzingen,Baden-Wurttemberg,,2016-03-16 00:00:00
+4245,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Lindenstruth GmbH & Co. Grundstücks KG Salzstraße,Private,1,1159.971696,Office,Munster,Office,Munster,North Rhine-Westphalia,,2013-06-24 00:00:00
+4246,24adb5fb-5a95-4838-8111-8f0549d7da8f,Ingenieurversorgung Mecklenburg-Vorpommern,Institutional,1,4259.896056,Office,Bremen,Office,Bremen,Bremen,,2019-04-29 00:00:00
+4247,e04e7a69-bcd5-48a2-9073-6d67be27d0d5,Peek & Cloppenburg,Institutional,1,105997.4136,Dev Site,Bedburg,Dev Site; Retail; Office,Bedburg; Giessen; Berlin,North Rhine-Westphalia; Hesse; Berlin,,2021-06-14 00:00:00
+4248,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Hamburger Schnee und Eisbeseitigung Ost,User/Other,1,354.991338,Office,Hamburg,Office,Hamburg,Hamburg,,2008-11-15 00:00:00
+4249,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Hotel Solingen GmbH,Private,1,5399.86824,Dev Site,Solingen,Dev Site,Solingen,North Rhine-Westphalia,,2019-04-05 00:00:00
+4250,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Tecon GmbH,Private,1,8499.7926,Retail,Ludenscheid,Retail,Ludenscheid,North Rhine-Westphalia,,2020-02-06 00:00:00
+4251,4c48b00f-c8f6-419c-a5d2-da2b723242e8,SaWe,Private,1,7157.8253448,Hotel,Frankfurt am Main,Hotel,Frankfurt am Main,Hesse,,2015-01-15 00:00:00
+4252,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,TWE GmbH & Co KG,User/Other,1,33913.1724984,Industrial,Hachenburg,Industrial,Hachenburg,Rhineland-Palatinate,,2020-12-03 00:00:00
+4253,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Palmer AG,User/Other,1,4054.901058,Office,Hamburg,Office,Hamburg,Hamburg,,2011-12-01 00:00:00
+4254,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,SySS GmbH,User/Other,1,13999.6584,Dev Site,Tubingen,Dev Site,Tubingen,Baden-Wurttemberg,,2013-05-15 00:00:00
+4255,4c48b00f-c8f6-419c-a5d2-da2b723242e8,FORT Hufingen Entwicklungsgesellschaft,Private,1,15999.47641856,Dev Site,Hufingen,Dev Site,Hufingen,Baden-Wurttemberg,,2018-12-01 00:00:00
+4256,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Business-Apartments MUC Verwaltungs GmbH,Private,1,4689.885564,Apartment,Munich,Apartment,Munich,Bavaria,,2013-09-18 00:00:00
+4257,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,City of Sebnitz,User/Other,1,151995.02597632,Dev Site,Sebnitz,Dev Site,Sebnitz,Saxony,,2024-07-09 00:00:00
+4258,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,IHK Koln,User/Other,1,5879.856528,Office,Cologne,Office,Cologne,North Rhine-Westphalia,,2019-12-13 00:00:00
+4259,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,City of Uetze,User/Other,1,32999.1948,Dev Site,Uetze,Dev Site,Uetze,Lower Saxony,,2015-08-14 00:00:00
+4260,4c48b00f-c8f6-419c-a5d2-da2b723242e8,European Property Investment S.a.r.l.,Private,1,6249.8475,Retail,Chemnitz,Retail,Chemnitz,Saxony,,2014-04-30 00:00:00

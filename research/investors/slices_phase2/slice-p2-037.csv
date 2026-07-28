@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+721,c56eb0f5-ab3b-4c0f-9d10-e0dd0bcc2274,Far East Organization,Private,3,,Hotel,Berlin; Frankfurt am Main,Hotel,Berlin; Frankfurt am Main,Berlin; Hesse,,2014-08-05 00:00:00
+722,c25b4912-d2d0-447a-9d80-b28a7c5c5608,Sunshine Family Office,Private,3,4435.8917616,Retail,Stockheim; Ruthen; Halberstadt,Retail,Stockheim; Ruthen; Halberstadt,Bavaria; North Rhine-Westphalia; Saxony-Anhalt,,2021-03-17 00:00:00
+723,fa69e9b2-9400-449e-b862-7b693fafd61e,Wollenberg IM,Institutional,3,54663.666174,Office,Essen,Office,Essen; Dusseldorf,North Rhine-Westphalia,,2023-02-15 00:00:00
+724,f8d9f054-1006-4666-bdbd-a9065fff4467,Axxus Capital SARL,Private,3,21899.46564,Dev Site; Industrial,Konstanz; Alzey; Langen (Hessen),Dev Site; Industrial; Retail,Konstanz; Alzey; Langen (Hessen),Baden-Wurttemberg; Rhineland-Palatinate; Hesse,,2023-07-18 00:00:00
+725,2890f39d-01bc-466a-a3ea-f0ee8722d307,Samwer Brothers,Private,3,86657.88549599999,Office; Dev Site,Berlin,Office; Dev Site,Berlin,Berlin,,2019-06-18 00:00:00
+726,b8054d58-d1dc-47af-909d-4affa418a133,Suedhausbau,Private,3,29299.28508,Office; Apartment,Munich; Berlin,Office; Apartment,Munich; Berlin,Bavaria; Berlin,,2011-12-08 00:00:00
+727,820da03a-ac25-419f-bc15-c7f108921adb,Hertie Stiftung (GHST),User/Other,3,27292.3340508,Industrial; Office,Unterschleissheim; Hamburg; Dusseldorf,Office; Industrial; Retail,Berlin; Frankfurt am Main; Unterschleissheim,Berlin; Hesse; Bavaria,,2011-09-01 00:00:00
+728,eb095bb7-27a0-4ed5-b3cb-a589e572acfe,URBZ Capital,Institutional,3,22512.4506828,Industrial,Mulheim an der Ruhr; Karlsfeld; Munich,Industrial,Mulheim an der Ruhr; Karlsfeld; Munich,Bavaria; North Rhine-Westphalia,,2023-06-27 00:00:00
+729,2bd871fa-635e-441e-8a70-7a1bac55f3fd,Segmuller,User/Other,3,171910.805274,Industrial; Retail,Pulheim; Oberhausen,Industrial; Retail; Dev Site,Pulheim; Oberhausen,North Rhine-Westphalia,,2015-11-25 00:00:00
+730,d648c14b-c20c-4cb4-85d4-7a082ea571e5,Bauer Media Group,User/Other,3,32445.2083176,Office,Cologne; Hamburg,Office,Cologne; Hamburg,North Rhine-Westphalia; Hamburg,,2023-12-31 00:00:00
+731,68bd3423-ca23-4e03-a8c5-bbec5088e599,Sedlmayr Grund und Immobilien,Private,3,11471.7200832,Dev Site; Apartment,Berlin,Dev Site; Retail; Apartment,Berlin,Berlin,,2013-06-17 00:00:00
+732,18634349-b234-4ee6-8ac6-765498fc4c09,Careline KG,User/Other,3,11819.711592,Industrial,Dormagen; Neuss; Hilden,Industrial,Dormagen; Neuss; Hilden,North Rhine-Westphalia,,2016-06-21 00:00:00
+733,0dd3eb9d-bdd7-4636-aa04-f376e4aa606f,HVVG Heimverwaltungs- und Vermietungsgeschellschaft mbH,Private,3,,Seniors Housing & Care,Kiel; Wahlstedt,Seniors Housing & Care,Kiel; Wahlstedt,Schleswig-Holstein,,2014-06-30 00:00:00
+734,5dacd3a7-2c2e-463b-afb9-21552fe99048,Berufsforderungswerk der Bauindustrie NRW,User/Other,3,24299.40708,Hotel; Office,Oberhausen; Monheim am Rhein,Hotel; Office; Dev Site,Oberhausen; Monheim am Rhein,North Rhine-Westphalia,,2019-04-23 00:00:00
+735,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Beno Holding,Private,3,21342.4792308,Industrial; Office,Gernsheim; Altenstadt,Industrial; Office,Gernsheim; Altenstadt,Hesse; Bavaria,,2022-11-08 00:00:00
+736,da766144-9e28-4a61-8d9e-c38385037846,Immovaria GmbH,Private,3,15799.61448,Apartment; Dev Site,Leipzig,Apartment; Dev Site,Leipzig,Saxony,,2014-12-12 00:00:00
+737,77a8d0b1-0096-444b-88e9-2e783f4b3aca,alt+kelber Immobiliengruppe,Private,3,23559.425136,Apartment,Hamburg; Dresden; Berlin,Apartment,Hamburg; Dresden; Berlin,Hamburg; Saxony; Berlin,,2012-03-19 00:00:00
+738,86f3e31d-e198-4afe-b06c-0d961f11b44e,Burntan Merington GmbH,Private,3,,Apartment,Bad Harzburg; Goslar,Apartment,Bad Harzburg; Goslar,Lower Saxony,,2008-07-31 00:00:00
+739,6ada58ef-79fa-42e8-b245-81ab5704c6b1,GSW Immobilien GmbH,Private,3,118566.120294,Apartment,,Apartment,,Berlin,,2008-02-12 00:00:00
+740,d4707135-f93c-43f2-8485-aa6a9eb78726,Mariner Financial,Institutional,3,51166.60030147763,Office; Retail,Gotha,Office; Retail,Gotha,Thuringia,,2007-11-05 00:00:00

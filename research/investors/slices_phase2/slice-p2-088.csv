@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+1741,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Trinity Estates Holding GmbH,Private,1,2599.93656,Office,Dachau,Apartment; Office,Dachau,Bavaria,,2022-09-22 00:00:00
+1742,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Winter Hausbau GmbH,Private,1,,Apartment,Regensburg,Apartment; Retail,Regensburg; Perkam,Bavaria,,2009-07-14 00:00:00
+1743,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Lewo Unternehmensgruppe,Private,1,8599.79016,Apartment,Leipzig,Apartment,Leipzig,Saxony,,2018-03-22 00:00:00
+1744,9d5a96f6-b06a-4fc4-a71d-645980ff8117,City of Cottbus,User/Other,1,14399.64864,Retail,Cottbus,Retail; Dev Site,Cottbus,Brandenburg,,2023-06-09 00:00:00
+1745,4c48b00f-c8f6-419c-a5d2-da2b723242e8,arcona Management GmbH,Private,1,879.978528,Office,Rostock,Office,Rostock,Mecklenburg-West Pomerania,,2017-12-27 00:00:00
+1746,4c48b00f-c8f6-419c-a5d2-da2b723242e8,ITC Logistic Ges. mbH,Private,1,5499.8658,Industrial,Koblenz,Industrial,Koblenz,Rhineland-Palatinate,,2011-05-19 00:00:00
+1747,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Self Real Estate Germany GmbH,Private,1,1244.969622,Industrial,Cologne,Industrial,Cologne,North Rhine-Westphalia,,2013-03-11 00:00:00
+1748,8f63ee2a-1a7b-419c-9e3d-b3708c1384fb,CIC Riviera,User/Other,1,40998.9996,Dev Site,Elfershausen,Dev Site,Elfershausen,Bavaria,,2022-11-09 00:00:00
+1749,deccde25-59f9-400c-86ba-9d5f1e7d9ab7,Schaeffler AG,User/Other,1,17999.5608,Office,Herzogenaurach,Dev Site; Office; Industrial,Elfershausen; Herzogenaurach; Wuppertal,Bavaria; North Rhine-Westphalia; Hesse,,2023-12-18 00:00:00
+1750,4c48b00f-c8f6-419c-a5d2-da2b723242e8,RGG Rohrdamm Grundstuecks GmbH,Private,1,,Apartment,,Apartment,,North Rhine-Westphalia,,2011-08-12 00:00:00
+1751,1c4c38e6-d637-45cd-a14a-76afca45b074,Stiftung,Institutional,1,3899.90484,Office,Stuttgart,Office,Stuttgart,Baden-Wurttemberg,,2011-12-20 00:00:00
+1752,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Bona Wohnungsbaugesellschaft,Private,1,4079.900448,Office,Wurzburg,Office,Wurzburg,Bavaria,,2023-12-01 00:00:00
+1753,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Alptekin Personalservice,User/Other,1,6399.84384,Other General,Aschaffenburg,Other General,Aschaffenburg,Bavaria,,2024-06-10 00:00:00
+1754,abb328ef-c1cc-4d76-92af-f2e7222f6870,Gewosie Wohnbaugenossenschaft,Private,1,3999.9024,Dev Site,Bremen,Apartment; Dev Site,Bremen,Bremen,,2020-07-13 00:00:00
+1755,bf5871c4-4fb4-4f13-8b74-c0160b808102,DC Cheyne DEU Fonds,Public,1,14999.4482,Dev Site,Linden,Retail; Dev Site,Torgau; Linden,Saxony; Hesse,,2020-06-30 00:00:00
+1756,314c2bc7-b38b-4535-855f-96c8b7c4c39c,Corning,User/Other,1,23999.214665,Industrial,Neustadt bei Coburg,Industrial,Neustadt bei Coburg,Bavaria,,2008-05-14 00:00:00
+1757,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,STS-Tecom GmbH,User/Other,1,3999.9024,Dev Site,Aachen,Dev Site,Aachen,North Rhine-Westphalia,,2013-10-02 00:00:00
+1758,1c3c22ca-00f1-47cf-89b1-a13ab7438aea,GreenRock Management,Private,1,154995.2180244,Dev Site,Eisleben,Dev Site; Industrial,Eisleben; Muhldorf am Inn,Saxony-Anhalt; Bavaria,,2023-05-31 00:00:00
+1759,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,AGRAVIS Kornhaus Ostwestfalen GmbH,User/Other,1,39998.6910464,Dev Site,Warburg,Dev Site,Warburg,North Rhine-Westphalia,,2015-07-23 00:00:00
+1760,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Helvetia Packaging AG,User/Other,1,67998.3408,Dev Site,Saarlouis,Dev Site,Saarlouis,Saarland,,2013-09-20 00:00:00

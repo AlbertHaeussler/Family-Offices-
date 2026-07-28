@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+901,eeb08c33-9bb1-42c5-ab4d-2cf41263b179,City of Bergisch Gladbach,User/Other,2,247591.9608384,Dev Site; Industrial,Bergisch Gladbach,Dev Site; Industrial,Bergisch Gladbach,North Rhine-Westphalia,,2019-11-28 00:00:00
+902,52757386-cd21-4991-ae2a-5f876cb5eb28,Hoff und Partner,Private,2,98047.60758,Dev Site,Osnabruck; Datteln,Office; Dev Site,Osnabruck; Dortmund; Datteln,North Rhine-Westphalia; Lower Saxony,,2019-10-30 00:00:00
+903,916cf1d5-9f37-4f1d-9f4b-b5659f9c30b2,State of Rhineland-Palatinate,User/Other,2,17357.46825488,Dev Site,Koblenz; Ludwigshafen am Rhein,Dev Site; Office,Koblenz; Mainz; Ludwigshafen am Rhein,Rhineland-Palatinate,,2018-11-27 00:00:00
+904,2771a4e4-c2ca-466a-8d15-bd90fca1b85e,Franzen Group,Private,2,64998.414,Dev Site,Hagen; Hanover,Dev Site,Hanover; Hagen,Lower Saxony; North Rhine-Westphalia,,2013-07-25 00:00:00
+905,e35c47b3-32a5-4e8c-8d1b-87f9ce64feb1,belvona GmbH,Private,2,1499.9634,Office; Apartment,Dusseldorf,Office; Apartment,Dusseldorf,North Rhine-Westphalia,,2020-08-12 00:00:00
+906,24e14707-23f3-42a6-94d6-3b2166ffe646,Gewerbepark Rhein-Main,Private,2,54998.2834970549,Office; Industrial,Wiesbaden,Office; Industrial,Wiesbaden,Hesse,,2013-10-01 00:00:00
+907,e965c271-5d1a-4e44-b3e3-c5e0b5fbdcf6,Neue Lubecker,Private,2,21499.4754,Apartment; Dev Site,Hamburg,Apartment; Dev Site,Hamburg,Schleswig-Holstein; Hamburg,,2013-01-01 00:00:00
+908,d667b452-33db-4b4a-849d-40dc037643fa,Volksbank Schaumburg,Institutional,2,110797.29648,Office; Dev Site,Ludwigsburg; Rinteln,Office; Dev Site,Ludwigsburg; Rinteln,Baden-Wurttemberg; Lower Saxony,,2012-01-31 00:00:00
+909,7f962e86-87d4-421d-840f-d25161fa0526,Aumann GmbH,Private,2,65998.3896,Dev Site,Babenhausen,Dev Site; Apartment,Babenhausen,Hesse,,2020-05-07 00:00:00
+910,9bb99628-89fb-47f8-a82e-5afb407372d7,Ferraro Group,Private,2,251991.3529332,Dev Site,Eschweiler; Homburg,Dev Site,Eschweiler; Duisburg; Homburg,North Rhine-Westphalia; Saarland,,2023-06-01 00:00:00
+911,0dabf063-5d2b-4020-a012-808e7970d819,Gewoba Nord,User/Other,2,20299.50468,Dev Site; Apartment,Schleswig; Hamburg,Dev Site; Apartment,Schleswig; Hamburg,Schleswig-Holstein; Hamburg,,2022-09-27 00:00:00
+912,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Volker Schlüschen und Dr. Jürgen Wernekinck GbR,Private,2,5081.8759992,Dev Site,Lubeck,Dev Site,Lubeck,Schleswig-Holstein,,2012-09-27 00:00:00
+913,aab1d0e0-abde-4879-a97b-737132603df7,VBW Bauen und Wohnen GmbH,Private,2,,Apartment,Bochum,Apartment,Bochum,North Rhine-Westphalia,,2023-07-28 00:00:00
+914,3e6940b7-e5fa-461b-bba8-0b3dada0a389,Vastint,Private,2,25999.3656,Dev Site,Bremen; Laatzen,Dev Site,Bremen; Laatzen,Bremen; Lower Saxony,,2020-04-24 00:00:00
+915,e1958a29-cafb-49d1-93f6-865160ed2605,Herzog v Arenbergsche,Private,2,3177.9224568,Office; Retail,Munich; Bottrop,Office; Retail,Munich; Bottrop,Bavaria; North Rhine-Westphalia,,2023-09-27 00:00:00
+916,edaf963b-5d29-4508-abfc-4859bfaa59c2,Prisma,Private,2,254993.778,Dev Site,Hamm; Friedrichshafen,Dev Site; Retail,Emden; Hamm; Friedrichshafen,Lower Saxony; North Rhine-Westphalia; Baden-Wurttemberg,,2019-02-25 00:00:00
+917,8e6923c4-82c8-4ae8-b1f3-170abd9ba8dc,Space Plus Store,Private,2,18299.55348,Retail; Industrial,Hanover; Cologne,Retail; Industrial,Hanover; Cologne,Lower Saxony; North Rhine-Westphalia,,2023-10-02 00:00:00
+918,f74185ac-5b2b-44a1-9ec6-a782ea3566c3,PlanQuadrat,Private,2,13599.66816,Dev Site,Stuttgart,Dev Site,Stuttgart,Baden-Wurttemberg,,2015-09-24 00:00:00
+919,95755794-99ef-4391-908a-9e622d19ab31,Wachholtz Immobilien,Private,2,15489.622044,Hotel; Office,Bremen,Hotel; Office,Bremen,Bremen,,2020-10-17 00:00:00
+920,c3343dab-d450-49b3-b6ed-ef873b4d398d,OK Business Property GmbH,Private,2,2299.94388,Office,Schwarzenberg/Erzgebei; Chemnitz,Office,Schwarzenberg/Erzgebei; Chemnitz,Saxony,,2018-03-27 00:00:00

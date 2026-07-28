@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+781,b4d764ab-da3d-493a-913c-b7f8f4d98794,IKR,Private,2,30999.2436,Industrial; Office,Munich,Office; Dev Site; Industrial,Munich,Bavaria,,2021-09-30 00:00:00
+782,997128c9-3410-42ab-8b56-b12cdc210e19,Bayern Projekt,Private,2,19499.4160102603,Industrial; Office,Munich,Office; Industrial,Munich,Bavaria,,2022-03-24 00:00:00
+783,45ee6cc4-ac4a-4144-907f-eae165cdfbcd,SKAJ Smaragd,Private,2,6999.8292,Apartment; Hotel,Potsdam,Hotel; Apartment,Potsdam,Brandenburg,,2023-07-26 00:00:00
+784,c05223ed-2b2f-4287-a5fe-a5dacb016034,Hess Investment Group,Private,2,4819.882392,Office,Stuttgart,Office,Stuttgart,Baden-Wurttemberg,,2021-06-01 00:00:00
+785,e2d963aa-e862-416e-a737-3a48571df0fb,Versorgungskasse Nassau,Institutional,2,24049.41318,Office; Hotel,Munich,Hotel; Office,Munich,Bavaria,,2016-11-15 00:00:00
+786,b7d90f6c-ccab-4dda-b8af-f5574b7cfc4e,Comer Group,Private,2,70953.268698,Office,Offenbach am Main; Berlin,Dev Site; Office; Retail,Berlin; Offenbach am Main,Berlin; Hesse,,2019-08-29 00:00:00
+787,d7640eff-8c94-4846-ad5e-2d44b866926e,PATRoffice GmbH,Institutional,2,15999.476288548,Retail; Apartment,Augsburg,Apartment; Retail; Office,Dresden; Augsburg; Munich,Saxony; Bavaria,,2015-09-01 00:00:00
+788,5866cb9a-b2d4-4ddf-bb1c-1fb1eae2c7ec,Buhlmann Immobilien,Private,2,24326.4064212,Dev Site,Wilhelmshaven; Bremen,Dev Site; Hotel; Apartment,Leipzig; Bremen; Wilhelmshaven,Saxony; Bremen; Lower Saxony,,2022-06-15 00:00:00
+789,650c3314-06d6-440d-a139-b1a5c4d5fe76,Familienheim Karlsruhe eG,User/Other,2,23019.438312,Dev Site; Industrial,Karlsruhe,Office; Dev Site; Industrial,Karlsruhe,Baden-Wurttemberg,,2016-06-01 00:00:00
+790,be597448-bba9-417c-8b23-349a271d060d,City of Neuss,User/Other,2,13499.6706,Retail; Office,Neuss,Dev Site; Retail; Office,Neuss,North Rhine-Westphalia,,2024-07-22 00:00:00
+791,44634108-f6e7-4d57-b7fd-9dc44d7e0e81,Hanzevast Capital,Institutional,2,18840.5402796,Office,Wiesbaden; Hamburg,Office,Essen; Wiesbaden; Hamburg,North Rhine-Westphalia; Hesse; Hamburg,,2015-01-19 00:00:00
+792,2bd2530b-683d-4bb6-b44b-5af9f353bb39,Duisburger Hafen AG,User/Other,2,484988.166,Dev Site,Duisburg,Dev Site,Duisburg; Kamp-Lintfort; Oberhausen,North Rhine-Westphalia,,2021-12-16 00:00:00
+793,6e24df2b-44cf-4745-bc68-569571660e20,Porr Group,Private,2,4599.88776,Dev Site,Frankfurt am Main; Berlin,Hotel; Dev Site; Office,Berlin; Munich; Schkeuditz,Berlin; Bavaria; Saxony,Strauss & Partner,2021-10-18 00:00:00
+794,f70b00e3-1ff5-455d-bc61-ce6374ecc04c,Atevia AG,Institutional,2,8699.78772,Retail,Ingolstadt; Munich,Retail; Office,Ingolstadt; Munich; Wurzburg,Bavaria,,2016-01-19 00:00:00
+795,62d3c677-5afd-4787-88ce-7002ef17decb,PHONIX Seniorenzentren Beteiligungsgesellschaft mbH,Private,2,1349.96706,Hotel; Seniors Housing & Care,Breege; Versmold,Seniors Housing & Care; Hotel,Gutersloh; Breege; Versmold,North Rhine-Westphalia; Mecklenburg-West Pomerania,,2022-06-02 00:00:00
+796,b30d0287-18e7-4344-9274-0e601168b0ad,TAS KG,Private,2,27499.29154970549,Office; Dev Site,Hamburg,Office; Industrial; Dev Site,Hamburg; Hanover,Hamburg; Lower Saxony,,2017-03-31 00:00:00
+797,45bef433-c0a3-49c3-b44a-26ee9e2a7036,Meyer Projekt,Private,2,13033.6819704,Dev Site,Luneburg; Wolfsburg,Apartment; Dev Site,Wolfsburg; Luneburg,Lower Saxony,,2021-12-31 00:00:00
+798,f7eea62d-3ab0-4b13-85ce-56cec910fd53,Aurec Real Estate Europe,Private,2,141996.5352,Office,Cologne; Eschborn,Office,Frankfurt am Main; Cologne; Eschborn,Hesse; North Rhine-Westphalia,,2018-01-31 00:00:00
+799,f994c43c-8046-4d2d-b982-f06b0acee3db,Ferdinand Piech Holding,Private,2,32447.2082688,Retail,Stuttgart,Retail; Office; Hotel,Stuttgart,Baden-Wurttemberg,,2023-04-01 00:00:00
+800,79ad1915-04a0-49a9-8288-c21f46d56ee8,CapitaLand Investment,Public,2,6723.8359344,Hotel,Frankfurt am Main; Hamburg,Hotel,Munich; Frankfurt am Main; Hamburg,Bavaria; Hesse; Hamburg,Ascott Limited,2011-04-20 00:00:00

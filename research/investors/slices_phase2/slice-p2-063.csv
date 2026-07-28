@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+1241,222eae30-af03-4f0f-9bc8-e73888098aa1,Multi Vastgoed,Private,1,9999.6727616,Dev Site,Duisburg,Retail; Office; Dev Site,Hagen; Duisburg; Berlin,North Rhine-Westphalia; Bavaria; Lower Saxony,Multi Development,2010-06-15 00:00:00
+1242,ce05c968-ea7a-4610-8cbb-6ac621d44c3f,BB Real Estate GmbH,Private,1,2399.94144,Industrial,Kempten (Allgau),Industrial,Altusried; Kempten (Allgau),Bavaria,,2023-08-09 00:00:00
+1243,b32493c9-6142-440c-82c8-bff2c0c11b39,Portigon AG,Institutional,1,16899.58764,Office,Hanover,Office; Retail; Hotel,Dusseldorf; Magdeburg; Bremen,North Rhine-Westphalia; Baden-Wurttemberg; Hesse,West LB; WestLB; Westfonds Immobilien-Anlagegesellschaft mbH,2016-09-30 00:00:00
+1244,e00044f5-6e18-4b6e-bc4a-b9cb7d8db873,EstCapital SGR,Private,1,8499.7926,Office,Essen,Office,Berlin; Essen,Berlin; North Rhine-Westphalia,Est Capital Sgr,2014-10-28 00:00:00
+1245,b80e2e80-ae7c-4329-92a4-a4f86450e2d1,Long Harbour,Institutional,1,9984.756366,Hotel,Hallbergmoos,Hotel; Office,Hallbergmoos; Frankfurt am Main,Bavaria; Hesse,,2021-09-06 00:00:00
+1246,0db97eb0-dace-4ceb-9d53-3d31fc22608a,Seidensticker Group,User/Other,1,52096.7288088,Industrial,Bielefeld,Industrial,Bielefeld,North Rhine-Westphalia,,2023-11-23 00:00:00
+1247,cd152228-1e6d-4754-a8f0-c90e10764586,Precise Hotels & Resorts,Private,1,,Hotel,Frankfurt am Main,Hotel,Sagard; Bad Kissingen; Berlin,Mecklenburg-West Pomerania; Bavaria; Berlin,,2019-08-30 00:00:00
+1248,3e7ea2d6-5db9-4d23-9606-6f0ddc19058c,Blue Estate,Private,1,7499.817,Dev Site,Herrenberg,Dev Site; Office,Stuttgart; Reutlingen; Ulm,Baden-Wurttemberg,,2020-06-17 00:00:00
+1249,08ee98ff-6a0a-46a9-801b-c62e1b102e8e,Nordland,Private,1,166631.9340816,Dev Site,Oldenburg (Oldenburg),Dev Site,Oldenburg (Oldenburg); Konigs Wusterhausen,Lower Saxony; Brandenburg,Projekt Rentenvorsorge,2020-10-01 00:00:00
+1250,6216ab0d-c06a-4d5b-bcd0-68c5ec4dc4f9,City of Hamm,User/Other,1,,Apartment,Hamm,Dev Site; Industrial; Apartment,Hamm; Bonen,North Rhine-Westphalia,,2016-09-20 00:00:00
+1251,d10d6140-9bf6-4b92-9350-e2214fc9c2ca,Jasika Holding,Private,1,12599.69256,Industrial,Schkeuditz,Industrial; Retail; Hotel,Schkeuditz; Berlin; Bautzen,Saxony; Berlin,,2022-11-08 00:00:00
+1252,22ede465-1571-4df8-a1eb-7b97281f0ade,Mobel Martin,User/Other,1,30999.2436,Dev Site,Saarbrucken,Dev Site,Mainz; Saarbrucken,Rhineland-Palatinate; Saarland,,2018-03-09 00:00:00
+1253,f3157050-4983-40f1-83fc-34c318177f14,aAIM,Institutional,1,399986.911084933,Retail,,Retail,Freital; Bonn; Gelsenkirchen,North Rhine-Westphalia; Saxony,,2011-09-15 00:00:00
+1254,a881d7d6-fd80-47f4-8a77-e0a5fd35f412,Hotusa Group,Private,1,,Hotel,Regensburg,Hotel,Munich; Regensburg,Bavaria,Hotusa,2022-12-05 00:00:00
+1255,de9dead6-cbc4-41a1-b2e5-bb010eb012ad,Oetker Gruppe,Private,1,9999.756,Dev Site,Bielefeld,Office; Dev Site; Industrial,Hamburg; Bielefeld; Ettlingen,Hamburg; North Rhine-Westphalia; Baden-Wurttemberg,,2021-03-31 00:00:00
+1256,7c59c34b-00a9-4fe9-bb39-2a8011df8b0e,HP&P Gruppe,Private,1,249991.81904,Dev Site,Schleswig,Dev Site,Schleswig,Schleswig-Holstein,,2022-10-19 00:00:00
+1257,8ba7af3b-b671-4cc1-bda1-38a420d9f866,ICG Grune Mitte GmbH,Private,1,,Apartment,Regensburg,Apartment; Retail,Regensburg; Schwalbach am Taunus,Bavaria; Hesse,,2008-05-31 00:00:00
+1258,4a3ad585-fce9-46b7-89c2-ff1608386a4d,Borletti Group,Institutional,1,2049559.8,Retail,,Retail,Munich; Hamburg,Bavaria; Hamburg,,2014-06-03 00:00:00
+1259,e0705b87-1d3d-45b7-998f-f499fcb5f577,Momentum Real Estate,Private,1,54998.658,Retail,Kerpen,Office; Dev Site; Retail,Fulda; Leverkusen; Kerpen,Hesse; North Rhine-Westphalia,,2022-12-15 00:00:00
+1260,7e1b7da5-0295-4d43-85e0-cf0f3be4a247,Porr Solutions Immo,Private,1,3249.9207,Dev Site,Berlin,Office; Dev Site; Industrial,Berlin; Quickborn; Hamburg,Berlin; Schleswig-Holstein; Hamburg,,2013-02-21 00:00:00

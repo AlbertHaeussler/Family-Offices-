@@ -1,0 +1,21 @@
+rank,Company ID,Investor,Capital Group,Current Holdings (objects),Holdings Area (m²),Main Holding Type,Main Holding Cities,Active Property Types,Active Cities,Active Regions,Entities / Vehicles Used,Last Activity
+3001,1414c689-8049-4119-91d4-aa4e27c2089f,WertSecur,Institutional,1,20599.49736,Retail,Tonisvorst,Retail,Tonisvorst,North Rhine-Westphalia,,2015-09-30 00:00:00
+3002,c6f93b53-f9d2-4cfd-a4de-c1e518ef1971,Immobilis GmbH,Institutional,1,5199.87312,Office,Munich,Office; Apartment,Munich,Bavaria,,2020-12-31 00:00:00
+3003,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,Stadtwerke Göppingen,User/Other,1,6999.8292,Dev Site,Goppingen,Dev Site,Goppingen,Baden-Wurttemberg,,2015-11-10 00:00:00
+3004,eaf4bf3d-c951-4ad1-b40f-9ac89e8e102a,Landkreis Nordhausen,User/Other,1,12473.6956344,Other General,Nordhausen,Other General,Nordhausen,Thuringia,,2020-05-31 00:00:00
+3005,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Dirk Germandi,Private,1,349991.46,Dev Site,Berlin,Dev Site; Office,Berlin,Berlin,,2015-12-10 00:00:00
+3006,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Fungeling Immobiliengruppe,User/Other,1,6999.8292,Retail,Cologne,Retail,Cologne,North Rhine-Westphalia,,2014-07-03 00:00:00
+3007,36dfefdb-aae8-4319-91a3-b235422a5774,Helvetic Investment,Institutional,1,,Hotel,Monchengladbach,Hotel,Monchengladbach,North Rhine-Westphalia,,2020-03-24 00:00:00
+3008,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Jeff Wang,Private,1,,Hotel,Bad Neustadt an der Saale,Hotel,Bad Neustadt an der Saale,Bavaria,,2016-08-05 00:00:00
+3009,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Birkart Systemverkehre GmbH,User/Other,1,7111.8264672,Industrial,Wuppertal,Industrial,Wuppertal,North Rhine-Westphalia,,2021-01-12 00:00:00
+3010,1a638561-a91e-4fb5-b067-7dd84ef89dfd,Prime Value Invest GmbH,Private,1,10999.7316,Office,Kassel,Office,Kassel,Hesse,,2017-10-05 00:00:00
+3011,4c48b00f-c8f6-419c-a5d2-da2b723242e8,ACO Group,Private,1,2599.93656,Office,Budelsdorf,Office,Budelsdorf,Schleswig-Holstein,,2013-03-31 00:00:00
+3012,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Vermogensverwaltungsges Andresen mbH,Private,1,6999.8292,Retail,Flensburg,Retail,Flensburg,Schleswig-Holstein,,2012-04-02 00:00:00
+3013,22a833fb-3872-4a10-9643-5223e537b54c,steg Hamburg,User/Other,1,3599.91216,Dev Site,Hamburg,Industrial; Dev Site,Hamburg,Hamburg,,2019-04-09 00:00:00
+3014,acff5df8-aea1-4084-974d-63cea353e64d,Adlershorst,User/Other,1,5499.8658,Apartment,Hamburg,Apartment,Barmstedt; Hamburg,Schleswig-Holstein; Hamburg,,2021-06-14 00:00:00
+3015,4c48b00f-c8f6-419c-a5d2-da2b723242e8,W Jacobsen GmbH,Private,1,1499.9634,Retail,Kiel,Retail,Kiel,Schleswig-Holstein,,2016-06-03 00:00:00
+3016,4c48b00f-c8f6-419c-a5d2-da2b723242e8,Kappel Grundstücks & Verwaltungs GmbH,Private,1,69998.292,Dev Site,Herne,Dev Site,Herne,North Rhine-Westphalia,,2012-11-12 00:00:00
+3017,01670e44-6dc5-4fd3-bb65-f316da1c7f9e,City of Raesfeld,User/Other,1,,Apartment,Raesfeld,Apartment,Raesfeld,North Rhine-Westphalia,,2008-10-15 00:00:00
+3018,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Anssems.com Deutschland GmbH,User/Other,1,109997.316,Dev Site,Bad Bentheim,Dev Site,Bad Bentheim,Lower Saxony,,2013-12-31 00:00:00
+3019,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Jewagas BV,User/Other,1,23999.4144,Dev Site,Weeze,Dev Site,Weeze,North Rhine-Westphalia,,2020-05-25 00:00:00
+3020,e27ce0ab-e4d8-4aa2-b8d3-741c26f635e6,Drogerie Muller,User/Other,1,3319.918992,Retail,Siegburg,Retail,Siegburg,North Rhine-Westphalia,,2012-10-22 00:00:00
