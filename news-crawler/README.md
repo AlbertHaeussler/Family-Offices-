@@ -30,25 +30,39 @@ cp .env.example .env      # dann GS_CLIENT_ID / GS_CLIENT_SECRET eintragen
 
 Credentials erzeugen: https://my.greenstreet.com/client-credentials
 
-## Nutzung
+## Nutzung — nur Deutschland
+
+Deutschland liegt in der Region **EUR** und wird über eine **Subregion**
+gefiltert. Der Shortcut `--germany` erkennt die Deutschland-Subregion
+automatisch:
 
 ```bash
-# Alles crawlen (alle entitleten Regionen, Volltext):
-node crawl.mjs
+# 1) Nur Deutschland crawlen (empfohlen):
+node crawl.mjs --germany
 
-# Nur bestimmte Regionen:
-node crawl.mjs --regions=USA,EUR,UK
+# 2) Erst testen ohne Volltext-Fetch (nur Listen zählen):
+node crawl.mjs --germany --dry-run
+```
 
-# Erst testen ohne Volltext-Fetch (nur Listen):
-node crawl.mjs --dry-run
+Falls die Auto-Erkennung mal nichts findet, Subregionen-Baum anzeigen und ID
+manuell setzen:
 
-# Mit Bildern, höherer Parallelität:
-node crawl.mjs --images --concurrency=6 --delay=200
+```bash
+node crawl.mjs --list-regions            # zeigt EUR → Subregionen mit IDs
+node crawl.mjs --regions=EUR --subregions=<ID>
+```
+
+Andere/mehrere Regionen (nur falls doch mal breiter):
+```bash
+node crawl.mjs --regions=USA,EUR,UK      # ganze Regionen, kein Länderfilter
 ```
 
 ### Flags
 | Flag | Default | Zweck |
 |---|---|---|
+| `--germany` | – | **Nur Deutschland** (region=EUR + Deutschland-Subregion, auto-erkannt) |
+| `--list-regions` | – | Region/Subregion-Baum mit IDs ausgeben und beenden |
+| `--subregions=12` | – | Subregion-IDs manuell setzen (Länderfilter innerhalb einer Region) |
 | `--regions=USA,EUR` | alle | Regionen einschränken (nicht-entitlete werden übersprungen) |
 | `--out=./out` | `./out` | Ausgabeverzeichnis |
 | `--concurrency=4` | 4 | Parallele Detail-Fetches |

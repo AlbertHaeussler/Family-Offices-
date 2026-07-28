@@ -104,7 +104,12 @@ async function main() {
   const concurrency = Number(flags.concurrency || 4);
   const delay = Number(flags.delay || 250);
   const maxPages = Number(flags['max-pages'] || 1000);
-  const regions = flags.regions ? String(flags.regions).split(',').map((s) => s.trim().toUpperCase()) : ALL_REGIONS;
+  // --germany is a shortcut for: region=EUR + auto-resolved Germany subregion.
+  let regions = flags.regions ? String(flags.regions).split(',').map((s) => s.trim().toUpperCase()) : ALL_REGIONS;
+  if (flags.germany) regions = ['EUR'];
+  let subregions = flags.subregions
+    ? String(flags.subregions).split(',').map((s) => Number(s.trim())).filter((n) => !Number.isNaN(n))
+    : null;
 
   await mkdir(outDir, { recursive: true });
   await mkdir(path.join(outDir, 'raw'), { recursive: true });
@@ -119,13 +124,44 @@ async function main() {
   catch (e) { console.warn('  ping failed:', e.message); }
 
   // Save taxonomy reference data for the downstream mapping step.
+  let regionsRef = [];
   try {
-    const [regionsRef, sectorsRef] = await Promise.all([client.getRegions(), client.getSectors()]);
-    await writeFile(path.join(outDir, 'regions.json'), JSON.stringify(regionsRef, null, 2));
+    const [rr, sectorsRef] = await Promise.all([client.getRegions(), client.getSectors()]);
+    regionsRef = Array.isArray(rr) ? rr : (rr.data ?? rr.items ?? []);
+    await writeFile(path.join(outDir, 'regions.json'), JSON.stringify(rr, null, 2));
     await writeFile(path.join(outDir, 'sectors.json'), JSON.stringify(sectorsRef, null, 2));
     console.log('→ Saved regions.json / sectors.json');
   } catch (e) {
     console.warn('→ Could not fetch taxonomy:', e.message);
+  }
+
+  // --list-regions: print the region/subregion tree and exit (helper).
+  if (flags['list-regions']) {
+    const tops = regionsRef.filter((r) => (r.parent ?? 0) === 0);
+    for (const t of tops) {
+      console.log(`\n[${t.id}] ${t.name}`);
+      for (const s of regionsRef.filter((r) => r.parent === t.id)) {
+        console.log(`   └─ subregion ${s.id}  ${s.name}`);
+      }
+    }
+    console.log('\n→ Pass a subregion id via --subregions=<id>');
+    return;
+  }
+
+  // --germany: auto-resolve the Germany subregion id under EUR.
+  if (flags.germany && !subregions) {
+    const match = regionsRef.filter(
+      (r) => (r.parent ?? 0) !== 0 && /germany|deutschland/i.test(r.name || ''),
+    );
+    if (match.length) {
+      subregions = match.map((r) => r.id);
+      console.log(`→ Germany subregion(s) resolved: ${match.map((r) => `${r.id} (${r.name})`).join(', ')}`);
+    } else {
+      console.warn('→ Could not auto-find a "Germany" subregion. Run with --list-regions to inspect,');
+      console.warn('  then pass the id manually, e.g.  node crawl.mjs --germany --subregions=<id>');
+      console.warn('  Continuing WITHOUT a country filter would fetch all of Europe — aborting.');
+      return;
+    }
   }
 
   // Resume: load previously stored articles keyed by id.
@@ -142,13 +178,14 @@ async function main() {
   // Phase 1 — enumerate article IDs across all regions via pagination.
   const discovered = new Map(); // id -> { id, region, listItem }
   for (const region of regions) {
-    console.log(`\n=== Region ${region}: listing articles ===`);
+    const label = subregions ? `${region} (subregions ${subregions.join(',')})` : region;
+    console.log(`\n=== Region ${label}: listing articles ===`);
     let page = 1;
     let emptyStop = false;
     while (page <= maxPages && !emptyStop) {
       let list;
       try {
-        list = await client.listArticles({ region, page });
+        list = await client.listArticles({ region, page, subregions });
       } catch (e) {
         if (e.status === 403 || e.status === 422) {
           console.warn(`  region ${region} not entitled / invalid (${e.status}) — skipping`);
