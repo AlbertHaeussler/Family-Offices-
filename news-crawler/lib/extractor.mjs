@@ -11,7 +11,9 @@ import { allFieldDefs, TOPICS } from './schemas.mjs';
 const API_URL = process.env.ANTHROPIC_BASE_URL
   ? `${process.env.ANTHROPIC_BASE_URL.replace(/\/$/, '')}/v1/messages`
   : 'https://api.anthropic.com/v1/messages';
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-5';
+// Haiku is the cheap default and is plenty for fact extraction. Override with
+// ANTHROPIC_MODEL=claude-sonnet-5 in .env for harder articles.
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5';
 const VERSION = '2023-06-01';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

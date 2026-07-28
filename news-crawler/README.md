@@ -126,6 +126,14 @@ property, address, city, country, eventDate, sourceUrl.
 | `out/facts.csv` | Kombinierte Tabelle (gemeinsame Felder) |
 | `out/extracted.json` | Alle Fakten als JSON |
 
+**Kosten:** `extract.mjs` nutzt die Anthropic-**API** (nicht das Claude.ai-Abo —
+das hat keine Schnittstelle für Skripte). Standardmodell ist **Haiku 4.5**
+($1/$5 pro Mio. Tokens) — Faktenextraktion braucht nicht mehr. Grobe Rechnung:
+~2.600 Input- + ~250 Output-Tokens pro Artikel ⇒ **≈ $0,004/Artikel**, also
+~$2 für 500 und ~$8 für 2.000 Artikel (einmalig; Resume überspringt Erledigtes).
+Der **Crawl (Schritt 1) kostet nichts** — nur die Extraktion. Für harte Artikel
+optional `ANTHROPIC_MODEL=claude-sonnet-5` in `.env`.
+
 **LLM-Rechtshinweis:** `extract.mjs` schickt Artikeltext an die Anthropic-API.
 Nutze einen kommerziellen/Zero-Retention-Zugang (die kommerzielle API trainiert
 **nicht** auf euren Daten). `summary`/`headline` sind bewusst eigene Paraphrasen,
