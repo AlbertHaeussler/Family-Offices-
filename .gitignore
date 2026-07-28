@@ -2,3 +2,7 @@ preview*.png
 webapp_family_offices.zip
 scratchpad/
 node_modules/
+
+# Green Street News crawler — secrets & internal-only downloaded content
+news-crawler/.env
+news-crawler/out/
